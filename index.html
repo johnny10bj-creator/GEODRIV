@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEODRIV - Competitive Intelligence System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.6);
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 25px;
+            padding: 60px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 200% 0; }
+            50% { background-position: -200% 0; }
+        }
+
+        .app-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 35px 100px rgba(0,0,0,0.45);
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+            font-size: 3.5rem;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .app-card h2 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .app-card p {
+            color: #718096;
+            line-height: 2;
+            margin-bottom: 40px;
+            font-size: 1.15rem;
+            text-align: center;
+        }
+
+        .app-features {
+            list-style: none;
+            margin-bottom: 45px;
+            padding: 0 30px;
+        }
+
+        .app-features li {
+            color: #4a5568;
+            padding: 15px 0;
+            padding-left: 45px;
+            position: relative;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #f7fafc;
+            transition: all 0.3s ease;
+        }
+
+        .app-features li:hover {
+            padding-left: 55px;
+            color: #2d3748;
+        }
+
+        .app-features li:last-child {
+            border-bottom: none;
+        }
+
+        .app-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .app-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            text-align: center;
+            width: 100%;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .app-button:hover::before {
+            left: 100%;
+        }
+
+        .app-button:hover {
+            opacity: 0.95;
+            transform: scale(1.03);
+            box-shadow: 0 18px 45px rgba(102, 126, 234, 0.7);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 3% auto;
+            padding: 50px;
+            border-radius: 25px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+            animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-60px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f7fafc;
+        }
+
+        .modal-header h2 {
+            color: #2d3748;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .close {
+            color: #718096;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close:hover {
+            color: #2d3748;
+            background: #f7fafc;
+            transform: rotate(90deg);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #4a5568;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.95;
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.9;
+            margin-top: 50px;
+            font-size: 1rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .app-card {
+                padding: 40px 30px;
+            }
+            
+            .app-card h2 {
+                font-size: 2rem;
+            }
+            
+            .lang-switch {
+                top: 20px;
+                right: 20px;
+            }
+
+            .modal-content {
+                padding: 30px 25px;
+                margin: 5% auto;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="toggleLanguage()">🇨🇳 中文</button>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🌐 GEODRIV</h1>
+            <p class="en-text">Competitive Intelligence System - Empowering Data-Driven Decisions</p>
+            <p class="zh-text" style="display:none;">竞争情报系统 - 赋能数据驱动决策</p>
+        </div>
+
+        <div class="app-card">
+            <div class="app-icon">📊</div>
+            <h2 class="en-text">Competitive Intelligence (CI)</h2>
+            <h2 class="zh-text" style="display:none;">竞争情报系统 (CI)</h2>
+            
+            <p class="en-text">AI-powered competitive intelligence analysis platform with customized workflow automation</p>
+            <p class="zh-text" style="display:none;">基于定制化AI流程自动化的智能竞争情报分析平台</p>
+            
+            <ul class="app-features">
+                <li class="en-text">Automated data collection from multiple sources</li>
+                <li class="en-text">Intelligent report generation</li>
+                <li class="en-text">Real-time competitor monitoring</li>
+                <li class="en-text">Market trend analysis</li>
+                <li class="en-text">Suitable for various industries</li>
+                
+                <li class="zh-text" style="display:none;">多源数据自动收集</li>
+                <li class="zh-text" style="display:none;">智能报告生成</li>
+                <li class="zh-text" style="display:none;">实时竞争对手监控</li>
+                <li class="zh-text" style="display:none;">市场趋势分析</li>
+                <li class="zh-text" style="display:none;">适合各种行业</li>
+            </ul>
+            
+            <a href="#" class="app-button en-text" onclick="openModal(); return false;">Leave a Message</a>
+            <a href="#" class="app-button zh-text" style="display:none;" onclick="openModal(); return false;">留言咨询</a>
+        </div>
+
+        <!-- Contact Modal -->
+        <div id="contactModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="en-text">Leave a Message</h2>
+                    <h2 class="zh-text" style="display:none;">留言咨询</h2>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                </div>
+                <form id="contactForm" onsubmit="submitForm(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="en-text" for="name">Name *</label>
+                            <label class="zh-text" style="display:none;" for="name">姓名 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="en-text" for="company">Company</label>
+                            <label class="zh-text" style="display:none;" for="company">公司名称</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="en-text" for="email">Email *</label>
+                            <label class="zh-text" style="display:none;" for="email">邮箱 *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="en-text" for="phone">Phone</label>
+                            <label class="zh-text" style="display:none;" for="phone">电话</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="en-text" for="industry">Industry *</label>
+                        <label class="zh-text" style="display:none;" for="industry">行业 *</label>
+                        <select id="industry" name="industry" required>
+                            <option value="" class="en-text">Select industry...</option>
+                            <option value="manufacturing" class="en-text">Manufacturing</option>
+                            <option value="technology" class="en-text">Technology</option>
+                            <option value="automotive" class="en-text">Automotive</option>
+                            <option value="aerospace" class="en-text">Aerospace</option>
+                            <option value="healthcare" class="en-text">Healthcare</option>
+                            <option value="finance" class="en-text">Finance</option>
+                            <option value="retail" class="en-text">Retail</option>
+                            <option value="other" class="en-text">Other</option>
+                            
+                            <option value="" class="zh-text" style="display:none;">选择行业...</option>
+                            <option value="manufacturing" class="zh-text" style="display:none;">制造业</option>
+                            <option value="technology" class="zh-text" style="display:none;">科技</option>
+                            <option value="automotive" class="zh-text" style="display:none;">汽车</option>
+                            <option value="aerospace" class="zh-text" style="display:none;">航空航天</option>
+                            <option value="healthcare" class="zh-text" style="display:none;">医疗健康</option>
+                            <option value="finance" class="zh-text" style="display:none;">金融</option>
+                            <option value="retail" class="zh-text" style="display:none;">零售</option>
+                            <option value="other" class="zh-text" style="display:none;">其他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="en-text" for="message">Requirements Description *</label>
+                        <label class="zh-text" style="display:none;" for="message">需求描述 *</label>
+                        <textarea id="message" name="message" placeholder="Please describe your requirements..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn en-text">Send Message</button>
+                    <button type="submit" class="submit-btn zh-text" style="display:none;">发送留言</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 GEODRIV. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.95rem;">
+                爵领科技 | GEODRIV TECHNOLOGY
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            const enTexts = document.querySelectorAll('.en-text');
+            const zhTexts = document.querySelectorAll('.zh-text');
+            const langBtn = document.querySelector('.lang-btn');
+
+            if (currentLang === 'en') {
+                enTexts.forEach(el => el.style.display = 'none');
+                zhTexts.forEach(el => {
+                    if (el.tagName === 'OPTION') {
+                        el.style.display = 'block';
+                    } else {
+                        el.style.display = 'block';
+                    }
+                });
+                langBtn.innerHTML = '🇺🇸 EN';
+                currentLang = 'zh';
+                document.documentElement.lang = 'zh-CN';
+            } else {
+                enTexts.forEach(el => {
+                    if (el.tagName === 'OPTION') {
+                        el.style.display = 'block';
+                    } else {
+                        el.style.display = 'block';
+                    }
+                });
+                zhTexts.forEach(el => el.style.display = 'none');
+                langBtn.innerHTML = '🇨🇳 中文';
+                currentLang = 'en';
+                document.documentElement.lang = 'en';
+            }
+        }
+
+        function openModal() {
+            document.getElementById('contactModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const industry = document.getElementById('industry').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = `CI System Inquiry - ${name}`;
+            const body = `
+Name: ${name}
+Company: ${company}
+Email: ${email}
+Phone: ${phone}
+Industry: ${industry}
+
+Requirements:
+${message}
+            `.trim();
+            
+            const mailtoLink = `mailto:ci@geodriv.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            window.location.href = mailtoLink;
+            
+            setTimeout(() => {
+                alert(currentLang === 'en' ? 'Thank you for your message! The email client will open to send your inquiry.' : '感谢您的留言！邮件客户端将打开以发送您的咨询。');
+                document.getElementById('contactForm').reset();
+                closeModal();
+            }, 500);
+        }
+    </script>
+</body>
+</html>
