@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark" />
+    <title>GEODRIV CI — Talent Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <style>
+        /* ── GEODRIV Brand: Light Theme ── */
+        :root,
+        [data-theme="light"] {
+            --primary: #1e3a5f;
+            --accent: #2563a8;
+            --bg: #f7f8fa;
+            --bg-elevated: #ffffff;
+            --border: #d8dce3;
+            --border-strong: #b0b6c0;
+            --text: #14181c;
+            --text-secondary: #5a6170;
+            --text-muted: #8b9099;
+            --badge-bg: rgba(30, 58, 95, 0.07);
+            --badge-text: #1e3a5f;
+            --badge-border: rgba(30, 58, 95, 0.12);
+            --spinner-track: #d8dce3;
+            --accent-rgb: 37, 99, 168;
+            --danger: #c0392b;
+            --success: #1e7e34;
+            --warning: #e67e22;
+            --input-bg: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* ── GEODRIV Brand: Dark Theme ── */
+        [data-theme="dark"] {
+            --primary: #5a8fd4;
+            --accent: #7ab8f5;
+            --bg: #14181c;
+            --bg-elevated: #1c2025;
+            --border: #2d3239;
+            --border-strong: #4a5058;
+            --text: #e8eaed;
+            --text-secondary: #9aa0a6;
+            --text-muted: #6b7280;
+            --badge-bg: rgba(90, 143, 212, 0.12);
+            --badge-text: #5a8fd4;
+            --badge-border: rgba(90, 143, 212, 0.18);
+            --spinner-track: #2d3239;
+            --accent-rgb: 122, 184, 245;
+            --danger: #e74c3c;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --input-bg: #1a1d22;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            font-family: "Google Sans", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* ── Header ── */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+            transition: background 0.3s, border-color 0.3s;
+            gap: 12px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .logo {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: -0.01em;
+            display: flex; align-items: center; gap: 8px;
+            transition: color 0.3s;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .logo:hover { color: var(--accent); }
+
+        .logo-dot {
+            display: inline-block;
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            transition: background 0.3s;
+        }
+
+        .badge {
+            font-size: 10px;
+            padding: 3px 9px;
+            border-radius: 4px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            letter-spacing: 0.03em;
+            font-weight: 500;
+            border: 1px solid var(--badge-border);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .header-subtitle {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 400;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.15s;
+            white-space: nowrap;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .download-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+        .download-btn:active { transform: translateY(0); }
+        .download-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .theme-btn {
+            background: none;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-strong);
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.95rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.15s;
+            font-family: inherit;
+            flex-shrink: 0;
+        }
+
+        .theme-btn:hover { background: rgba(128,134,139,0.1); color: var(--text); }
+
+        /* ── Color Bar ── */
+        .color-bar {
+            height: 3px;
+            flex-shrink: 0;
+            background: linear-gradient(90deg,
+                var(--primary) 0%,
+                var(--accent) 50%,
+                rgba(var(--accent-rgb), 0.6) 100%);
+            transition: background 0.3s;
+        }
+
+        /* ── Main Content Area ── */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: var(--bg);
+            transition: background 0.3s;
+        }
+
+        .main-content .inner {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 32px 24px 48px;
+        }
+
+        /* ── Form Card ── */
+        .form-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .form-card h2 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .form-card .subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-grid .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field-group label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .field-group label .required {
+            color: var(--danger);
+            margin-left: 2px;
+        }
+
+        .field-group select,
+        .field-group input[type="text"],
+        .field-group textarea {
+            padding: 9px 12px;
+            border: 1px solid var(--border-strong);
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: inherit;
+            background: var(--input-bg);
+            color: var(--text);
+            transition: all 0.15s;
+            outline: none;
+        }
+
+        .field-group select:focus,
+        .field-group input[type="text"]:focus,
+        .field-group textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+        }
+
+        .field-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* ── File Upload ── */
+        .file-upload-zone {
+            border: 2px dashed var(--border-strong);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--input-bg);
+            position: relative;
+        }
+
+        .file-upload-zone:hover,
+        .file-upload-zone.drag-over {
+            border-color: var(--accent);
+            background: rgba(var(--accent-rgb), 0.04);
+        }
+
+        .file-upload-zone.has-file {
+            border-style: solid;
+            border-color: var(--success);
+            background: rgba(46, 204, 113, 0.05);
+        }
+
+        .file-upload-zone .upload-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .file-upload-zone.has-file .upload-icon {
+            color: var(--success);
+        }
+
+        .file-upload-zone .upload-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .file-upload-zone .upload-hint {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .file-upload-zone .file-name {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--success);
+            margin-top: 6px;
+            display: none;
+            word-break: break-all;
+        }
+
+        .file-upload-zone.has-file .file-name {
+            display: block;
+        }
+
+        .file-upload-zone .remove-file {
+            display: none;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--danger);
+            color: #fff;
+            border: none;
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        .file-upload-zone.has-file .remove-file {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .file-upload-zone input[type="file"] {
+            display: none;
+        }
+
+        /* ── Submit Button ── */
+        .submit-row {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .submit-btn {
+            padding: 10px 32px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .submit-btn:active { transform: translateY(0); }
+        .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .submit-btn .spinner-sm {
+            display: none;
+            width: 16px; height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        .submit-btn.loading .spinner-sm { display: inline-block; }
+        .submit-btn.loading .btn-label { display: none; }
+
+        /* ── Progress Section ── */
+        .progress-section {
+            display: none;
+            margin-top: 24px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px 28px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .progress-section.visible { display: block; }
+
+        .progress-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .progress-step .step-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--border-strong);
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .progress-step.active {
+            color: var(--text);
+        }
+        .progress-step.active .step-dot {
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.2);
+            animation: pulse-dot 1.2s ease-in-out infinite;
+        }
+        .progress-step.done {
+            color: var(--text-secondary);
+        }
+        .progress-step.done .step-dot {
+            background: var(--success);
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.2); }
+            50% { box-shadow: 0 0 0 10px rgba(var(--accent-rgb), 0.05); }
+        }
+
+        .progress-step .step-label {
+            flex: 1;
+        }
+
+        .progress-step .step-status {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .progress-step.active .step-status {
+            color: var(--accent);
+        }
+
+        .progress-step.done .step-status::after {
+            content: ' ✓';
+            color: var(--success);
+        }
+
+        /* ── Result Section ── */
+        .result-section {
+            display: none;
+            margin-top: 24px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 32px 36px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+        }
+
+        .result-section.visible { display: block; }
+
+        .result-section .result-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .result-section .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.15s;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-elevated);
+            color: var(--text);
+        }
+
+        .result-section .action-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .result-section .action-btn.primary-action {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .result-section .action-btn.primary-action:hover { opacity: 0.9; }
+
+        /* ── Report Content (rendered markdown) ── */
+        .report-content {
+            line-height: 1.7;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .report-content h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 28px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--text);
+        }
+
+        .report-content h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin: 24px 0 10px;
+            color: var(--text);
+        }
+
+        .report-content h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 18px 0 8px;
+            color: var(--text);
+        }
+
+        .report-content p { margin: 8px 0; }
+
+        .report-content ul, .report-content ol {
+            margin: 8px 0;
+            padding-left: 24px;
+        }
+
+        .report-content li { margin: 4px 0; }
+
+        .report-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 13px;
+        }
+
+        .report-content th,
+        .report-content td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .report-content th {
+            background: rgba(var(--accent-rgb), 0.08);
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .report-content tr:nth-child(even) td {
+            background: rgba(var(--accent-rgb), 0.02);
+        }
+
+        .report-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
+        .report-content strong { font-weight: 600; }
+
+        .report-content code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 12px;
+            background: rgba(var(--accent-rgb), 0.08);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .report-content pre {
+            background: rgba(var(--accent-rgb), 0.06);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 14px 16px;
+            overflow-x: auto;
+            margin: 12px 0;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .report-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .report-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 4px 16px;
+            margin: 12px 0;
+            color: var(--text-secondary);
+        }
+
+        /* ── Error Section ── */
+        .error-section {
+            display: none;
+            margin-top: 24px;
+            background: rgba(231, 76, 60, 0.06);
+            border: 1px solid var(--danger);
+            border-radius: 10px;
+            padding: 20px 24px;
+            color: var(--danger);
+            font-size: 13px;
+        }
+
+        .error-section.visible { display: block; }
+
+        .error-section .error-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .error-section button {
+            margin-top: 12px;
+            padding: 6px 16px;
+            background: var(--danger);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 8px;
+            font-size: 10px;
+            color: var(--text-muted);
+            flex-shrink: 0;
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        /* ── Toast ── */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--text);
+            color: var(--bg);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            font-family: inherit;
+            z-index: 100;
+            opacity: 0;
+            transition: transform 0.25s, opacity 0.25s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* ── Spinner ── */
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media (max-width: 768px) {
+            .header { padding: 10px 14px; }
+            .logo { font-size: 14px; }
+            .badge { font-size: 9px; padding: 2px 7px; }
+            .header-subtitle { display: none; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-card { padding: 18px; }
+            .result-section { padding: 20px; }
+            .report-content h1 { font-size: 20px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <a class="logo" href="https://ci.geodriv.com">
+                    <span class="logo-dot"></span>
+                    GEODRIV CI
+                </a>
+                <span class="badge">Confidential</span>
+            </div>
+            <div class="header-right">
+                <span class="header-subtitle"><strong>Global Talent Intelligence</strong></span>
+                <button class="download-btn" id="downloadBtn" onclick="printReport()" title="Print or save as PDF">
+                    <span class="dl-icon">&#128424;</span> Print Report
+                </button>
+                <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">🌙</button>
+            </div>
+        </header>
+
+        <div class="color-bar"></div>
+
+        <div class="main-content">
+            <div class="inner">
+
+                <!-- ── Input Form ── -->
+                <div class="form-card" id="formCard">
+                    <h2>Cross-Border Talent Assessment</h2>
+                    <p class="subtitle">Upload candidate documents and configure assessment parameters to generate a comprehensive intelligence report.</p>
+                    <div class="form-grid" id="workflowForm">
+
+                        <div class="field-group full-width">
+                            <label>Resume / CV <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+                            <div class="file-upload-zone" id="resumeZone" data-field="resume">
+                                <span class="upload-icon">&#128196;</span>
+                                <div class="upload-text">Click or drag to upload resume</div>
+                                <div class="upload-hint">PDF, DOC, DOCX, TXT, JPG, PNG</div>
+                                <div class="file-name" id="resumeFileName"></div>
+                                <button class="remove-file" onclick="removeFile('resume'); event.stopPropagation();" title="Remove file">&times;</button>
+                                <input type="file" id="resumeInput" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+
+                        <div class="field-group full-width">
+                            <label>Job Description <span class="required">*</span></label>
+                            <div class="file-upload-zone" id="jdZone" data-field="jd">
+                                <span class="upload-icon">&#128203;</span>
+                                <div class="upload-text">Click or drag to upload job description</div>
+                                <div class="upload-hint">PDF, DOC, DOCX, TXT, JPG, PNG</div>
+                                <div class="file-name" id="jdFileName"></div>
+                                <button class="remove-file" onclick="removeFile('jd'); event.stopPropagation();" title="Remove file">&times;</button>
+                                <input type="file" id="jdInput" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label>Cross Direction <span class="required">*</span></label>
+                            <select id="cross_direction" required>
+                                <option value="">Select direction...</option>
+                                <option value="China -> Europe">China → Europe</option>
+                                <option value="Europe -> China">Europe → China</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label>Industry Sector <span class="required">*</span></label>
+                            <select id="industry_sector" required>
+                                <option value="">Select industry...</option>
+                                <option value="Technology & AI">Technology &amp; AI</option>
+                                <option value="Financial Services & Fintech">Financial Services &amp; Fintech</option>
+                                <option value="Healthcare & Pharma">Healthcare &amp; Pharma</option>
+                                <option value="Manufacturing & Automotive">Manufacturing &amp; Automotive</option>
+                                <option value="Consumer & Luxury Retail">Consumer &amp; Luxury Retail</option>
+                                <option value="Energy & Clean Tech">Energy &amp; Clean Tech</option>
+                                <option value="Professional Services">Professional Services</option>
+                                <option value="Semiconductors & Hardware">Semiconductors &amp; Hardware</option>
+                                <option value="E-commerce & Internet">E-commerce &amp; Internet</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label>Seniority Level <span class="required">*</span></label>
+                            <select id="seniority_level" required>
+                                <option value="">Select level...</option>
+                                <option value="C-Suite / Board">C-Suite / Board</option>
+                                <option value="VP / Executive Director">VP / Executive Director</option>
+                                <option value="Senior Director / Director">Senior Director / Director</option>
+                                <option value="Senior Manager / Head of">Senior Manager / Head of</option>
+                                <option value="Manager / Team Lead">Manager / Team Lead</option>
+                                <option value="Senior Specialist">Senior Specialist</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label>Report Language <span class="required">*</span></label>
+                            <select id="output_language" required>
+                                <option value="English">English</option>
+                                <option value="Deutsch">Deutsch</option>
+                                <option value="Francais">Francais</option>
+                                <option value="中文">中文</option>
+                            </select>
+                        </div>
+
+                        <div class="field-group">
+                            <label>Current City</label>
+                            <input type="text" id="current_city" placeholder="e.g., Shanghai">
+                        </div>
+
+                        <div class="field-group">
+                            <label>Target City</label>
+                            <input type="text" id="target_city" placeholder="e.g., Munich">
+                        </div>
+
+                        <div class="field-group full-width">
+                            <label>Supplementary Information <span style="color:var(--text-muted);font-weight:400;">(optional, max 2000 chars)</span></label>
+                            <textarea id="supplementary_info" maxlength="2000" placeholder="Enter any additional context, special requirements, or notes (e.g., hiring urgency, specific concerns, known issues)"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="submit-row">
+                        <button class="submit-btn" id="submitBtn" onclick="runWorkflow()">
+                            <span class="spinner-sm"></span>
+                            <span class="btn-label">Generate Intelligence Report</span>
+                        </button>
+                        <span style="font-size:11px;color:var(--text-muted);">Processing takes ~30–60 seconds</span>
+                    </div>
+                </div>
+
+                <!-- ── Progress Section ── -->
+                <div class="progress-section" id="progressSection">
+                    <h3 style="font-size:14px;font-weight:500;margin-bottom:16px;color:var(--text);">Processing Workflow</h3>
+                    <div class="progress-steps">
+                        <div class="progress-step" data-node="file">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Uploading &amp; extracting documents</span>
+                            <span class="step-status"></span>
+                        </div>
+                        <div class="progress-step" data-node="talent">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Building talent profile</span>
+                            <span class="step-status"></span>
+                        </div>
+                        <div class="progress-step" data-node="risk">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Assessing cross-border risks</span>
+                            <span class="step-status"></span>
+                        </div>
+                        <div class="progress-step" data-node="cultural">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Analyzing cultural integration gaps</span>
+                            <span class="step-status"></span>
+                        </div>
+                        <div class="progress-step" data-node="soft">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Evaluating soft skills &amp; leadership</span>
+                            <span class="step-status"></span>
+                        </div>
+                        <div class="progress-step" data-node="final">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Synthesizing final intelligence report</span>
+                            <span class="step-status"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Error Section ── -->
+                <div class="error-section" id="errorSection">
+                    <div class="error-title">Workflow Execution Failed</div>
+                    <div id="errorMessage"></div>
+                    <button onclick="retryWorkflow()">Try Again</button>
+                </div>
+
+                <!-- ── Result Section ── -->
+                <div class="result-section" id="resultSection">
+                    <div class="result-actions">
+                        <button class="action-btn primary-action" onclick="printReport()">&#128424; Print / Save PDF</button>
+                        <button class="action-btn" onclick="copyReport()">&#128203; Copy Report</button>
+                        <button class="action-btn" onclick="newAssessment()">&#8635; New Assessment</button>
+                    </div>
+                    <div class="report-content" id="reportContent"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+
+        <footer class="footer">
+            &copy; 2026 GEODRIV &nbsp;|&nbsp; Competitive Intelligence for Cross-Border Executive Search
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    /* ── API Configuration ── */
+    var API_BASE = '/feiye/api/dify';
+    var DIFY_USER = 'geodriv-ci-' + (function() {
+        var stored = sessionStorage.getItem('dify_user_id');
+        if (stored) return stored;
+        var id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+        sessionStorage.setItem('dify_user_id', id);
+        return id;
+    })();
+
+    /* ── State ── */
+    var uploadedFiles = { resume: null, jd: null };
+    var reportHTML = '';
+    var reportTitle = 'GEODRIV CI Report';
+    var isRunning = false;
+    var lastInputs = null;
+    var userHasInteracted = false;
+
+    /* ── Theme ── */
+    var __osDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function resolveTheme() {
+        var saved = localStorage.getItem('geodriv-theme');
+        if (saved === 'light' || saved === 'dark') return saved;
+        return __osDarkQuery.matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeIcon(theme);
+    }
+
+    function updateThemeIcon(theme) {
+        var btn = document.getElementById('themeBtn');
+        if (!btn) return;
+        btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+        btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    applyTheme(resolveTheme());
+
+    // Follow OS theme changes when no manual override is set
+    __osDarkQuery.addEventListener('change', function(e) {
+        if (!localStorage.getItem('geodriv-theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+
+        if ((next === 'dark' && __osDarkQuery.matches) || (next === 'light' && !__osDarkQuery.matches)) {
+            localStorage.removeItem('geodriv-theme');
+        } else {
+            localStorage.setItem('geodriv-theme', next);
+        }
+        applyTheme(next);
+    }
+
+    /* ── Toast ── */
+    function showToast(msg, duration) {
+        var toast = document.getElementById('toast');
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(window.__toastTimer);
+        window.__toastTimer = setTimeout(function() {
+            toast.classList.remove('show');
+        }, duration || 3000);
+    }
+
+    /* ── File Upload ── */
+    ['resume', 'jd'].forEach(function(field) {
+        var zone = document.getElementById(field === 'resume' ? 'resumeZone' : 'jdZone');
+        var input = document.getElementById(field === 'resume' ? 'resumeInput' : 'jdInput');
+        var nameEl = document.getElementById(field === 'resume' ? 'resumeFileName' : 'jdFileName');
+
+        zone.addEventListener('click', function() {
+            if (!uploadedFiles[field]) input.click();
+        });
+
+        zone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            zone.classList.add('drag-over');
+        });
+
+        zone.addEventListener('dragleave', function() {
+            zone.classList.remove('drag-over');
+        });
+
+        zone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            zone.classList.remove('drag-over');
+            if (e.dataTransfer.files.length) handleFileSelect(field, e.dataTransfer.files[0]);
+        });
+
+        input.addEventListener('change', function() {
+            if (input.files.length) handleFileSelect(field, input.files[0]);
+        });
+    });
+
+    function handleFileSelect(field, file) {
+        var zone = document.getElementById(field === 'resume' ? 'resumeZone' : 'jdZone');
+        var nameEl = document.getElementById(field === 'resume' ? 'resumeFileName' : 'jdFileName');
+
+        var allowed = ['.pdf', '.doc', '.docx', '.txt', '.jpg', '.jpeg', '.png'];
+        var ext = '.' + file.name.split('.').pop().toLowerCase();
+        if (!allowed.includes(ext)) {
+            showToast('Unsupported file type. Please use PDF, DOC, DOCX, TXT, JPG, or PNG.');
+            return;
+        }
+
+        if (file.size > 15 * 1024 * 1024) {
+            showToast('File too large. Maximum size is 15 MB.');
+            return;
+        }
+
+        uploadedFiles[field] = file;
+        zone.classList.add('has-file');
+        nameEl.textContent = file.name + ' (' + formatSize(file.size) + ')';
+        userHasInteracted = true;
+    }
+
+    function removeFile(field) {
+        var zone = document.getElementById(field === 'resume' ? 'resumeZone' : 'jdZone');
+        var nameEl = document.getElementById(field === 'resume' ? 'resumeFileName' : 'jdFileName');
+        var input = document.getElementById(field === 'resume' ? 'resumeInput' : 'jdInput');
+        uploadedFiles[field] = null;
+        zone.classList.remove('has-file');
+        nameEl.textContent = '';
+        input.value = '';
+    }
+
+    function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+    /* ── Upload file to Dify ── */
+    function uploadFile(file) {
+        return new Promise(function(resolve, reject) {
+            var formData = new FormData();
+            formData.append('file', file);
+            formData.append('user', DIFY_USER);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', API_BASE + '/files/upload');
+            xhr.timeout = 60000;
+
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        resolve(data.id);
+                    } catch (e) {
+                        reject(new Error('Invalid response from file upload'));
+                    }
+                } else {
+                    var msg = 'Upload failed';
+                    try {
+                        var err = JSON.parse(xhr.responseText);
+                        msg = err.message || msg;
+                    } catch (_) {}
+                    reject(new Error(msg));
+                }
+            };
+
+            xhr.onerror = function() { reject(new Error('Network error during file upload')); };
+            xhr.ontimeout = function() { reject(new Error('File upload timed out')); };
+            xhr.send(formData);
+        });
+    }
+
+    /* ── Node name → progress step mapping ── */
+    var NODE_TO_STEP = {
+        '1778126564629': 'file',
+        '1778126648192': 'file',
+        talent_profile: 'talent',
+        risk_assessment: 'risk',
+        cultural_bridge: 'cultural',
+        soft_skills: 'soft',
+        final_report: 'final'
+    };
+
+    /* ── Run Workflow ── */
+    function runWorkflow() {
+        if (isRunning) return;
+
+        // Validate: JD file is required
+        var jdSelect = document.getElementById('cross_direction');
+        var industrySelect = document.getElementById('industry_sector');
+        var senioritySelect = document.getElementById('seniority_level');
+        var langSelect = document.getElementById('output_language');
+
+        if (!uploadedFiles.jd) {
+            showToast('Please upload a Job Description file (required).');
+            highlightField('jdZone');
+            return;
+        }
+        if (!jdSelect.value) {
+            showToast('Please select Cross Direction.');
+            jdSelect.focus();
+            return;
+        }
+        if (!industrySelect.value) {
+            showToast('Please select Industry Sector.');
+            industrySelect.focus();
+            return;
+        }
+        if (!senioritySelect.value) {
+            showToast('Please select Seniority Level.');
+            senioritySelect.focus();
+            return;
+        }
+
+        isRunning = true;
+        userHasInteracted = true;
+        hideError();
+        hideResult();
+
+        // Collect inputs
+        var inputs = {
+            cross_direction: jdSelect.value,
+            industry_sector: industrySelect.value,
+            seniority_level: senioritySelect.value,
+            output_language: langSelect.value,
+            current_city: document.getElementById('current_city').value.trim(),
+            target_city: document.getElementById('target_city').value.trim(),
+            supplementary_info: document.getElementById('supplementary_info').value.trim(),
+            report_date: new Date().toISOString().slice(0, 10)
+        };
+        lastInputs = inputs;
+
+        // Prepare files array for workflow
+        var filesToUpload = [];
+        if (uploadedFiles.resume) filesToUpload.push({ name: 'resume_text', file: uploadedFiles.resume });
+        filesToUpload.push({ name: 'job_description', file: uploadedFiles.jd });
+
+        setSubmitLoading(true);
+        resetProgress();
+        showProgress();
+        updateProgressStep('file', 'active', 'Uploading...');
+
+        // Upload all files first
+        var uploadPromises = filesToUpload.map(function(f) {
+            return uploadFile(f.file).then(function(fileId) {
+                return { variable: f.name, id: fileId };
+            });
+        });
+
+        Promise.all(uploadPromises).then(function(uploadResults) {
+            updateProgressStep('file', 'done', 'Uploaded');
+
+            // Add file references to inputs (single object, not array)
+            uploadResults.forEach(function(r) {
+                inputs[r.variable] = {
+                    transfer_method: 'local_file',
+                    upload_file_id: r.id,
+                    type: 'document'
+                };
+            });
+
+            return executeWorkflowStream(inputs);
+        }).catch(function(err) {
+            showError('File upload failed: ' + err.message);
+            setSubmitLoading(false);
+            isRunning = false;
+        });
+    }
+
+    function executeWorkflowStream(inputs) {
+        var controller = new AbortController();
+        var signal = controller.signal;
+
+        return fetch(API_BASE + '/workflows/run', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                inputs: inputs,
+                response_mode: 'streaming',
+                user: DIFY_USER
+            }),
+            signal: signal
+        }).then(function(response) {
+            if (!response.ok) {
+                return response.json().then(function(err) {
+                    throw new Error(err.message || 'Workflow execution failed (HTTP ' + response.status + ')');
+                }).catch(function(e) {
+                    if (e.message && e.message !== 'Workflow execution failed (HTTP ' + response.status + ')') throw e;
+                    throw new Error('Workflow execution failed (HTTP ' + response.status + ')');
+                });
+            }
+
+            return readSSEStream(response, controller);
+        }).catch(function(err) {
+            if (err.name === 'AbortError') return;
+            throw err;
+        });
+    }
+
+    function readSSEStream(response, controller) {
+        var reader = response.body.getReader();
+        var decoder = new TextDecoder();
+        var buffer = '';
+
+        return new Promise(function(resolve, reject) {
+            function pump() {
+                reader.read().then(function(_ref) {
+                    var done = _ref.done;
+                    var value = _ref.value;
+
+                    if (done) {
+                        // Process remaining buffer
+                        if (buffer.trim()) processSSELine(buffer.trim());
+                        resolve();
+                        return;
+                    }
+
+                    buffer += decoder.decode(value, { stream: true });
+                    var lines = buffer.split('\n');
+                    buffer = lines.pop() || '';
+
+                    lines.forEach(function(line) {
+                        line = line.trim();
+                        if (line) processSSELine(line);
+                    });
+
+                    pump();
+                }).catch(function(err) {
+                    reject(err);
+                });
+            }
+
+            pump();
+        }).finally(function() {
+            setSubmitLoading(false);
+            isRunning = false;
+        });
+    }
+
+    function processSSELine(line) {
+        if (!line.startsWith('data:')) return;
+        var jsonStr = line.slice(5).trim();
+        if (!jsonStr) return;
+
+        try {
+            var event = JSON.parse(jsonStr);
+        } catch (_) {
+            return;
+        }
+
+        switch (event.event) {
+            case 'workflow_started':
+                updateProgressStep('talent', 'active', 'Starting...');
+                break;
+
+            case 'node_started':
+                var step = NODE_TO_STEP[event.data.node_id];
+                if (step && step !== 'file') {
+                    updateProgressStep(step, 'active', 'Processing...');
+                }
+                break;
+
+            case 'node_finished':
+                var stepDone = NODE_TO_STEP[event.data.node_id];
+                if (stepDone && stepDone !== 'file') {
+                    updateProgressStep(stepDone, 'done', 'Complete');
+                }
+                break;
+
+            case 'workflow_finished':
+                if (event.data.outputs && event.data.outputs.intelligence_report) {
+                    renderReport(event.data.outputs.intelligence_report);
+                } else if (event.data.outputs) {
+                    // Find the first text output
+                    var keys = Object.keys(event.data.outputs);
+                    for (var i = 0; i < keys.length; i++) {
+                        if (typeof event.data.outputs[keys[i]] === 'string') {
+                            renderReport(event.data.outputs[keys[i]]);
+                            break;
+                        }
+                    }
+                    if (!document.getElementById('reportContent').innerHTML) {
+                        renderReport(JSON.stringify(event.data.outputs, null, 2));
+                    }
+                }
+                updateProgressStep('final', 'done', 'Complete');
+                hideProgress();
+                showToast('Intelligence report generated');
+                break;
+
+            case 'error':
+                throw new Error(event.data.message || 'Workflow execution error');
+        }
+    }
+
+    /* ── Markdown Rendering ── */
+    function renderReport(markdown) {
+        // Fix date: replace any placeholder/wrong date with today's real date
+        var today = new Date().toISOString().slice(0, 10);
+        markdown = markdown.replace(
+            /Report Date:[\s]*(?:\{\{#start\.report_date\}\}|\[Insert Date\]|\[.*?date.*?\]|2023-\d{2}-\d{2}|[\d-]+)/gi,
+            'Report Date: ' + today
+        );
+
+        reportHTML = marked.parse(markdown);
+        // Extract title from first h1
+        var titleMatch = markdown.match(/^#\s+(.+)/m);
+        if (titleMatch) reportTitle = titleMatch[1];
+
+        reportHTML = reportHTML.replace(
+            /Report Date:[\s]*(?:\{\{#start\.report_date\}\}|\[Insert Date\]|\[.*?date.*?\]|2023-\d{2}-\d{2}|[\d-]+)/gi,
+            'Report Date: ' + today
+        );
+
+        var content = document.getElementById('reportContent');
+        content.innerHTML = reportHTML;
+
+        // Store for print
+        window.__geodrivReport = {
+            title: reportTitle,
+            html: reportHTML,
+            text: markdown,
+            timestamp: new Date().toISOString()
+        };
+
+        var btn = document.getElementById('downloadBtn');
+        if (btn) {
+            btn.style.background = 'var(--success)';
+            btn.title = 'Report ready — click to print';
+            btn.innerHTML = '<span class="dl-icon">&#9989;</span> Print Report';
+        }
+
+        showResult();
+        document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        printBtnReady = true;
+    }
+
+    /* ── Progress UI ── */
+    function resetProgress() {
+        var steps = document.querySelectorAll('.progress-step');
+        steps.forEach(function(step) {
+            step.classList.remove('active', 'done');
+            step.querySelector('.step-status').textContent = '';
+        });
+    }
+
+    function updateProgressStep(node, state, text) {
+        var step = document.querySelector('.progress-step[data-node="' + node + '"]');
+        if (!step) return;
+        step.classList.remove('active', 'done');
+        if (state === 'active') step.classList.add('active');
+        if (state === 'done') step.classList.add('done');
+        if (text) step.querySelector('.step-status').textContent = text;
+    }
+
+    function showProgress() {
+        document.getElementById('progressSection').classList.add('visible');
+    }
+
+    function hideProgress() {
+        var el = document.getElementById('progressSection');
+        if (el) el.classList.remove('visible');
+    }
+
+    function showResult() {
+        document.getElementById('resultSection').classList.add('visible');
+    }
+
+    function hideResult() {
+        document.getElementById('resultSection').classList.remove('visible');
+        document.getElementById('reportContent').innerHTML = '';
+        reportHTML = '';
+        reportTitle = 'GEODRIV CI Report';
+        window.__geodrivReport = null;
+        var btn = document.getElementById('downloadBtn');
+        if (btn) {
+            btn.style.background = '';
+            btn.title = 'Print or save as PDF';
+            btn.innerHTML = '<span class="dl-icon">&#128424;</span> Print Report';
+        }
+        printBtnReady = false;
+    }
+
+    function showError(msg) {
+        var el = document.getElementById('errorSection');
+        document.getElementById('errorMessage').textContent = msg;
+        el.classList.add('visible');
+        hideProgress();
+    }
+
+    function hideError() {
+        document.getElementById('errorSection').classList.remove('visible');
+    }
+
+    function setSubmitLoading(loading) {
+        var btn = document.getElementById('submitBtn');
+        if (loading) {
+            btn.classList.add('loading');
+            btn.disabled = true;
+        } else {
+            btn.classList.remove('loading');
+            btn.disabled = false;
+        }
+    }
+
+    function highlightField(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.style.borderColor = 'var(--danger)';
+        setTimeout(function() { el.style.borderColor = ''; }, 2000);
+    }
+
+    function retryWorkflow() {
+        hideError();
+        runWorkflow();
+    }
+
+    function newAssessment() {
+        hideResult();
+        hideError();
+        document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ── Print Report ── */
+    var printBtnReady = false;
+
+    function printReport() {
+        var report = window.__geodrivReport;
+
+        if (report && report.html) {
+            printHTML(report.title, report.html);
+            return;
+        }
+
+        // Fallback: try to print the rendered report content
+        var content = document.getElementById('reportContent');
+        if (content && content.innerHTML) {
+            printHTML(reportTitle, content.innerHTML);
+            return;
+        }
+
+        showToast('No report available. Generate a report first.');
+    }
+
+    function copyReport() {
+        var report = window.__geodrivReport;
+        var text = report ? report.text : '';
+
+        if (!text) {
+            var content = document.getElementById('reportContent');
+            if (content) text = content.innerText;
+        }
+
+        if (!text) {
+            showToast('No report to copy.');
+            return;
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function() {
+                showToast('Report copied to clipboard');
+            }).catch(function() {
+                fallbackCopy(text);
+            });
+        } else {
+            fallbackCopy(text);
+        }
+    }
+
+    function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        ta.style.top = '-9999px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try { document.execCommand('copy'); showToast('Report copied to clipboard'); }
+        catch (_) { showToast('Copy failed — please select and copy manually'); }
+        document.body.removeChild(ta);
+    }
+
+    function printHTML(title, bodyHTML) {
+        var theme = document.documentElement.getAttribute('data-theme') || 'light';
+        var isDark = theme === 'dark';
+        var doc = '<!DOCTYPE html>\n<html lang="en">\n<head>\n';
+        doc += '<meta charset="UTF-8">\n';
+        doc += '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n';
+        doc += '<title>' + escapeHTML(title) + '</title>\n';
+        doc += '<style>\n';
+        doc += '  body { font-family: "Google Sans", Roboto, -apple-system, sans-serif; ';
+        doc += 'max-width: 900px; margin: 40px auto; padding: 20px; ';
+        doc += 'color: ' + (isDark ? '#e8eaed' : '#14181c') + '; ';
+        doc += 'background: ' + (isDark ? '#14181c' : '#fff') + '; line-height: 1.7; }\n';
+        doc += '  h1 { font-size: 22px; border-bottom: 2px solid ' + (isDark ? '#5a8fd4' : '#1e3a5f') + '; padding-bottom: 10px; }\n';
+        doc += '  h2 { font-size: 18px; margin-top: 20px; }\n';
+        doc += '  h3 { font-size: 15px; margin-top: 16px; }\n';
+        doc += '  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }\n';
+        doc += '  th, td { border: 1px solid ' + (isDark ? '#2d3239' : '#d8dce3') + '; padding: 6px 10px; text-align: left; }\n';
+        doc += '  th { background: ' + (isDark ? '#2d3239' : '#f0f2f5') + '; font-weight: 600; }\n';
+        doc += '  hr { border: none; border-top: 1px solid ' + (isDark ? '#2d3239' : '#d8dce3') + '; margin: 20px 0; }\n';
+        doc += '  .meta { color: ' + (isDark ? '#9aa0a6' : '#5a6170') + '; font-size: 12px; margin-bottom: 24px; }\n';
+        doc += '  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid ' + (isDark ? '#2d3239' : '#d8dce3') + '; ';
+        doc += 'font-size: 11px; color: ' + (isDark ? '#6b7280' : '#8b9099') + '; }\n';
+        doc += '  @media print { body { max-width: none; margin: 0; } }\n';
+        doc += '</style>\n</head>\n<body>\n';
+        doc += '<h1>' + escapeHTML(title) + '</h1>\n';
+        doc += '<div class="meta">Generated by GEODRIV CI &mdash; ' + new Date().toISOString().slice(0, 10) + '</div>\n';
+        doc += bodyHTML + '\n';
+        doc += '<div class="footer">&copy; ' + new Date().getFullYear() + ' GEODRIV &mdash; Competitive Intelligence for Cross-Border Executive Search</div>\n';
+        doc += '</body>\n</html>';
+
+        var printWindow = window.open('', '_blank', 'width=900,height=700');
+        if (printWindow) {
+            printWindow.document.write(doc);
+            printWindow.document.close();
+            printWindow.focus();
+            printWindow.print();
+            printWindow.onafterprint = function() {
+                printWindow.close();
+            };
+        } else {
+            showToast('Popup blocked — allow popups to print');
+        }
+    }
+
+    function escapeHTML(str) {
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    /* ── BeforeUnload Warning ── */
+    window.addEventListener('beforeunload', function(e) {
+        if (userHasInteracted && isRunning) {
+            e.preventDefault();
+            e.returnValue = 'A report generation is in progress. Are you sure you want to leave?';
+            return e.returnValue;
+        }
+    });
+
+    /* ── Track user interaction ── */
+    document.addEventListener('click', function() { userHasInteracted = true; });
+    document.addEventListener('keydown', function() { userHasInteracted = true; });
+    </script>
+</body>
+</html>

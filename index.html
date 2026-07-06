@@ -1,679 +1,1213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEODRIV - Competitive Intelligence System</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>GEODRIV — Competitive Intelligence Consultancy</title>
+    <script>if(/aerospace\.geolyxtech\.com/.test(location.hostname)&&location.pathname==="/")location.replace("/aerospace")</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ═══════════════════════════════════════════
+           GEODRIV CI — Trust & Authority Design
+           ═══════════════════════════════════════════ */
+
+        :root {
+            /* Spacing — 8px grid */
+            --ds-0: 0;
+            --ds-4: 4px;
+            --ds-8: 8px;
+            --ds-12: 12px;
+            --ds-16: 16px;
+            --ds-20: 20px;
+            --ds-24: 24px;
+            --ds-32: 32px;
+            --ds-40: 40px;
+            --ds-48: 48px;
+            --ds-56: 56px;
+            --ds-64: 64px;
+            --ds-80: 80px;
+
+            /* Radius */
+            --r-sm: 6px;
+            --r-md: 8px;
+            --r-lg: 12px;
+            --r-xl: 16px;
+
+            /* Brand */
+            --brand-blue: #1a6fb5;
+            --brand-blue-hover: #2b8fd4;
+            --brand-orange: #D85A30;
+            --brand-orange-glow: rgba(216,90,48,0.18);
         }
+
+        /* ═══ Dark Theme (default) ═══ */
+        [data-theme="dark"] {
+            --bg-root:         #081525;
+            --bg-card:         #0d2137;
+            --bg-input:        #0a1a2e;
+            --bg-nav:          rgba(8,21,37,0.75);
+            --bg-hover:        #14375a;
+            --bg-modal-overlay:rgba(0,0,0,0.65);
+            --bg-badge:        rgba(26,111,181,0.10);
+
+            --border-subtle:   rgba(255,255,255,0.06);
+            --border-card:     rgba(255,255,255,0.08);
+            --border-input:    rgba(255,255,255,0.10);
+            --border-strong:   rgba(255,255,255,0.14);
+
+            --text-primary:    #f8fafc;
+            --text-secondary:  rgba(248,250,252,0.55);
+            --text-muted:      rgba(248,250,252,0.30);
+            --text-accent:     #1a6fb5;
+
+            --btn-text:        #FFFFFF;
+            --btn-shadow:      0 0 0 1px rgba(26,111,181,0.3), 0 4px 12px rgba(26,111,181,0.15);
+        }
+
+        /* ═══ Light Theme ═══ */
+        [data-theme="light"] {
+            --bg-root:         #f4f7fa;
+            --bg-card:         #ffffff;
+            --bg-input:        #e8f4fd;
+            --bg-nav:          rgba(244,247,250,0.75);
+            --bg-hover:        #d6dfe8;
+            --bg-modal-overlay:rgba(0,0,0,0.35);
+            --bg-badge:        rgba(26,111,181,0.08);
+
+            --border-subtle:   rgba(0,0,0,0.05);
+            --border-card:     rgba(0,0,0,0.08);
+            --border-input:    rgba(0,0,0,0.12);
+            --border-strong:   rgba(0,0,0,0.16);
+
+            --text-primary:    #0d2137;
+            --text-secondary:  rgba(13,33,55,0.55);
+            --text-muted:      rgba(13,33,55,0.33);
+            --text-accent:     #155d99;
+
+            --btn-text:        #FFFFFF;
+            --btn-shadow:      0 0 0 1px rgba(26,111,181,0.2), 0 4px 14px rgba(26,111,181,0.12);
+        }
+
+        /* ═══ Reset ═══ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
+            font-family: "Source Sans 3", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg-root);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background 0.35s, color 0.35s;
         }
 
+        /* Depth gradient overlay */
         body::before {
             content: '';
+            position: fixed; inset: 0; z-index: -1;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(26,111,181,0.05) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 80%, rgba(232,163,23,0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* ═══ Nav — 64px glass ═══ */
+        .nav {
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: float 20s linear infinite;
-            z-index: 0;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: var(--bg-nav);
+            border-bottom: 1px solid var(--border-card);
+            backdrop-filter: saturate(200%) blur(32px);
+            -webkit-backdrop-filter: saturate(200%) blur(32px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+            transition: background 0.35s, border-color 0.35s;
         }
 
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--ds-32);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .container {
-            max-width: 900px;
-            width: 100%;
+        .nav-logo {
+            font-family: "Inter", sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex; align-items: center; gap: 0;
+            letter-spacing: -0.01em;
+            transition: color 0.35s;
+        }
+
+        .nav-actions {
+            display: flex; align-items: center; gap: var(--ds-12);
+        }
+
+        .lang-btn {
+            background: none;
+            color: var(--text-secondary);
+            border: 0.5px solid var(--border-card);
+            padding: 8px var(--ds-20);
+            border-radius: var(--r-md);
+            cursor: pointer;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            font-family: inherit;
+            white-space: nowrap;
+            transition: all 0.2s;
+            letter-spacing: 0.01em;
+        }
+
+        .lang-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+
+        .theme-btn {
+            background: none;
+            color: var(--text-secondary);
+            border: 0.5px solid var(--border-card);
+            width: 38px; height: 38px;
+            border-radius: var(--r-md);
+            cursor: pointer;
+            font-size: 1.05rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+            font-family: inherit;
+            flex-shrink: 0;
+        }
+
+        .theme-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+
+        /* ═══ Hero ═══ */
+        .hero {
+            background: linear-gradient(135deg, #081525 0%, #0d2137 30%, #14375a 65%, #1a6fb5 100%);
+            color: #fff;
+            padding: 140px var(--ds-32) 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-dots {
+            position: absolute;
+            top: 50%; right: 8%;
+            width: 360px; height: 360px;
+            background-image:
+                radial-gradient(2px 2px at 15% 20%, rgba(255,255,255,0.25) 50%, transparent 50%),
+                radial-gradient(2px 2px at 42% 15%, rgba(255,255,255,0.20) 50%, transparent 50%),
+                radial-gradient(2px 2px at 68% 30%, rgba(255,255,255,0.18) 50%, transparent 50%),
+                radial-gradient(2px 2px at 85% 55%, rgba(255,255,255,0.22) 50%, transparent 50%),
+                radial-gradient(2px 2px at 70% 78%, rgba(255,255,255,0.16) 50%, transparent 50%),
+                radial-gradient(2px 2px at 25% 65%, rgba(255,255,255,0.20) 50%, transparent 50%),
+                radial-gradient(2px 2px at 50% 50%, rgba(255,255,255,0.15) 50%, transparent 50%),
+                radial-gradient(2px 2px at 10% 85%, rgba(255,255,255,0.18) 50%, transparent 50%),
+                radial-gradient(3px 3px at 35% 40%, rgba(26,111,181,0.40) 50%, transparent 50%),
+                radial-gradient(3px 3px at 80% 20%, rgba(26,111,181,0.35) 50%, transparent 50%),
+                radial-gradient(3px 3px at 55% 80%, rgba(26,111,181,0.30) 50%, transparent 50%);
+            background-size: 100% 100%;
+            opacity: 0.7;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: var(--ds-80);
             position: relative;
             z-index: 1;
         }
 
-        .header {
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-visual {
+            flex: 0 0 360px;
+            height: 360px;
+            position: relative;
+        }
+
+        .hero-glow {
+            width: 280px; height: 280px;
+            margin: 40px auto;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 65%);
+            position: relative;
+            animation: heroGlow 6s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .hero-glow::after {
+            content: '';
+            position: absolute; inset: 20px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .hero-glow::before {
+            content: '';
+            position: absolute; inset: 60px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: var(--ds-8);
+            padding: 6px var(--ds-16);
+            background: rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.85);
+            border-radius: 20px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: var(--ds-24);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .hero-badge .pulse {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+            50% { opacity: 0.5; box-shadow: 0 0 0 4px rgba(74,222,128,0); }
+        }
+
+        .hero h1 {
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: var(--ds-16);
+            color: #fff;
+        }
+
+        .hero h1 em { font-style: normal; }
+        .hero h1 .hl-blue { color: #60a5fa; }
+        .hero h1 .hl-red { color: #fb923c; }
+
+        .hero p {
+            font-size: 1.0625rem;
+            color: rgba(255,255,255,0.65);
+            font-weight: 400;
+            max-width: 480px;
+            line-height: 1.7;
+            margin-bottom: var(--ds-32);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--ds-40);
+        }
+
+        .hero-stat .num {
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            display: block;
+        }
+
+        .hero-stat .lbl {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.50);
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* ═══ Sections ═══ */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: var(--ds-80) var(--ds-32);
             text-align: center;
-            margin-bottom: 60px;
-            color: white;
-            animation: fadeInDown 0.8s ease;
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .section-alt {
+            background: var(--bg-card);
+            border-top: 0.5px solid var(--border-subtle);
+            border-bottom: 0.5px solid var(--border-subtle);
+            max-width: none;
+            padding: var(--ds-80) var(--ds-32);
+            transition: background 0.35s, border-color 0.35s;
         }
 
-        .header h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            letter-spacing: 2px;
+        .section-alt .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .header p {
-            font-size: 1.4rem;
-            opacity: 0.95;
-            font-weight: 300;
-            letter-spacing: 0.5px;
+        .section-alt .section-inner h2 {
+            text-align: center;
         }
 
-        .lang-switch {
+        .section-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--ds-12);
+            transition: color 0.35s;
+            text-align: center;
+        }
+
+        .section h2,
+        .section-alt h2 {
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            line-height: 1.25;
+            margin-bottom: var(--ds-48);
+            color: var(--text-primary);
+            transition: color 0.35s;
+            text-align: center;
+        }
+
+        /* ═══ Card Grid ═══ */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--ds-16);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--r-lg);
+            padding: var(--ds-40) var(--ds-32);
+            border: 0.5px solid var(--border-card);
+            transition: border-color 0.25s, transform 0.25s, background 0.35s;
+            cursor: default;
+            text-align: center;
+        }
+
+        .card:hover {
+            border-color: var(--brand-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 0 1px var(--brand-blue);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin: 0 auto var(--ds-20);
+            width: 56px; height: 56px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: var(--r-md);
+            background: var(--bg-hover);
+            transition: background 0.35s, transform 0.25s;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.08);
+        }
+
+        .card h3 {
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--ds-8);
+            letter-spacing: -0.005em;
+            transition: color 0.35s;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            transition: color 0.35s;
+        }
+
+        /* ═══ Feature List ═══ */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--ds-12);
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: var(--ds-12);
+            padding: var(--ds-20) var(--ds-24);
+            background: var(--bg-card);
+            border-radius: var(--r-md);
+            border: 0.5px solid var(--border-card);
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            font-weight: 400;
+            transition: border-color 0.2s, background 0.35s, color 0.35s;
+        }
+
+        .feature-list li:hover {
+            border-color: var(--border-strong);
+        }
+
+        .feature-list li::before {
+            content: "";
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--brand-blue);
+            flex-shrink: 0;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+            mask-size: contain; -webkit-mask-size: contain;
+            transition: background 0.35s;
+        }
+
+        /* ═══ Process Section ═══ */
+        .process-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: '';
             position: absolute;
-            top: 30px;
-            right: 30px;
-            z-index: 1000;
+            left: 23px;
+            top: 24px;
+            bottom: 24px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--brand-blue), var(--border-strong));
+            opacity: 0.3;
+            border-radius: 1px;
         }
 
-        .lang-btn {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-            padding: 12px 24px;
-            border-radius: 30px;
-            cursor: pointer;
+        .process-step {
+            display: flex;
+            gap: var(--ds-32);
+            align-items: flex-start;
+            padding: var(--ds-32) 0;
+            position: relative;
+        }
+
+        .process-step:first-child { padding-top: 0; }
+        .process-step:last-child { padding-bottom: 0; }
+
+        .process-step-left {
+            flex: 0 0 86px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-number {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--brand-blue);
+            color: var(--brand-blue);
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
             font-size: 1rem;
             font-weight: 600;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            letter-spacing: 0.5px;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
         }
 
-        .lang-btn:hover {
-            background: rgba(255,255,255,0.25);
-            border-color: rgba(255,255,255,0.6);
-            transform: scale(1.08);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        .process-step:hover .process-number {
+            background: var(--brand-blue);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(26,111,181,0.25);
         }
 
-        .app-card {
-            background: white;
-            border-radius: 25px;
-            padding: 60px;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.35);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease 0.2s both;
+        .process-step-right {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--r-lg);
+            padding: var(--ds-24) var(--ds-28);
+            transition: border-color 0.25s, box-shadow 0.25s;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .process-step:hover .process-step-right {
+            border-color: var(--brand-blue);
+            box-shadow: var(--shadow-md);
         }
 
-        .app-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
-            background-size: 200% 100%;
-            animation: shimmer 3s ease-in-out infinite;
+        .process-step-right .step-icon {
+            font-size: 1.5rem;
+            margin-bottom: var(--ds-8);
+            opacity: 0.6;
         }
 
-        @keyframes shimmer {
-            0%, 100% { background-position: 200% 0; }
-            50% { background-position: -200% 0; }
+        .process-step-right h3 {
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--ds-6);
+            letter-spacing: -0.005em;
+            transition: color 0.35s;
         }
 
-        .app-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 35px 100px rgba(0,0,0,0.45);
+        .process-step-right p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin: 0;
+            transition: color 0.35s;
         }
 
-        .app-icon {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 40px;
-            font-size: 3.5rem;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
-            animation: iconFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes iconFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .app-card h2 {
-            font-size: 2.5rem;
-            color: #2d3748;
-            margin-bottom: 25px;
-            font-weight: 700;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        .app-card p {
-            color: #718096;
-            line-height: 2;
-            margin-bottom: 40px;
-            font-size: 1.15rem;
+        .cta-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: var(--ds-80) var(--ds-32) 120px;
             text-align: center;
         }
 
-        .app-features {
-            list-style: none;
-            margin-bottom: 45px;
-            padding: 0 30px;
+        .cta-card {
+            background: var(--bg-card);
+            border-radius: var(--r-xl);
+            padding: var(--ds-64) var(--ds-48);
+            border: 0.5px solid var(--border-card);
+            transition: background 0.35s, border-color 0.35s;
+            text-align: center;
         }
 
-        .app-features li {
-            color: #4a5568;
-            padding: 15px 0;
-            padding-left: 45px;
-            position: relative;
-            font-size: 1.1rem;
-            border-bottom: 1px solid #f7fafc;
-            transition: all 0.3s ease;
+        .cta-card h2 {
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-bottom: var(--ds-12);
+            color: var(--text-primary);
+            transition: color 0.35s;
         }
 
-        .app-features li:hover {
-            padding-left: 55px;
-            color: #2d3748;
+        .cta-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--ds-32);
+            font-size: 1rem;
+            max-width: 480px;
+            margin-left: auto; margin-right: auto;
+            transition: color 0.35s;
+            line-height: 1.65;
         }
 
-        .app-features li:last-child {
-            border-bottom: none;
-        }
-
-        .app-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
+        .btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .app-button {
-            display: inline-block;
-            padding: 18px 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            padding: 13px var(--ds-40);
+            background: var(--brand-blue);
+            color: var(--btn-text);
             text-decoration: none;
-            border-radius: 15px;
-            font-weight: 700;
-            transition: all 0.4s ease;
+            border: none;
+            border-radius: var(--r-md);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: inherit;
+            letter-spacing: 0.01em;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+        }
+
+        .btn:hover {
+            background: var(--brand-blue-hover);
+            box-shadow: var(--btn-shadow);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 0.5px solid var(--border-strong);
+            color: var(--text-primary);
+            padding: 12px var(--ds-40);
+            border-radius: var(--r-md);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: inherit;
+            letter-spacing: 0.01em;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--brand-blue);
+            color: var(--brand-blue);
+            background: var(--bg-hover);
+        }
+
+        /* ═══ Footer ═══ */
+        .footer {
+            border-top: 0.5px solid var(--border-subtle);
+            padding: var(--ds-24) var(--ds-32);
             text-align: center;
-            width: 100%;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
-            position: relative;
-            overflow: hidden;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            background: var(--bg-card);
+            transition: all 0.35s;
         }
 
-        .app-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
+        .footer p + p {
+            margin-top: var(--ds-4);
         }
 
-        .app-button:hover::before {
-            left: 100%;
-        }
-
-        .app-button:hover {
-            opacity: 0.95;
-            transform: scale(1.03);
-            box-shadow: 0 18px 45px rgba(102, 126, 234, 0.7);
-        }
-
-        /* Modal styles */
+        /* ═══ Modal ═══ */
         .modal {
             display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.6);
-            animation: fadeIn 0.3s ease;
-            overflow-y: auto;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            position: fixed; inset: 0; z-index: 2000;
+            background: var(--bg-modal-overlay);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: var(--ds-24); overflow-y: auto;
         }
 
         .modal-content {
-            background-color: white;
-            margin: 3% auto;
-            padding: 50px;
-            border-radius: 25px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
-            animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--bg-card);
+            margin: var(--ds-40) auto;
+            padding: var(--ds-40);
+            border-radius: var(--r-xl);
+            width: min(520px, 100%);
+            border: 0.5px solid var(--border-card);
             position: relative;
+            animation: modalIn 0.25s cubic-bezier(0.4,0,0.2,1);
+            transition: background 0.35s, border-color 0.35s;
         }
 
-        @keyframes slideDown {
-            from { transform: translateY(-60px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(16px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f7fafc;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: var(--ds-28); padding-bottom: var(--ds-16);
+            border-bottom: 0.5px solid var(--border-subtle);
+            gap: var(--ds-16);
+            transition: border-color 0.35s;
         }
 
         .modal-header h2 {
-            color: #2d3748;
-            font-size: 2rem;
-            font-weight: 700;
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
+            font-size: 1.25rem; font-weight: 600;
+            color: var(--text-primary);
+            transition: color 0.35s;
         }
 
         .close {
-            color: #718096;
-            font-size: 2.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            color: var(--text-secondary); font-size: 1.5rem; cursor: pointer;
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: var(--r-md);
+            transition: background 0.15s, color 0.15s;
+            user-select: none; line-height: 1;
         }
 
         .close:hover {
-            color: #2d3748;
-            background: #f7fafc;
-            transform: rotate(90deg);
+            background: var(--bg-hover);
+            color: var(--text-primary);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: var(--ds-20);
         }
 
         .form-group label {
             display: block;
-            color: #4a5568;
-            margin-bottom: 10px;
-            font-weight: 600;
-            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: var(--ds-8);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: color 0.35s;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            padding: 11px var(--ds-16);
+            background: var(--bg-input);
+            border: 0.5px solid var(--border-input);
+            border-radius: var(--r-md);
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.35s, color 0.35s;
             font-family: inherit;
-            background: #f8fafc;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
-            background: white;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            border-color: var(--brand-blue);
+            box-shadow: 0 0 0 3px rgba(55,138,221,0.12);
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 140px;
+        .form-group select {
+            appearance: none; cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%238B8FA3'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 12px center;
+            padding-right: 36px;
+        }
+
+        .form-group select option {
+            background: var(--bg-card); color: var(--text-primary);
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: var(--ds-16);
+        }
+
+        .form-group textarea {
+            resize: vertical; min-height: 110px;
         }
 
         .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            letter-spacing: 0.5px;
-            margin-top: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .submit-btn:hover::before {
-            left: 100%;
+            width: 100%; padding: 12px;
+            background: var(--brand-blue); color: var(--btn-text);
+            border: none; border-radius: var(--r-md);
+            font-size: 0.9375rem; font-weight: 500; cursor: pointer;
+            font-family: inherit; letter-spacing: 0.01em;
+            transition: background 0.2s, box-shadow 0.2s;
+            margin-top: var(--ds-8);
         }
 
         .submit-btn:hover {
-            opacity: 0.95;
-            transform: scale(1.03);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+            background: var(--brand-blue-hover);
+            box-shadow: var(--btn-shadow);
         }
 
-        .footer {
-            text-align: center;
-            color: white;
-            opacity: 0.9;
-            margin-top: 50px;
-            font-size: 1rem;
-            animation: fadeInUp 0.8s ease 0.4s both;
+        .submit-btn:active {
+            transform: scale(0.99);
         }
 
-        .footer a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
+        /* ═══ Responsive ═══ */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.8rem;
-            }
-            
-            .app-card {
-                padding: 40px 30px;
-            }
-            
-            .app-card h2 {
-                font-size: 2rem;
-            }
-            
-            .lang-switch {
-                top: 20px;
-                right: 20px;
-            }
+            .grid-3 { grid-template-columns: 1fr; }
+            .feature-list { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .modal-content { padding: var(--ds-24) var(--ds-20); margin: var(--ds-16) auto; }
+            .cta-card { padding: var(--ds-40) var(--ds-24); }
 
-            .modal-content {
-                padding: 30px 25px;
-                margin: 5% auto;
-            }
+            .hero-inner { flex-direction: column; gap: var(--ds-32); }
+            .hero-visual { flex: 0 0 auto; height: 200px; }
+            .hero-glow { width: 180px; height: 180px; margin: 0 auto; }
+            .hero-dots { width: 200px; height: 200px; right: 0; }
+            .hero-stats { gap: var(--ds-24); flex-wrap: wrap; }
+            .hero { padding: 120px var(--ds-24) 56px; }
 
-            .form-row {
-                grid-template-columns: 1fr;
-            }
+            .section { padding: var(--ds-56) var(--ds-24); }
+            .section-alt { padding: var(--ds-56) var(--ds-24); }
+            .cta-section { padding: var(--ds-56) var(--ds-24) var(--ds-80); }
+            .process-step { gap: var(--ds-20); }
+            .process-step-left { flex: 0 0 60px; }
+            .process-number { width: 40px; height: 40px; font-size: 0.9rem; }
+            .process-grid::before { left: 19px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
         }
     </style>
 </head>
 <body>
-    <div class="lang-switch">
-        <button class="lang-btn" onclick="toggleLanguage()">🇨🇳 中文</button>
-    </div>
 
-    <div class="container">
-        <div class="header">
-            <h1>🌐 GEODRIV</h1>
-            <p class="en-text">Competitive Intelligence System - Empowering Data-Driven Decisions</p>
-            <p class="zh-text" style="display:none;">竞争情报系统 - 赋能数据驱动决策</p>
-        </div>
-
-        <div class="app-card">
-            <div class="app-icon">📊</div>
-            <h2 class="en-text">Competitive Intelligence (CI)</h2>
-            <h2 class="zh-text" style="display:none;">竞争情报系统 (CI)</h2>
-            
-            <p class="en-text">AI-powered competitive intelligence analysis platform with customized workflow automation</p>
-            <p class="zh-text" style="display:none;">基于定制化AI流程自动化的智能竞争情报分析平台</p>
-            
-            <ul class="app-features">
-                <li class="en-text">Automated data collection from multiple sources</li>
-                <li class="en-text">Intelligent report generation</li>
-                <li class="en-text">Real-time competitor monitoring</li>
-                <li class="en-text">Market trend analysis</li>
-                <li class="en-text">Suitable for various industries</li>
-                
-                <li class="zh-text" style="display:none;">多源数据自动收集</li>
-                <li class="zh-text" style="display:none;">智能报告生成</li>
-                <li class="zh-text" style="display:none;">实时竞争对手监控</li>
-                <li class="zh-text" style="display:none;">市场趋势分析</li>
-                <li class="zh-text" style="display:none;">适合各种行业</li>
-            </ul>
-            
-            <a href="#" class="app-button en-text" onclick="openModal(); return false;">Leave a Message</a>
-            <a href="#" class="app-button zh-text" style="display:none;" onclick="openModal(); return false;">留言咨询</a>
-        </div>
-
-        <!-- Contact Modal -->
-        <div id="contactModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="en-text">Leave a Message</h2>
-                    <h2 class="zh-text" style="display:none;">留言咨询</h2>
-                    <span class="close" onclick="closeModal()">&times;</span>
-                </div>
-                <form id="contactForm" onsubmit="submitForm(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="en-text" for="name">Name *</label>
-                            <label class="zh-text" style="display:none;" for="name">姓名 *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="en-text" for="company">Company</label>
-                            <label class="zh-text" style="display:none;" for="company">公司名称</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="en-text" for="email">Email *</label>
-                            <label class="zh-text" style="display:none;" for="email">邮箱 *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="en-text" for="phone">Phone</label>
-                            <label class="zh-text" style="display:none;" for="phone">电话</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="en-text" for="industry">Industry *</label>
-                        <label class="zh-text" style="display:none;" for="industry">行业 *</label>
-                        <select id="industry" name="industry" required>
-                            <option value="" class="en-text">Select industry...</option>
-                            <option value="manufacturing" class="en-text">Manufacturing</option>
-                            <option value="technology" class="en-text">Technology</option>
-                            <option value="automotive" class="en-text">Automotive</option>
-                            <option value="aerospace" class="en-text">Aerospace</option>
-                            <option value="healthcare" class="en-text">Healthcare</option>
-                            <option value="finance" class="en-text">Finance</option>
-                            <option value="retail" class="en-text">Retail</option>
-                            <option value="other" class="en-text">Other</option>
-                            
-                            <option value="" class="zh-text" style="display:none;">选择行业...</option>
-                            <option value="manufacturing" class="zh-text" style="display:none;">制造业</option>
-                            <option value="technology" class="zh-text" style="display:none;">科技</option>
-                            <option value="automotive" class="zh-text" style="display:none;">汽车</option>
-                            <option value="aerospace" class="zh-text" style="display:none;">航空航天</option>
-                            <option value="healthcare" class="zh-text" style="display:none;">医疗健康</option>
-                            <option value="finance" class="zh-text" style="display:none;">金融</option>
-                            <option value="retail" class="zh-text" style="display:none;">零售</option>
-                            <option value="other" class="zh-text" style="display:none;">其他</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="en-text" for="message">Requirements Description *</label>
-                        <label class="zh-text" style="display:none;" for="message">需求描述 *</label>
-                        <textarea id="message" name="message" placeholder="Please describe your requirements..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn en-text">Send Message</button>
-                    <button type="submit" class="submit-btn zh-text" style="display:none;">发送留言</button>
-                </form>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                GEODRIV <span style="color:var(--text-muted);font-weight:400;margin:0 2px;">|</span> CI
+            </a>
+            <div class="nav-actions">
+                <button class="lang-btn" type="button" onclick="toggleLanguage()" aria-label="Switch language">中文</button>
+                <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">🌙</button>
             </div>
         </div>
+    </nav>
 
-        <div class="footer">
-            <p>© 2026 GEODRIV. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 0.95rem;">
-                爵领科技 | GEODRIV TECHNOLOGY
-            </p>
+    <section class="hero">
+        <div class="hero-dots"></div>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <span class="hero-badge en-text"><span class="pulse"></span> Competitive Intelligence</span>
+                <span class="hero-badge zh-text" style="display:none;"><span class="pulse"></span> 竞争情报系统</span>
+                <h1>
+                    <span class="en-text">Intelligence that moves <em class="hl-blue">faster</em> than the <em class="hl-red">market</em>.</span>
+                    <span class="zh-text" style="display:none;">比<em class="hl-red">市场</em>更<em class="hl-blue">快</em>的智能情报。</span>
+                </h1>
+                <p class="en-text">Tailored AI-powered competitive intelligence consultancy — we design custom CI systems that turn scattered market signals into decisive action.</p>
+                <p class="zh-text" style="display:none;">基于AI的定制化竞争情报咨询服务——我们设计专属情报系统，将零散的市场信号转化为果断行动。</p>
+                <div class="hero-stats">
+                    <div class="hero-stat"><span class="num">10+</span><span class="lbl en-text">Countries Covered</span><span class="lbl zh-text" style="display:none;">覆盖国家</span></div>
+                    <div class="hero-stat"><span class="num">15+</span><span class="lbl en-text">Years Experience</span><span class="lbl zh-text" style="display:none;">行业经验</span></div>
+                    <div class="hero-stat"><span class="num">100%</span><span class="lbl en-text">Client Focused</span><span class="lbl zh-text" style="display:none;">客户专注</span></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <p class="section-eyebrow en-text">Capabilities</p>
+        <p class="section-eyebrow zh-text" style="display:none;">核心能力</p>
+        <h2 class="en-text">Everything you need to know, before you need to know it.</h2>
+        <h2 class="zh-text" style="display:none;">在您需要了解之前，就已掌握一切。</h2>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3 class="en-text">Custom CI Systems</h3>
+                <h3 class="zh-text" style="display:none;">定制情报系统</h3>
+                <p class="en-text">Tailored competitive intelligence systems designed for your industry and workflow.</p>
+                <p class="zh-text" style="display:none;">为您的行业与工作流程量身定制的竞争情报系统。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛰️</div>
+                <h3 class="en-text">Continuous Monitoring</h3>
+                <h3 class="zh-text" style="display:none;">持续监测</h3>
+                <p class="en-text">Ongoing tracking of competitors, markets, technologies, and regulatory shifts.</p>
+                <p class="zh-text" style="display:none;">持续追踪竞争对手、市场、技术与政策变化。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3 class="en-text">Executive Reporting</h3>
+                <h3 class="zh-text" style="display:none;">决策情报报告</h3>
+                <p class="en-text">Sharp, concise intelligence reports — always current, always relevant to your decisions.</p>
+                <p class="zh-text" style="display:none;">精准、简洁的情报报告——始终保持最新，与您的决策紧密相关。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt">
+        <div class="section-inner">
+            <p class="section-eyebrow en-text">Features</p>
+            <p class="section-eyebrow zh-text" style="display:none;">功能特性</p>
+            <h2 class="en-text">Intelligence services designed for decisions that matter.</h2>
+            <h2 class="zh-text" style="display:none;">为关键决策而设计的情报服务。</h2>
+            <ul class="feature-list">
+                <li class="en-text">Custom data collection architectures</li>
+                <li class="en-text">Executive intelligence reports</li>
+                <li class="en-text">Continuous competitor tracking</li>
+                <li class="en-text">Market &amp; technology trend analysis</li>
+                <li class="en-text">Smart manufacturing expertise</li>
+                <li class="en-text">Industrial automation intelligence</li>
+
+                <li class="zh-text" style="display:none;">定制化数据采集架构</li>
+                <li class="zh-text" style="display:none;">决策级情报报告</li>
+                <li class="zh-text" style="display:none;">持续竞争对手追踪</li>
+                <li class="zh-text" style="display:none;">市场与技术趋势分析</li>
+                <li class="zh-text" style="display:none;">智能制造专业经验</li>
+                <li class="zh-text" style="display:none;">工业自动化情报</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <p class="section-eyebrow en-text">Our Process</p>
+        <p class="section-eyebrow zh-text" style="display:none;">工作流程</p>
+        <h2 class="en-text">How We Deliver Intelligence</h2>
+        <h2 class="zh-text" style="display:none;">我们如何交付情报</h2>
+
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="process-step-left"><div class="process-number">1</div></div>
+                <div class="process-step-right">
+                    <div class="step-icon">&#128269;</div>
+                    <h3 class="en-text">Discovery</h3>
+                    <h3 class="zh-text" style="display:none;">需求发现</h3>
+                    <p class="en-text">Define scope, objectives, and key intelligence questions with your team.</p>
+                    <p class="zh-text" style="display:none;">与您的团队共同定义情报范围、目标和关键问题。</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-left"><div class="process-number">2</div></div>
+                <div class="process-step-right">
+                    <div class="step-icon">&#128230;</div>
+                    <h3 class="en-text">Data Collection</h3>
+                    <h3 class="zh-text" style="display:none;">数据收集</h3>
+                    <p class="en-text">Multi-source data pipelines — patents, tenders, news, financials, and deep web signals.</p>
+                    <p class="zh-text" style="display:none;">多源数据采集——专利、招标、新闻、财报与深层网络信号。</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-left"><div class="process-number">3</div></div>
+                <div class="process-step-right">
+                    <div class="step-icon">&#128200;</div>
+                    <h3 class="en-text">Analysis</h3>
+                    <h3 class="zh-text" style="display:none;">情报分析</h3>
+                    <p class="en-text">AI-powered synthesis, competitive benchmarking, and pattern recognition.</p>
+                    <p class="zh-text" style="display:none;">AI驱动的综合分析、竞争对标与模式识别。</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-left"><div class="process-number">4</div></div>
+                <div class="process-step-right">
+                    <div class="step-icon">&#128203;</div>
+                    <h3 class="en-text">Delivery</h3>
+                    <h3 class="zh-text" style="display:none;">成果交付</h3>
+                    <p class="en-text">Action-ready reports, dashboards, and executive briefings — when you need them.</p>
+                    <p class="zh-text" style="display:none;">执行就绪的报告、仪表盘与高管简报——在您需要的时刻。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-card">
+            <h2 class="en-text">Ready to see the full picture?</h2>
+            <h2 class="zh-text" style="display:none;">准备好看清全局了吗？</h2>
+            <p class="en-text">Tell us about your industry and competitive challenges. We'll show you how GEODRIV delivers intelligence that drives better decisions.</p>
+            <p class="zh-text" style="display:none;">告诉我们您的行业与需求。我们将向您展示GEODRIV如何将原始数据转化为竞争优势。</p>
+            <button class="btn en-text" onclick="openModal(); return false;">Get in touch</button>
+            <button class="btn zh-text" style="display:none;" onclick="openModal(); return false;">联系我们</button>
+        </div>
+    </section>
+
+    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-label="Contact form">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="en-text">Get in touch</h2>
+                <h2 class="zh-text" style="display:none;">联系我们</h2>
+                <span class="close" tabindex="0" role="button" aria-label="Close" onclick="closeModal()" onkeydown="if(event.key==='Enter') closeModal();">&times;</span>
+            </div>
+            <form id="contactForm" onsubmit="submitForm(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="en-text" for="name">Name *</label>
+                        <label class="zh-text" style="display:none;" for="name">姓名 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="en-text" for="company">Company</label>
+                        <label class="zh-text" style="display:none;" for="company">公司</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="en-text" for="email">Email *</label>
+                        <label class="zh-text" style="display:none;" for="email">邮箱 *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="en-text" for="phone">Phone</label>
+                        <label class="zh-text" style="display:none;" for="phone">电话</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="en-text" for="industry">Industry *</label>
+                    <label class="zh-text" style="display:none;" for="industry">行业 *</label>
+                    <select id="industry" name="industry" required>
+                        <option value="" class="en-text">Select industry…</option>
+                        <option value="manufacturing" class="en-text">Manufacturing</option>
+                        <option value="technology" class="en-text">Technology</option>
+                        <option value="automotive" class="en-text">Automotive</option>
+                        <option value="aerospace" class="en-text">Aerospace</option>
+                        <option value="healthcare" class="en-text">Healthcare</option>
+                        <option value="finance" class="en-text">Finance</option>
+                        <option value="retail" class="en-text">Retail</option>
+                        <option value="other" class="en-text">Other</option>
+
+                        <option value="" class="zh-text" style="display:none;">选择行业…</option>
+                        <option value="manufacturing" class="zh-text" style="display:none;">制造业</option>
+                        <option value="technology" class="zh-text" style="display:none;">科技</option>
+                        <option value="automotive" class="zh-text" style="display:none;">汽车</option>
+                        <option value="aerospace" class="zh-text" style="display:none;">航空航天</option>
+                        <option value="healthcare" class="zh-text" style="display:none;">医疗健康</option>
+                        <option value="finance" class="zh-text" style="display:none;">金融</option>
+                        <option value="retail" class="zh-text" style="display:none;">零售</option>
+                        <option value="other" class="zh-text" style="display:none;">其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="en-text" for="message">Message *</label>
+                    <label class="zh-text" style="display:none;" for="message">需求描述 *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn en-text">Send Message</button>
+                <button type="submit" class="submit-btn zh-text" style="display:none;">发送留言</button>
+            </form>
         </div>
     </div>
 
+    <footer class="footer">
+        <p>&copy; 2026 GEODRIV. All rights reserved.</p>
+        <p>爵领科技 &nbsp;|&nbsp; GEODRIV TECHNOLOGY</p>
+    </footer>
+
     <script>
-        let currentLang = 'en';
+        /* ═══ Theme ═══ */
+        (function() {
+            var html = document.documentElement;
+            var saved = localStorage.getItem('geodriv-theme');
 
-        function toggleLanguage() {
-            const enTexts = document.querySelectorAll('.en-text');
-            const zhTexts = document.querySelectorAll('.zh-text');
-            const langBtn = document.querySelector('.lang-btn');
-
-            if (currentLang === 'en') {
-                enTexts.forEach(el => el.style.display = 'none');
-                zhTexts.forEach(el => {
-                    if (el.tagName === 'OPTION') {
-                        el.style.display = 'block';
-                    } else {
-                        el.style.display = 'block';
-                    }
-                });
-                langBtn.innerHTML = '🇺🇸 EN';
-                currentLang = 'zh';
-                document.documentElement.lang = 'zh-CN';
+            if (saved === 'light' || saved === 'dark') {
+                html.setAttribute('data-theme', saved);
             } else {
-                enTexts.forEach(el => {
-                    if (el.tagName === 'OPTION') {
-                        el.style.display = 'block';
-                    } else {
-                        el.style.display = 'block';
-                    }
-                });
-                zhTexts.forEach(el => el.style.display = 'none');
-                langBtn.innerHTML = '🇨🇳 中文';
-                currentLang = 'en';
-                document.documentElement.lang = 'en';
+                // Default: light
+                html.setAttribute('data-theme', 'light');
             }
+
+            updateThemeIcon(html.getAttribute('data-theme'));
+        })();
+
+        function updateThemeIcon(theme) {
+            var btn = document.getElementById('themeBtn');
+            if (!btn) return;
+            btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+            btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
         }
 
+        function toggleTheme() {
+            var html = document.documentElement;
+            var current = html.getAttribute('data-theme');
+            var next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('geodriv-theme', next);
+            updateThemeIcon(next);
+        }
+
+        /* ═══ Language ═══ */
+        var currentLang = 'en';
+        var i18n = {
+            en: { langBtn: '中文', alert: 'Thank you! The email client will open to send your inquiry.' },
+            zh: { langBtn: 'EN', alert: '感谢您的留言！邮件客户端将打开以发送您的咨询。' }
+        };
+
+        function showElements(els) {
+            els.forEach(function(el) {
+                var tag = el.tagName.toLowerCase();
+                if (tag === 'button') el.style.display = 'inline-flex';
+                else if (tag === 'span') el.style.display = 'inline';
+                else if (tag === 'li') el.style.display = 'list-item';
+                else if (tag === 'label') el.style.display = 'block';
+                else if (tag === 'option') return; // handled by setIndustryOptions
+                else el.style.display = 'block';
+            });
+        }
+
+        function toggleLanguage() {
+            var enEls = document.querySelectorAll('.en-text');
+            var zhEls = document.querySelectorAll('.zh-text');
+            var btn = document.querySelector('.lang-btn');
+            var next = currentLang === 'en' ? 'zh' : 'en';
+
+            if (next === 'zh') {
+                enEls.forEach(function(el) { el.style.display = 'none'; });
+                showElements(zhEls);
+                document.documentElement.lang = 'zh-CN';
+            } else {
+                zhEls.forEach(function(el) { el.style.display = 'none'; });
+                showElements(enEls);
+                document.documentElement.lang = 'en';
+            }
+
+            currentLang = next;
+            btn.textContent = i18n[currentLang].langBtn;
+            setIndustryOptions(currentLang);
+            setTextareaPlaceholder(currentLang);
+        }
+
+        function setIndustryOptions(lang) {
+            var sel = document.getElementById('industry');
+            sel.querySelectorAll('option').forEach(function(opt) {
+                opt.style.display = opt.classList.contains(lang === 'en' ? 'en-text' : 'zh-text') ? 'block' : 'none';
+            });
+        }
+
+        function setTextareaPlaceholder(lang) {
+            document.getElementById('message').placeholder =
+                lang === 'en' ? 'Tell us about your requirements…' : '请描述您的需求…';
+        }
+
+        /* ═══ Modal ═══ */
+        var lastFocused = null;
+
         function openModal() {
-            document.getElementById('contactModal').style.display = 'block';
+            var modal = document.getElementById('contactModal');
+            lastFocused = document.activeElement;
+            modal.style.display = 'block';
+            modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            setTimeout(function() { document.getElementById('name').focus(); }, 60);
         }
 
         function closeModal() {
-            document.getElementById('contactModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
+            var modal = document.getElementById('contactModal');
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (lastFocused) lastFocused.focus();
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('contactModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('contactModal')) closeModal();
+        });
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
 
-        function submitForm(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const company = document.getElementById('company').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const industry = document.getElementById('industry').value;
-            const message = document.getElementById('message').value;
-            
-            const subject = `CI System Inquiry - ${name}`;
-            const body = `
-Name: ${name}
-Company: ${company}
-Email: ${email}
-Phone: ${phone}
-Industry: ${industry}
+        function submitForm(e) {
+            e.preventDefault();
+            var name = document.getElementById('name').value;
+            var company = document.getElementById('company').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var industry = document.getElementById('industry').value;
+            var message = document.getElementById('message').value;
 
-Requirements:
-${message}
-            `.trim();
-            
-            const mailtoLink = `mailto:ci@geodriv.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            window.location.href = mailtoLink;
-            
-            setTimeout(() => {
-                alert(currentLang === 'en' ? 'Thank you for your message! The email client will open to send your inquiry.' : '感谢您的留言！邮件客户端将打开以发送您的咨询。');
+            var body = 'Name: ' + name + '\nCompany: ' + company + '\nEmail: ' + email + '\nPhone: ' + phone + '\nIndustry: ' + industry + '\n\nMessage:\n' + message;
+            window.location.href = 'mailto:ci@geodriv.com?subject=' + encodeURIComponent('CI Inquiry — ' + name) + '&body=' + encodeURIComponent(body);
+
+            setTimeout(function() {
+                alert(i18n[currentLang].alert);
                 document.getElementById('contactForm').reset();
                 closeModal();
-            }, 500);
+            }, 400);
         }
+
+        setIndustryOptions(currentLang);
+        setTextareaPlaceholder(currentLang);
     </script>
 </body>
 </html>
