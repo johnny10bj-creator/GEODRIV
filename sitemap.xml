@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- ── Homepage ── -->
+  <url>
+    <loc>https://ci.geodriv.com/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ci.geodriv.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://ci.geodriv.com/?lang=zh"/>
+  </url>
+  <!-- ── Blog listing ── -->
+  <url>
+    <loc>https://ci.geodriv.com/blog/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- ── Article: AI CI vs Manual Research ── -->
+  <url>
+    <loc>https://ci.geodriv.com/blog/ai-ci-vs-manual-research-manufacturing/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: HMLV CI ── -->
+  <url>
+    <loc>https://ci.geodriv.com/blog/hmlv-ci-manufacturing/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
