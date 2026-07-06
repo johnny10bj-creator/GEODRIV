@@ -1,21 +1,28 @@
-# ── DNS 切换 —— 让 ci.geodriv.com 指向 GitHub Pages ──
-# ci.geodriv.com 是子域名 → 用 CNAME 记录
+# DNS 切换 —— ci.geodriv.com → GitHub Pages
 
-登录 DNSPod（或你的域名注册商）：
-1. 找到 ci.geodriv.com 的 DNS 管理
-2. 添加或修改以下 DNS 记录：
+## 方案 1：CNAME 记录（优先）
 
-| Type  | Name (主机记录) | Value (记录值)                    | TTL |
-|-------|----------------|-----------------------------------|-----|
-| CNAME | ci             | johnny10bj-creator.github.io.     | 600 |
+登录 DNSPod，确认已添加 `geodriv.com` 域名后：
 
-3. 保存并等待生效（通常几分钟）
+| 记录类型 | 主机记录 | 记录值 | TTL |
+|---------|---------|-------|-----|
+| CNAME | **留空** 或 **@** 或 **ci.geodriv.com** 看哪个能提交 | johnny10bj-creator.github.io | 600 |
 
-验证生效方式：
+如果提示「与其他记录冲突」，或者「ci」不让写，用方案 2。
+
+## 方案 2：A 记录（GitHub Pages IP）
+
+| 记录类型 | 主机记录 | 记录值 | TTL |
+|---------|---------|-------|-----|
+| A | 留空 | 185.199.108.153 | 600 |
+| A | 留空 | 185.199.109.153 | 600 |
+| A | 留空 | 185.199.110.153 | 600 |
+| A | 留空 | 185.199.111.153 | 600 |
+
+## 验证
+
 ```bash
-dig ci.geodriv.com CNAME +short
-# 期望返回: johnny10bj-creator.github.io.
+nslookup ci.geodriv.com
+# 应返回 185.199.x.x (GitHub Pages IPs)
 ```
-或浏览器打开 https://ci.geodriv.com/blog/ 确认能看到博客列表页
-
-旧服务器上的 nginx 可以在 DNS 切换确认后关闭。
+或浏览器打开 https://ci.geodriv.com/blog/ 确认页面正常。
