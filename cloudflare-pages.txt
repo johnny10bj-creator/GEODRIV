@@ -1,0 +1,10 @@
+# ── Cloudflare Pages setup file ──
+# Cloudflare Pages will serve these static directories.
+# Build command: none (pure static HTML)
+# Build output: ./
+# Root directory: ./
+
+# API proxy routes are handled by Workers.
+# Workers routes:
+#   ci.geodriv.com/feiye/api/dify/*  →  feiye-api worker
+#   ci.geodriv.com/aerospace/api/*   →  aerospace-api worker
