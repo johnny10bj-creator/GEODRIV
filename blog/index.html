@@ -334,8 +334,7 @@
             </a>
         </div>
         -->
-        <div class="empty-state">
-            <p style="font-size:1.5rem;margin-bottom:var(--ds-8);">📝</p>
+        <div class="empty-state" id="emptyState">
             <p><strong>First article coming soon.</strong></p>
             <p style="color:var(--text-muted);font-size:0.875rem;">We're crafting intelligence that moves faster than the market.<br>Stay tuned — or <a href="https://ci.geodriv.com" style="color:var(--text-accent);">get in touch</a> to shape the conversation.</p>
         </div>
@@ -387,17 +386,18 @@
 
         /* ── Auto-insert articles from data ── */
         var articles = [
-            // Articles will be added here as they are published
-            // { date: "2026-07-06", tag: "Methodology", minRead: 8,
-            //   title: { en: "Title", zh: "标题" },
-            //   excerpt: { en: "Excerpt...", zh: "摘要..." },
-            //   slug: "article-slug" }
+            { date: "2026-07-06", tag: "Methodology", minRead: 8,
+              title: { en: "AI-Powered CI vs. Manual Research: A Confidence Framework for Manufacturers", zh: "AI 竞争情报 vs 人工研究：制造企业可信度框架" },
+              excerpt: { en: "Not all intelligence is equal. Here's a practical system to know when to trust AI-generated CI — and when to escalate to a human analyst.", zh: "并非所有情报都等值。一个实用框架，帮助制造企业判断何时信任 AI 生成的竞争情报、何时需要人工分析介入。" },
+              slug: "ai-ci-vs-manual-research-manufacturing" }
         ];
 
         function renderArticles() {
             var container = document.getElementById('articleList');
+            var emptyState = document.getElementById('emptyState');
             if (articles.length === 0) return;
             container.innerHTML = '';
+            if (emptyState) emptyState.style.display = 'none';
             articles.forEach(function(a) {
                 var card = document.createElement('div');
                 card.className = 'article-card';
