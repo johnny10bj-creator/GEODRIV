@@ -1,11 +1,32 @@
-# Cloudflare 迁移指南
+# GEODRIV 部署指南
 
-## 前置条件
+## 第一步：GitHub Pages（已自动部署）
 
-1. 已有 Cloudflare 账号？ ➔ 登录 https://dash.cloudflare.com
-2. 无账号 ➔ 注册（免费，5min）
+GitHub Actions workflow 已配置（`.github/workflows/deploy.yml`）。
 
-## Step 1: 创建 Cloudflare Pages 项目
+**Git push 到 main 分支后，GitHub Actions 会自动：**
+1. 检出代码
+2. 打包为 Pages artifact（纯静态，无构建步骤）
+3. 部署到 GitHub Pages（`johnny10bj-creator.github.io/GEODRIV/`）
+4. CNAME 文件会绑定 `ci.geodriv.com` 自定义域名
+
+## 第二步：在 GitHub 设置中启用 Pages
+
+> 如果 GitHub Pages 尚未为此仓库启用，手动操作一次（< 1分钟）：
+> 1. 打开 https://github.com/johnny10bj-creator/GEODRIV/settings/pages
+> 2. Source → **GitHub Actions**
+> 3. Custom domain → 输入 `ci.geodriv.com` → Save
+> 4. 等待 DNS 校验通过（勾选 Enforce HTTPS）
+
+> ⚠️ 如果你已在此仓库的 Settings > Pages 中配置了自定义域名，则不需要再操作。
+
+## 第三步：Cloudflare 前置 CDN（可选，但推荐）
+
+将 GitHub Pages 作为源站，Cloudflare 作为 CDN/DNS 前置。这层做两件事：
+- **CDN 加速 + SSL**
+- **Workers API 代理**（`/feiye/api/dify/*` 和 `/aerospace/api/*`）
+
+### 3.1 创建 Cloudflare Pages 项目
 
 1. 登录 Cloudflare Dashboard → **Workers & Pages** → **Pages** → **Connect to Git**
 2. 点击 **Connect to GitHub**
@@ -19,7 +40,7 @@
 5. 点击 **Save and Deploy**
 6. 等待部署完成 → 会得到一个 `<project>.pages.dev` 地址
 
-## Step 2: 创建 Workers（API 代理）
+### 3.2 创建 Workers（API 代理）
 
 创建两个 Workers，代码已在本仓库 `workers/` 目录下
 
@@ -40,13 +61,13 @@
 2. 添加路由：`ci.geodriv.com/feiye/api/dify/*` → Worker: `feiye-api` → 保存
 3. 添加路由：`ci.geodriv.com/aerospace/api/*` → Worker: `aerospace-api` → 保存
 
-## Step 3: 配置自定义域名
+### 3.3 配置自定义域名
 
 1. Cloudflare Dashboard → **Workers & Pages** → **Pages** → **geodriv-ci**
 2. **Custom domains** → **Set up custom domain**
 3. 输入 `ci.geodriv.com` → **Continue** → **Activate domain**
 
-## Step 4: 迁移 DNS
+### 3.4 迁移 DNS
 
 1. Cloudflare Dashboard → 上方切换域名 → **Add site**
 2. 输入 `ci.geodriv.com` → **Add site**
@@ -78,7 +99,7 @@ A       @               (旧服务器IP — 迁移后可删除)
 
 > 全球 DNS 生效需要 **5 min – 24h**（通常 <30min）
 
-## Step 5: 验证
+### 3.5 验证
 
 部署完成后测试：
 
