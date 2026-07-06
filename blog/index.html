@@ -191,12 +191,13 @@
             border-radius: var(--r-lg);
             padding: var(--ds-32);
             margin-bottom: var(--ds-24);
-            transition: border-color 0.2s, transform 0.15s;
+            transition: all 0.2s ease;
             cursor: default;
         }
         .article-card:hover {
             border-color: var(--border-strong);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.08);
         }
         .article-card a {
             text-decoration: none;
@@ -222,11 +223,11 @@
         }
         .article-card h2 {
             font-family: "Lexend", sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.015em;
             line-height: 1.3;
-            margin-bottom: var(--ds-8);
+            margin-bottom: var(--ds-12);
             color: var(--text-primary);
             transition: color 0.2s;
         }
