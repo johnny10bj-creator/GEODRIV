@@ -150,6 +150,19 @@
             transition: color 0.35s;
         }
 
+        .nav-links {
+            display: flex; align-items: center; gap: var(--ds-20);
+        }
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            letter-spacing: 0.01em;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active-link { color: var(--text-primary); }
         .nav-actions {
             display: flex; align-items: center; gap: var(--ds-12);
         }
@@ -856,6 +869,9 @@
                 GEODRIV <span style="color:var(--text-muted);font-weight:400;margin:0 2px;">|</span> CI
             </a>
             <div class="nav-actions">
+                <div class="nav-links">
+                    <a href="https://ci.geodriv.com/blog" class="active-link"><span class="en-text">Insights</span><span class="zh-text" style="display:none;">洞察</span></a>
+                </div>
                 <button class="lang-btn" type="button" onclick="toggleLanguage()" aria-label="Switch language">中文</button>
                 <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">🌙</button>
             </div>
