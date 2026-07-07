@@ -8,7 +8,7 @@
 <meta property="og:description" content="The difference between a CI dashboard and a CI system.">
 <meta property="og:type" content="article">
 <link rel="canonical" href="https://ci.geodriv.com/blog/ci-software-vs-consultant/">
-<title>Your CI Software Is Feeding You Noise — GEODRIV</title>
+<title><span class="en-text">Your CI Software Is Feeding You Noise — GEODRIV</span><span class="zh-text" style="display:none;">你的竞品软件正在投喂噪音 — GEODRIV</span></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -30,6 +30,8 @@ body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--tex
 .nav-actions{display:flex;align-items:center;gap:var(--ds-12)}
 .theme-btn{background:none;color:var(--text2);border:.5px solid var(--border);padding:8px 12px;border-radius:var(--r-md);cursor:pointer;font-size:1rem;transition:all .2s}
 .theme-btn:hover{color:var(--text);border-color:var(--text3);background:var(--bg-card)}
+.lang-btn{background:none;color:var(--accent);border:.5px solid var(--border);padding:8px 12px;border-radius:var(--r-md);cursor:pointer;font-size:.8125rem;font-weight:500;transition:all .2s}
+.lang-btn:hover{color:var(--text);border-color:var(--text3);background:var(--bg-card)}
 .article{max-width:680px;margin:0 auto;padding:120px var(--ds-32) var(--ds-64)}
 .meta{font-size:.8125rem;color:var(--text3);margin-bottom:var(--ds-24);display:flex;gap:var(--ds-12)}
 .tag{background:rgba(26,111,181,.10);color:var(--accent);padding:2px 10px;border-radius:4px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
@@ -101,70 +103,71 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 </head>
 <body>
 <nav class="nav"><div class="nav-inner">
-<a href="https://ci.geodriv.com" class="nav-logo">GEODRIV <span style="color:var(--text3);font-weight:400;margin:0 2px;">|</span> CI</a>
+<a href="https://ci.geodriv.com" class="nav-logo"><span class="en-text">GEODRIV <span style="color:var(--text3);font-weight:400;margin:0 2px;">|</span> CI</span><span class="zh-text" style="display:none;">GEODRIV <span style="color:var(--text3);font-weight:400;margin:0 2px;">|</span> 竞情</span></a>
 <div class="nav-actions">
-<div class="nav-links"><a href="https://ci.geodriv.com">Home</a><a href="https://ci.geodriv.com/blog">Insights</a></div>
+<div class="nav-links"><a href="https://ci.geodriv.com"><span class="en-text">Home</span><span class="zh-text" style="display:none;">首页</span></a><a href="https://ci.geodriv.com/blog"><span class="en-text">Insights</span><span class="zh-text" style="display:none;">洞察</span></a></div>
 <button class="lang-btn" onclick="toggleLanguage()">中文</button><button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
 </div>
 </div></nav>
 
 <article class="article">
-<div class="meta"><span>2026-07-06</span><span class="tag">Perspective</span><span>3 min read</span></div>
+<div class="meta"><span>2026-07-06</span><span class="tag"><span class="en-text">Perspective</span><span class="zh-text" style="display:none;">观点</span></span><span><span class="en-text">3 min read</span><span class="zh-text" style="display:none;">3分钟阅读</span></span></div>
 
-<h1>Your CI Software Is Feeding You Noise</h1>
-<p class="deck">A dashboard full of alerts isn't intelligence. It's a distraction with a subscription fee.</p>
+<h1><span class="en-text">Your CI Software Is Feeding You Noise</span><span class="zh-text" style="display:none;">你的竞品软件正在投喂噪音</span></h1>
+<p class="deck"><span class="en-text">A dashboard full of alerts isn't intelligence. It's a distraction with a subscription fee.</span><span class="zh-text" style="display:none;">满屏预警的仪表盘不是情报，是付费的噪音。</span></p>
 
 <div class="box">
-<strong>The problem:</strong> CI software platforms (Crayon, Klue, Contify) are built for SaaS companies tracking feature releases and pricing pages. If you're in manufacturing — where the real competitive signals are patent filings, certification changes, and tender wins — these tools are watching the wrong game.
+<strong><span class="en-text">The problem:</span><span class="zh-text" style="display:none;">问题所在：</span></strong><span class="en-text"> CI software platforms (Crayon, Klue, Contify) are built for SaaS companies tracking feature releases and pricing pages. If you're in manufacturing — where the real competitive signals are patent filings, certification changes, and tender wins — these tools are watching the wrong game.</span><span class="zh-text" style="display:none;">CI 软件平台（Crayon、Klue、Contify）是为 SaaS 公司追踪功能发布和定价页面而设计的。如果你身处制造业——真正的竞争信号是专利申请、资质变更和中标信息——这些工具盯错了赛场。</span>
 </div>
 
-<p>Here's what you get from a typical CI SaaS platform:</p>
+<p><span class="en-text">Here's what you get from a typical CI SaaS platform:</span><span class="zh-text" style="display:none;">典型 CI SaaS 平台会给你什么：</span></p>
 <ul>
-<li>A competitor changed their pricing page → <strong>alert</strong></li>
-<li>Someone mentioned your brand on G2 → <strong>alert</strong></li>
-<li>A LinkedIn post from a competitor's marketing team → <strong>alert</strong></li>
+<li><span class="en-text">A competitor changed their pricing page → <strong>alert</strong></span><span class="zh-text" style="display:none;">竞争对手改了定价页面 → <strong>预警</strong></span></li>
+<li><span class="en-text">Someone mentioned your brand on G2 → <strong>alert</strong></span><span class="zh-text" style="display:none;">有人在 G2 上提到你的品牌 → <strong>预警</strong></span></li>
+<li><span class="en-text">A LinkedIn post from a competitor's marketing team → <strong>alert</strong></span><span class="zh-text" style="display:none;">竞争对手市场团队发了一条 LinkedIn → <strong>预警</strong></span></li>
 </ul>
 
-<p>Volume: high. Signal: near zero.</p>
+<p><strong><span class="en-text">Volume:</span><span class="zh-text" style="display:none;">数量：</span></strong><span class="en-text"> high. </span><strong><span class="en-text">Signal:</span><span class="zh-text" style="display:none;">信号：</span></strong><span class="en-text"> near zero.</span><span class="zh-text" style="display:none;">极高。近乎为零。</span></p>
 
-<p>Now here's what a <strong>CI system built for your industry</strong> catches — the kind a consultant designs, not a dashboard:</p>
+<p><span class="en-text">Now here's what a <strong>CI system built for your industry</strong> catches — the kind a consultant designs, not a dashboard:</span><span class="zh-text" style="display:none;">而一个<strong>为你行业构建的 CI 系统</strong>所捕捉的是什么——咨询顾问设计的那种，不是仪表盘：</span></p>
 
 <ul>
-<li>A competitor just filed three patents for conformal coating automation. <strong>That changes your cost equation in 12 months.</strong></li>
-<li>Two of your top five competitors added ISO 13485 certification last quarter. <strong>They're coming for your medical device segment.</strong></li>
-<li>A German firm you've never bid against is hiring process engineers in Shanghai. <strong>They'll be in your RFQ inbox by Q3.</strong></li>
+<li><span class="en-text">A competitor just filed three patents for conformal coating automation. <strong>That changes your cost equation in 12 months.</strong></span><span class="zh-text" style="display:none;">某竞争对手刚刚提交了三项共形涂覆自动化专利。<strong>这将在 12 个月内改变你的成本格局。</strong></span></li>
+<li><span class="en-text">Two of your top five competitors added ISO 13485 certification last quarter. <strong>They're coming for your medical device segment.</strong></span><span class="zh-text" style="display:none;">你的五大竞争对手中有两家在上季度新增了 ISO 13485 认证。<strong>他们正在瞄准你的医疗器械市场。</strong></span></li>
+<li><span class="en-text">A German firm you've never bid against is hiring process engineers in Shanghai. <strong>They'll be in your RFQ inbox by Q3.</strong></span><span class="zh-text" style="display:none;">一家你从未遭遇过的德国公司正在上海招聘工艺工程师。<strong>他们将在三季度出现在你的询价邮箱里。</strong></span></li>
 </ul>
 
-<p>SaaS tools give you <strong>data points</strong>. A CI system — the kind a specialist designs around your specific competitive landscape — gives you <strong>decisions</strong>.</p>
+<p><span class="en-text">SaaS tools give you <strong>data points</strong>. A CI system — the kind a specialist designs around your specific competitive landscape — gives you <strong>decisions</strong>.</span><span class="zh-text" style="display:none;">SaaS 工具给你的是<strong>数据点</strong>。一个 CI 系统——由专家围绕你特定的竞争格局设计的那种——给你的是<strong>决策</strong>。</span></p>
 
-<p>The difference isn't the technology. It's the <strong>signal model</strong>. Software applies the same scraping logic to every customer. A consultant builds a model that knows what matters in <em>your</em> industry, <em>your</em> region, <em>your</em> competitive dynamics.</p>
+<p><span class="en-text">The difference isn't the technology. It's the <strong>signal model</strong>. Software applies the same scraping logic to every customer. A consultant builds a model that knows what matters in <em>your</em> industry, <em>your</em> region, <em>your</em> competitive dynamics.</span><span class="zh-text" style="display:none;">区别不在于技术。在于<strong>信号模型</strong>。软件对所有客户使用同一种抓取逻辑。咨询顾问构建的模型知道什么在<em>你的</em>行业、<em>你的</em>地区、<em>你的</em>竞争动态中真正重要。</span></p>
 
-<p><strong>When software is enough:</strong> you sell B2B SaaS. Your competitors are 5-10 named companies. They move on feature releases and pricing pages. Crayon/Klue were literally built for you.</p>
+<p><strong><span class="en-text">When software is enough:</span><span class="zh-text" style="display:none;">什么时候软件就足够了：</span></strong><span class="en-text"> you sell B2B SaaS. Your competitors are 5–10 named companies. They move on feature releases and pricing pages. Crayon/Klue were literally built for you.</span><span class="zh-text" style="display:none;">你销售 B2B SaaS。你的竞争对手是 5–10 家知名公司。他们在功能发布和定价页面上动作。Crayon/Klue 就是为你而生的。</span></p>
 
-<p><strong>When you need a system:</strong> you're in manufacturing, industrial automation, medical devices, or aerospace supply chain. Your competition shifts quarterly. The signals that matter aren't on G2 — they're in patent databases, certification registries, and tender platforms.</p>
+<p><strong><span class="en-text">When you need a system:</span><span class="zh-text" style="display:none;">什么时候你需要一个系统：</span></strong><span class="en-text"> you're in manufacturing, industrial automation, medical devices, or aerospace supply chain. Your competition shifts quarterly. The signals that matter aren't on G2 — they're in patent databases, certification registries, and tender platforms.</span><span class="zh-text" style="display:none;">你在制造业、工业自动化、医疗器械或航空航天供应链中。你的竞争格局每季度都在变化。重要的信号不在 G2 上——它们在专利数据库、资质注册系统和招标平台里。</span></p>
 
-<p>Software gives you a dashboard. A CI system gives you a thesis about where your market is going. <strong>Buy the dashboard if you need alerts. Build the system if you need to make decisions.</strong></p>
+<p><span class="en-text">Software gives you a dashboard. A CI system gives you a thesis about where your market is going. <strong>Buy the dashboard if you need alerts. Build the system if you need to make decisions.</strong></span><span class="zh-text" style="display:none;">软件给你一个仪表盘。CI 系统给你一份关于市场走向的判断。<strong>需要预警就买仪表盘。需要决策就建系统。</strong></span></p>
 
 <div class="author">
 <div class="author-avatar">JS</div>
 <div>
-<h4>Baojun Shi</h4>
-<p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/" style="color:var(--accent);text-decoration:none;">LinkedIn →</a></p>
+<h4><span class="en-text">Baojun Shi</span><span class="zh-text" style="display:none;">石宝军</span></h4>
+<p><span class="en-text">Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/" style="color:var(--accent);text-decoration:none;">LinkedIn →</a></span><span class="zh-text" style="display:none;">GEODRIV 科技创始人。15 年以上制造业情报经验。MBA 项目管理专家。<a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/" style="color:var(--accent);text-decoration:none;">领英 →</a></span></p>
 </div>
 </div>
 
 <div class="cta">
-<h3>Your competitive landscape deserves a system, not a dashboard.</h3>
-<p>Let's build one.</p>
-<a href="https://ci.geodriv.com" class="cta-btn">Get in touch</a>
+<h3><span class="en-text">Your competitive landscape deserves a system, not a dashboard.</span><span class="zh-text" style="display:none;">你的竞争格局值得一个系统，而非一个仪表盘。</span></h3>
+<p><span class="en-text">Let's build one.</span><span class="zh-text" style="display:none;">让我们一起来构建。</span></p>
+<a href="https://ci.geodriv.com" class="cta-btn"><span class="en-text">Get in touch</span><span class="zh-text" style="display:none;">联系我们</span></a>
 </div>
 </article>
 
-<footer>© 2026 GEODRIV Technology</footer>
+<footer><span class="en-text">© 2026 GEODRIV Technology</span><span class="zh-text" style="display:none;">© 2026 GEODRIV 科技</span></footer>
 
 <script>
 var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';
 function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}
+function toggleLanguage(){var e=document.querySelectorAll('.en-text,.zh-text'),s=document.querySelector('.lang-btn');e.forEach(function(n){n.classList.contains('en-text')?n.style.display=n.style.display==='none'?'':'none':n.style.display=n.style.display==='none'?'none':''});var c=s.textContent.trim();s.textContent=c==='中文'?'English':'中文'}
 </script>
 </body>
 </html>
