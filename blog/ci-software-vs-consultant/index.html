@@ -53,6 +53,18 @@ body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--tex
 .cta-btn{display:inline-flex;padding:13px 36px;background:linear-gradient(135deg,#1a6fb5,#2383d4);color:#fff;text-decoration:none;border-radius:var(--r-md);font-size:.9375rem;font-weight:500;font-family:inherit;transition:all 0.15s;box-shadow:0 2px 8px rgba(26,111,181,0.2)}.cta-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,111,181,0.3)}
 .cta-btn:hover{background:#2b8fd4}
 footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid var(--border);color:var(--text3);font-size:.8125rem}
+/* ── Modal ── */
+.modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);overflow-y:auto;padding:var(--ds-24)}
+.modal-content{background:var(--bg-card);max-width:560px;margin:60px auto;border-radius:var(--r-lg);padding:var(--ds-40) var(--ds-32);border:1px solid var(--border);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--ds-24)}.modal-header h2{font-family:"Lexend",sans-serif;font-size:1.35rem;font-weight:600}
+.close{font-size:1.5rem;color:var(--text3);cursor:pointer;padding:0 4px}.close:hover{color:var(--text)}
+.form-group{margin-bottom:var(--ds-18)}.form-group label{display:block;font-size:.8125rem;font-weight:500;color:var(--text2);margin-bottom:4px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--ds-16)}@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg);color:var(--text);font-size:.9375rem;font-family:inherit;transition:border-color .2s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent)}
+.form-group textarea{resize:vertical;min-height:100px}
+.submit-btn{width:100%;padding:14px;background:linear-gradient(135deg,#1a6fb5,#2383d4);color:#fff;border:none;border-radius:var(--r-md);font-size:1rem;font-weight:500;cursor:pointer;font-family:inherit;transition:filter .15s}.submit-btn:hover{filter:brightness(1.1)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.modal-content{animation:fadeIn .2s ease}
 @media(max-width:768px){.article{padding:100px var(--ds-16) var(--ds-40)}.nav-inner{padding:0 var(--ds-16)}.nav-links{gap:var(--ds-12)}}
 </style>
     <script type="application/ld+json">
@@ -158,15 +170,84 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 <div class="cta">
 <h3><span class="en-text">Your competitive landscape deserves a system, not a dashboard.</span><span class="zh-text" style="display:none;">你的竞争格局值得一个系统，而非一个仪表盘。</span></h3>
 <p><span class="en-text">Let's build one.</span><span class="zh-text" style="display:none;">让我们一起来构建。</span></p>
-<a href="https://ci.geodriv.com" class="cta-btn"><span class="en-text">Get in touch</span><span class="zh-text" style="display:none;">联系我们</span></a>
+<a href="#" onclick="openModal();return false" class="cta-btn"><span class="en-text">Get in touch</span><span class="zh-text" style="display:none;">联系我们</span></a>
 </div>
 </article>
+
+<!-- ── Contact Modal ── -->
+<div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-label="Contact form">
+<div class="modal-content">
+<div class="modal-header">
+<h2><span class="en-text">Get in touch</span><span class="zh-text" style="display:none;">联系我们</span></h2>
+<span class="close" tabindex="0" role="button" aria-label="Close" onclick="closeModal()" onkeydown="if(event.key==='Enter')closeModal()">×</span>
+</div>
+<form id="contactForm" onsubmit="submitForm(event)">
+<div class="form-row">
+<div class="form-group">
+<label class="en-text" for="name">Name *</label><label class="zh-text" style="display:none;" for="name">姓名 *</label>
+<input type="text" id="name" name="name" required>
+</div>
+<div class="form-group">
+<label class="en-text" for="company">Company</label><label class="zh-text" style="display:none;" for="company">公司</label>
+<input type="text" id="company" name="company">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label class="en-text" for="email">Email *</label><label class="zh-text" style="display:none;" for="email">邮箱 *</label>
+<input type="email" id="email" name="email" required>
+</div>
+<div class="form-group">
+<label class="en-text" for="phone">Phone</label><label class="zh-text" style="display:none;" for="phone">电话</label>
+<input type="tel" id="phone" name="phone">
+</div>
+</div>
+<div class="form-group">
+<label class="en-text" for="industry">Industry *</label><label class="zh-text" style="display:none;" for="industry">行业 *</label>
+<select id="industry" name="industry" required>
+<option value="" class="en-text">Select industry…</option>
+<option value="manufacturing" class="en-text">Manufacturing</option>
+<option value="technology" class="en-text">Technology</option>
+<option value="automotive" class="en-text">Automotive</option>
+<option value="aerospace" class="en-text">Aerospace</option>
+<option value="healthcare" class="en-text">Healthcare</option>
+<option value="finance" class="en-text">Finance</option>
+<option value="retail" class="en-text">Retail</option>
+<option value="other" class="en-text">Other</option>
+<option value="" class="zh-text" style="display:none;">选择行业…</option>
+<option value="manufacturing" class="zh-text" style="display:none;">制造业</option>
+<option value="technology" class="zh-text" style="display:none;">科技</option>
+<option value="automotive" class="zh-text" style="display:none;">汽车</option>
+<option value="aerospace" class="zh-text" style="display:none;">航空航天</option>
+<option value="healthcare" class="zh-text" style="display:none;">医疗健康</option>
+<option value="finance" class="zh-text" style="display:none;">金融</option>
+<option value="retail" class="zh-text" style="display:none;">零售</option>
+<option value="other" class="zh-text" style="display:none;">其他</option>
+</select>
+</div>
+<div class="form-group">
+<label class="en-text" for="message">Message *</label><label class="zh-text" style="display:none;" for="message">需求描述 *</label>
+<textarea id="message" name="message" required placeholder="Tell us about your requirements…"></textarea>
+</div>
+<button type="submit" class="submit-btn en-text">Send Message</button>
+<button type="submit" class="submit-btn zh-text" style="display:none;">发送留言</button>
+</form>
+</div>
+</div>
 
 <footer><span class="en-text">© 2026 GEODRIV Technology</span><span class="zh-text" style="display:none;">© 2026 GEODRIV 科技</span></footer>
 
 <script>
 var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';
 function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}
-var lang=localStorage.getItem("geodriv-lang")||"en";function applyLanguage(){var enTexts=document.querySelectorAll(".en-text");var zhTexts=document.querySelectorAll(".zh-text");var langBtn=document.querySelector(".lang-btn");if(lang==="zh"){enTexts.forEach(function(el){el.style.display="none"});zhTexts.forEach(function(el){el.style.display=""});langBtn.textContent="EN"}else{enTexts.forEach(function(el){el.style.display=""});zhTexts.forEach(function(el){el.style.display="none"});langBtn.textContent="中文"}}function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);applyLanguage()}applyLanguage();</script>
+var lang=localStorage.getItem("geodriv-lang")||"en";function applyLanguage(){var enTexts=document.querySelectorAll(".en-text");var zhTexts=document.querySelectorAll(".zh-text");var langBtn=document.querySelector(".lang-btn");if(lang==="zh"){enTexts.forEach(function(el){el.style.display="none"});zhTexts.forEach(function(el){el.style.display=""});langBtn.textContent="EN"}else{enTexts.forEach(function(el){el.style.display=""});zhTexts.forEach(function(el){el.style.display="none"});langBtn.textContent="中文"}}function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);applyLanguage()}applyLanguage();
+
+/* ── Modal ── */
+var lastFocused=null;
+function openModal(){var m=document.getElementById("contactModal");lastFocused=document.activeElement;m.style.display="block";m.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";setTimeout(function(){document.getElementById("name").focus()},60)}
+function closeModal(){var m=document.getElementById("contactModal");m.style.display="none";m.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lastFocused)lastFocused.focus()}
+window.addEventListener("click",function(e){if(e.target===document.getElementById("contactModal"))closeModal()});
+window.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
+function submitForm(e){e.preventDefault();var name=document.getElementById("name").value;var company=document.getElementById("company").value;var email=document.getElementById("email").value;var phone=document.getElementById("phone").value;var industry=document.getElementById("industry").value;var message=document.getElementById("message").value;var body="Name: "+name+"\nCompany: "+company+"\nEmail: "+email+"\nPhone: "+phone+"\nIndustry: "+industry+"\n\nMessage:\n"+message;window.location.href="mailto:ci@geodriv.com?subject="+encodeURIComponent("CI Inquiry — "+name)+"&body="+encodeURIComponent(body);setTimeout(function(){alert(lang==="zh"?"感谢您的留言！邮件客户端将打开以发送您的咨询。":"Thank you! The email client will open to send your inquiry.");document.getElementById("contactForm").reset();closeModal()},400)}</script>
 </body>
 </html>
