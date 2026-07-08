@@ -457,20 +457,21 @@
               slug: "outsource-vs-inhouse-ci" }
         ];
 
-        function renderArticles() {
+                function renderArticles() {
             var container = document.getElementById('articleList');
             var emptyState = document.getElementById('emptyState');
             if (articles.length === 0) return;
             container.innerHTML = '';
             if (emptyState) emptyState.style.display = 'none';
+            function esc(s) { return s.replace(/'/g, '&apos;'); }
             articles.forEach(function(a) {
                 var card = document.createElement('div');
                 card.className = 'article-card';
                 card.innerHTML =
                     '<div class="article-meta"><span>' + a.date + '</span><span class="tag">' + a.tag + '</span><span>' + a.minRead + ' min read</span></div>' +
-                    '<a href="/blog/' + a.slug + '/'"><h2><span class="en-text">' + a.title.en + '</span><span class="zh-text" style="display:none;">' + a.title.zh + '</span></h2>' +
-                    '<p class="excerpt"><span class="en-text">' + a.excerpt.en + '</span><span class="zh-text" style="display:none;">' + a.excerpt.zh + '</span></p>' +
-                    '<span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
+                    '<a href="/blog/' + a.slug + '/"><h2><span class="en-text">' + esc(a.title.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.title.zh) + '</span></h2></a>' +
+                    '<p class="excerpt"><span class="en-text">' + esc(a.excerpt.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.excerpt.zh) + '</span></p>' +
+                    '<a href="/blog/' + a.slug + '/"><span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
                 container.appendChild(card);
             });
         }
