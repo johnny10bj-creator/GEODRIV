@@ -452,7 +452,7 @@
                 card.className = 'article-card';
                 card.innerHTML =
                     '<div class="article-meta"><span>' + a.date + '</span><span class="tag">' + a.tag + '</span><span>' + a.minRead + ' min read</span></div>' +
-                    '<a href="/blog/' + a.slug + '/"><h2><span class="en-text">' + a.title.en + '</span><span class="zh-text" style="display:none;">' + a.title.zh + '</span></h2>' +
+                    '<a href="/blog/' + a.slug + '/?lang=' + lang + '/'"><h2><span class="en-text">' + a.title.en + '</span><span class="zh-text" style="display:none;">' + a.title.zh + '</span></h2>' +
                     '<p class="excerpt"><span class="en-text">' + a.excerpt.en + '</span><span class="zh-text" style="display:none;">' + a.excerpt.zh + '</span></p>' +
                     '<span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
                 container.appendChild(card);
