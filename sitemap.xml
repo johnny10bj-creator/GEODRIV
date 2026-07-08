@@ -31,4 +31,25 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- ── Article: What Is GEODRIV ── -->
+  <url>
+    <loc>https://ci.geodriv.com/blog/what-is-geodriv-ci/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: Beyond Crayon and Klue ── -->
+  <url>
+    <loc>https://ci.geodriv.com/blog/alternatives-to-crayon-klue-manufacturing/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: How Reliable Is AI CI ── -->
+  <url>
+    <loc>https://ci.geodriv.com/blog/how-reliable-is-ai-ci/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
