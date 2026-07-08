@@ -431,6 +431,10 @@
 
         /* ── Auto-insert articles from data ── */
         var articles = [
+            { date: "2026-07-07", tag: "Industry", minRead: 4,
+              title: { en: "CI for High-Mix, Low-Volume Manufacturing", zh: "多品种小批量制造企业的竞争情报" },
+              excerpt: { en: "If your product mix changes every week, your CI should track capabilities, not products. The four-dimension framework for HMLV.", zh: "产品组合每周在变，CI 应该追踪能力而非产品。HMLV 制造企业的四维情报框架。" },
+              slug: "ci-for-hmlv-manufacturing" },
             { date: "2026-07-07", tag: "About", minRead: 3,
               title: { en: "What Is GEODRIV? AI-Powered CI for Manufacturing", zh: "什么是 GEODRIV？人工智能驱动的制造业竞争情报" },
               excerpt: { en: "GEODRIV builds custom CI systems for manufacturing — combining automated signal collection from 7+ channels with human analyst synthesis.", zh: "GEODRIV 为制造企业定制竞争情报系统，融合 7+ 数据通道的自动化采集与人工分析师深度研判。" },
@@ -441,7 +445,7 @@
               slug: "alternatives-to-crayon-klue-manufacturing" },
             { date: "2026-07-07", tag: "Methodology", minRead: 4,
               title: { en: "How Reliable Is AI-Generated Competitive Intelligence?", zh: "AI 生成的竞争情报有多可靠？" },
-              excerpt: { en: "A practical three-tier framework for manufacturing leaders to evaluate what to trust from AI — and what to escalate to human analysts.", zh: "一个三级可信度框架，帮助制造企业领导者判断 AI 情报的可靠性——以及何时需要人工分析。" },
+              excerpt: { en: "A practical three-tier framework for manufacturing leaders to evaluate what to trust from AI — and what to escalate to human analysts.", zh: "一个三级可信度框架，帮助制造企业领导者判断 AI 情报的可靠性。" },
               slug: "how-reliable-is-ai-ci" },
             { date: "2026-07-06", tag: "Perspective", minRead: 3,
               title: { en: "Your CI Software Is Feeding You Noise", zh: "你的 CI 软件只会制造噪音" },
@@ -464,7 +468,7 @@
                 card.className = 'article-card';
                 card.innerHTML =
                     '<div class="article-meta"><span>' + a.date + '</span><span class="tag">' + a.tag + '</span><span>' + a.minRead + ' min read</span></div>' +
-                    '<a href="/blog/' + a.slug + '/?lang=' + lang + '/'"><h2><span class="en-text">' + a.title.en + '</span><span class="zh-text" style="display:none;">' + a.title.zh + '</span></h2>' +
+                    '<a href="/blog/' + a.slug + '/'"><h2><span class="en-text">' + a.title.en + '</span><span class="zh-text" style="display:none;">' + a.title.zh + '</span></h2>' +
                     '<p class="excerpt"><span class="en-text">' + a.excerpt.en + '</span><span class="zh-text" style="display:none;">' + a.excerpt.zh + '</span></p>' +
                     '<span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
                 container.appendChild(card);

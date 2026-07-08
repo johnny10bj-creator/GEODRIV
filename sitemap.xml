@@ -52,4 +52,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- ── Article: HMLV CI ── -->
+  <url>
+    <loc>https://ci.geodriv.com/blog/ci-for-hmlv-manufacturing/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
