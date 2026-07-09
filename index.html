@@ -308,9 +308,39 @@
         }
 
         .hero-glow::before {
-            content: '';
-            position: absolute; inset: 60px; border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.06);
+          content: '';
+          position: absolute; inset: 60px; border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.10);
+        }
+
+        /* Radar scan element */
+        .hero-radar {
+          width: 240px;
+          height: 240px;
+          animation: radarFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes radarFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+
+        .radar-sweep {
+          animation: radarSpin 4s ease-in-out infinite;
+          transform-origin: 120px 120px;
+        }
+
+        .radar-sweep:last-child {
+          animation-delay: 2s;
+          animation-duration: 5s;
+        }
+
+        @keyframes radarSpin {
+          0% { opacity: 0; transform: rotate(0deg); }
+          10% { opacity: 1; }
+          40% { opacity: 1; }
+          50% { opacity: 0; transform: rotate(360deg); }
+          100% { opacity: 0; transform: rotate(360deg); }
         }
 
         .hero-badge {
@@ -862,6 +892,7 @@
             .hero-inner { flex-direction: column; gap: var(--ds-32); }
             .hero-visual { flex: 0 0 auto; height: 200px; }
             .hero-glow { width: 180px; height: 180px; margin: 0 auto; }
+            .hero-radar { width: 200px; height: 200px; }
             .hero-dots { width: 200px; height: 200px; right: 0; }
             .hero-stats { gap: var(--ds-24); flex-wrap: wrap; }
             .hero { padding: 120px var(--ds-24) 56px; }
@@ -941,7 +972,20 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-glow"></div>
+                <div class="hero-radar" aria-hidden="true">
+                    <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="120" cy="120" r="110" stroke="var(--brand-blue)" stroke-width="0.5" stroke-opacity="0.10" />
+                        <circle cx="120" cy="120" r="95" stroke="var(--brand-blue)" stroke-width="0.5" fill="none" stroke-dasharray="2 6" stroke-opacity="0.18" />
+                        <circle cx="120" cy="120" r="78" stroke="var(--brand-blue)" stroke-width="0.5" stroke-opacity="0.08" />
+                        <circle cx="120" cy="120" r="62" stroke="var(--brand-blue)" stroke-width="0.5" fill="none" stroke-dasharray="1 5" stroke-opacity="0.15" />
+                        <circle cx="120" cy="120" r="44" stroke="var(--brand-blue)" stroke-width="0.5" stroke-opacity="0.06" />
+                        <circle cx="120" cy="120" r="26" stroke="var(--brand-blue)" stroke-width="0.4" stroke-opacity="0.04" />
+                        <line x1="10" y1="120" x2="230" y2="120" stroke="var(--brand-blue)" stroke-width="0.4" stroke-opacity="0.05" />
+                        <line x1="120" y1="10" x2="120" y2="230" stroke="var(--brand-blue)" stroke-width="0.4" stroke-opacity="0.05" />
+                        <path class="radar-sweep" d="M120 120 L120 12" stroke="var(--brand-blue)" stroke-width="0.8" stroke-opacity="0.15" />
+                        <path class="radar-sweep" d="M120 120 L228 120" stroke="var(--brand-blue)" stroke-width="0.6" stroke-opacity="0.08" />
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
@@ -1142,7 +1186,7 @@
     <footer class="footer">
         <p>&copy; 2026 GEODRIV. All rights reserved.</p>
         <p>爵领科技 &nbsp;|&nbsp; GEODRIV TECHNOLOGY</p>
-        <p style="margin-top:8px;font-size:0.8rem;"><a href="https://geolyxtech.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;opacity:0.6;">Industrial delivery by GEOLYX INDUSTRIALS →</a></p>
+        <p style="margin-top:8px;font-size:0.8rem;"><a href="https://geolyxtech.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Industrial delivery by GEOLYX INDUSTRIALS →</a></p>
     </footer>
 
     <script>
