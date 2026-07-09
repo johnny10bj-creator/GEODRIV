@@ -600,57 +600,182 @@
         applyLanguage();
 
         /* ── Auto-insert articles from data ── */
-        var articles = [            { date: "2026-07-06", tag: "Strategy", minRead: 4,
-              title: { en: "The Real Cost of Building an In-House CI Team", zh: "自建竞情团队的真实成本" },
-              excerpt: { en: "Most mid-market manufacturers spend $200K+ on an internal CI function that delivers less than a $3K/month outsourced system. Here's the math.", zh: "多数中型制造企业每年投入20万美元以上自建竞争情报职能，实际产出不及每月3000美元的外包竞情系统。" },
-              slug: "outsource-vs-inhouse-ci" },            { date: "2026-07", tag: "Methodology", minRead: 4,
+        var articles = [            { date: "2026-07-09", tag: "Methodology", minRead: 4,
               title: { en: "CI for M&A in Manufacturing", zh: "制造业并购中的竞争情报" },
               excerpt: { en: "CI supports M&A target identification, due diligence, and integration planning.", zh: "竞争情报支持并购目标识别、尽职调查和整合规划。" },
               slug: "ci-for-ma-manufacturing" },
-            { date: "2026-07", tag: "Playbook", minRead: 5,
+            { date: "2026-07-09", tag: "Playbook", minRead: 5,
               title: { en: "CI for Manufacturing Sectors", zh: "制造业细分领域的竞争情报" },
               excerpt: { en: "Aerospace, med device, automotive, and industrial automation each demand a different CI approach.", zh: "航空航天、医疗器械、汽车和工业自动化各自需要不同的竞情方法。" },
               slug: "ci-for-manufacturing-sectors" },
-            { date: "2026-07", tag: "Methodology", minRead: 4,
+            { date: "2026-07-09", tag: "Methodology", minRead: 4,
               title: { en: "Patent Intelligence as Early Warning", zh: "专利情报作为早期预警" },
               excerpt: { en: "Patent filings reveal competitor strategy 12-24 months before any product launch.", zh: "专利文件在产品发布前12-24个月揭示竞争对手战略。" },
               slug: "patent-intelligence-early-warning" },
-            { date: "2026-07", tag: "Strategy", minRead: 4,
+            { date: "2026-07-09", tag: "Strategy", minRead: 4,
               title: { en: "How to Use CI for Pricing Strategy", zh: "如何利用竞争情报制定定价策略" },
               excerpt: { en: "Manufacturers who use CI to guide pricing consistently outperform peers.", zh: "利用竞争情报指导定价的制造商持续优于同行。" },
-              slug: "ci-for-pricing-strategy" },            { date: "2026-07", tag: "Guide", minRead: 5,
+              slug: "ci-for-pricing-strategy" },            { date: "2026-07-07", tag: "Guide", minRead: 5,
               title: { en: "CI Consulting: Cost and How to Choose the Right Partner", zh: "竞情咨询：成本与如何选择合适合作伙伴" },
               excerpt: { en: "Transparent guide to CI consulting costs ($3K-$15K/month) and four questions to ask any provider before signing.", zh: "竞情咨询成本透明指南（$3K-$15K/月），以及签约前该问合作方的四个问题。" },
               slug: "ci-consulting-cost-guide" },
-            { date: "2026-07", tag: "Methodology", minRead: 4,
+            { date: "2026-07-07", tag: "Methodology", minRead: 4,
               title: { en: "How to Benchmark and Teardown a Manufacturing Competitor", zh: "如何对标和拆解制造业竞争对手" },
               excerpt: { en: "A systematic framework for dissecting a competitor's capabilities, position, and trajectory — based on external, verifiable signals.", zh: "一套系统框架，基于外部可验证信号，剖析竞争对手的能力、定位和发展轨迹。" },
               slug: "competitor-benchmark-teardown" },
-            { date: "2026-07", tag: "Playbook", minRead: 5,
+            { date: "2026-07-07", tag: "Playbook", minRead: 5,
               title: { en: "How to Do Competitive Intelligence in Manufacturing", zh: "如何在制造业开展竞争情报工作" },
               excerpt: { en: "A four-phase playbook: define questions, map sources, cross-reference signals, deliver for decisions.", zh: "四阶段行动指南：定义问题、映射来源、交叉验证信号、为决策交付。" },
               slug: "how-to-do-ci-in-manufacturing" },
-            { date: "2026-07", tag: "Strategy", minRead: 4,
+            { date: "2026-07-07", tag: "Strategy", minRead: 4,
               title: { en: "Track Competitors Without a Big Team", zh: "无需大团队追踪竞争对手" },
               excerpt: { en: "Mid-market manufacturers need CI but lack headcount. Outsourcing provides insights at a fraction of the cost.", zh: "中型制造企业需要竞争情报但缺乏人员预算。外包以更低成本提供战略洞察。" },
               slug: "track-competitors-without-a-big-team" },
-            { date: "2026-07", tag: "Industry", minRead: 4,
+            { date: "2026-07-07", tag: "Industry", minRead: 4,
               title: { en: "CI for High-Mix, Low-Volume Manufacturing", zh: "多品种小批量制造企业的竞争情报" },
               excerpt: { en: "If your product mix changes every week, your CI should track capabilities, not products. The four-dimension framework for HMLV.", zh: "产品组合每周在变，CI 应该追踪能力而非产品。HMLV 制造企业的四维情报框架。" },
               slug: "ci-for-hmlv-manufacturing" },
-            { date: "2026-07", tag: "About", minRead: 3,
+            { date: "2026-07-07", tag: "About", minRead: 3,
               title: { en: "What Is GEODRIV? AI-Powered CI for Manufacturing", zh: "什么是 GEODRIV？人工智能驱动的制造业竞争情报" },
               excerpt: { en: "GEODRIV builds custom CI systems for manufacturing — combining automated signal collection from 7+ channels with human analyst synthesis.", zh: "GEODRIV 为制造企业定制竞争情报系统，融合 7+ 数据通道的自动化采集与人工分析师深度研判。" },
               slug: "what-is-geodriv-ci" },
-            { date: "2026-07", tag: "Perspective", minRead: 3,
+            { date: "2026-07-07", tag: "Perspective", minRead: 3,
               title: { en: "Beyond Crayon and Klue: CI for Manufacturing", zh: "超越 Crayon 和 Klue：制造业的竞争情报工具" },
               excerpt: { en: "Crayon, Klue, and Contify were built for SaaS. Manufacturing needs a fundamentally different approach to competitive intelligence.", zh: "Crayon、Klue、Contify 是为 SaaS 设计的。制造业需要完全不同的竞争情报方法。" },
               slug: "alternatives-to-crayon-klue-manufacturing" },
-            { date: "2026-07", tag: "Methodology", minRead: 4,
+            { date: "2026-07-07", tag: "Methodology", minRead: 4,
               title: { en: "How Reliable Is AI-Generated Competitive Intelligence?", zh: "AI 生成的竞争情报有多可靠？" },
               excerpt: { en: "A practical three-tier framework for manufacturing leaders to evaluate what to trust from AI — and what to escalate to human analysts.", zh: "一个三级可信度框架，帮助制造企业领导者判断 AI 情报的可靠性。" },
               slug: "how-reliable-is-ai-ci" },
-            { date: "2026-07", tag: "Perspective", minRead: 3,
+            { date: "2026-07-06", tag: "Perspective", minRead: 3,
               title: { en: "Your CI Software Is Feeding You Noise", zh: "你的 CI 软件只会制造噪音" },
               excerpt: { en: "A dashboard full of alerts isn't intelligence. It's a distraction with a subscription fee. Here's the difference between a CI tool and a CI system.", zh: "满屏的警报不是情报，是带订阅费的噪音。CI 软件和 CI 系统的真正区别。" },
               slug: "ci-software-vs-consultant" },
+            { date: "2026-07-06", tag: "Strategy", minRead: 4,
+              title: { en: "The Real Cost of Building an In-House CI Team", zh: "自建竞争情报团队的真正成本" },
+              excerpt: { en: "Most mid-market manufacturers spend $200K+ on an internal CI function that delivers less than a $3K/month outsourced system. Here's the math.", zh: "大多数中型制造企业每年花 20 万美元以上建内部 CI 团队，产出却不如每月 3000 美元的外包系统。" },
+              slug: "outsource-vs-inhouse-ci" }
+        ];
+
+                /* ── Build tag filter buttons ── */
+                (function() {
+                    var tags = {};
+                    articles.forEach(function(a) {
+                        var t = a.tag;
+                        if (!tags[t]) tags[t] = 0;
+                        tags[t]++;
+                    });
+                    var filterBar = document.getElementById('tagFilters');
+                    Object.keys(tags).sort().forEach(function(t) {
+                        var btn = document.createElement('button');
+                        btn.className = 'tag-filter';
+                        btn.dataset.tag = t;
+                        btn.textContent = t;
+                        btn.onclick = function() { filterArticles(t); };
+                        var count = document.createElement('span');
+                        count.className = 'count';
+                        count.textContent = tags[t];
+                        btn.appendChild(count);
+                        filterBar.appendChild(btn);
+                    });
+                    // Update 'All' count
+                    filterBar.querySelector('[data-tag="all"] .count').textContent = articles.length;
+                })();
+
+                /* ── Build tag overview ── */
+                (function() {
+                    var groups = {};
+                    articles.forEach(function(a) {
+                        if (!groups[a.tag]) groups[a.tag] = [];
+                        groups[a.tag].push(a);
+                    });
+                    var overview = document.getElementById('tagOverview');
+                    var grid = document.createElement('div');
+                    grid.className = 'tag-overview-grid';
+                    var tagOrder = Object.keys(groups).sort();
+                    tagOrder.forEach(function(tag) {
+                        var items = groups[tag];
+                        var groupEl = document.createElement('div');
+                        groupEl.className = 'tag-group';
+                        var header = document.createElement('button');
+                        header.className = 'tag-group-header';
+                        header.onclick = function() {
+                            // Close all other open dropdowns
+                            document.querySelectorAll('.tag-group.open').forEach(function(og) {
+                                if (og !== groupEl) og.classList.remove('open');
+                            });
+                            groupEl.classList.toggle('open');
+                        };
+                        header.innerHTML =
+                            '<span class="tag-badge">' + tag + '</span>' +
+                            '<span class="tag-count">' + items.length + '</span>' +
+                            '<span class="arrow">▼</span>';
+                        var body = document.createElement('div');
+                        body.className = 'tag-group-body';
+                        items.forEach(function(a) {
+                            var link = document.createElement('a');
+                            link.className = 'tag-article-link';
+                            link.href = '/blog/' + a.slug + '/';
+                            link.innerHTML = '<span>' + a.title.en + '</span>';
+                            body.appendChild(link);
+                        });
+                        groupEl.appendChild(header);
+                        groupEl.appendChild(body);
+                        grid.appendChild(groupEl);
+                    });
+                    overview.appendChild(grid);
+                })();
+
+                // Close tag dropdowns when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.tag-group')) {
+                        document.querySelectorAll('.tag-group.open').forEach(function(og) {
+                            og.classList.remove('open');
+                        });
+                    }
+                });
+
+                var currentFilter = 'all';
+
+                function filterArticles(tag) {
+                    currentFilter = tag;
+                    // Update active button
+                    document.querySelectorAll('.tag-filter').forEach(function(btn) {
+                        btn.classList.toggle('active', btn.dataset.tag === tag);
+                    });
+                    renderArticles();
+                    applyLanguage();
+                }
+
+                function renderArticles() {
+            var container = document.getElementById('articleList');
+            var emptyState = document.getElementById('emptyState');
+            if (articles.length === 0) return;
+            container.innerHTML = '';
+            if (emptyState) emptyState.style.display = 'none';
+            function esc(s) { return s.replace(/'/g, '&apos;'); }
+            var filtered = currentFilter === 'all'
+                ? articles
+                : articles.filter(function(a) { return a.tag.toLowerCase() === currentFilter.toLowerCase(); });
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="empty-state" style="display:block;text-align:center;padding:40px 0;color:var(--text-muted);"><p>No articles in this category yet.</p></div>';
+                return;
+            }
+
+            filtered.forEach(function(a) {
+                var card = document.createElement('div');
+                card.className = 'article-card';
+                card.innerHTML =
+                    '<div class="article-meta"><span>' + a.date + '</span><span class="tag">' + a.tag + '</span><span>' + a.minRead + ' min read</span></div>' +
+                    '<a href="/blog/' + a.slug + '/"><h2><span class="en-text">' + esc(a.title.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.title.zh) + '</span></h2></a>' +
+                    '<p class="excerpt"><span class="en-text">' + esc(a.excerpt.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.excerpt.zh) + '</span></p>' +
+                    '<a href="/blog/' + a.slug + '/"><span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
+                container.appendChild(card);
+            });
+        }
+        renderArticles();
+        applyLanguage();
+    </script>
+</body>
+</html>
