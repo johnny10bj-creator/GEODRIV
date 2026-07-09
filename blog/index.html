@@ -595,7 +595,10 @@
         applyLanguage();
 
         /* ── Auto-insert articles from data ── */
-        var articles = [            { date: "2026-07", tag: "Methodology", minRead: 4,
+        var articles = [            { date: "2026-07-06", tag: "Strategy", minRead: 4,
+              title: { en: "The Real Cost of Building an In-House CI Team", zh: "自建竞情团队的真实成本" },
+              excerpt: { en: "Most mid-market manufacturers spend $200K+ on an internal CI function that delivers less than a $3K/month outsourced system. Here's the math.", zh: "多数中型制造企业每年投入20万美元以上自建竞争情报职能，实际产出不及每月3000美元的外包竞情系统。" },
+              slug: "outsource-vs-inhouse-ci" },            { date: "2026-07", tag: "Methodology", minRead: 4,
               title: { en: "CI for M&A in Manufacturing", zh: "制造业并购中的竞争情报" },
               excerpt: { en: "CI supports M&A target identification, due diligence, and integration planning.", zh: "竞争情报支持并购目标识别、尽职调查和整合规划。" },
               slug: "ci-for-ma-manufacturing" },
@@ -646,131 +649,3 @@
               title: { en: "Your CI Software Is Feeding You Noise", zh: "你的 CI 软件只会制造噪音" },
               excerpt: { en: "A dashboard full of alerts isn't intelligence. It's a distraction with a subscription fee. Here's the difference between a CI tool and a CI system.", zh: "满屏的警报不是情报，是带订阅费的噪音。CI 软件和 CI 系统的真正区别。" },
               slug: "ci-software-vs-consultant" },
-            { date: "2026-07", tag: "Strategy", minRead: 4,
-              title: { en: "The Real Cost of Building an In-House CI Team", zh: "自建竞争情报团队的真正成本" },
-              excerpt: { en: "Most mid-market manufacturers spend $200K+ on an internal CI function that delivers less than a $3K/month outsourced system. Here's the math.", zh: "大多数中型制造企业每年花 20 万美元以上建内部 CI 团队，产出却不如每月 3000 美元的外包系统。" },
-              slug: "outsource-vs-inhouse-ci" }
-        ];
-
-                /* ── Build tag filter buttons ── */
-                (function() {
-                    var tags = {};
-                    articles.forEach(function(a) {
-                        var t = a.tag;
-                        if (!tags[t]) tags[t] = 0;
-                        tags[t]++;
-                    });
-                    var filterBar = document.getElementById('tagFilters');
-                    Object.keys(tags).sort().forEach(function(t) {
-                        var btn = document.createElement('button');
-                        btn.className = 'tag-filter';
-                        btn.dataset.tag = t;
-                        btn.textContent = t;
-                        btn.onclick = function() { filterArticles(t); };
-                        var count = document.createElement('span');
-                        count.className = 'count';
-                        count.textContent = tags[t];
-                        btn.appendChild(count);
-                        filterBar.appendChild(btn);
-                    });
-                    // Update 'All' count
-                    filterBar.querySelector('[data-tag="all"] .count').textContent = articles.length;
-                })();
-
-                /* ── Build tag overview ── */
-                (function() {
-                    var groups = {};
-                    articles.forEach(function(a) {
-                        if (!groups[a.tag]) groups[a.tag] = [];
-                        groups[a.tag].push(a);
-                    });
-                    var overview = document.getElementById('tagOverview');
-                    var grid = document.createElement('div');
-                    grid.className = 'tag-overview-grid';
-                    var tagOrder = Object.keys(groups).sort();
-                    tagOrder.forEach(function(tag) {
-                        var items = groups[tag];
-                        var groupEl = document.createElement('div');
-                        groupEl.className = 'tag-group';
-                        var header = document.createElement('button');
-                        header.className = 'tag-group-header';
-                        header.onclick = function() {
-                            // Close all other open dropdowns
-                            document.querySelectorAll('.tag-group.open').forEach(function(og) {
-                                if (og !== groupEl) og.classList.remove('open');
-                            });
-                            groupEl.classList.toggle('open');
-                        };
-                        header.innerHTML =
-                            '<span class="tag-badge">' + tag + '</span>' +
-                            '<span class="tag-count">' + items.length + '</span>' +
-                            '<span class="arrow">▼</span>';
-                        var body = document.createElement('div');
-                        body.className = 'tag-group-body';
-                        items.forEach(function(a) {
-                            var link = document.createElement('a');
-                            link.className = 'tag-article-link';
-                            link.href = '/blog/' + a.slug + '/';
-                            link.innerHTML = '<span>' + a.title.en + '</span>';
-                            body.appendChild(link);
-                        });
-                        groupEl.appendChild(header);
-                        groupEl.appendChild(body);
-                        grid.appendChild(groupEl);
-                    });
-                    overview.appendChild(grid);
-                })();
-
-                // Close tag dropdowns when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.tag-group')) {
-                        document.querySelectorAll('.tag-group.open').forEach(function(og) {
-                            og.classList.remove('open');
-                        });
-                    }
-                });
-
-                var currentFilter = 'all';
-
-                function filterArticles(tag) {
-                    currentFilter = tag;
-                    // Update active button
-                    document.querySelectorAll('.tag-filter').forEach(function(btn) {
-                        btn.classList.toggle('active', btn.dataset.tag === tag);
-                    });
-                    renderArticles();
-                    applyLanguage();
-                }
-
-                function renderArticles() {
-            var container = document.getElementById('articleList');
-            var emptyState = document.getElementById('emptyState');
-            if (articles.length === 0) return;
-            container.innerHTML = '';
-            if (emptyState) emptyState.style.display = 'none';
-            function esc(s) { return s.replace(/'/g, '&apos;'); }
-            var filtered = currentFilter === 'all'
-                ? articles
-                : articles.filter(function(a) { return a.tag.toLowerCase() === currentFilter.toLowerCase(); });
-
-            if (filtered.length === 0) {
-                container.innerHTML = '<div class="empty-state" style="display:block;text-align:center;padding:40px 0;color:var(--text-muted);"><p>No articles in this category yet.</p></div>';
-                return;
-            }
-
-            filtered.forEach(function(a) {
-                var card = document.createElement('div');
-                card.className = 'article-card';
-                card.innerHTML =
-                    '<div class="article-meta"><span>' + a.date + '</span><span class="tag">' + a.tag + '</span><span>' + a.minRead + ' min read</span></div>' +
-                    '<a href="/blog/' + a.slug + '/"><h2><span class="en-text">' + esc(a.title.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.title.zh) + '</span></h2></a>' +
-                    '<p class="excerpt"><span class="en-text">' + esc(a.excerpt.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.excerpt.zh) + '</span></p>' +
-                    '<a href="/blog/' + a.slug + '/"><span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
-                container.appendChild(card);
-            });
-        }
-        renderArticles();
-        applyLanguage();
-    </script>
-</body>
-</html>

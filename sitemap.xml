@@ -26,7 +26,7 @@
   </url>
   <!-- ── Article: Outsource vs In-House CI ── -->
   <url>
-    <loc>https://ci.geodriv.com/blog/outsource-vs-inhouse-ci/</loc>
+    REMOVED
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -73,4 +73,5 @@
   <url><loc>https://ci.geodriv.com/blog/patent-intelligence-early-warning/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ci.geodriv.com/blog/ci-for-manufacturing-sectors/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ci.geodriv.com/blog/ci-for-ma-manufacturing/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ci.geodriv.com/blog/outsource-vs-inhouse-ci/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
