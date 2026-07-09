@@ -233,41 +233,37 @@
             font-size: 0.8125rem;
             font-weight: 600;
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
             margin-bottom: var(--ds-12);
+            letter-spacing: -0.01em;
         }
         .tag-overview-grid {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: var(--ds-8);
             margin-bottom: var(--ds-32);
         }
         .tag-group {
-            position: relative;
+            border: 1px solid var(--border-card);
+            border-radius: var(--r-md);
+            overflow: hidden;
         }
         .tag-group-header {
+            width: 100%;
             background: none;
-            border: 1px solid var(--border-card);
+            border: none;
             color: var(--text-secondary);
-            padding: 4px 14px;
-            border-radius: 20px;
-            cursor: pointer;
+            font-family: inherit;
             font-size: 0.75rem;
             font-weight: 500;
-            font-family: inherit;
-            white-space: nowrap;
-            transition: all 0.2s;
-            display: inline-flex;
+            padding: var(--ds-8) var(--ds-12);
+            cursor: pointer;
+            transition: background 0.15s;
+            display: flex;
             align-items: center;
-            gap: var(--ds-6);
+            gap: var(--ds-8);
         }
-        .tag-group-header:hover {
-            color: var(--text-primary);
-            border-color: var(--text-accent);
-            background: var(--bg-badge);
-        }
-        .tag-group-header:focus-visible { outline: 2px solid var(--text-accent); outline-offset: 2px; }
+        .tag-group-header:hover { background: var(--bg-hover); }
+        .tag-group-header:focus-visible { outline: 2px solid var(--text-accent); outline-offset: -2px; }
         .tag-group-header .tag-badge {
             background: var(--bg-badge);
             color: var(--text-accent);
@@ -280,29 +276,27 @@
         .tag-group-header .tag-count {
             color: var(--text-muted);
             font-size: 0.6875rem;
+            margin-left: auto;
         }
+        .tag-group-header .arrow {
+            color: var(--text-muted);
+            font-size: 0.5625rem;
+            transition: transform 0.2s;
+        }
+        .tag-group.open .tag-group-header .arrow { transform: rotate(180deg); }
         .tag-group-body {
             display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 10;
-            background: var(--bg-card);
-            border: 1px solid var(--border-strong);
-            border-radius: var(--r-md);
-            padding: var(--ds-8) 0;
-            min-width: 220px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-            margin-top: var(--ds-4);
+            border-top: 1px solid var(--border-subtle);
         }
         .tag-group.open .tag-group-body { display: block; }
         .tag-group-body .tag-article-link {
             display: block;
-            padding: var(--ds-6) var(--ds-16);
+            padding: var(--ds-6) var(--ds-12);
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             transition: all 0.15s;
+            border-top: 1px solid var(--border-subtle);
         }
         .tag-group-body .tag-article-link:hover {
             color: var(--text-primary);
@@ -310,8 +304,14 @@
         }
         .tag-group-body .tag-article-link .article-date {
             color: var(--text-muted);
-            font-size: 0.6875rem;
-            margin-right: var(--ds-8);
+            font-size: 0.625rem;
+            margin-right: var(--ds-6);
+        }
+
+        @media (max-width: 600px) {
+            .tag-overview-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ── Blog Container ── */
@@ -688,7 +688,8 @@
                         };
                         header.innerHTML =
                             '<span class="tag-badge">' + tag + '</span>' +
-                            '<span class="tag-count">' + items.length + '</span>';
+                            '<span class="tag-count">' + items.length + '</span>' +
+                            '<span class="arrow">▼</span>';
                         var body = document.createElement('div');
                         body.className = 'tag-group-body';
                         items.forEach(function(a) {
