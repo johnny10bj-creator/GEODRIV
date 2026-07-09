@@ -29,7 +29,7 @@ body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--tex
 .nav-links a.active{color:var(--accent)}
 .nav-actions{display:flex;align-items:center;gap:var(--ds-12)}
 .theme-btn{background:none;color:var(--text2);border:.5px solid var(--border);padding:8px 12px;border-radius:var(--r-md);cursor:pointer;font-size:1rem;transition:all .2s}
-.theme-btn:hover{color:var(--text);border-color:var(--text3);background:var(--bg-card)}
+.theme-btn:hover{color:var(--text);border-color:var(--text3);background:var(--bg-card)}.lang-btn{background:none;color:var(--text2);border:.5px solid var(--border);padding:8px 16px;border-radius:var(--r-md);cursor:pointer;font-size:.8125rem;font-weight:500;font-family:inherit;letter-spacing:.02em;transition:all .2s}.lang-btn:hover{color:var(--text);border-color:var(--text3);background:var(--bg-card)}
 .article{max-width:680px;margin:0 auto;padding:120px var(--ds-32) var(--ds-64)}
 .meta{font-size:.8125rem;color:var(--text3);margin-bottom:var(--ds-24);display:flex;gap:var(--ds-12)}
 .tag{background:rgba(26,111,181,.10);color:var(--accent);padding:2px 10px;border-radius:4px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
@@ -95,7 +95,7 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
         }
       ]
     }
-    </script>
+    var lang=new URLSearchParams(window.location.search).get("lang")||localStorage.getItem("geodriv-lang")||"en";function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);var e=document.querySelectorAll(".en-text");var z=document.querySelectorAll(".zh-text");var b=document.querySelector(".lang-btn");if(lang==="zh"){e.forEach(function(el){el.style.display="none"});z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}toggleLanguage();</script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -114,14 +114,14 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
         "url": "https://ci.geodriv.com"
       }
     }
-    </script>
+    var lang=new URLSearchParams(window.location.search).get("lang")||localStorage.getItem("geodriv-lang")||"en";function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);var e=document.querySelectorAll(".en-text");var z=document.querySelectorAll(".zh-text");var b=document.querySelector(".lang-btn");if(lang==="zh"){e.forEach(function(el){el.style.display="none"});z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}toggleLanguage();</script>
 </head>
 <body>
 <nav class="nav"><div class="nav-inner">
 <a href="https://ci.geodriv.com" class="nav-logo">GEODRIV <span style="color:var(--text3);font-weight:400;margin:0 2px;">|</span> CI</a>
 <div class="nav-actions">
 <div class="nav-links"><a href="https://ci.geodriv.com">Home</a><a href="https://ci.geodriv.com/blog">Insights</a></div>
-<button class="lang-btn" onclick="toggleLanguage()">中文</button><button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+<button class="lang-btn" onclick="toggleLanguage()">中文</button><button class="lang-btn" onclick="toggleLanguage()">中文</button><button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
 </div>
 </div></nav>
 
@@ -269,6 +269,6 @@ function openModal(){var m=document.getElementById("contactModal");lastFocused=d
 function closeModal(){var m=document.getElementById("contactModal");m.style.display="none";m.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lastFocused)lastFocused.focus()}
 window.addEventListener("click",function(e){if(e.target===document.getElementById("contactModal"))closeModal()});
 window.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
-function submitForm(e){e.preventDefault();var name=document.getElementById("name").value;var company=document.getElementById("company").value;var email=document.getElementById("email").value;var phone=document.getElementById("phone").value;var industry=document.getElementById("industry").value;var message=document.getElementById("message").value;var body="Name: "+name+"\nCompany: "+company+"\nEmail: "+email+"\nPhone: "+phone+"\nIndustry: "+industry+"\n\nMessage:\n"+message;window.location.href="mailto:ci@geodriv.com?subject="+encodeURIComponent("CI Inquiry — "+name)+"&body="+encodeURIComponent(body);setTimeout(function(){alert(lang==="zh"?"感谢您的留言！邮件客户端将打开以发送您的咨询。":"Thank you! The email client will open to send your inquiry.");document.getElementById("contactForm").reset();closeModal()},400)}</script>
+function submitForm(e){e.preventDefault();var name=document.getElementById("name").value;var company=document.getElementById("company").value;var email=document.getElementById("email").value;var phone=document.getElementById("phone").value;var industry=document.getElementById("industry").value;var message=document.getElementById("message").value;var body="Name: "+name+"\nCompany: "+company+"\nEmail: "+email+"\nPhone: "+phone+"\nIndustry: "+industry+"\n\nMessage:\n"+message;window.location.href="mailto:ci@geodriv.com?subject="+encodeURIComponent("CI Inquiry — "+name)+"&body="+encodeURIComponent(body);setTimeout(function(){alert(lang==="zh"?"感谢您的留言！邮件客户端将打开以发送您的咨询。":"Thank you! The email client will open to send your inquiry.");document.getElementById("contactForm").reset();closeModal()},400)}var lang=new URLSearchParams(window.location.search).get("lang")||localStorage.getItem("geodriv-lang")||"en";function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);var e=document.querySelectorAll(".en-text");var z=document.querySelectorAll(".zh-text");var b=document.querySelector(".lang-btn");if(lang==="zh"){e.forEach(function(el){el.style.display="none"});z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}toggleLanguage();</script>
 </body>
 </html>

@@ -10,244 +10,107 @@
 <link rel="canonical" href="https://ci.geodriv.com/blog/ci-software-vs-consultant/">
 <title>Your CI Software Is Feeding You Noise — GEODRIV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Your CI Software Is Feeding You Noise","description":"A dashboard full of alerts is not intelligence. The difference between CI software and a CI system for manufacturing.","datePublished":"2026-07-07","author":{"@type":"Person","name":"Baojun Shi","sameAs":"https://www.linkedin.com/in/baojun-joe-shi-b6651633/"},"publisher":{"@type":"Organization","name":"GEODRIV","url":"https://ci.geodriv.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ci.geodriv.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://ci.geodriv.com/blog/"},{"@type":"ListItem","position":3,"name":"Your CI Software Is Feeding You Noise","item":"https://ci.geodriv.com/blog/ci-software-vs-consultant/"}]}</script>
 <style>
-:root{--ds-8:8px;--ds-16:16px;--ds-20:20px;--ds-24:24px;--ds-32:32px;--ds-40:40px;--ds-48:48px;--ds-56:56px;--ds-64:64px;--r-md:8px;--r-lg:12px;--blue:#1a6fb5;--orange:#D85A30}
+:root{--ds-8:8px;--ds-16:16px;--ds-18:18px;--ds-20:20px;--ds-24:24px;--ds-32:32px;--ds-40:40px;--ds-48:48px;--ds-64:64px;--r-md:8px;--r-lg:12px;--blue:#1a6fb5;--orange:#D85A30}
 [data-theme="dark"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,0.75);--border:rgba(255,255,255,0.08);--text:#f8fafc;--text2:rgba(248,250,252,0.55);--text3:rgba(248,250,252,0.30);--accent:#1a6fb5}
 [data-theme="light"]{--bg:#f4f7fa;--bg-card:#ffffff;--bg-nav:rgba(244,247,250,0.75);--border:rgba(0,0,0,0.06);--text:#0b1a2e;--text2:rgba(11,26,46,0.50);--text3:rgba(11,26,46,0.25);--accent:#1a6fb5}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-font-smoothing:antialiased}
 body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .35s,color .35s}
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-nav);border-bottom:1px solid var(--border);backdrop-filter:saturate(200%) blur(32px);-webkit-backdrop-filter:saturate(200%) blur(32px)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-nav);border-bottom:1px solid var(--border);backdrop-filter:saturate(200%) blur(32px)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 var(--ds-32);height:64px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:"Lexend",sans-serif;font-size:1.0625rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-0.01em}
-.nav-logo:hover{color:var(--accent)}
-.nav-links{display:flex;gap:var(--ds-20)}
-.nav-links a{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-links a.active{color:var(--accent)}
+.nav-logo{font-family:"Lexend",sans-serif;font-size:1.0625rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-0.01em}.nav-logo:hover{color:var(--accent)}
+.nav-links{display:flex;gap:var(--ds-20)}.nav-links a{font-size:.875rem;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s}.nav-links a:hover{color:var(--text)}
 .nav-actions{display:flex;align-items:center;gap:var(--ds-12)}
-.theme-btn{background:none;color:var(--text2);border:.5px solid var(--border);padding:8px 12px;border-radius:var(--r-md);cursor:pointer;font-size:1rem;transition:all .2s}
-.theme-btn:hover{color:var(--text);border-color:var(--text3);background:var(--bg-card)}
-.lang-btn{background:none;color:var(--accent);border:.5px solid var(--border);padding:8px 12px;border-radius:var(--r-md);cursor:pointer;font-size:.8125rem;font-weight:500;transition:all .2s}
-.lang-btn:hover{color:var(--text);border-color:var(--text3);background:var(--bg-card)}
+.lang-btn,.theme-btn{background:none;color:var(--text2);border:.5px solid var(--border);padding:8px 12px;border-radius:var(--r-md);cursor:pointer;font-size:1rem;transition:all .2s}
+.lang-btn{font-size:.8125rem;font-weight:500;padding:8px 16px;letter-spacing:.02em}.lang-btn:hover,.theme-btn:hover{color:var(--text);border-color:var(--text3);background:var(--bg-card)}
 .article{max-width:680px;margin:0 auto;padding:120px var(--ds-32) var(--ds-64)}
 .meta{font-size:.8125rem;color:var(--text3);margin-bottom:var(--ds-24);display:flex;gap:var(--ds-12)}
 .tag{background:rgba(26,111,181,.10);color:var(--accent);padding:2px 10px;border-radius:4px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .article h1{font-family:"Lexend",sans-serif;font-size:clamp(1.85rem,3.8vw,2.5rem);font-weight:600;letter-spacing:-0.025em;line-height:1.15;margin-bottom:var(--ds-20)}
-.deck{font-size:1.125rem;color:var(--text2);margin-bottom:var(--ds-32);line-height:1.5}
+.deck{font-size:1.125rem;color:var(--text2);margin-bottom:var(--ds-36);line-height:1.55;max-width:600px}
 .article h2{font-family:"Lexend",sans-serif;font-size:1.35rem;font-weight:600;margin-top:var(--ds-48);margin-bottom:var(--ds-16);letter-spacing:-0.01em}
-.article p{margin-bottom:var(--ds-18);color:var(--text2);font-size:1.0625rem;line-height:1.75}
-.article strong{color:var(--text);font-weight:600}
-.box{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--r-md);padding:var(--ds-24);margin-bottom:var(--ds-32);font-size:.9375rem;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.article ul{margin-bottom:var(--ds-20);padding-left:var(--ds-24);color:var(--text2)}
-.article li{margin-bottom:var(--ds-10);line-height:1.6}
-.author{margin-top:var(--ds-48);padding:var(--ds-24);background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);display:flex;gap:var(--ds-20);align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+.article p{margin-bottom:var(--ds-18);color:var(--text2);font-size:1.0625rem;line-height:1.75}.article strong{color:var(--text);font-weight:600}
+.article ul{margin-bottom:var(--ds-20);padding-left:var(--ds-24);color:var(--text2)}.article li{margin-bottom:var(--ds-10);line-height:1.6}
+.box{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--r-md);padding:var(--ds-24);margin-bottom:var(--ds-32);font-size:.9375rem;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.author{margin-top:var(--ds-48);padding:var(--ds-24);background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);display:flex;gap:var(--ds-20);align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.08)}
 .author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:"Lexend",sans-serif;font-weight:600;font-size:1.1rem;color:#fff}
-.author h4{font-size:.875rem;font-weight:600;margin-bottom:2px}
-.author p{font-size:.75rem;color:var(--text2);margin:0;line-height:1.4}
-.cta{margin-top:var(--ds-48);padding:var(--ds-40) var(--ds-32);background:linear-gradient(135deg,#0d2137 0%,#0a1a2e 100%);border:1px solid rgba(26,111,181,0.2);border-radius:var(--r-lg);text-align:center;position:relative;overflow:hidden}.cta::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(26,111,181,0.4),transparent)}
+.author h4{font-size:.875rem;font-weight:600;margin-bottom:2px}.author p{font-size:.75rem;color:var(--text2);margin:0;line-height:1.4}.author a{color:var(--accent);text-decoration:none}
+.cta{margin-top:var(--ds-48);padding:var(--ds-40) var(--ds-32);background:linear-gradient(135deg,#0d2137 0%,#0a1a2e 100%);border:1px solid rgba(26,111,181,.2);border-radius:var(--r-lg);text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(26,111,181,.4),transparent)}
 .cta h3{font-family:"Lexend",sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:var(--ds-12);color:var(--text)}
-.cta p{font-size:.875rem;color:var(--text2);margin-bottom:var(--ds-16);max-width:400px;margin-left:auto;margin-right:auto}
-.cta-btn{display:inline-flex;padding:13px 36px;background:linear-gradient(135deg,#1a6fb5,#2383d4);color:#fff;text-decoration:none;border-radius:var(--r-md);font-size:.9375rem;font-weight:500;font-family:inherit;transition:all 0.15s;box-shadow:0 2px 8px rgba(26,111,181,0.2)}.cta-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,111,181,0.3)}
-.cta-btn:hover{background:#2b8fd4}
+.cta p{font-size:.9375rem;color:var(--text2);margin-bottom:var(--ds-20)}
+.cta-btn{display:inline-flex;padding:13px 36px;background:linear-gradient(135deg,#1a6fb5,#2383d4);color:#fff;text-decoration:none;border-radius:var(--r-md);font-size:.9375rem;font-weight:500;font-family:inherit;transition:all .15s;box-shadow:0 2px 8px rgba(26,111,181,.2)}
+.cta-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,111,181,.3)}
 footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid var(--border);color:var(--text3);font-size:.8125rem}
-/* ── Modal ── */
-.modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);overflow-y:auto;padding:var(--ds-24)}
-.modal-content{background:var(--bg-card);max-width:560px;margin:60px auto;border-radius:var(--r-lg);padding:var(--ds-40) var(--ds-32);border:1px solid var(--border);box-shadow:0 16px 48px rgba(0,0,0,.3)}
-.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--ds-24)}.modal-header h2{font-family:"Lexend",sans-serif;font-size:1.35rem;font-weight:600}
-.close{font-size:1.5rem;color:var(--text3);cursor:pointer;padding:0 4px}.close:hover{color:var(--text)}
-.form-group{margin-bottom:var(--ds-18)}.form-group label{display:block;font-size:.8125rem;font-weight:500;color:var(--text2);margin-bottom:4px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--ds-16)}@media(max-width:600px){.form-row{grid-template-columns:1fr}}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg);color:var(--text);font-size:.9375rem;font-family:inherit;transition:border-color .2s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent)}
-.form-group textarea{resize:vertical;min-height:100px}
-.submit-btn{width:100%;padding:14px;background:linear-gradient(135deg,#1a6fb5,#2383d4);color:#fff;border:none;border-radius:var(--r-md);font-size:1rem;font-weight:500;cursor:pointer;font-family:inherit;transition:filter .15s}.submit-btn:hover{filter:brightness(1.1)}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.modal-content{animation:fadeIn .2s ease}
-@media(max-width:768px){.article{padding:100px var(--ds-16) var(--ds-40)}.nav-inner{padding:0 var(--ds-16)}.nav-links{gap:var(--ds-12)}}
+@media(max-width:768px){.article{padding:100px var(--ds-16) var(--ds-40)}.nav-inner{padding:0 var(--ds-16)}}
 </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://ci.geodriv.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Insights",
-          "item": "https://ci.geodriv.com/blog/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Your CI Software Is Feeding You Noise",
-          "item": "https://ci.geodriv.com/blog/ci-software-vs-consultant/"
-        }
-      ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Your CI Software Is Feeding You Noise",
-      "description": "A dashboard full of alerts is not intelligence. The difference between CI software and a CI system for manufacturing.",
-      "datePublished": "2026-07-06",
-      "author": {
-        "@type": "Person",
-        "name": "Baojun Shi",
-        "sameAs": "https://www.linkedin.com/in/baojun-joe-shi-b6651633/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "GEODRIV",
-        "url": "https://ci.geodriv.com"
-      }
-    }
-    </script>
 </head>
 <body>
 <nav class="nav"><div class="nav-inner">
-<a href="https://ci.geodriv.com" class="nav-logo"><span class="en-text">GEODRIV <span style="color:var(--text3);font-weight:400;margin:0 2px;">|</span> CI</span><span class="zh-text" style="display:none;">GEODRIV <span style="color:var(--text3);font-weight:400;margin:0 2px;">|</span> 竞情</span></a>
+<a href="https://ci.geodriv.com" class="nav-logo">GEODRIV <span style="color:var(--text3);font-weight:400;margin:0 2px;">|</span> CI</a>
 <div class="nav-actions">
-<div class="nav-links"><a href="https://ci.geodriv.com"><span class="en-text">Home</span><span class="zh-text" style="display:none;">首页</span></a><a href="https://ci.geodriv.com/blog"><span class="en-text">Insights</span><span class="zh-text" style="display:none;">洞察</span></a></div>
+<div class="nav-links"><a href="https://ci.geodriv.com">Home</a><a href="https://ci.geodriv.com/blog">Insights</a></div>
 <button class="lang-btn" onclick="toggleLanguage()">中文</button><button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
-</div>
-</div></nav>
+</div></div></nav>
 
 <article class="article">
-<div class="meta"><span>2026-07-06</span><span class="tag"><span class="en-text">Perspective</span><span class="zh-text" style="display:none;">观点</span></span><span><span class="en-text">3 min read</span><span class="zh-text" style="display:none;">3分钟阅读</span></span></div>
+<div class="meta"><span>2026-07-06</span><span class="tag">Perspective</span><span>3 min read</span></div>
 
-<h1><span class="en-text">Your CI Software Is Feeding You Noise</span><span class="zh-text" style="display:none;">你的竞品软件正在投喂噪音</span></h1>
-<p class="deck"><span class="en-text">A dashboard full of alerts isn't intelligence. It's a distraction with a subscription fee.</span><span class="zh-text" style="display:none;">满屏预警的仪表盘不是情报，是付费的噪音。</span></p>
+<h1>Your CI Software Is Feeding You Noise</h1>
+<p class="deck">A dashboard full of alerts isn't intelligence. It's a distraction with a subscription fee.</p>
 
 <div class="box">
-<strong><span class="en-text">The problem:</span><span class="zh-text" style="display:none;">问题所在：</span></strong><span class="en-text"> CI software platforms (Crayon, Klue, Contify) are built for SaaS companies tracking feature releases and pricing pages. If you're in manufacturing — where the real competitive signals are patent filings, certification changes, and tender wins — these tools are watching the wrong game.</span><span class="zh-text" style="display:none;">CI 软件平台（Crayon、Klue、Contify）是为 SaaS 公司追踪功能发布和定价页面而设计的。如果你身处制造业——真正的竞争信号是专利申请、资质变更和中标信息——这些工具盯错了赛场。</span>
+<strong>The problem:</strong> CI software platforms (Crayon, Klue, Contify) are built for SaaS companies tracking feature releases and pricing pages. If you're in manufacturing — where the real competitive signals are patent filings, certification changes, and tender wins — these tools are watching the wrong game.
 </div>
 
-<p><span class="en-text">Here's what you get from a typical CI SaaS platform:</span><span class="zh-text" style="display:none;">典型 CI SaaS 平台会给你什么：</span></p>
+<p>Here's what you get from a typical CI SaaS platform:</p>
 <ul>
-<li><span class="en-text">A competitor changed their pricing page → <strong>alert</strong></span><span class="zh-text" style="display:none;">竞争对手改了定价页面 → <strong>预警</strong></span></li>
-<li><span class="en-text">Someone mentioned your brand on G2 → <strong>alert</strong></span><span class="zh-text" style="display:none;">有人在 G2 上提到你的品牌 → <strong>预警</strong></span></li>
-<li><span class="en-text">A LinkedIn post from a competitor's marketing team → <strong>alert</strong></span><span class="zh-text" style="display:none;">竞争对手市场团队发了一条 LinkedIn → <strong>预警</strong></span></li>
+<li>A competitor changed their pricing page → <strong>alert</strong></li>
+<li>Someone mentioned your brand on G2 → <strong>alert</strong></li>
+<li>A LinkedIn post from a competitor's marketing team → <strong>alert</strong></li>
 </ul>
 
-<p><strong><span class="en-text">Volume:</span><span class="zh-text" style="display:none;">数量：</span></strong><span class="en-text"> high. </span><strong><span class="en-text">Signal:</span><span class="zh-text" style="display:none;">信号：</span></strong><span class="en-text"> near zero.</span><span class="zh-text" style="display:none;">极高。近乎为零。</span></p>
+<p>Volume: high. Signal: near zero.</p>
 
-<p><span class="en-text">Now here's what a <strong>CI system built for your industry</strong> catches — the kind a consultant designs, not a dashboard:</span><span class="zh-text" style="display:none;">而一个<strong>为你行业构建的 CI 系统</strong>所捕捉的是什么——咨询顾问设计的那种，不是仪表盘：</span></p>
+<p>Now here's what a <strong>CI system built for your industry</strong> catches — the kind a consultant designs, not a dashboard:</p>
 
 <ul>
-<li><span class="en-text">A competitor just filed three patents for conformal coating automation. <strong>That changes your cost equation in 12 months.</strong></span><span class="zh-text" style="display:none;">某竞争对手刚刚提交了三项共形涂覆自动化专利。<strong>这将在 12 个月内改变你的成本格局。</strong></span></li>
-<li><span class="en-text">Two of your top five competitors added ISO 13485 certification last quarter. <strong>They're coming for your medical device segment.</strong></span><span class="zh-text" style="display:none;">你的五大竞争对手中有两家在上季度新增了 ISO 13485 认证。<strong>他们正在瞄准你的医疗器械市场。</strong></span></li>
-<li><span class="en-text">A German firm you've never bid against is hiring process engineers in Shanghai. <strong>They'll be in your RFQ inbox by Q3.</strong></span><span class="zh-text" style="display:none;">一家你从未遭遇过的德国公司正在上海招聘工艺工程师。<strong>他们将在三季度出现在你的询价邮箱里。</strong></span></li>
+<li>A competitor just filed three patents for conformal coating automation. <strong>That changes your cost equation in 12 months.</strong></li>
+<li>Two of your top five competitors added ISO 13485 certification last quarter. <strong>They're coming for your medical device segment.</strong></li>
+<li>A German firm you've never bid against is hiring process engineers in Shanghai. <strong>They'll be in your RFQ inbox by Q3.</strong></li>
 </ul>
 
-<p><span class="en-text">SaaS tools give you <strong>data points</strong>. A CI system — the kind a specialist designs around your specific competitive landscape — gives you <strong>decisions</strong>.</span><span class="zh-text" style="display:none;">SaaS 工具给你的是<strong>数据点</strong>。一个 CI 系统——由专家围绕你特定的竞争格局设计的那种——给你的是<strong>决策</strong>。</span></p>
+<p>SaaS tools give you <strong>data points</strong>. A CI system — the kind a specialist designs around your specific competitive landscape — gives you <strong>decisions</strong>.</p>
 
-<p><span class="en-text">The difference isn't the technology. It's the <strong>signal model</strong>. Software applies the same scraping logic to every customer. A consultant builds a model that knows what matters in <em>your</em> industry, <em>your</em> region, <em>your</em> competitive dynamics.</span><span class="zh-text" style="display:none;">区别不在于技术。在于<strong>信号模型</strong>。软件对所有客户使用同一种抓取逻辑。咨询顾问构建的模型知道什么在<em>你的</em>行业、<em>你的</em>地区、<em>你的</em>竞争动态中真正重要。</span></p>
+<p>The difference isn't the technology. It's the <strong>signal model</strong>. Software applies the same scraping logic to every customer. A consultant builds a model that knows what matters in <em>your</em> industry, <em>your</em> region, <em>your</em> competitive dynamics.</p>
 
-<p><strong><span class="en-text">When software is enough:</span><span class="zh-text" style="display:none;">什么时候软件就足够了：</span></strong><span class="en-text"> you sell B2B SaaS. Your competitors are 5–10 named companies. They move on feature releases and pricing pages. Crayon/Klue were literally built for you.</span><span class="zh-text" style="display:none;">你销售 B2B SaaS。你的竞争对手是 5–10 家知名公司。他们在功能发布和定价页面上动作。Crayon/Klue 就是为你而生的。</span></p>
+<p><strong>When software is enough:</strong> you sell B2B SaaS. Your competitors are 5–10 named companies. They move on feature releases and pricing pages. Crayon/Klue were literally built for you.</p>
 
-<p><strong><span class="en-text">When you need a system:</span><span class="zh-text" style="display:none;">什么时候你需要一个系统：</span></strong><span class="en-text"> you're in manufacturing, industrial automation, medical devices, or aerospace supply chain. Your competition shifts quarterly. The signals that matter aren't on G2 — they're in patent databases, certification registries, and tender platforms.</span><span class="zh-text" style="display:none;">你在制造业、工业自动化、医疗器械或航空航天供应链中。你的竞争格局每季度都在变化。重要的信号不在 G2 上——它们在专利数据库、资质注册系统和招标平台里。</span></p>
+<p><strong>When you need a system:</strong> you're in manufacturing, industrial automation, medical devices, or aerospace supply chain. Your competition shifts quarterly. The signals that matter aren't on G2 — they're in patent databases, certification registries, and tender platforms.</p>
 
-<p><span class="en-text">Software gives you a dashboard. A CI system gives you a thesis about where your market is going. <strong>Buy the dashboard if you need alerts. Build the system if you need to make decisions.</strong></span><span class="zh-text" style="display:none;">软件给你一个仪表盘。CI 系统给你一份关于市场走向的判断。<strong>需要预警就买仪表盘。需要决策就建系统。</strong></span></p>
+<p>Software gives you a dashboard. A CI system gives you a thesis about where your market is going. <strong>Buy the dashboard if you need alerts. Build the system if you need to make decisions.</strong></p>
 
 <div class="author">
 <div class="author-avatar">JS</div>
 <div>
-<h4><span class="en-text">Baojun Shi</span><span class="zh-text" style="display:none;">石宝隽</span></h4>
-<p><span class="en-text">Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/" style="color:var(--accent);text-decoration:none;">LinkedIn →</a></span><span class="zh-text" style="display:none;">爵领科技创始人，竞争情报专家，智能制造情报从业15年，MBA <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/" style="color:var(--accent);text-decoration:none;">领英 →</a></span></p>
+<h4>Baojun Shi</h4>
+<p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p>
 </div>
 </div>
 
 <div class="cta">
-<h3><span class="en-text">Your competitive landscape deserves a system, not a dashboard.</span><span class="zh-text" style="display:none;">你的竞争格局值得一个系统，而非一个仪表盘。</span></h3>
-<p><span class="en-text">Let's build one.</span><span class="zh-text" style="display:none;">让我们一起来构建。</span></p>
-<a href="#" onclick="openModal();return false" class="cta-btn"><span class="en-text">Get in touch</span><span class="zh-text" style="display:none;">联系我们</span></a>
+<h3>Your competitive landscape deserves a system, not a dashboard.</h3>
+<p>Let's build one.</p>
+<a href="https://ci.geodriv.com" class="cta-btn">Get in touch</a>
 </div>
 </article>
 
-<!-- ── Contact Modal ── -->
-<div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-label="Contact form">
-<div class="modal-content">
-<div class="modal-header">
-<h2><span class="en-text">Get in touch</span><span class="zh-text" style="display:none;">联系我们</span></h2>
-<span class="close" tabindex="0" role="button" aria-label="Close" onclick="closeModal()" onkeydown="if(event.key==='Enter')closeModal()">×</span>
-</div>
-<form id="contactForm" onsubmit="submitForm(event)">
-<div class="form-row">
-<div class="form-group">
-<label class="en-text" for="name">Name *</label><label class="zh-text" style="display:none;" for="name">姓名 *</label>
-<input type="text" id="name" name="name" required>
-</div>
-<div class="form-group">
-<label class="en-text" for="company">Company</label><label class="zh-text" style="display:none;" for="company">公司</label>
-<input type="text" id="company" name="company">
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label class="en-text" for="email">Email *</label><label class="zh-text" style="display:none;" for="email">邮箱 *</label>
-<input type="email" id="email" name="email" required>
-</div>
-<div class="form-group">
-<label class="en-text" for="phone">Phone</label><label class="zh-text" style="display:none;" for="phone">电话</label>
-<input type="tel" id="phone" name="phone">
-</div>
-</div>
-<div class="form-group">
-<label class="en-text" for="industry">Industry *</label><label class="zh-text" style="display:none;" for="industry">行业 *</label>
-<select id="industry" name="industry" required>
-<option value="" class="en-text">Select industry…</option>
-<option value="manufacturing" class="en-text">Manufacturing</option>
-<option value="technology" class="en-text">Technology</option>
-<option value="automotive" class="en-text">Automotive</option>
-<option value="aerospace" class="en-text">Aerospace</option>
-<option value="healthcare" class="en-text">Healthcare</option>
-<option value="finance" class="en-text">Finance</option>
-<option value="retail" class="en-text">Retail</option>
-<option value="other" class="en-text">Other</option>
-<option value="" class="zh-text" style="display:none;">选择行业…</option>
-<option value="manufacturing" class="zh-text" style="display:none;">制造业</option>
-<option value="technology" class="zh-text" style="display:none;">科技</option>
-<option value="automotive" class="zh-text" style="display:none;">汽车</option>
-<option value="aerospace" class="zh-text" style="display:none;">航空航天</option>
-<option value="healthcare" class="zh-text" style="display:none;">医疗健康</option>
-<option value="finance" class="zh-text" style="display:none;">金融</option>
-<option value="retail" class="zh-text" style="display:none;">零售</option>
-<option value="other" class="zh-text" style="display:none;">其他</option>
-</select>
-</div>
-<div class="form-group">
-<label class="en-text" for="message">Message *</label><label class="zh-text" style="display:none;" for="message">需求描述 *</label>
-<textarea id="message" name="message" required placeholder="Tell us about your requirements…"></textarea>
-</div>
-<button type="submit" class="submit-btn en-text">Send Message</button>
-<button type="submit" class="submit-btn zh-text" style="display:none;">发送留言</button>
-</form>
-</div>
-</div>
+<footer>© 2026 GEODRIV Technology</footer>
 
-<footer><span class="en-text">© 2026 GEODRIV Technology</span><span class="zh-text" style="display:none;">© 2026 GEODRIV 科技</span></footer>
-
-<script>
-var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';
-function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}
-var lang=new URLSearchParams(window.location.search).get("lang")||localStorage.getItem("geodriv-lang")||"en";function applyLanguage(){var enTexts=document.querySelectorAll(".en-text");var zhTexts=document.querySelectorAll(".zh-text");var langBtn=document.querySelector(".lang-btn");if(lang==="zh"){enTexts.forEach(function(el){el.style.display="none"});zhTexts.forEach(function(el){el.style.display=""});langBtn.textContent="EN"}else{enTexts.forEach(function(el){el.style.display=""});zhTexts.forEach(function(el){el.style.display="none"});langBtn.textContent="中文"}}function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);applyLanguage()}applyLanguage();
-
-/* ── Modal ── */
-var lastFocused=null;
-function openModal(){var m=document.getElementById("contactModal");lastFocused=document.activeElement;m.style.display="block";m.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";setTimeout(function(){document.getElementById("name").focus()},60)}
-function closeModal(){var m=document.getElementById("contactModal");m.style.display="none";m.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lastFocused)lastFocused.focus()}
-window.addEventListener("click",function(e){if(e.target===document.getElementById("contactModal"))closeModal()});
-window.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
-function submitForm(e){e.preventDefault();var name=document.getElementById("name").value;var company=document.getElementById("company").value;var email=document.getElementById("email").value;var phone=document.getElementById("phone").value;var industry=document.getElementById("industry").value;var message=document.getElementById("message").value;var body="Name: "+name+"\nCompany: "+company+"\nEmail: "+email+"\nPhone: "+phone+"\nIndustry: "+industry+"\n\nMessage:\n"+message;window.location.href="mailto:ci@geodriv.com?subject="+encodeURIComponent("CI Inquiry — "+name)+"&body="+encodeURIComponent(body);setTimeout(function(){alert(lang==="zh"?"感谢您的留言！邮件客户端将打开以发送您的咨询。":"Thank you! The email client will open to send your inquiry.");document.getElementById("contactForm").reset();closeModal()},400)}</script>
+<script>var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}
+var lang=new URLSearchParams(window.location.search).get("lang")||localStorage.getItem("geodriv-lang")||"en";function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);var e=document.querySelectorAll(".en-text");var z=document.querySelectorAll(".zh-text");var b=document.querySelector(".lang-btn");if(lang==="zh"){e.forEach(function(el){el.style.display="none"});z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}toggleLanguage();</script>
 </body>
 </html>
