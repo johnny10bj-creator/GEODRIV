@@ -10,8 +10,33 @@
 .share-copy{background:var(--bg-card);color:var(--text2);border:1px solid var(--border)}
 .share-copy:hover{color:var(--accent);border-color:var(--accent)}
 .share-copy.copied{background:rgba(74,222,128,.15);color:#4ade80;border-color:#4ade80}
+.pipe{color:var(--text-muted);font-weight:400;margin:0 2px}
+.lang-btn{background:none;border:.5px solid var(--border);color:var(--text2);padding:8px 16px;border-radius:var(--r-md);cursor:pointer;font-size:.8125rem;font-weight:500;font-family:inherit;transition:all .2s}.lang-btn:hover{border-color:var(--text3);background:var(--bg-card)}
+
+
+
+/* Share section */
+.share{margin:var(--ds-32) auto var(--ds-24);max-width:480px;text-align:center}
+.share-label{font-size:.6875rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--ds-16);font-weight:500}
+.share-links{display:flex;justify-content:center;align-items:center;gap:var(--ds-12)}
+.share-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:128px;height:46px;border-radius:var(--r-md);font-size:.8125rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .2s;border:none;font-family:inherit;color:#fff}
+.share-btn svg{width:18px;height:18px;flex-shrink:0}
+.share-btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
+.share-btn:active{transform:translateY(0)}
+.share-linkedin{background:#0a66c2;box-shadow:0 2px 8px rgba(10,102,194,.25)}
+.share-twitter{background:#000;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.share-copy{background:var(--bg-hover);color:var(--text2);border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.share-copy:hover{color:var(--accent);border-color:var(--accent)}
+.share-copy.copied{background:rgba(74,222,128,.15);color:#4ade80;border-color:#4ade80}
+@media(max-width:480px){.share{margin:var(--ds-24) auto var(--ds-16)}.share-btn{width:110px;height:42px;font-size:.75rem}}
 </style></head><body>
-<nav><div><a href="https://geodriv.com" class="nav-logo">GEODRIV | CI</a><div><a href="https://geodriv.com">Home</a><a href="https://geodriv.com/blog">Insights</a></div></div></nav>
+<nav class="nav"><div class="nav-inner">
+<a href="https://geodriv.com" class="nav-logo">GEODRIV <span class="pipe">|</span> CI</a>
+<div class="nav-actions">
+<div class="nav-links"><a href="https://geodriv.com">Home</a><a href="https://geodriv.com/blog">Insights</a></div>
+<button class="lang-btn" onclick="toggleLanguage()">中文</button>
+<button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+</div></div></nav>
 <article class="article"><div class="meta"><span>2026-7</span><span class="tag">Methodology</span><span>4 min read</span></div>
 <h1>CI for M&A in Manufacturing</h1><p class="deck">Competitive intelligence significantly improves M&A outcomes — from target identification to post-merger integration. Here's how leading manufacturing companies use CI in their deal processes.</p>
 <div class="box"><strong>Short answer:</strong> CI supports M&A in three phases: <strong>target identification</strong> (identifying acquisition candidates whose signal patterns match your strategic gaps), <strong>due diligence</strong> (validating competitive positioning, customer concentration, and technology claims), and <strong>integration planning</strong> (mapping overlapping capabilities, retention risks, and go-to-market conflicts).</div>
@@ -26,23 +51,56 @@
 
 </div>
 
+</div>
+
+</div>
+
+</div>
+
 <div class="share">
 <p class="share-label">SHARE THIS ARTICLE</p>
 <div class="share-links">
-<a class="share-btn share-linkedin" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href));return false;" aria-label="Share on LinkedIn" data-label="LinkedIn">
+<a class="share-btn share-linkedin" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href));return false;" aria-label="Share on LinkedIn">
 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+LinkedIn
 </a>
-<a class="share-btn share-twitter" href="#" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href));return false;" aria-label="Share on X" data-label="X">
+<a class="share-btn share-twitter" href="#" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href));return false;" aria-label="Share on X">
 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+X
 </a>
-<button class="share-btn share-copy" onclick="copyLink(this)" aria-label="Copy link" data-label="Copy link">
+<button class="share-btn share-copy" onclick="copyLink(this)" aria-label="Copy link">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+Copy link
 </button>
 </div>
 </div>
 
 <script>
-function copyLink(btn){var input=document.createElement('input');input.value=location.href;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);btn.classList.add('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';},2000)}
+function copyLink(btn){var input=document.createElement('input');input.value=location.href;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);btn.classList.add('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied';setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy link';},2000)}
+</script>
+
+</div>
+
+<div class="share">
+<p class="share-label">SHARE THIS ARTICLE</p>
+<div class="share-links">
+<a class="share-btn share-linkedin" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href));return false;" aria-label="Share on LinkedIn">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+LinkedIn
+</a>
+<a class="share-btn share-twitter" href="#" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href));return false;" aria-label="Share on X">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+X
+</a>
+<button class="share-btn share-copy" onclick="copyLink(this)" aria-label="Copy link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+Copy link
+</button>
+</div>
+</div>
+
+<script>
+function copyLink(btn){var input=document.createElement('input');input.value=location.href;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);btn.classList.add('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied';setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy link';},2000)}
 </script>
 
 <div class="cta"><h3>Build an M&A signal watchlist for your sector.</h3><p>We identify the companies worth watching.</p><a href="https://geodriv.com" class="cta-btn">Get in touch</a></div></article>

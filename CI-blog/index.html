@@ -102,16 +102,20 @@
             justify-content: space-between;
         }
         .nav-logo {
-            font-family: "Inter", sans-serif;
+            font-family: "Lexend", sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--accent);
             text-decoration: none;
             display: flex; align-items: center; gap: 0;
             letter-spacing: -0.01em;
             transition: color 0.35s;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        .nav-logo:hover { color: var(--text-accent); }
+        .nav-logo:hover { color: var(--accent); filter: brightness(1.2); }
+        .nav-logo .pipe { color: var(--text-muted); font-weight: 400; margin: 0 2px; }
         .nav-links {
             display: flex; align-items: center; gap: var(--ds-24);
         }
@@ -148,6 +152,8 @@
             background: var(--bg-hover);
         }
         .theme-btn { padding: 8px 12px; line-height: 1; font-size: 1rem; }
+        .lang-btn { background:none; border:.5px solid var(--border); color:var(--text2); padding:8px 16px; border-radius:var(--r-md); cursor:pointer; font-size:.8125rem; font-weight:500; font-family:inherit; transition:all .15s; }
+        .lang-btn:hover { border-color:var(--text3); background:var(--bg-card); }
 
         /* ── Blog Header ── */
         .blog-header {
@@ -256,22 +262,24 @@
             width: 100%;
             background: none;
             border: none;
-            color: var(--text-secondary);
+            color: #fff;
             font-family: inherit;
-            font-size: 0.75rem;
+            font-size: 0.8125rem;
             font-weight: 500;
-            padding: var(--ds-8) var(--ds-12);
-            cursor: pointer;
-            transition: background 0.15s;
+            padding: 10px 16px;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: var(--ds-8);
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
         }
-        .tag-group-header:hover { background: var(--bg-hover); }
-        .tag-group-header:focus-visible { outline: 2px solid var(--text-accent); outline-offset: -2px; }
+        .tag-group-header:hover {
+            background: var(--bg-hover);
+        }
         .tag-group-header .tag-badge {
             background: var(--bg-badge);
-            color: var(--text-accent);
+            color: #fff;
             padding: 1px 8px;
             border-radius: 3px;
             font-size: 0.625rem;
@@ -281,7 +289,7 @@
         .tag-group-header .tag-count {
             color: var(--text-muted);
             font-size: 0.6875rem;
-            margin-left: auto;
+            margin-left: 0;
         }
         .tag-group-header .arrow {
             color: var(--text-muted);
@@ -505,14 +513,14 @@
     <nav class="nav">
         <div class="nav-inner">
             <a href="https://geodriv.com" class="nav-logo">
-                GEODRIV <span style="color:var(--text-muted);font-weight:400;margin:0 2px;">|</span> CI
+                GEODRIV <span class="pipe">|</span> CI
             </a>
             <div class="nav-actions">
                 <div class="nav-links">
                     <a href="https://geodriv.com">Home</a>
                     <a href="https://geodriv.com/blog" class="active">Insights</a>
                 </div>
-                <button class="lang-btn" type="button" onclick="toggleLanguage()" aria-label="Switch language">中文</button>
+                <button class="lang-btn" onclick="toggleLanguage()">中文</button>
                 <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">🌙</button>
             </div>
         </div>
@@ -520,8 +528,8 @@
 
     <div class="blog-header">
         <span class="badge">Insights</span>
-        <h1><span class="en-text">Competitive Intelligence Insights</span><span class="zh-text" style="display:none;">竞争情报洞察</span></h1>
-        <p><span class="en-text">Methodology, analysis, and deep dives — from raw signals to decisive action.</span><span class="zh-text" style="display:none;">方法论、深度分析与实战洞察——从原始信号到果断行动。</span></p>
+        <h1><span class="en-text">Competitive Intelligence Insights</span></h1>
+        <p><span class="en-text">Methodology, analysis, and deep dives — from raw signals to decisive action.</span></p>
     </div>
 
     <nav class="tag-filters" id="tagFilters" aria-label="Filter by category">
@@ -529,7 +537,7 @@
     </nav>
 
     <section class="tag-overview" id="tagOverview">
-        <h2 class="tag-overview-heading"><span class="en-text">Browse by Category</span><span class="zh-text" style="display:none;">按分类浏览</span></h2>
+        <h2 class="tag-overview-heading"><span class="en-text">Browse by Category</span></h2>
     </section>
 
     <div class="blog-container" id="articleList">
@@ -556,7 +564,7 @@
     </div>
 
     <footer class="blog-footer">
-        <p>© 2026 GEODRIV. <span class="en-text">All rights reserved.</span><span class="zh-text" style="display:none;">爵领科技 | GEODRIV TECHNOLOGY</span></p>
+        <p>© 2026 GEODRIV. <span class="en-text">All rights reserved.</span></p>
     </footer>
 
     <script>
@@ -566,7 +574,8 @@
         var themeBtn = document.getElementById('themeBtn');
         themeBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
 
-        function toggleTheme() {
+function toggleLanguage(){var b=document.querySelector('.lang-btn');b.textContent=b.textContent==='中文'?'EN':'中文'}
+        function toggleTheme(){
             var current = document.documentElement.getAttribute('data-theme');
             var next = current === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
@@ -577,7 +586,7 @@
         /* ── Language Toggle ── */
         var lang = localStorage.getItem('geodriv-lang') || 'en';
 
-        function toggleLanguage() {
+        function  {
             lang = lang === 'en' ? 'zh' : 'en';
             localStorage.setItem('geodriv-lang', lang);
             applyLanguage();
@@ -768,9 +777,9 @@
                 card.className = 'article-card';
                 card.innerHTML =
                     '<div class="article-meta"><span>' + a.date + '</span><span class="tag">' + a.tag + '</span><span>' + a.minRead + ' min read</span></div>' +
-                    '<a href="/CI-blog/' + a.slug + '/"><h2><span class="en-text">' + esc(a.title.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.title.zh) + '</span></h2></a>' +
-                    '<p class="excerpt"><span class="en-text">' + esc(a.excerpt.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.excerpt.zh) + '</span></p>' +
-                    '<a href="/CI-blog/' + a.slug + '/"><span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
+                    '<a href="/CI-blog/' + a.slug + '/"><h2><span class="en-text">' + esc(a.title.en) + '</span></h2></a>' +
+                    '<p class="excerpt"><span class="en-text">' + esc(a.excerpt.en) + '</span></p>' +
+                    '<a href="/CI-blog/' + a.slug + '/"><span class="read-more"><span class="en-text">Read article</span></span></a>';
                 container.appendChild(card);
             });
         }
