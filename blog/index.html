@@ -186,25 +186,30 @@
         /* ── Tag Filters ── */
         .tag-filters {
             max-width: 800px;
-            margin: 0 auto var(--ds-48);
+            margin: 0 auto var(--ds-32);
             padding: 0 var(--ds-32);
             display: flex;
-            flex-wrap: wrap;
-            gap: var(--ds-8);
+            gap: var(--ds-6);
             justify-content: center;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
+        .tag-filters::-webkit-scrollbar { display: none; }
         .tag-filter {
             background: none;
             border: 1px solid var(--border-card);
             color: var(--text-secondary);
-            padding: 6px 16px;
-            border-radius: 20px;
+            padding: 4px 10px;
+            border-radius: 14px;
             cursor: pointer;
-            font-size: 0.8125rem;
+            font-size: 0.6875rem;
             font-weight: 500;
             font-family: inherit;
-            transition: all 0.2s;
-            letter-spacing: 0.02em;
+            white-space: nowrap;
+            transition: all 0.15s;
+            letter-spacing: 0.01em;
         }
         .tag-filter:hover {
             color: var(--text-primary);
