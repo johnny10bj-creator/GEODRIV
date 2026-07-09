@@ -217,6 +217,84 @@
             margin-left: 4px;
         }
 
+        /* ── Tag Overview ── */
+        .tag-overview {
+            max-width: 800px;
+            margin: 0 auto var(--ds-48);
+            padding: 0 var(--ds-32);
+        }
+        .tag-group {
+            margin-bottom: var(--ds-24);
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+        }
+        .tag-group-header {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            padding: var(--ds-16) var(--ds-24);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .tag-group-header:hover { background: var(--bg-hover); }
+        .tag-group-header .tag-label {
+            display: flex;
+            align-items: center;
+            gap: var(--ds-12);
+        }
+        .tag-group-header .tag-badge {
+            background: var(--bg-badge);
+            color: var(--text-accent);
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .tag-group-header .tag-count {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            font-weight: 400;
+        }
+        .tag-group-header .arrow {
+            color: var(--text-muted);
+            transition: transform 0.2s;
+            font-size: 0.75rem;
+        }
+        .tag-group.open .tag-group-header .arrow { transform: rotate(180deg); }
+        .tag-group-body {
+            display: none;
+            padding: 0 var(--ds-24) var(--ds-16);
+            border-top: 1px solid var(--border-subtle);
+        }
+        .tag-group.open .tag-group-body { display: block; }
+        .tag-group-body .tag-article-link {
+            display: block;
+            padding: var(--ds-8) 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            border-bottom: 1px solid var(--border-subtle);
+            transition: color 0.15s;
+        }
+        .tag-group-body .tag-article-link:last-child { border-bottom: none; }
+        .tag-group-body .tag-article-link:hover { color: var(--text-accent); }
+        .tag-group-body .tag-article-link .article-date {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-right: var(--ds-12);
+        }
+
         /* ── Blog Container ── */
         .blog-container {
             max-width: 800px;
@@ -406,6 +484,8 @@
         <button class="tag-filter active" data-tag="all" onclick="filterArticles('all')">All<span class="count"></span></button>
     </nav>
 
+    <section class="tag-overview" id="tagOverview"></section>
+
     <div class="blog-container" id="articleList">
         <!-- Articles will appear here in chronological order -->
         <!-- 
@@ -539,6 +619,41 @@
                     });
                     // Update 'All' count
                     filterBar.querySelector('[data-tag="all"] .count').textContent = articles.length;
+                })();
+
+                /* ── Build tag overview ── */
+                (function() {
+                    var groups = {};
+                    articles.forEach(function(a) {
+                        if (!groups[a.tag]) groups[a.tag] = [];
+                        groups[a.tag].push(a);
+                    });
+                    var overview = document.getElementById('tagOverview');
+                    var tagOrder = Object.keys(groups).sort();
+                    tagOrder.forEach(function(tag) {
+                        var items = groups[tag];
+                        var groupEl = document.createElement('div');
+                        groupEl.className = 'tag-group';
+                        var header = document.createElement('button');
+                        header.className = 'tag-group-header';
+                        header.onclick = function() { groupEl.classList.toggle('open'); };
+                        header.innerHTML =
+                            '<span class="tag-label"><span class="tag-badge">' + tag + '</span>' +
+                            '<span class="tag-count"><span class="en-text">' + items.length + ' article' + (items.length > 1 ? 's' : '') + '</span><span class="zh-text" style="display:none;">' + items.length + ' 篇</span></span></span>' +
+                            '<span class="arrow">▼</span>';
+                        var body = document.createElement('div');
+                        body.className = 'tag-group-body';
+                        items.forEach(function(a) {
+                            var link = document.createElement('a');
+                            link.className = 'tag-article-link';
+                            link.href = '/blog/' + a.slug + '/';
+                            link.innerHTML = '<span class="article-date">' + a.date + '</span><span class="en-text">' + a.title.en + '</span><span class="zh-text" style="display:none;">' + a.title.zh + '</span>';
+                            body.appendChild(link);
+                        });
+                        groupEl.appendChild(header);
+                        groupEl.appendChild(body);
+                        overview.appendChild(groupEl);
+                    });
                 })();
 
                 var currentFilter = 'all';
