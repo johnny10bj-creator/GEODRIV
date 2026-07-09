@@ -178,6 +178,45 @@
             margin-bottom: var(--ds-16);
         }
 
+        /* ── Tag Filters ── */
+        .tag-filters {
+            max-width: 800px;
+            margin: 0 auto var(--ds-32);
+            padding: 0 var(--ds-32);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--ds-8);
+            justify-content: center;
+        }
+        .tag-filter {
+            background: none;
+            border: 1px solid var(--border-card);
+            color: var(--text-secondary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
+        }
+        .tag-filter:hover {
+            color: var(--text-primary);
+            border-color: var(--text-accent);
+            background: var(--bg-badge);
+        }
+        .tag-filter.active {
+            background: var(--text-accent);
+            color: #fff;
+            border-color: var(--text-accent);
+        }
+        .tag-filter .count {
+            font-size: 0.6875rem;
+            opacity: 0.7;
+            margin-left: 4px;
+        }
+
         /* ── Blog Container ── */
         .blog-container {
             max-width: 800px;
@@ -363,6 +402,10 @@
         <p><span class="en-text">Methodology, analysis, and deep dives — from raw signals to decisive action.</span><span class="zh-text" style="display:none;">方法论、深度分析与实战洞察——从原始信号到果断行动。</span></p>
     </div>
 
+    <nav class="tag-filters" id="tagFilters" aria-label="Filter by category">
+        <button class="tag-filter active" data-tag="all" onclick="filterArticles('all')">All<span class="count"></span></button>
+    </nav>
+
     <div class="blog-container" id="articleList">
         <!-- Articles will appear here in chronological order -->
         <!-- 
@@ -473,6 +516,43 @@
               slug: "outsource-vs-inhouse-ci" }
         ];
 
+                /* ── Build tag filter buttons ── */
+                (function() {
+                    var tags = {};
+                    articles.forEach(function(a) {
+                        var t = a.tag;
+                        if (!tags[t]) tags[t] = 0;
+                        tags[t]++;
+                    });
+                    var filterBar = document.getElementById('tagFilters');
+                    Object.keys(tags).sort().forEach(function(t) {
+                        var btn = document.createElement('button');
+                        btn.className = 'tag-filter';
+                        btn.dataset.tag = t;
+                        btn.textContent = t;
+                        btn.onclick = function() { filterArticles(t); };
+                        var count = document.createElement('span');
+                        count.className = 'count';
+                        count.textContent = tags[t];
+                        btn.appendChild(count);
+                        filterBar.appendChild(btn);
+                    });
+                    // Update 'All' count
+                    filterBar.querySelector('[data-tag="all"] .count').textContent = articles.length;
+                })();
+
+                var currentFilter = 'all';
+
+                function filterArticles(tag) {
+                    currentFilter = tag;
+                    // Update active button
+                    document.querySelectorAll('.tag-filter').forEach(function(btn) {
+                        btn.classList.toggle('active', btn.dataset.tag === tag);
+                    });
+                    renderArticles();
+                    applyLanguage();
+                }
+
                 function renderArticles() {
             var container = document.getElementById('articleList');
             var emptyState = document.getElementById('emptyState');
@@ -480,7 +560,16 @@
             container.innerHTML = '';
             if (emptyState) emptyState.style.display = 'none';
             function esc(s) { return s.replace(/'/g, '&apos;'); }
-            articles.forEach(function(a) {
+            var filtered = currentFilter === 'all'
+                ? articles
+                : articles.filter(function(a) { return a.tag.toLowerCase() === currentFilter.toLowerCase(); });
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="empty-state" style="display:block;text-align:center;padding:40px 0;color:var(--text-muted);"><p>No articles in this category yet.</p></div>';
+                return;
+            }
+
+            filtered.forEach(function(a) {
                 var card = document.createElement('div');
                 card.className = 'article-card';
                 card.innerHTML =
