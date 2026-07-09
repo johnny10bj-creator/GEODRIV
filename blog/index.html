@@ -65,7 +65,12 @@
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+                html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+
+                :focus-visible {
+                    outline: 2px solid var(--text-accent);
+                    outline-offset: 2px;
+                }
 
         body {
             font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", Arial, sans-serif;
@@ -181,7 +186,7 @@
         /* ── Tag Filters ── */
         .tag-filters {
             max-width: 800px;
-            margin: 0 auto var(--ds-32);
+            margin: 0 auto var(--ds-48);
             padding: 0 var(--ds-32);
             display: flex;
             flex-wrap: wrap;
@@ -223,6 +228,23 @@
             margin: 0 auto var(--ds-48);
             padding: 0 var(--ds-32);
         }
+        .tag-overview-heading {
+            font-family: "Lexend", sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--ds-20);
+            letter-spacing: -0.01em;
+        }
+        .tag-overview-heading::before {
+            content: "";
+            display: block;
+            width: 36px;
+            height: 3px;
+            background: var(--text-accent);
+            border-radius: 2px;
+            margin-bottom: var(--ds-12);
+        }
         .tag-group {
             margin-bottom: var(--ds-24);
             background: var(--bg-card);
@@ -246,6 +268,7 @@
             transition: background 0.2s;
         }
         .tag-group-header:hover { background: var(--bg-hover); }
+        .tag-group-header:focus-visible { outline: 2px solid var(--text-accent); outline-offset: -2px; }
         .tag-group-header .tag-label {
             display: flex;
             align-items: center;
@@ -311,6 +334,18 @@
             margin-bottom: var(--ds-24);
             transition: all 0.2s ease;
             cursor: default;
+            animation: cardIn 0.4s ease both;
+        }
+        .article-card:nth-child(2) { animation-delay: 0.05s; }
+        .article-card:nth-child(3) { animation-delay: 0.1s; }
+        .article-card:nth-child(4) { animation-delay: 0.15s; }
+        .article-card:nth-child(5) { animation-delay: 0.2s; }
+        @media (prefers-reduced-motion: reduce) {
+            .article-card { animation: none; }
+        }
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
         .article-card:hover {
             border-color: var(--border-strong);
@@ -382,8 +417,15 @@
         /* ── Empty state ── */
         .empty-state {
             text-align: center;
-            padding: var(--ds-64) var(--ds-32);
+            padding: var(--ds-80) var(--ds-32);
             color: var(--text-muted);
+        }
+        .empty-state::before {
+            content: "📡";
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: var(--ds-20);
+            opacity: 0.6;
         }
         .empty-state p {
             font-size: 1rem;
@@ -407,6 +449,7 @@
         @media (max-width: 768px) {
             .nav-inner { padding: 0 var(--ds-16); }
             .blog-container { padding: 0 var(--ds-16) var(--ds-48); }
+            .tag-overview { padding: 0 var(--ds-16); }
             .article-card { padding: var(--ds-24); }
             .nav-links { gap: var(--ds-16); }
             .lang-btn, .nav-links a { font-size: 0.75rem; }
@@ -484,7 +527,9 @@
         <button class="tag-filter active" data-tag="all" onclick="filterArticles('all')">All<span class="count"></span></button>
     </nav>
 
-    <section class="tag-overview" id="tagOverview"></section>
+    <section class="tag-overview" id="tagOverview">
+        <h2 class="tag-overview-heading"><span class="en-text">Browse by Category</span><span class="zh-text" style="display:none;">按分类浏览</span></h2>
+    </section>
 
     <div class="blog-container" id="articleList">
         <!-- Articles will appear here in chronological order -->
