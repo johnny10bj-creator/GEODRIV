@@ -586,7 +586,7 @@ function toggleLanguage(){var b=document.querySelector('.lang-btn');b.textConten
         /* ── Language Toggle ── */
         var lang = localStorage.getItem('geodriv-lang') || 'en';
 
-        function  {
+        function toggleLanguage() {
             lang = lang === 'en' ? 'zh' : 'en';
             localStorage.setItem('geodriv-lang', lang);
             applyLanguage();
