@@ -95,7 +95,7 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
         }
       ]
     }
-    var lang=new URLSearchParams(window.location.search).get("lang")||localStorage.getItem("geodriv-lang")||"en";function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);var e=document.querySelectorAll(".en-text");var z=document.querySelectorAll(".zh-text");var b=document.querySelector(".lang-btn");if(lang==="zh"){e.forEach(function(el){el.style.display="none"});z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}toggleLanguage();</script>
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -114,7 +114,7 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
         "url": "https://ci.geodriv.com"
       }
     }
-    var lang=new URLSearchParams(window.location.search).get("lang")||localStorage.getItem("geodriv-lang")||"en";function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);var e=document.querySelectorAll(".en-text");var z=document.querySelectorAll(".zh-text");var b=document.querySelector(".lang-btn");if(lang==="zh"){e.forEach(function(el){el.style.display="none"});z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}toggleLanguage();</script>
+    </script>
 </head>
 <body>
 <nav class="nav"><div class="nav-inner">
@@ -256,7 +256,7 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 </div>
 </div>
 
-<footer><span class="en-text">© 2026 GEODRIV Technology</span><span class="zh-text" style="display:none;">© 2026 极驰科技 GEODRIV Technology</span></footer>
+<footer><span class="en-text">© 2026 GEODRIV Technology</span><span class="zh-text" style="display:none;">© 2026 爵领科技 GEODRIV Technology</span></footer>
 
 <script>
 var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';
@@ -269,6 +269,6 @@ function openModal(){var m=document.getElementById("contactModal");lastFocused=d
 function closeModal(){var m=document.getElementById("contactModal");m.style.display="none";m.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lastFocused)lastFocused.focus()}
 window.addEventListener("click",function(e){if(e.target===document.getElementById("contactModal"))closeModal()});
 window.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
-function submitForm(e){e.preventDefault();var name=document.getElementById("name").value;var company=document.getElementById("company").value;var email=document.getElementById("email").value;var phone=document.getElementById("phone").value;var industry=document.getElementById("industry").value;var message=document.getElementById("message").value;var body="Name: "+name+"\nCompany: "+company+"\nEmail: "+email+"\nPhone: "+phone+"\nIndustry: "+industry+"\n\nMessage:\n"+message;window.location.href="mailto:ci@geodriv.com?subject="+encodeURIComponent("CI Inquiry — "+name)+"&body="+encodeURIComponent(body);setTimeout(function(){alert(lang==="zh"?"感谢您的留言！邮件客户端将打开以发送您的咨询。":"Thank you! The email client will open to send your inquiry.");document.getElementById("contactForm").reset();closeModal()},400)}var lang=new URLSearchParams(window.location.search).get("lang")||localStorage.getItem("geodriv-lang")||"en";function toggleLanguage(){lang=lang==="en"?"zh":"en";localStorage.setItem("geodriv-lang",lang);var e=document.querySelectorAll(".en-text");var z=document.querySelectorAll(".zh-text");var b=document.querySelector(".lang-btn");if(lang==="zh"){e.forEach(function(el){el.style.display="none"});z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}toggleLanguage();</script>
+function submitForm(e){e.preventDefault();var name=document.getElementById("name").value;var company=document.getElementById("company").value;var email=document.getElementById("email").value;var phone=document.getElementById("phone").value;var industry=document.getElementById("industry").value;var message=document.getElementById("message").value;var body="Name: "+name+"\nCompany: "+company+"\nEmail: "+email+"\nPhone: "+phone+"\nIndustry: "+industry+"\n\nMessage:\n"+message;window.location.href="mailto:ci@geodriv.com?subject="+encodeURIComponent("CI Inquiry — "+name)+"&body="+encodeURIComponent(body);closeModal()}</script>
 </body>
 </html>
