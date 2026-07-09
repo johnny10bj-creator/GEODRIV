@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
-    <link rel="canonical" href="https://ci.geodriv.com/blog/">
+    <link rel="canonical" href="https://geodriv.com/CI-blog/">
     <meta name="description" content="GEODRIV Blog — Competitive Intelligence insights, methodology, and analysis for manufacturing leaders." />
     <title>Insights — GEODRIV Competitive Intelligence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -461,13 +461,13 @@
     {
       "@context": "https://schema.org",
       "@type": "Blog",
-      "url": "https://ci.geodriv.com/blog/",
+      "url": "https://geodriv.com/CI-blog/",
       "name": "GEODRIV Insights",
       "description": "Competitive intelligence methodology, analysis, and industry insights for manufacturing leaders.",
       "publisher": {
         "@type": "Organization",
         "name": "GEODRIV",
-        "url": "https://ci.geodriv.com"
+        "url": "https://geodriv.com"
       },
       "mainEntity": {
         "@type": "FAQPage",
@@ -504,13 +504,13 @@
 <body>
     <nav class="nav">
         <div class="nav-inner">
-            <a href="https://ci.geodriv.com" class="nav-logo">
+            <a href="https://geodriv.com" class="nav-logo">
                 GEODRIV <span style="color:var(--text-muted);font-weight:400;margin:0 2px;">|</span> CI
             </a>
             <div class="nav-actions">
                 <div class="nav-links">
-                    <a href="https://ci.geodriv.com">Home</a>
-                    <a href="https://ci.geodriv.com/blog" class="active">Insights</a>
+                    <a href="https://geodriv.com">Home</a>
+                    <a href="https://geodriv.com/blog" class="active">Insights</a>
                 </div>
                 <button class="lang-btn" type="button" onclick="toggleLanguage()" aria-label="Switch language">中文</button>
                 <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">🌙</button>
@@ -542,7 +542,7 @@
                 <span class="tag">Category</span>
                 <span>X min read</span>
             </div>
-            <a href="/blog/article-slug/">
+            <a href="/CI-blog/article-slug/">
                 <h2>Title</h2>
                 <p class="excerpt">Excerpt text...</p>
                 <span class="read-more">Read article</span>
@@ -551,7 +551,7 @@
         -->
         <div class="empty-state" id="emptyState">
             <p><strong>First article coming soon.</strong></p>
-            <p style="color:var(--text-muted);font-size:0.875rem;">We're crafting intelligence that moves faster than the market.<br>Stay tuned — or <a href="https://ci.geodriv.com" style="color:var(--text-accent);">get in touch</a> to shape the conversation.</p>
+            <p style="color:var(--text-muted);font-size:0.875rem;">We're crafting intelligence that moves faster than the market.<br>Stay tuned — or <a href="https://geodriv.com" style="color:var(--text-accent);">get in touch</a> to shape the conversation.</p>
         </div>
     </div>
 
@@ -715,7 +715,7 @@
                         items.forEach(function(a) {
                             var link = document.createElement('a');
                             link.className = 'tag-article-link';
-                            link.href = '/blog/' + a.slug + '/';
+                            link.href = '/CI-blog/' + a.slug + '/';
                             link.innerHTML = '<span>' + a.title.en + '</span>';
                             body.appendChild(link);
                         });
@@ -768,9 +768,9 @@
                 card.className = 'article-card';
                 card.innerHTML =
                     '<div class="article-meta"><span>' + a.date + '</span><span class="tag">' + a.tag + '</span><span>' + a.minRead + ' min read</span></div>' +
-                    '<a href="/blog/' + a.slug + '/"><h2><span class="en-text">' + esc(a.title.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.title.zh) + '</span></h2></a>' +
+                    '<a href="/CI-blog/' + a.slug + '/"><h2><span class="en-text">' + esc(a.title.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.title.zh) + '</span></h2></a>' +
                     '<p class="excerpt"><span class="en-text">' + esc(a.excerpt.en) + '</span><span class="zh-text" style="display:none;">' + esc(a.excerpt.zh) + '</span></p>' +
-                    '<a href="/blog/' + a.slug + '/"><span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
+                    '<a href="/CI-blog/' + a.slug + '/"><span class="read-more"><span class="en-text">Read article</span><span class="zh-text" style="display:none;">阅读文章</span></span></a>';
                 container.appendChild(card);
             });
         }

@@ -8,14 +8,14 @@ GitHub Actions workflow 已配置（`.github/workflows/deploy.yml`）。
 1. 检出代码
 2. 打包为 Pages artifact（纯静态，无构建步骤）
 3. 部署到 GitHub Pages（`johnny10bj-creator.github.io/GEODRIV/`）
-4. CNAME 文件会绑定 `ci.geodriv.com` 自定义域名
+4. CNAME 文件会绑定 `geodriv.com` 自定义域名
 
 ## 第二步：在 GitHub 设置中启用 Pages
 
 > 如果 GitHub Pages 尚未为此仓库启用，手动操作一次（< 1分钟）：
 > 1. 打开 https://github.com/johnny10bj-creator/GEODRIV/settings/pages
 > 2. Source → **GitHub Actions**
-> 3. Custom domain → 输入 `ci.geodriv.com` → Save
+> 3. Custom domain → 输入 `geodriv.com` → Save
 > 4. 等待 DNS 校验通过（勾选 Enforce HTTPS）
 
 > ⚠️ 如果你已在此仓库的 Settings > Pages 中配置了自定义域名，则不需要再操作。
@@ -58,19 +58,19 @@ GitHub Actions workflow 已配置（`.github/workflows/deploy.yml`）。
 ### 配置路由
 
 1. Cloudflare Dashboard → **Workers & Pages** → 选择 `feiye-api` → **Triggers** → **Routes**
-2. 添加路由：`ci.geodriv.com/feiye/api/dify/*` → Worker: `feiye-api` → 保存
-3. 添加路由：`ci.geodriv.com/aerospace/api/*` → Worker: `aerospace-api` → 保存
+2. 添加路由：`geodriv.com/feiye/api/dify/*` → Worker: `feiye-api` → 保存
+3. 添加路由：`geodriv.com/aerospace/api/*` → Worker: `aerospace-api` → 保存
 
 ### 3.3 配置自定义域名
 
 1. Cloudflare Dashboard → **Workers & Pages** → **Pages** → **geodriv-ci**
 2. **Custom domains** → **Set up custom domain**
-3. 输入 `ci.geodriv.com` → **Continue** → **Activate domain**
+3. 输入 `geodriv.com` → **Continue** → **Activate domain**
 
 ### 3.4 迁移 DNS
 
 1. Cloudflare Dashboard → 上方切换域名 → **Add site**
-2. 输入 `ci.geodriv.com` → **Add site**
+2. 输入 `geodriv.com` → **Add site**
 3. 选择 **Free** 计划
 4. 自动扫描现有 DNS 记录
 
@@ -93,7 +93,7 @@ A       @               (旧服务器IP — 迁移后可删除)
 ### 在域名注册商处修改 NS
 
 登录 **DNSPod**（或您的域名注册商）：
-- 找到 `ci.geodriv.com` 的 DNS 管理
+- 找到 `geodriv.com` 的 DNS 管理
 - 将 nameservers 修改为 Cloudflare 给的 2 个
 - 保存
 
@@ -105,12 +105,12 @@ A       @               (旧服务器IP — 迁移后可删除)
 
 | 路径 | 预期结果 | 测试命令 |
 |------|---------|---------|
-| `https://ci.geodriv.com/` | 主站首页 | `curl -sI https://ci.geodriv.com/` |
-| `https://ci.geodriv.com/feiye/` | 飞叶情报 | `curl -sI https://ci.geodriv.com/feiye/` |
-| `https://ci.geodriv.com/aerospace/` | 航天情报 | `curl -sI https://ci.geodriv.com/aerospace/` |
-| `https://ci.geodriv.com/blog/` | 博客列表页 | `curl -sI https://ci.geodriv.com/blog/` |
+| `https://geodriv.com/` | 主站首页 | `curl -sI https://geodriv.com/` |
+| `https://geodriv.com/feiye/` | 飞叶情报 | `curl -sI https://geodriv.com/feiye/` |
+| `https://geodriv.com/aerospace/` | 航天情报 | `curl -sI https://geodriv.com/aerospace/` |
+| `https://geodriv.com/CI-blog/` | 博客列表页 | `curl -sI https://geodriv.com/CI-blog/` |
 
-> 💡 测试时加上 `-H "Host: ci.geodriv.com"` 可绕过 DNS 缓存直接测试 CF
+> 💡 测试时加上 `-H "Host: geodriv.com"` 可绕过 DNS 缓存直接测试 CF
 
 ## 常见问题
 

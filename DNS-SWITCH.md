@@ -1,4 +1,4 @@
-# DNS 切换 —— ci.geodriv.com → GitHub Pages
+# DNS 切换 —— geodriv.com → GitHub Pages
 
 ## 方案 1：CNAME 记录（优先）
 
@@ -6,7 +6,7 @@
 
 | 记录类型 | 主机记录 | 记录值 | TTL |
 |---------|---------|-------|-----|
-| CNAME | **留空** 或 **@** 或 **ci.geodriv.com** 看哪个能提交 | johnny10bj-creator.github.io | 600 |
+| CNAME | **留空** 或 **@** 或 **geodriv.com** 看哪个能提交 | johnny10bj-creator.github.io | 600 |
 
 如果提示「与其他记录冲突」，或者「ci」不让写，用方案 2。
 
@@ -22,7 +22,7 @@
 ## 验证
 
 ```bash
-nslookup ci.geodriv.com
+nslookup geodriv.com
 # 应返回 185.199.x.x (GitHub Pages IPs)
 ```
-或浏览器打开 https://ci.geodriv.com/blog/ 确认页面正常。
+或浏览器打开 https://geodriv.com/CI-blog/ 确认页面正常。
