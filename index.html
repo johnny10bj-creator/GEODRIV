@@ -948,6 +948,7 @@
                     <a href="https://geodriv.com/blog" class="active-link"><span class="en-text">Insights</span></a>
                 </div>
                 
+                <button class="lang-btn" type="button" onclick="toggleLanguage()" aria-label="Switch language">中文</button>
                 <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">🌙</button>
             </div>
         </div>
@@ -1238,6 +1239,11 @@
                 else if (tag === 'option') return; // handled by setIndustryOptions
                 else el.style.display = 'block';
             });
+        }
+
+        function toggleLanguage() {
+            var btn = document.querySelector('.lang-btn');
+            btn.textContent = btn.textContent === '中文' ? 'EN' : '中文';
         }
 
         /* ═══ Modal ═══ */
