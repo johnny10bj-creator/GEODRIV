@@ -59,4 +59,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- ── Article: Track Competitors Without a Big Team ── -->
+  <url>
+    <loc>https://ci.geodriv.com/blog/track-competitors-without-a-big-team/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
