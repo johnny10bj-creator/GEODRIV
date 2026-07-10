@@ -17,40 +17,152 @@
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --bg-hover:rgba(255,255,255,0.08);
 --r-md:8px;
+
+/* Carousel classes */
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
 </style></head><body>
 <nav class="nav"><div class="nav-inner"><a href="https://geodriv.com" class="nav-logo">GEODRIV <span class="pipe">|</span> CI</a><div class="nav-actions"><div class="nav-links"><a href="https://geodriv.com">Home</a><a href="https://geodriv.com/blog">Insights</a></div><button class="lang-btn" onclick="toggleLanguage()">中文</button><button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button></div></div></nav>
-<article class="article"><div class="meta"><span>2026-7</span><span class="tag">Guide</span><span>5 min read</span></div>
-<h1>CI Consulting: Cost and How to Choose the Right Partner</h1><p class="deck">A transparent guide to what competitive intelligence consulting costs, what you get at each price point, and how to evaluate providers.</p>
-<div class="box"><strong>Short answer:</strong> CI consulting for manufacturing ranges from <strong>$10,000 to $60,000/month</strong> for outsourced solutions, with custom AI-powered pipelines and weekly analyst deliverables. The biggest cost drivers are coverage breadth and delivery frequency (weekly reports vs. continuous monitoring). Avoid consultants who don't specialize in manufacturing — the signal model is everything.</div>
+<article class="article"><div class="meta"><span>2026-7</span><span class="tag">Guide</span><span>3 min read</span></div>
+<h1>CI Consulting: Cost and How to Choose the Right Partner</h1>
+<p class="deck">A transparent guide to what competitive intelligence consulting costs, what you get at each price point, and how to evaluate providers.</p>
 
-<h2>CI Consulting Pricing Tiers</h2>
-<table><tr><th>Tier</th><th>Monthly Range</th><th>What You Get</th><th>Best For</th></tr>
-<tr><td><strong>Starter</strong></td><td>$10K – $25K</td><td>Core competitors, essential signal types, weekly briefing</td><td>Mid-market companies starting CI</td></tr>
-<tr><td><strong>Growth</strong></td><td>$35K – $50K</td><td>Expanded coverage, advanced signal types, weekly + event alerts</td><td>Companies in competitive markets</td></tr>
-<tr><td><strong>Enterprise</strong></td><td>$45K – $60K</td><td>Full coverage, all signal types, continuous monitoring + monthly teardowns</td><td>Multinationals, complex supply chains</td></tr></table>
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> CI consulting for manufacturing ranges from <strong>$10,000 to $60,000/month</strong> for outsourced solutions, with custom AI-powered pipelines and weekly analyst deliverables. The biggest cost drivers are coverage breadth and delivery frequency. Avoid consultants who don't specialise in manufacturing — the signal model is everything.
+</div>
 
-<h2>What Drives Cost</h2>
-<p>The price of CI consulting isn't arbitrary. Three factors explain 90% of the variance:</p>
-<ul><li><strong>Scope complexity</strong> — The number of markets, product categories, and geographies being tracked. Broader coverage requires more infrastructure and analyst attention.</li>
-<li><strong>Signal diversity</strong> — A system tracking patents, certifications, tenders, and hiring costs more than one tracking only pricing and news. Manufacturing-relevant signals (patents, certs) often require specialized data pipelines.</li>
-<li><strong>Delivery frequency</strong> — Weekly reports are standard. Continuous monitoring (real-time alerts + dashboards) and monthly deep-dive teardowns increase cost but deliver substantially more strategic value.</li></ul>
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 3</div>
+<h2 class="phase-header">CI Consulting Pricing Tiers</h2>
+<p class="phase-sub">Three levels of engagement, from starter to enterprise</p>
 
-<h2>How to Choose a CI Partner</h2>
-<p>Four questions to ask any CI consultant before signing:</p>
-<ol><li><strong>"Do you specialize in manufacturing?"</strong> — If they say "we cover all industries," walk away. The data sources that matter in manufacturing are fundamentally different from SaaS or retail.</li>
-<li><strong>"What signal types do you track?"</strong> — Look for patents, certifications, tenders, and hiring — not just news and pricing. If they can't name the specific databases they monitor, they're reselling generic feeds.</li>
-<li><strong>"How do you ensure reliability?"</strong> — Demand a clear methodology for distinguishing verified signals from noise. At GEODRIV, we use a three-tier confidence framework with auditable data sources.</li>
-<li><strong>"Who will I work with?"</strong> — You want direct access to the analyst who understands your industry, not a salesperson who forwards your questions to an anonymous back-office team.</li></ol>
+<div class="delivery-grid">
+<div class="delivery-card">
+<h4>🚀 Starter</h4>
+<p><strong>$10K – $25K/mo</strong><br>Core competitors, essential signal types, weekly briefing.</p>
+<p><em>Best for:</em> Mid-market companies starting CI</p>
+</div>
+<div class="delivery-card">
+<h4>📈 Growth</h4>
+<p><strong>$35K – $50K/mo</strong><br>Expanded coverage, advanced signal types, weekly + event alerts.</p>
+<p><em>Best for:</em> Companies in competitive markets</p>
+</div>
+<div class="delivery-card">
+<h4>🏢 Enterprise</h4>
+<p><strong>$45K – $60K/mo</strong><br>Full coverage, all signal types, continuous monitoring + monthly teardowns.</p>
+<p><em>Best for:</em> Multinationals, complex supply chains</p>
+</div>
+</div>
+
+<div class="insight-callout">
+<strong>Cost clarity:</strong> These ranges assume outsourced CI as a managed service. In-house CI teams add salary, tools, and infrastructure costs — typically $150K–$300K/year for a single analyst, before any data subscriptions.
+</div>
+
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 3</div>
+<h2 class="phase-header">What Drives Cost</h2>
+<p class="phase-sub">Three factors explain 90% of the variance</p>
+
+<div class="comparison-grid">
+<div class="comparison-item">
+<h4>🌐 Scope Complexity</h4>
+<p>The number of markets, product categories, and geographies tracked. Broader coverage requires more infrastructure and analyst attention.</p>
+</div>
+<div class="comparison-item">
+<h4>📡 Signal Diversity</h4>
+<p>A system tracking patents, certifications, tenders, and hiring costs more than one tracking only pricing and news. Manufacturing-relevant signals require specialised data pipelines.</p>
+</div>
+<div class="comparison-item">
+<h4>⏱️ Delivery Frequency</h4>
+<p>Weekly reports are standard. Continuous monitoring (real-time alerts + dashboards) and monthly deep-dive teardowns increase cost but deliver substantially more strategic value.</p>
+</div>
+<div class="comparison-item">
+<h4>✅ What You're Really Paying For</h4>
+<p>Not data — data is cheap. You're paying for signal verification, analyst judgement, and manufacturing domain expertise. That's where the value lives.</p>
+</div>
+</div>
+
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 3</div>
+<h2 class="phase-header">How to Choose a CI Partner</h2>
+<p class="phase-sub">Four questions to ask before signing</p>
+
+<div class="source-grid">
+<div class="source-item">
+<h4>🏭 "Do you specialise in manufacturing?"</h4>
+<p>If they say "we cover all industries," walk away. Manufacturing data sources (patents, cert registries, tender platforms) are fundamentally different from SaaS or retail.</p>
+</div>
+<div class="source-item">
+<h4>📋 "What signal types do you track?"</h4>
+<p>Look for patents, certifications, tenders, and hiring — not just news and pricing. If they can't name the databases they monitor, they're reselling generic feeds.</p>
+</div>
+<div class="source-item">
+<h4>🔒 "How do you ensure reliability?"</h4>
+<p>Demand a clear methodology for distinguishing verified signals from noise. At GEODRIV, we use a three-tier confidence framework with auditable data sources.</p>
+</div>
+<div class="source-item">
+<h4>👤 "Who will I work with?"</h4>
+<p>You want direct access to the analyst who understands your industry, not a salesperson who forwards your questions to an anonymous back-office team.</p>
+</div>
+</div>
+
+<div class="quote-block">
+"The best CI partner makes your team smarter, not dependent. You should see diminishing reliance over 12 months as your internal capability grows."
+<cite>— GEODRIV Engagement Philosophy</cite>
+</div>
+
+<!-- CLOSING -->
+<hr class="phase-divider">
+
+<div class="cta">
+<h3>Ready to build CI that moves with your market?</h3>
+<p>Tell us your five most important questions. We'll show you where the answers live.</p>
+<a href="https://geodriv.com" class="cta-btn">Get in touch</a>
+</div>
 
 <div class="author"><div class="author-avatar">JS</div><div><h4>Baojun (Joe) Shi</h4><p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p></div></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 <div class="share">
 <p class="share-label">SHARE THIS ARTICLE</p>
@@ -73,7 +185,6 @@ Copy link
 <script>
 function copyLink(btn){var input=document.createElement('input');input.value=location.href;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);btn.classList.add('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied';setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy link';},2000)}
 </script>
-
-<div class="cta"><h3>Get a customized CI proposal for your industry.</h3><p>Transparent pricing. No sales pitch. Just signal.</p><a href="https://geodriv.com" class="cta-btn">Get in touch</a></div></article>
+</article>
 <footer>© 2026 GEODRIV Technology</footer>
 <script>var lang=new URLSearchParams(window.location.search).get("lang")||"en"||"en";);z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}</script></body></html>

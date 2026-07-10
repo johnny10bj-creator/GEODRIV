@@ -14,109 +14,157 @@
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Alternatives to Crayon, Klue, and Contify for Manufacturing","description":"Why SaaS CI tools don't work for manufacturing — and what to use instead.","datePublished":"2026-07","author":{"@type":"Person","name":"Baojun (Joe) Shi","sameAs":"https://www.linkedin.com/in/baojun-joe-shi-b6651633/"},"publisher":{"@type":"Organization","name":"GEODRIV","url":"https://geodriv.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://geodriv.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://geodriv.com/CI-blog/"},{"@type":"ListItem","position":3,"name":"CI for Manufacturing: Beyond Crayon and Klue","item":"https://geodriv.com/CI-blog/alternatives-to-crayon-klue-manufacturing/"}]}</script>
-<style>:root{--ds-8:8px;--ds-16:16px;--ds-18:18px;--ds-20:20px;--ds-24:24px;--ds-32:32px;--ds-40:40px;--ds-48:48px;--ds-64:64px;--r-md:8px;--r-lg:12px;--blue:#1a6fb5;--orange:#D85A30}[data-theme="dark"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,0.75);--border:rgba(255,255,255,0.08);--text:#f8fafc;--text2:rgba(248,250,252,0.55);--text3:rgba(248,250,252,0.30);--accent:#1a6fb5}[data-theme="light"]{--bg:#f4f7fa;--bg-card:#ffffff;--bg-nav:rgba(244,247,250,0.75);--border:rgba(0,0,0,0.06);--text:#0b1a2e;--text2:rgba(11,26,46,0.50);--text3:rgba(11,26,46,0.25);--accent:#1a6fb5}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-font-smoothing:antialiased}body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .35s,color .35s}
+<style>
+:root{--ds-8:8px;--ds-16:16px;--ds-18:18px;--ds-20:20px;--ds-24:24px;--ds-32:32px;--ds-40:40px;--ds-48:48px;--ds-64:64px;--r-md:8px;--r-lg:12px;--blue:#1a6fb5;--orange:#D85A30}
+[data-theme="dark"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,0.75);--border:rgba(255,255,255,0.08);--text:#f8fafc;--text2:rgba(248,250,252,0.55);--text3:rgba(248,250,252,0.30);--accent:#1a6fb5}
+[data-theme="light"]{--bg:#f4f7fa;--bg-card:#ffffff;--bg-nav:rgba(244,247,250,0.75);--border:rgba(0,0,0,0.06);--text:#0b1a2e;--text2:rgba(11,26,46,0.50);--text3:rgba(11,26,46,0.25);--accent:#1a6fb5}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-font-smoothing:antialiased}body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .35s,color .35s}
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-nav);border-bottom:1px solid var(--border-card);backdrop-filter:saturate(200%) blur(32px)}.nav-inner{max-width:1200px;margin:0 auto;padding:0 var(--ds-32);height:64px;display:flex;align-items:center;justify-content:space-between}.nav-logo{font-family:"Lexend",sans-serif;font-size:1.0625rem;font-weight:600;color:var(--text);text-decoration:none}.nav-logo:hover{color:var(--text-accent)}.nav-links{display:flex;gap:var(--ds-20)}.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-links a.active{color:var(--text-accent)}.nav-actions{display:flex;align-items:center;gap:var(--ds-12)}.lang-btn:hover{border-color:var(--text-muted);background:var(--bg-card)}.theme-btn{background:none;color:var(--text-secondary);border:.5px solid var(--border-card);padding:8px 12px;border-radius:var(--r-md);cursor:pointer;font-size:1rem;transition:all .2s}.theme-btn:hover{border-color:var(--text-muted);background:var(--bg-card)}
 .article{max-width:680px;margin:0 auto;padding:120px var(--ds-32) var(--ds-64)}.meta{font-size:.8125rem;color:var(--text-muted);margin-bottom:var(--ds-24);display:flex;gap:var(--ds-12)}.tag{background:rgba(26,111,181,.10);color:var(--text-accent);padding:2px 10px;border-radius:4px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .article h1{font-family:"Lexend",sans-serif;font-size:clamp(1.85rem,3.8vw,2.5rem);font-weight:600;letter-spacing:-0.025em;line-height:1.15;margin-bottom:var(--ds-20)}.deck{font-size:1.125rem;color:var(--text-secondary);margin-bottom:var(--ds-36);line-height:1.55;max-width:600px}
 .article h2{font-family:"Lexend",sans-serif;font-size:1.35rem;font-weight:600;margin-top:var(--ds-48);margin-bottom:var(--ds-16);letter-spacing:-0.01em}.article p{margin-bottom:var(--ds-18);color:var(--text-secondary);font-size:1.0625rem;line-height:1.75}.article strong{color:var(--text);font-weight:600}
 .article ul{margin-bottom:var(--ds-20);padding-left:var(--ds-24);color:var(--text-secondary)}.article li{margin-bottom:var(--ds-10);line-height:1.6}.box{background:var(--bg-card);border:1px solid var(--border-card);border-left:3px solid var(--text-accent);border-radius:var(--r-md);padding:var(--ds-24);margin-bottom:var(--ds-32);font-size:.9375rem;box-shadow:0 2px 12px rgba(0,0,0,.08)}
-.signals{display:grid;grid-template-columns:1fr 1fr;gap:var(--ds-16);margin-bottom:var(--ds-32)}.sig-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--r-md);padding:var(--ds-20)}.sig-card h3{font-size:.875rem;font-weight:600;margin-bottom:var(--ds-4);color:var(--text)}.sig-card p{font-size:.8125rem;color:var(--text-secondary);margin:0;line-height:1.5}.sig-card.tool{background:transparent;border-style:dashed;border-color:var(--text-muted)}
+.signals{display:grid;grid-template-columns:1fr 1fr;gap:var(--ds-16);margin-bottom:var(--ds-32)}.sig-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--r-md);padding:var(--ds-20)}.sig-card h3{font-size:.875rem;font-weight:600;margin-bottom:var(--ds-4);color:var(--text)}.sig-card p{font-size:.8125rem;color:var(--text-secondary);margin:0;line-height:1.5}
 .author{margin-top:var(--ds-48);padding:var(--ds-24);background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--r-lg);display:flex;gap:var(--ds-20);align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.08)}.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:"Lexend",sans-serif;font-weight:600;font-size:1.1rem;color:#fff}.author h4{font-size:.875rem;font-weight:600;margin-bottom:2px}.author p{font-size:.75rem;color:var(--text-secondary);margin:0;line-height:1.4}.author a{color:var(--text-accent);text-decoration:none}
 .cta{margin-top:var(--ds-48);padding:var(--ds-40) var(--ds-32);background:linear-gradient(135deg,#0d2137 0%,#0a1a2e 100%);border:1px solid rgba(26,111,181,.2);border-radius:var(--r-lg);text-align:center;position:relative;overflow:hidden}.cta::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(26,111,181,.4),transparent)}.cta h3{font-family:"Lexend",sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:var(--ds-12);color:var(--text)}.cta p{font-size:.9375rem;color:var(--text-secondary);margin-bottom:var(--ds-20)}.cta-btn{display:inline-flex;padding:13px 36px;background:linear-gradient(135deg,#1a6fb5,#2383d4);color:#fff;text-decoration:none;border-radius:var(--r-md);font-size:.9375rem;font-weight:500;font-family:inherit;transition:all .15s;box-shadow:0 2px 8px rgba(26,111,181,.2)}.cta-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,111,181,.3)}
 footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid var(--border-card);color:var(--text-muted);font-size:.8125rem}
+
+/* CAROUSEL STYLES */
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.layer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.layer-grid{grid-template-columns:1fr}}
+.layer-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.layer-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.layer-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+
 @media(max-width:768px){.article{padding:100px var(--ds-16) var(--ds-40)}.signals{grid-template-columns:1fr}.nav-inner{padding:0 var(--ds-16)}}
 
-
-
-
-
-
-
-
-
-/* Share section */
-.share{margin:var(--ds-32) auto var(--ds-24);max-width:480px;text-align:center}
-.share-label{font-size:.6875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--ds-16);font-weight:500}
-.share-links{display:flex;justify-content:center;align-items:center;gap:var(--ds-12)}
-.share-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:128px;height:46px;border-radius:var(--r-md);font-size:.8125rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .2s;border:none;font-family:inherit;color:#fff}
-.share-btn svg{width:18px;height:18px;flex-shrink:0}
-.share-btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
-.share-btn:active{transform:translateY(0)}
-.share-linkedin{background:#0a66c2;box-shadow:0 2px 8px rgba(10,102,194,.25)}
-.share-twitter{background:#000;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.share-copy{background:var(--bg-hover);color:var(--text-secondary);border:1px solid var(--border-card);box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.share-copy:hover{color:var(--text-accent);border-color:var(--text-accent)}
-.share-copy.copied{background:rgba(74,222,128,.15);color:#4ade80;border-color:#4ade80}
-@media(max-width:480px){.share{margin:var(--ds-24) auto var(--ds-16)}.share-btn{width:110px;height:42px;font-size:.75rem}}
-
-/* Alias: old → new naming */
---text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
---bg-hover:rgba(255,255,255,0.08);
-</style>
-</head>
+/* Alias */
+--text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);
+</style></head>
 <body>
+
 <nav class="nav"><div class="nav-inner">
 <a href="https://geodriv.com" class="nav-logo">GEODRIV <span class="pipe">|</span> CI</a>
 <div class="nav-actions">
 <div class="nav-links"><a href="https://geodriv.com">Home</a><a href="https://geodriv.com/blog">Insights</a></div>
 <button class="lang-btn" onclick="toggleLanguage()">中文</button>
-<button class="lang-btn" onclick="toggleLanguage()">中文</button>
 <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
 </div></div></nav>
 
 <article class="article">
+
 <div class="meta"><span>2026-7</span><span class="tag">Perspective</span><span>3 min read</span></div>
 
 <h1>Beyond Crayon and Klue: CI for Manufacturing</h1>
-<p class="deck">Crayon, Klue, and Contify are good at one thing: tracking SaaS feature releases. If you're in manufacturing, you need a different set of tools.</p>
+<p class="deck">SaaS CI tools track pricing pages and G2 reviews. In manufacturing, competitive advantage lives somewhere completely different.</p>
 
-<div class="box">
-<strong>The problem:</strong> SaaS CI platforms scrape pricing pages, monitor competitor blog posts, and track product reviews on G2. For a software company, these signals matter. For a manufacturer — where competitive advantage lives in patent filings, certification changes, and tender wins — these tools miss everything that matters.
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> Crayon, Klue, and Contify were built to monitor SaaS feature releases. For manufacturing — where the real signals live in patent filings, certification changes, and tender wins — these tools miss everything that matters. Here's what to use instead.
 </div>
 
-<p>If you're evaluating competitive intelligence tools for a manufacturing business, here's what you actually need to track:</p>
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 3</div>
+<h2 class="phase-header">The SaaS CI Tools Were Not Built for You</h2>
+<p class="phase-sub">And it's not their fault — they're great at what they were designed for.</p>
+
+<div class="myth-row">
+  <div class="myth-box danger">
+    <div class="myth-label">✕ What Crayon/Klue Track</div>
+    <p>Pricing page changes · Competitor blog posts · G2 product reviews · Social media mentions · Job listing counts</p>
+  </div>
+  <div class="myth-box success">
+    <div class="myth-label">✓ What Manufacturing Needs</div>
+    <p>Patent filings · Certification changes · Tender wins and losses · Key engineering hires · Plant capacity signals</p>
+  </div>
+</div>
+
+<p class="quote-block" style="border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6;">
+For a software company, these signals are genuinely useful. For a manufacturer — where competitive advantage lives in process innovation, regulatory capability, and supply chain depth — SaaS CI tools are looking at the wrong map entirely.
+</p>
+
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 3</div>
+<h2 class="phase-header">The Six Signals That Actually Matter</h2>
+<p class="phase-sub">Each one is a leading indicator of a competitor's next move — if you know where to look.</p>
 
 <div class="signals">
-<div class="sig-card">
-<h3>📜 Patent Intelligence</h3>
-<p>R&D direction, new process capabilities, material innovations. Filed months before any product announcement.</p>
-</div>
-<div class="sig-card">
-<h3>📋 Certification Changes</h3>
-<p>New ISO standards, regulatory approvals, nadcap recerts. Signal expansion into new customer segments.</p>
-</div>
-<div class="sig-card">
-<h3>📩 Tender & Bid Data</h3>
-<p>Which competitors are winning contracts in your segments. Price points, delivery terms, service scope.</p>
-</div>
-<div class="sig-card">
-<h3>👤 Hiring Signals</h3>
-<p>New engineering leaders, domain specialists, regional managers. Leading indicator for market entry or capacity expansion.</p>
-</div>
-<div class="sig-card">
-<h3>🏭 Capacity Monitoring</h3>
-<p>New plant openings, equipment purchases, shift expansions. Physical footprint tells you where your competitor is investing.</p>
-</div>
-<div class="sig-card">
-<h3>🔗 Supply Chain Intel</h3>
-<p>New supplier relationships, logistics partnerships, raw material sourcing. Reveals cost structure and resilience.</p>
-</div>
+  <div class="sig-card">
+    <h3>📜 Patent Intelligence</h3>
+    <p>R&D direction, new process capabilities, material innovations. Filed months before any product announcement.</p>
+  </div>
+  <div class="sig-card">
+    <h3>📋 Certification Changes</h3>
+    <p>New ISO standards, regulatory approvals, nadcap recerts. Signal expansion into new customer segments.</p>
+  </div>
+  <div class="sig-card">
+    <h3>📩 Tender & Bid Data</h3>
+    <p>Which competitors are winning contracts in your segments. Price points, delivery terms, service scope.</p>
+  </div>
+  <div class="sig-card">
+    <h3>👤 Hiring Signals</h3>
+    <p>New engineering leaders, domain specialists, regional managers. Leading indicator for market entry or capacity expansion.</p>
+  </div>
+  <div class="sig-card">
+    <h3>🏭 Capacity Monitoring</h3>
+    <p>New plant openings, equipment purchases, shift expansions. Physical footprint tells you where capital is flowing.</p>
+  </div>
+  <div class="sig-card">
+    <h3>🔗 Supply Chain Intel</h3>
+    <p>New supplier relationships, logistics partnerships, raw material sourcing. Reveals cost structure and resilience.</p>
+  </div>
 </div>
 
-<p>Crayon, Klue, and Contify don't track any of these signals natively. They're built for a SaaS world where the data lives on web pages. In manufacturing, the data that matters lives in patent databases, certification registries, government procurement platforms, and customs records.</p>
+<div class="insight-callout">
+<strong>Key insight:</strong> None of these six signals are tracked natively by Crayon, Klue, or Contify. They're built for a SaaS world where data lives on web pages. In manufacturing, the data lives in patent databases, certification registries, government procurement platforms, and customs records.
+</div>
 
-<h2>What to Use Instead</h2>
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 3</div>
+<h2 class="phase-header">Build a Layered CI System Instead</h2>
+<p class="phase-sub">No single tool covers all six signals. That's OK — the right approach is layered.</p>
 
-<p>There's no single tool that covers all six manufacturing CI signals out of the box. The most effective approach is a <strong>layered CI system</strong>:</p>
+<div class="layer-grid">
+  <div class="layer-card">
+    <h4>🔧 Layer 1<br>Automated Collection</h4>
+    <p>Patent alerts, certification monitors, tender alerts, LinkedIn job-change tracking. Free or low-cost. One day to set up.</p>
+  </div>
+  <div class="layer-card">
+    <h4>🧠 Layer 2<br>Weekly Synthesis</h4>
+    <p>A human or AI pipeline cross-references signals. Patent filing + new hire + new cert = composite signal no tool can surface alone.</p>
+  </div>
+  <div class="layer-card">
+    <h4>🤝 Layer 3<br>Strategic Intel</h4>
+    <p>Relationship-based insights — supply chain whispers, trade show conversations, customer feedback. No software can replace this.</p>
+  </div>
+</div>
 
-<ul>
-<li><strong>Layer 1 — Automated signal collection:</strong> Patent alerts (Google Patents, Espacenet), certification monitors (ISO, UL, FDA databases), tender alerts (public procurement platforms), and LinkedIn job-change monitoring. These are free or low-cost and take one day to set up.</li>
-<li><strong>Layer 2 — Weekly synthesis:</strong> A human analyst (or AI pipeline trained on your industry) cross-references signals across layers. That patent filing + that new hire + that new ISO cert = a composite signal that no single tool would surface.</li>
-<li><strong>Layer 3 — Strategic intelligence:</strong> Relationship-based insights — supply chain whispers, trade show conversations, customer feedback. This is where a specialized CI consultant adds value that no software can replicate.</li>
-</ul>
+<div class="insight-callout">
+<strong>The bottom line:</strong> Don't buy Crayon or Klue and wonder why you're still blind. Build the six-channel signal model that fits your industry — either yourself, or with a CI specialist who already has it built. One takes six months of trial and error. The other takes a conversation.
+</div>
 
-<div class="box">
-<strong>The bottom line:</strong> Don't buy Crayon or Klue for manufacturing and wonder why you're still blind. Buy the <em>signal model</em> that fits your industry — which means either building the six-channel system yourself or working with a CI specialist who already has it built. One takes six months of trial and error. The other takes a conversation.
+<div class="cta">
+<h3>Let's design your manufacturing CI system.</h3>
+<p>Six signal channels. One weekly briefing.</p>
+<a href="https://geodriv.com" class="cta-btn">Get in touch</a>
 </div>
 
 <div class="author">
@@ -127,13 +175,7 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 </div>
 </div>
 
-</div>
-
-</div>
-
-</div>
-
-</div>
+</article>
 
 <div class="share">
 <p class="share-label">SHARE THIS ARTICLE</p>
@@ -157,16 +199,10 @@ Copy link
 function copyLink(btn){var input=document.createElement('input');input.value=location.href;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);btn.classList.add('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied';setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy link';},2000)}
 </script>
 
-<div class="cta">
-<h3>Let's design your manufacturing CI system.</h3>
-<p>Six signal channels. One weekly briefing.</p>
-<a href="https://geodriv.com" class="cta-btn">Get in touch</a>
-</div>
-</article>
-
 <footer>© 2026 GEODRIV Technology</footer>
 
 <script>var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}
-var lang=new URLSearchParams(window.location.search).get("lang")||"en"||"en";);z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}</script>
+var lang=new URLSearchParams(window.location.search).get("lang")||"en"||"en";
+</script>
 </body>
 </html>

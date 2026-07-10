@@ -3,23 +3,103 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="A step-by-step guide to building a competitive intelligence function in manufacturing. From signal selection to executive reporting.">
-<meta property="og:title" content="How to Do Competitive Intelligence in Manufacturing">
-<meta property="og:description" content="A practical playbook for building an effective CI function.">
+<meta name="description" content="A step-by-step guide to building a competitive intelligence function in manufacturing. 4-phase framework from signal selection to executive reporting.">
+<meta property="og:title" content="How to Do CI in Manufacturing — The 4-Slide Framework">
+<meta property="og:description" content="A visual 4-phase playbook for CI in industrial markets.">
 <link rel="canonical" href="https://geodriv.com/CI-blog/how-to-do-ci-in-manufacturing/">
 <title>How to Do CI in Manufacturing — GEODRIV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Do Competitive Intelligence in Manufacturing","datePublished":"2026-07","author":{"@type":"Person","name":"Baojun (Joe) Shi","sameAs":"https://www.linkedin.com/in/baojun-joe-shi-b6651633/"},"publisher":{"@type":"Organization","name":"GEODRIV","url":"https://geodriv.com"}}</script>
-<style>:root{--blue:#1a6fb5;--orange:#D85A30}[data-theme="dark"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,.75);--border:rgba(255,255,255,.08);--text:#f8fafc;--text2:rgba(248,250,252,.55);--text3:rgba(248,250,252,.30);--accent:#1a6fb5}[data-theme="light"]{--bg:#f4f7fa;--bg-card:#fff;--bg-nav:rgba(244,247,250,.75);--border:rgba(0,0,0,.06);--text:#0b1a2e;--text2:rgba(11,26,46,.5);--text3:rgba(11,26,46,.25);--accent:#1a6fb5}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-font-smoothing:antialiased}body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .35s,color .35s}
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-nav);border-bottom:1px solid var(--border-card);backdrop-filter:saturate(200%) blur(32px)}.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}.nav-logo{font-family:"Lexend",sans-serif;font-size:1.0625rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-0.01em}.nav-logo:hover{color:var(--text-accent)}.nav-links{display:flex;gap:20px}.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s}.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;align-items:center;gap:12px}.lang-btn:hover{border-color:var(--text-muted);background:var(--bg-card)}.theme-btn{background:none;color:var(--text-secondary);border:.5px solid var(--border-card);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:1rem;transition:all .2s}.theme-btn:hover{border-color:var(--text-muted);background:var(--bg-card)}
-.article{max-width:680px;margin:0 auto;padding:120px 32px 64px}.meta{font-size:.8125rem;color:var(--text-muted);margin-bottom:24px;display:flex;gap:12px}.tag{background:rgba(26,111,181,.1);color:var(--text-accent);padding:2px 10px;border-radius:4px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}.article h1{font-family:"Lexend",sans-serif;font-size:clamp(1.85rem,3.8vw,2.5rem);font-weight:600;letter-spacing:-0.025em;line-height:1.15;margin-bottom:20px}.deck{font-size:1.125rem;color:var(--text-secondary);margin-bottom:36px;line-height:1.55;max-width:600px}.article h2{font-family:"Lexend",sans-serif;font-size:1.35rem;font-weight:600;margin-top:48px;margin-bottom:16px}.article p{margin-bottom:18px;color:var(--text-secondary);font-size:1.0625rem;line-height:1.75}.article strong{color:var(--text);font-weight:600}.article ul{margin-bottom:20px;padding-left:24px;color:var(--text-secondary)}.article li{margin-bottom:10px;line-height:1.6}.box{background:var(--bg-card);border:1px solid var(--border-card);border-left:3px solid var(--text-accent);border-radius:8px;padding:24px;margin-bottom:32px;font-size:.9375rem;box-shadow:0 2px 12px rgba(0,0,0,.08)}.steps{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}.step-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:20px;border-top:2px solid var(--text-accent)}.step-card h3{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--text)}.step-card p{font-size:.8125rem;color:var(--text-secondary);margin:0;line-height:1.5}.author{margin-top:48px;padding:24px;background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;display:flex;gap:20px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.08)}.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:"Lexend",sans-serif;font-weight:600;font-size:1.1rem;color:#fff}.author h4{font-size:.875rem;font-weight:600;margin-bottom:2px}.author p{font-size:.75rem;color:var(--text-secondary);margin:0;line-height:1.4}.author a{color:var(--text-accent);text-decoration:none}.cta{margin-top:48px;padding:40px 32px;background:linear-gradient(135deg,#0d2137,#0a1a2e);border:1px solid rgba(26,111,181,.2);border-radius:12px;text-align:center;position:relative;overflow:hidden}.cta::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(26,111,181,.4),transparent)}.cta h3{font-family:"Lexend",sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:12px;color:var(--text)}.cta p{font-size:.9375rem;color:var(--text-secondary);margin-bottom:20px}.cta-btn{display:inline-flex;padding:13px 36px;background:linear-gradient(135deg,#1a6fb5,#2383d4);color:#fff;text-decoration:none;border-radius:8px;font-size:.9375rem;font-weight:500;font-family:inherit;transition:all .15s;box-shadow:0 2px 8px rgba(26,111,181,.2)}.cta-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,111,181,.3)}
-footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border-card);color:var(--text-muted);font-size:.8125rem}
-@media(max-width:768px){.article{padding:100px 16px 40px}.steps{grid-template-columns:1fr}.nav-inner{padding:0 16px}}
+<style>
+:root{--blue:#1a6fb5;--orange:#D85A30}
+[data-theme="dark"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,.75);--border:rgba(255,255,255,.08);--text:#f8fafc;--text2:rgba(248,250,252,.55);--text3:rgba(248,250,252,.30);--accent:#1a6fb5}
+[data-theme="light"]{--bg:#f4f7fa;--bg-card:#fff;--bg-nav:rgba(244,247,250,.75);--border:rgba(0,0,0,.06);--text:#0b1a2e;--text2:rgba(11,26,46,.5);--text3:rgba(11,26,46,.25);--accent:#1a6fb5}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-font-smoothing:antialiased}
+body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .35s,color .35s}
 
-.share{margin-top:var(--ds-40);margin-bottom:var(--ds-20);text-align:center}
-.share p{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--ds-16)}
-.share-links{display:flex;justify-content:center;gap:var(--ds-12);flex-wrap:wrap}
-.share-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--r-md);font-size:.8125rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .2s;border:none;font-family:inherit}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-nav);border-bottom:1px solid var(--border-card);backdrop-filter:saturate(200%) blur(32px)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:"Lexend",sans-serif;font-size:1.0625rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-0.01em}
+.nav-links{display:flex;gap:20px}.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;align-items:center;gap:12px}
+.lang-btn:hover{border-color:var(--text-muted);background:var(--bg-card)}
+.theme-btn{background:none;color:var(--text-secondary);border:.5px solid var(--border-card);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:1rem;transition:all .2s}
+
+/* ARTICLE */
+.article{max-width:720px;margin:0 auto;padding:120px 32px 64px}
+.meta{font-size:.8125rem;color:var(--text-muted);margin-bottom:24px;display:flex;gap:12px}
+.tag{background:rgba(26,111,181,.1);color:var(--text-accent);padding:2px 10px;border-radius:4px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.article h1{font-family:"Lexend",sans-serif;font-size:clamp(1.85rem,3.8vw,2.5rem);font-weight:600;letter-spacing:-0.025em;line-height:1.15;margin-bottom:20px}
+.deck{font-size:1.125rem;color:var(--text-secondary);margin-bottom:36px;line-height:1.55;max-width:600px}
+
+/* CAROUSEL SLIDE COMPONENTS */
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+
+/* MYTH/REALITY CARDS */
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+
+/* SOURCE GRID */
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+
+/* INSIGHT CALLOUT */
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+
+/* QUOTE BLOCK */
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+
+/* PHASE SEPARATOR */
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+
+/* DELIVERY CARDS */
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+
+/* CTA */
+.cta{margin-top:48px;text-align:center;padding:36px;background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px}
+.cta h3{font-family:"Lexend",sans-serif;font-size:1.15rem;font-weight:600;margin-bottom:8px}
+.cta p{font-size:.875rem;color:var(--text2);margin-bottom:20px;max-width:400px;margin-left:auto;margin-right:auto}
+.cta-btn{display:inline-block;padding:12px 28px;background:var(--accent);color:#fff;border-radius:8px;font-size:.875rem;font-weight:600;text-decoration:none;transition:all .2s}
+.cta-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+
+.author{margin-top:48px;padding:24px;background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;display:flex;gap:20px;align-items:center}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:"Lexend",sans-serif;font-weight:600;color:#fff;font-size:.9375rem}
+.author h4{font-size:.9375rem;font-weight:600;margin-bottom:2px}
+.author p{font-size:.8125rem;color:var(--text2);margin:0}
+
+footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border-card);color:var(--text-muted);font-size:.8125rem}
+@media(max-width:768px){.article{padding:100px 16px 40px}.nav-inner{padding:0 16px}}
+
+/* SHARE */
+.share{margin-top:32px;text-align:center}
+.share p{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.share-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;font-size:.8125rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .2s;border:none;font-family:inherit}
 .share-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .share-linkedin{background:#0a66c2;color:#fff}
 .share-twitter{background:#000;color:#fff}
@@ -27,91 +107,186 @@ footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border-car
 .share-copy:hover{color:var(--text-accent);border-color:var(--text-accent)}
 .share-copy.copied{background:rgba(74,222,128,.15);color:#4ade80;border-color:#4ade80}
 .pipe{color:var(--text-muted);font-weight:400;margin:0 2px}
-.lang-btn{background:none;color:var(--text-secondary);border:.5px solid var(--border-card);padding:8px 16px;border-radius:var(--r-md);cursor:pointer;font-size:.8125rem;font-weight:500;font-family:inherit;transition:all .2s}.lang-btn:hover{border-color:var(--text-muted);background:var(--bg-card)}
+.lang-btn{background:none;color:var(--text-secondary);border:.5px solid var(--border-card);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:.8125rem;font-weight:500;font-family:inherit;transition:all .2s}
+.lang-btn:hover{border-color:var(--text-muted);background:var(--bg-card)}
 
-/* Alias: old → new naming */
---text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
---bg-hover:rgba(255,255,255,0.08);
---r-md:8px;
+/* Alias */
+--text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);
 </style></head>
 <body>
+
 <nav class="nav"><div class="nav-inner">
 <a href="https://geodriv.com" class="nav-logo">GEODRIV <span class="pipe">|</span> CI</a>
 <div class="nav-actions"><div class="nav-links"><a href="https://geodriv.com">Home</a><a href="https://geodriv.com/blog">Insights</a></div>
 <button class="lang-btn" onclick="toggleLanguage()">中文</button>
 <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button></div></div></nav>
+
 <article class="article">
-<div class="meta"><span>2026-7</span><span class="tag">Playbook</span><span>5 min read</span></div>
+
+<div class="meta"><span>2026-7</span><span class="tag">Playbook</span><span>4 min read</span></div>
+
 <h1>How to Do Competitive Intelligence in Manufacturing</h1>
-<p class="deck">A practical, step-by-step playbook for building a CI function that actually works in industrial markets.</p>
-<div class="box"><strong>Short answer:</strong> Effective CI in manufacturing follows a four-phase process: define what you need to know, collect signals from the data sources that matter for your industry, analyze those signals for strategic insight, and deliver them in formats your decision-makers will actually read. Most CI initiatives fail because they skip phase one or never finish phase four. Here's how to do all four.</div>
+<p class="deck">A 4-slide framework for building a CI function that actually works in industrial markets — not SaaS, not dashboards, just what matters.</p>
 
-<h2>Phase 1: Define Your Intelligence Questions</h2>
-<p>Don't start with tools. Start with questions. What are the <strong>five most important things</strong> you need to know about your competitive landscape to make better decisions?</p>
-<p>Good CI questions are specific and actionable: "Which competitors are adding ISO 13485 certification?" beats "What are our competitors doing?" every time.</p>
-<p>For a mid-market manufacturer, a typical CI charter covers 20-30 questions organized into four categories: <strong>market shifts</strong> (new entrants, M&A activity), <strong>competitor moves</strong> (capability expansion, new certs, key hires), <strong>technology signals</strong> (patent filings, R&D partnerships), and <strong>customer dynamics</strong> (tender patterns, account wins and losses).</p>
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> Most CI initiatives fail because they buy a tool before they know what to ask. The right sequence is: <strong>Question → Source → Cross-Reference → Deliver.</strong> Skip any step and your intelligence pipeline is a data graveyard.
+</div>
 
-<h2>Phase 2: Map Your Signal Sources</h2>
-<p>Once you know what to ask, identify where the answers live. For manufacturing, the signal sources that matter are fundamentally different from those in SaaS or B2C:</p>
-<ul>
-<li><strong>Patent databases</strong> (CNIPA, USPTO, Espacenet) — R&D direction, process innovations</li>
-<li><strong>Certification registries</strong> (ISO, UL, FDA, nadcap) — capability and quality signals</li>
-<li><strong>Tender platforms</strong> — competitive activity and pricing benchmarks</li>
-<li><strong>Industry press and trade shows</strong> — public strategy and positioning</li>
-<li><strong>LinkedIn hiring data</strong> — leading indicator of expansion into new domains</li>
-<li><strong>Customs and trade data</strong> — actual shipment volumes and destinations</li>
+<!-- ==================== SLIDE 1 ==================== -->
+<hr class="phase-divider">
+
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">Most Manufacturers Start Here. That's the Problem.</h2>
+<p class="phase-sub">Why "just buy a CI tool" is the most expensive mistake you can make.</p>
+
+<div class="myth-row">
+  <div class="myth-box danger">
+    <div class="myth-label">✕ The Common Approach</div>
+    <p>"Let's license a platform, set up keyword alerts, and figure out the rest later."</p>
+  </div>
+  <div class="myth-box success">
+    <div class="myth-label">✓ The Right Way</div>
+    <p>Start with <strong>questions</strong>. What five things do you need to know to make better decisions this quarter? Tools come last, not first.</p>
+  </div>
+</div>
+
+<div class="insight-callout">
+<strong>Bad question:</strong> "What are our competitors doing?"<br>
+<strong>Good question:</strong> "Which competitors are adding ISO 13485 certification in the next 6 months?"<br>
+<strong>The difference:</strong> One is a firehose. The other is a signal with a decision attached.
+</div>
+
+<p>A manufacturing CI charter typically covers 20–30 questions across four categories: <strong>market shifts</strong> (new entrants, M&A), <strong>competitor moves</strong> (capability expansion, key hires), <strong>technology signals</strong> (patents, R&D partnerships), and <strong>customer dynamics</strong> (tender patterns, account wins).</p>
+
+<p class="quote-block">"You can't collect intelligence until you know what intelligence looks like. Questions are the filter."<cite>— 15 years of watching CI teams succeed vs. fail</cite></p>
+
+<!-- ==================== SLIDE 2 ==================== -->
+<hr class="phase-divider">
+
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">Manufacturing Has a Different Signal Map</h2>
+<p class="phase-sub">The sources that matter on the factory floor are invisible to SaaS CI tools.</p>
+
+<p>Once you know what to ask, the next question is: <strong>where do the answers live?</strong> For manufacturing, the signal landscape looks nothing like the B2B SaaS world:</p>
+
+<div class="source-grid">
+  <div class="source-item">
+    <h4>📄 Patent Databases</h4>
+    <p>CNIPA, USPTO, Espacenet — R&D direction and process innovation signals</p>
+  </div>
+  <div class="source-item">
+    <h4>✅ Certification Registries</h4>
+    <p>ISO, UL, FDA, nadcap — capability expansion and quality benchmarks</p>
+  </div>
+  <div class="source-item">
+    <h4>📋 Tender Platforms</h4>
+    <p>Competitive activity, pricing benchmarks, new customer acquisition</p>
+  </div>
+  <div class="source-item">
+    <h4>🗞️ Trade Press & Shows</h4>
+    <p>Public strategy shifts, positioning, partnership announcements</p>
+  </div>
+  <div class="source-item">
+    <h4>💼 LinkedIn Hiring</h4>
+    <p>Leading indicator of expansion into new domains or geographies</p>
+  </div>
+  <div class="source-item">
+    <h4>🚢 Customs & Trade Data</h4>
+    <p>Actual shipment volumes, destinations, supply chain patterns</p>
+  </div>
+</div>
+
+<div class="insight-callout">
+<strong>Key insight:</strong> Most SaaS CI tools monitor none of these. They watch news feeds and social media. That's why a manufacturing CI function demands a purpose-built approach — starting with the sources your actual competitors actually show up in.
+</div>
+
+<!-- ==================== SLIDE 3 ==================== -->
+<hr class="phase-divider">
+
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">Cross-Reference to Find Composite Signals</h2>
+<p class="phase-sub">One data point is noise. Two correlated signals? That's intelligence.</p>
+
+<div class="slide-card">
+  <h3>🧩 The Composite Signal Framework</h3>
+  <p style="color:var(--text2);font-size:.875rem;margin-bottom:16px;line-height:1.6;">
+  A competitor files three battery housing patents → <strong style="color:var(--text)">interesting.</strong><br>
+  Same competitor hires senior EV engineers + adds IATF 16949 certification → <strong style="color:var(--text)">strategic event.</strong>
+  </p>
+  <p style="color:var(--text2);font-size:.875rem;line-height:1.6;">
+  Translation: They're building a dedicated EV supply chain business. You have <strong style="color:var(--text)">12–18 months</strong> to respond before they compete for your customers.
+  </p>
+</div>
+
+<p>Single signals are <strong>data points</strong>. Composite signals are <strong>intelligence</strong>. The art of CI is cross-referencing across channels to surface insights that no single source would reveal.</p>
+
+<p>Three cross-reference patterns that consistently produce actionable intelligence:</p>
+
+<ul style="margin-bottom:20px;padding-left:24px;color:var(--text-secondary);font-size:1rem;">
+  <li><strong>Hiring + Patents</strong> — A spike in engineering hires alongside related patent filings signals a product pivot 6–12 months out.</li>
+  <li><strong>Certs + Tenders</strong> — A new certification followed by tenders in that space means they're operational, not just exploring.</li>
+  <li><strong>Trade Data + LinkedIn</strong> — Increased shipments to a new region + local hires = market entry is happening.</li>
 </ul>
-<p>Most SaaS CI tools monitor none of these. That's why manufacturing-specific CI demands a different approach.</p>
 
-<h2>Phase 3: Analyze — Cross-Reference to Find Composite Signals</h2>
-<p>Single signals are data points. Composite signals are intelligence. The art of CI is cross-referencing signals across channels to surface insights that no single source would reveal.</p>
-<p>A competitor filing three battery housing patents is interesting. A competitor filing three battery housing patents <em>while simultaneously hiring senior EV engineers and adding IATF 16949 certification</em> is a strategic event. It means they're building a dedicated EV supply chain business — and you have 12-18 months to respond before they're competing for your customers.</p>
+<!-- ==================== SLIDE 4 ==================== -->
+<hr class="phase-divider">
 
-<h2>Phase 4: Deliver — From Dashboard to Decision</h2>
-<p>The most common CI failure is building a great pipeline that nobody uses. Intelligence must reach decision-makers in formats they'll actually consume.</p>
-<p>Three delivery formats that work:</p>
-<ul>
-<li><strong>The Weekly Five</strong> — five paragraphs, one page, five minutes to read. The most critical competitive signals of the week, each with a one-sentence "so what."</li>
-<li><strong>Monthly Teardown</strong> — deep-dive on one competitor per month. Capability map, strategic direction, threat assessment.</li>
-<li><strong>Event Alert</strong> — immediate notification on Tier 1 events only (major certification, patent grant, facility opening). If you flag everything, nothing gets read.</li>
-</ul>
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">Delivery Is the Hardest Part</h2>
+<p class="phase-sub">The best intelligence pipeline is useless if nobody reads the output.</p>
+
+<p>The most common CI failure isn't collecting — it's <strong>distributing</strong>. Decision-makers don't want another dashboard. They want the one thing they need to know, when they need to know it.</p>
+
+<p>Three delivery formats that work in practice:</p>
+
+<div class="delivery-grid">
+  <div class="delivery-card">
+    <h4>📄 The Weekly Five</h4>
+    <p>Five paragraphs. One page. Five minutes to read. Each signal gets a one-sentence "so what."</p>
+  </div>
+  <div class="delivery-card">
+    <h4>🔍 Monthly Teardown</h4>
+    <p>One competitor per month. Capability map, strategic direction, threat assessment. Saved and referenced.</p>
+  </div>
+  <div class="delivery-card">
+    <h4>🚨 Event Alert</h4>
+    <p>Tier 1 events only: major cert, patent grant, facility opening. If you flag everything, nothing gets read.</p>
+  </div>
+</div>
+
+<div class="insight-callout">
+<strong>The cardinal rule of CI delivery:</strong> If the CEO doesn't read it, it doesn't exist. The Weekly Five was designed specifically for the reality that your CEO has 5 minutes for competitive intelligence. Don't ask for 10.
+</div>
+
+<!-- ==================== CLOSING ==================== -->
+<hr class="phase-divider">
 
 <h2>The GEODRIV Playbook</h2>
-<p>We've built this four-phase process into our core methodology. A CI system purpose-built for manufacturing — with the signal sources, cross-referencing, and delivery formats designed for industrial markets, not SaaS dashboards.</p>
+<p>We've built this four-phase process into our core methodology. A CI system purpose-built for manufacturing — with signal sources, cross-referencing logic, and delivery formats designed for industrial markets, not SaaS dashboards.</p>
+
+<div class="cta">
+<h3>Ready to build CI that moves with your market?</h3>
+<p>Tell us your five most important questions. We'll show you where the answers live.</p>
+<a href="https://geodriv.com" class="cta-btn">Get in touch</a>
+</div>
+
 <div class="author"><div class="author-avatar">JS</div><div><h4>Baojun (Joe) Shi</h4><p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p></div></div>
 
-</div>
+</article>
 
-</div>
-
-</div>
-
-</div>
-
-<div class="share">
-<p class="share-label">SHARE THIS ARTICLE</p>
+<div class="share"><p>SHARE THIS ARTICLE</p>
 <div class="share-links">
-<a class="share-btn share-linkedin" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href));return false;" aria-label="Share on LinkedIn">
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-LinkedIn
-</a>
-<a class="share-btn share-twitter" href="#" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href));return false;" aria-label="Share on X">
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-X
-</a>
-<button class="share-btn share-copy" onclick="copyLink(this)" aria-label="Copy link">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-Copy link
-</button>
-</div>
-</div>
+<a class="share-btn share-linkedin" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href));return false;" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+<a class="share-btn share-twitter" href="#" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href));return false;" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X</a>
+<button class="share-btn share-copy" onclick="copyLink(this)" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy link</button>
+</div></div>
+
+<footer>© 2026 GEODRIV Technology</footer>
 
 <script>
-function copyLink(btn){var input=document.createElement('input');input.value=location.href;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);btn.classList.add('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied';setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy link';},2000)}
-</script>
+function copyLink(btn){var input=document.createElement('input');input.value=location.href;document.body.appendChild(input);input.select();document.execCommand('copy');document.body.removeChild(input);btn.classList.add('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg> Copied';setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Copy link';},2000)}
 
-<div class="cta"><h3>Ready to build CI that moves with your market?</h3><p>Tell us your five most important questions. We'll show you where the answers live.</p><a href="https://geodriv.com" class="cta-btn">Get in touch</a></div>
-</article>
-<footer>© 2026 GEODRIV Technology</footer>
-<script>var lang=new URLSearchParams(window.location.search).get("lang")||"en"||"en";);z.forEach(function(el){el.style.display=""});b.textContent="EN"}else{e.forEach(function(el){el.style.display=""});z.forEach(function(el){el.style.display="none"});b.textContent="中文"}}var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}</script>
+var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';
+function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}
+</script>
 </body></html>

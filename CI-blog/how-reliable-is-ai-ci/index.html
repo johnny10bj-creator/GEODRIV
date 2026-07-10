@@ -89,6 +89,47 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 /* Alias: old → new naming */
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --bg-hover:rgba(255,255,255,0.08);
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
 </style>
 </head>
 <body>
@@ -102,63 +143,109 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 </div></div></nav>
 
 <article class="article">
-<div class="meta"><span>2026-7</span><span class="tag">Methodology</span><span>4 min read</span></div>
+<div class="meta"><span>2026-7</span><span class="tag">Methodology</span><span>3 min read</span></div>
 
 <h1>How Reliable Is AI-Generated Competitive Intelligence?</h1>
 <p class="deck">The honest answer: it depends on what you're tracking. Here's a three-tier framework to know what to trust — and what to escalate.</p>
 
-<div class="box">
-<strong>Short answer:</strong> AI is highly reliable for structured, verifiable signals like patent filings and financial data. It requires human validation for ambiguous signals like news aggregation. And it should not be trusted alone for strategic inference about competitor intent — that's still a human analyst's job. The reliability depends on your methodology, not the model.
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> AI is highly reliable for structured data like patent filings. It requires human validation for ambiguous signals like news aggregation. And it should never be trusted alone for strategic inference about competitor intent — that's still a human analyst's job.
 </div>
 
-<p>"We asked ChatGPT about our competitor's new factory. It gave us a confident answer — but it was wrong."</p>
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">The Real Problem Isn't AI — It's Methodology</h2>
+<p class="phase-sub">"We asked ChatGPT about our competitor's new factory. It gave us a confident answer — but it was wrong."</p>
 
 <p>I hear this every month. It's not a failure of AI. It's a failure of <strong>methodology</strong>. The question wasn't structured for reliable intelligence, so the answer reflected noise instead of signal.</p>
 
-<p>After 15 years in manufacturing intelligence, we use a simple framework to decide what to trust. It applies the same logic whether you're using GPT, Claude, or a proprietary CI pipeline:</p>
+<p>After 15 years in manufacturing intelligence, we use a simple framework to decide what to trust. It applies the same logic whether you're using GPT, Claude, or a proprietary CI pipeline.</p>
 
-<h2>The Three-Tier Confidence Framework</h2>
+<div class="myth-row">
+<div class="myth-box danger">
+<div class="myth-label">😱 The Myth</div>
+<p>"AI is unreliable for competitive intelligence." In reality, <strong>the model isn't the problem</strong> — it's how you structure the question and what data sources you feed it.</p>
+</div>
+<div class="myth-box success">
+<div class="myth-label">💡 The Reality</div>
+<p>Different signal types require different confidence levels. The same AI tool can be highly reliable for one question and useless for another — and that's fine, if your methodology accounts for it.</p>
+</div>
+</div>
 
-<div class="tier">
-<div class="tier-card t1">
-<div class="lvl">✅ Tier 1 · High</div>
-<h3>Trust AI Automatically</h3>
+<div class="insight-callout">
+<strong>The model doesn't determine reliability. Your methodology does.</strong> Always has, always will.
+</div>
+
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">The Three-Tier Confidence Framework</h2>
+<p class="phase-sub">Know what to trust, what to validate, and what to leave to humans</p>
+
+<div class="slide-card">
+<h3>✅ Tier 1 · Trust AI Automatically</h3>
 <p>Structured data from authoritative sources: patent filings, financial reports, regulatory filings, pricing sheets. These are verifiable, fact-based, and low-ambiguity. AI excels here — automate it.</p>
 </div>
-<div class="tier-card t2">
-<div class="lvl">⚠️ Tier 2 · Medium</div>
-<h3>AI + Human Validation</h3>
+
+<div class="slide-card">
+<h3>⚠️ Tier 2 · AI + Human Validation</h3>
 <p>Cross-referenced signals from multiple sources: news aggregation, job postings, trade show announcements. AI flags the pattern; a human analyst validates before you act on it.</p>
 </div>
-<div class="tier-card t3">
-<div class="lvl">❓ Tier 3 · Low</div>
-<h3>Human Analyst Only</h3>
+
+<div class="slide-card">
+<h3>❓ Tier 3 · Human Analyst Only</h3>
 <p>Ambiguous strategic assessments: competitor intent, unannounced roadmaps, supply chain disruption signals. No AI system can read a CEO's mind. This requires domain expertise and relationship-based intelligence.</p>
 </div>
+
+<div class="insight-callout">
+<strong>The key insight:</strong> Whether you're using DeepSeek, GPT-4, or a fine-tuned Llama — a patent filing is still Tier 1 and a supply chain rumor is still Tier 3. <strong>The signal type determines the tier, not the model.</strong>
 </div>
 
-<p>The model doesn't determine the tier — the <strong>signal type</strong> does. Whether you're using DeepSeek, GPT-4, or a fine-tuned Llama, a patent filing is still Tier 1 and a supply chain rumor is still Tier 3.</p>
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">Real Example: Automotive Supplier in China</h2>
+<p class="phase-sub">How the tiers work when tracking a German competitor entering the EV battery housing market</p>
 
-<h2>Real Example: Automotive Supplier Scenario</h2>
+<div class="source-grid">
+<div class="source-item">
+<h4>📄 Tier 1 · 3 New Patents</h4>
+<p>Competitor files 3 battery housing patents with CNIPA → AI auto-flags and adds to trend chart. <strong>No human needed.</strong></p>
+</div>
+<div class="source-item">
+<h4>👥 Tier 2 · 3 New Hires</h4>
+<p>Competitor hires 3 senior engineers for Shanghai office → AI cross-references LinkedIn + job boards, analyst confirms via sourcing partner.</p>
+</div>
+<div class="source-item">
+<h4>🤝 Tier 3 · JV Rumors</h4>
+<p>Rumor that competitor is in JV discussions with a Chinese battery maker → human analyst only. Requires relationship-based intelligence.</p>
+</div>
+</div>
 
-<p>A mid-size automotive supplier wants to track a German competitor entering the Chinese EV battery housing market. Here's how the tiers apply:</p>
+<p>The same AI tool handles all three signals. <strong>The methodology determines reliability — not the model.</strong></p>
 
-<ul>
-<li>A competitor files 3 new battery housing patents with CNIPA → <strong>Tier 1</strong> (AI auto-flag, add to trend chart)</li>
-<li>Competitor hires 3 senior engineers for Shanghai office → <strong>Tier 2</strong> (AI cross-reference LinkedIn + job boards, analyst confirms via sourcing partner)</li>
-<li>Rumor that competitor is in JV discussions with a Chinese battery maker → <strong>Tier 3</strong> (human analyst only — requires relationship-based intelligence, no AI)</li>
-</ul>
-
-<p>Notice: the same AI tool handles all three signals. <strong>The methodology determines reliability, not the model.</strong></p>
-
-<h2>What This Means for Your CI Pipeline</h2>
+<!-- SLIDE 4 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">What This Means for Your CI Pipeline</h2>
+<p class="phase-sub">The best systems know when to speak — and when to stay silent</p>
 
 <p>If you're building or buying a competitive intelligence system, ask one question: <strong>does it distinguish between these three tiers?</strong></p>
 
-<p>A good CI system surfaces Tier 1 signals automatically, flags Tier 2 signals for review, and <em>knows when to stay silent</em> on Tier 3 questions rather than hallucinating a confident but wrong answer. A bad system — or an overconfident AI prompt — treats everything as Tier 1 and trains you to ignore the noise.</p>
+<div class="comparison-grid">
+<div class="comparison-item">
+<h4>🚫 Bad CI System</h4>
+<p>Treats every question as Tier 1. Hallucinates confident but wrong answers for ambiguous signals. Trains you to ignore the noise — until you miss something real.</p>
+</div>
+<div class="comparison-item">
+<h4>✅ Good CI System</h4>
+<p>Surfaces Tier 1 automatically. Flags Tier 2 for review. <em>Knows when to stay silent</em> on Tier 3 rather than fabricating an answer.</p>
+</div>
+</div>
 
-<div class="box">
-<strong>Bottom line:</strong> AI CI at $0.14/search covers 100+ sources daily. A human analyst at $200-500/hr delivers strategic depth. The best systems combine both — not because the AI is unreliable, but because different questions require different methods. The model doesn't determine reliability. Your methodology does.
+<div class="insight-callout">
+<strong>Bottom line:</strong> AI CI at $0.14/search covers 100+ sources daily. A human analyst at $200–500/hr delivers strategic depth. The best systems combine both — not because AI is unreliable, but because different questions require different methods.
 </div>
 
 <div class="author">
@@ -167,14 +254,6 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 <h4>Baojun (Joe) Shi</h4>
 <p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p>
 </div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 <div class="share">

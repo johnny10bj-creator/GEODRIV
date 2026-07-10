@@ -34,7 +34,49 @@
 /* Alias: old → new naming */
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --r-md:8px;
-</style></head><body>
+/* Carousel */
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+</style>
 <nav class="nav"><div class="nav-inner">
 <a href="https://geodriv.com" class="nav-logo">GEODRIV <span class="pipe">|</span> CI</a>
 <div class="nav-actions">
@@ -43,25 +85,101 @@
 <button class="lang-btn" onclick="toggleLanguage()">中文</button>
 <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
 </div></div></nav>
-<article class="article"><div class="meta"><span>2026-7</span><span class="tag">Methodology</span><span>4 min read</span></div>
+<article class="article"><div class="meta"><span>2026-7</span><span class="tag">Strategy</span><span>3 min read</span></div>
 <h1>CI for M&A in Manufacturing</h1><p class="deck">Competitive intelligence significantly improves M&A outcomes — from target identification to post-merger integration. Here's how leading manufacturing companies use CI in their deal processes.</p>
-<div class="box"><strong>Short answer:</strong> CI supports M&A in three phases: <strong>target identification</strong> (identifying acquisition candidates whose signal patterns match your strategic gaps), <strong>due diligence</strong> (validating competitive positioning, customer concentration, and technology claims), and <strong>integration planning</strong> (mapping overlapping capabilities, retention risks, and go-to-market conflicts).</div>
-<h2>Target Identification Through Signal Patterns</h2>
-<p>Companies leave strategic footprints before any deal is announced. The best acquisition targets often exhibit distinctive signal patterns: accelerating patent filings in a specific technology area, a sudden spike in engineering hiring, new certifications that signal capability upgrades, and unusual tender activity in adjacent markets.</p>
-<p>A CI-driven M&A approach builds watchlists of 50-100 companies whose signal patterns are monitored continuously. When a company's signal profile changes — filing patents in your core domain, hiring from your customer base, or entering a new certification regime — that's a candidate worth evaluating, even if they're not formally for sale.</p>
-<h2>Due Diligence: What CI Reveals</h2>
-<p>Traditional financial due diligence answers "can we afford this company?" CI due diligence answers "is this company worth what they claim?" Specific signals: tender win-rate trends (are they gaining or losing competitive position?), customer concentration in public awards (how diversified is their revenue?), patent quality (citation rates, grant ratios), and talent stability (LinkedIn departure patterns of key engineers).</p>
-<h2>Integration: The CI-informed Transition</h2>
-<p>Post-acquisition, CI helps map overlapping accounts, identify retention risks among key customers, and surface competitive reactions to the deal. If the deal triggers competitor hiring raids or customer defection scares, CI provides the early warning to respond before damage compounds.</p>
+
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> CI supports M&A in three phases: <strong>target identification</strong> (identifying acquisition candidates whose signal patterns match your strategic gaps), <strong>due diligence</strong> (validating competitive positioning, customer concentration, and technology claims), and <strong>integration planning</strong> (mapping overlapping capabilities, retention risks, and go-to-market conflicts).
+</div>
+
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">Finding the Deal Before the Bankers Do</h2>
+<p class="phase-sub">The best acquisition targets leave strategic footprints before any deal is announced.</p>
+
+<p>Companies leave signal patterns long before they go to market. The best acquisition targets often exhibit distinctive footprints:</p>
+
+<div class="source-grid">
+<div class="source-item">
+<h4>🔬 Accelerating patent filings</h4>
+<p>Concentrated in a specific technology domain — signalling a strategic pivot.</p>
+</div>
+<div class="source-item">
+<h4>👥 Engineering hiring spikes</h4>
+<p>Sudden LinkedIn growth in a specific function reveals capability buildup.</p>
+</div>
+<div class="source-item">
+<h4>📋 New certifications</h4>
+<p>Certification upgrades that signal new capability readiness.</p>
+</div>
+<div class="source-item">
+<h4>🎯 Adjacent tender activity</h4>
+<p>Unusual bidding in markets they've never competed in before.</p>
+</div>
+</div>
+
+<div class="insight-callout">
+<strong>CI-driven approach:</strong> Build watchlists of 50–100 companies. Monitor signal patterns continuously. When a company's profile changes — filing patents in your core domain, hiring from your customer base, entering a new certification regime — that's a candidate worth evaluating, even if they're not formally for sale.
+</div>
+
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">Target Identification: Let Signals Find the Candidates</h2>
+<p class="phase-sub">Don't wait for the teaser — let CI signal patterns surface candidates first.</p>
+
+<p>Traditional M&A sourcing relies on banker relationships, industry conferences, and inbound offers. CI-driven M&A is different: you build <strong>permanent watchlists</strong> and let <strong>signal changes</strong> surface candidates.</p>
+
+<p>A CI-driven M&A approach builds watchlists of 50–100 companies whose signal patterns are monitored continuously. When a company's signal profile changes — filing patents in your core domain, hiring from your customer base, or entering a new certification regime — that's a candidate worth evaluating, even if they're not formally for sale.</p>
+
+<p><strong>You find the deal before the banker does — or before the target even decides to sell.</strong></p>
+
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">Due Diligence: What Financials Won't Tell You</h2>
+<p class="phase-sub">Traditional financial DD answers "can we afford this?" CI answers "is this company worth what they claim?"</p>
+
+<div class="comparison-grid">
+<div class="comparison-item">
+<h4>💰 Financial Due Diligence</h4>
+<p>Revenue, margins, EBITDA, debt structure, working capital. Answers "can we afford this company?"</p>
+</div>
+<div class="comparison-item">
+<h4>🔍 CI Due Diligence</h4>
+<p>Competitive positioning, patent quality, customer concentration, talent stability. Answers "is this company worth what they claim?"</p>
+</div>
+</div>
+
+<p>Specific signals CI due diligence reveals:</p>
+<ul>
+<li><strong>Tender win-rate trends</strong> — are they gaining or losing competitive position?</li>
+<li><strong>Customer concentration</strong> in public awards — how diversified is their revenue?</li>
+<li><strong>Patent quality</strong> — citation rates, grant ratios, family size</li>
+<li><strong>Talent stability</strong> — LinkedIn departure patterns of key engineers</li>
+</ul>
+
+<!-- SLIDE 4 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">Integration: The CI-Informed Transition</h2>
+<p class="phase-sub">Post-acquisition, CI provides the early warning to respond before damage compounds.</p>
+
+<p>Post-acquisition, CI helps with three critical tasks:</p>
+<ul>
+<li><strong>Map overlapping accounts</strong> — where will customer cannibalisation occur?</li>
+<li><strong>Identify retention risks</strong> — which customers are at risk of defecting to competitors?</li>
+<li><strong>Surface competitive reactions</strong> — does the deal trigger competitor hiring raids or customer defection scares?</li>
+</ul>
+
+<div class="insight-callout">
+<strong>Early warning:</strong> If the deal triggers competitor hiring raids or customer defection scares, CI provides the early warning to respond before damage compounds.
+</div>
+
+<p><strong>CI doesn't replace financial due diligence. It answers the questions financials can't touch.</strong></p>
+
 <div class="author"><div class="author-avatar">JS</div><div><h4>Baojun (Joe) Shi</h4><p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p></div></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 <div class="share">
 <p class="share-label">SHARE THIS ARTICLE</p>

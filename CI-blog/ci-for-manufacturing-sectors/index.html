@@ -37,7 +37,49 @@ table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.8125rem}th{ba
 /* Alias: old → new naming */
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --r-md:8px;
-</style></head><body>
+/* Carousel */
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+</style>
 <nav class="nav"><div class="nav-inner">
 <a href="https://geodriv.com" class="nav-logo">GEODRIV <span class="pipe">|</span> CI</a>
 <div class="nav-actions">
@@ -46,31 +88,82 @@ table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.8125rem}th{ba
 <button class="lang-btn" onclick="toggleLanguage()">中文</button>
 <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
 </div></div></nav>
-<article class="article"><div class="meta"><span>2026-7</span><span class="tag">Playbook</span><span>5 min read</span></div>
+<article class="article"><div class="meta"><span>2026-7</span><span class="tag">Playbook</span><span>4 min read</span></div>
 <h1>CI for Manufacturing Sectors</h1><p class="deck">Aerospace, medical devices, automotive, and industrial automation each demand a different competitive intelligence approach. One size does not fit all.</p>
-<div class="box"><strong>Short answer:</strong> The signal types that matter vary dramatically by manufacturing sector. Aerospace CI centres on certifications (AS9100, NADCAP) and regulatory approvals. Medical device CI tracks FDA 510(k) clearances and patent clusters. Automotive CI follows EV transition signals. Industrial automation CI focuses on platform ecosystems and M&A. A generic CI tool captures none of these well.</div>
-<table><tr><th>Sector</th><th>Primary Signal</th><th>Secondary Signal</th><th>CI Cadence</th></tr>
-<tr><td><strong>Aerospace</strong></td><td>AS9100/NADCAP certs</td><td>Defence contract awards, new prime supplier lists</td><td>Monthly review + event alerts</td></tr>
-<tr><td><strong>Medical Devices</strong></td><td>FDA 510(k) / CE MDR</td><td>Clinical trial registrations, patent litigation</td><td>Weekly + regulatory alert</td></tr>
-<tr><td><strong>Automotive</strong></td><td>EV battery investments</td><td>IATF 16949 certs, OEM supply awards</td><td>Weekly + quarterly teardown</td></tr>
-<tr><td><strong>Industrial Automation</strong></td><td>M&A, platform partnerships</td><td>Patent clustering (IIoT, AI/ML), trade show launches</td><td>Continuous monitoring</td></tr></table>
-<h2>Aerospace & Defence</h2>
-<p>CI in aerospace revolves around certification and qualification. The key question isn't "what do they sell?" but "what are they <em>qualified</em> to build?" Track AS9100, NADCAP certifications, and prime supplier list additions. New certification = new capability = new competitive threat, often 6-12 months before any product announcement.</p>
-<h2>Medical Devices</h2>
-<p>Regulatory filings are public and they're predictive. FDA 510(k) clearances, CE MDR certificates, and clinical trial registrations provide a 12-24 month forward look into competitor product pipelines. Cross-reference clearance dates with patent clusters to identify which technology platforms competitors are commercialising.</p>
-<h2>Automotive Supply Chain</h2>
-<p>The EV transition is reshaping the automotive supply chain. CI signals: battery chemistry investments, gigacasting capability announcements, IATF 16949 certification expansions, and OEM supply awards. The most dangerous competitor may not be a traditional tier-1 supplier — it could be a battery manufacturer moving upstream.</p>
-<h2>Industrial Automation</h2>
-<p>Here, CI is about ecosystem intelligence. Who is partnering with whom? Which platforms are gaining traction? M&A activity reveals strategic intent — a sensor company acquiring a software startup is building an IIoT platform, not just buying technology.</p>
+
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> The signal types that matter vary dramatically by manufacturing sector. Aerospace CI centres on certifications (AS9100, NADCAP). Medical device CI tracks FDA 510(k) clearances and patent clusters. Automotive CI follows EV transition signals. Industrial automation CI focuses on platform ecosystems and M&A. A generic CI tool captures none of these well.
+</div>
+
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">One CI Approach Does Not Fit All Sectors</h2>
+<p class="phase-sub">Each manufacturing sector has a distinct signal DNA.</p>
+
+<div class="sector-grid">
+<div class="sector-card">
+<h4>🔬 Aerospace & Defence</h4>
+<p>Primary: AS9100 / NADCAP certifications. Secondary: Defence contract awards, new prime supplier lists. CI Cadence: Monthly review + event alerts.</p>
+</div>
+<div class="sector-card">
+<h4>🏥 Medical Devices</h4>
+<p>Primary: FDA 510(k) / CE MDR clearances. Secondary: Clinical trial registrations, patent litigation. CI Cadence: Weekly + regulatory alert.</p>
+</div>
+<div class="sector-card">
+<h4>🚗 Automotive</h4>
+<p>Primary: EV battery investments. Secondary: IATF 16949 certs, OEM supply awards. CI Cadence: Weekly + quarterly teardown.</p>
+</div>
+<div class="sector-card">
+<h4>⚙️ Industrial Automation</h4>
+<p>Primary: M&A, platform partnerships. Secondary: Patent clustering (IIoT, AI/ML), trade show launches. CI Cadence: Continuous monitoring.</p>
+</div>
+</div>
+
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">Aerospace & Medical Devices: The Certification-Driven Sectors</h2>
+<p class="phase-sub">In these sectors, a new certification is a product roadmap.</p>
+
+<h3>Aerospace & Defence</h3>
+<p>CI in aerospace revolves around certification and qualification. The key question isn't "what do they sell?" but <strong>"what are they qualified to build?"</strong> Track AS9100, NADCAP certifications, and prime supplier list additions. New certification = new capability = new competitive threat, often <strong>6-12 months before any product announcement.</strong></p>
+
+<h3>Medical Devices</h3>
+<p>Regulatory filings are public — and they're predictive. FDA 510(k) clearances, CE MDR certificates, and clinical trial registrations provide a <strong>12-24 month forward look</strong> into competitor product pipelines. Cross-reference clearance dates with patent clusters to identify which technology platforms competitors are commercialising.</p>
+
+<div class="insight-callout">
+<strong>Key insight:</strong> In certification-driven sectors, the regulatory database is your most powerful CI tool — if you know which fields to monitor and how to interpret clearance patterns as competitive signals.
+</div>
+
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">Automotive & Industrial Automation: The Ecosystem Shift</h2>
+<p class="phase-sub">Watch for cross-sector entrants and platform pivots.</p>
+
+<h3>Automotive Supply Chain</h3>
+<p>The EV transition is reshaping the supply chain. CI signals to track: battery chemistry investments, gigacasting capability announcements, IATF 16949 certification expansions, and OEM supply awards. <strong>Your most dangerous competitor may not be a traditional tier-1 supplier — it could be a battery manufacturer moving upstream.</strong></p>
+
+<h3>Industrial Automation</h3>
+<p>Here, CI is about <strong>ecosystem intelligence.</strong> Who is partnering with whom? Which platforms are gaining traction? M&A activity reveals strategic intent — a sensor company acquiring a software startup is building an IIoT platform, not just buying technology.</p>
+
+<div class="quote-block">
+The question isn't "who competes with me today?" — it's "who will compete with me in 18 months from a completely different industry?"
+<cite>— GEODRIV Manufacturing CI Framework</cite>
+</div>
+
+<!-- SLIDE 4 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">Your Sector Describes the Signals. Your Strategy Decides What Matters.</h2>
+<p class="phase-sub">A generic CI tool captures none of these well.</p>
+
+<p>Each sector has its own signal DNA — certifications, regulatory filings, patent clusters, ecosystem partnerships, or M&A patterns. The tools that work for a SaaS company will miss every one of them.</p>
+
+<p><strong>The question isn't whether to do CI. It's whether your CI is tuned to the signals your sector actually produces.</strong></p>
+
 <div class="author"><div class="author-avatar">JS</div><div><h4>Baojun (Joe) Shi</h4><p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p></div></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 <div class="share">
 <p class="share-label">SHARE THIS ARTICLE</p>

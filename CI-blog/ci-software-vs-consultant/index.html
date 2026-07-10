@@ -73,6 +73,48 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 /* Alias: old → new naming */
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --bg-hover:rgba(255,255,255,0.08);
+/* Carousel */
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
 </style>
 </head>
 <body>
@@ -86,41 +128,99 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 </div></div></nav>
 
 <article class="article">
-<div class="meta"><span>2026-7</span><span class="tag">Perspective</span><span>3 min read</span></div>
+<div class="meta"><span>2026-7</span><span class="tag">Guide</span><span>3 min read</span></div>
 
 <h1>Your CI Software Is Feeding You Noise</h1>
 <p class="deck">A dashboard full of alerts isn't intelligence. It's a distraction with a subscription fee.</p>
 
-<div class="box">
-<strong>The problem:</strong> CI software platforms (Crayon, Klue, Contify) are built for SaaS companies tracking feature releases and pricing pages. If you're in manufacturing — where the real competitive signals are patent filings, certification changes, and tender wins — these tools are watching the wrong game.
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> SaaS CI tools give you data points. A CI system — designed around your competitive landscape — gives you decisions. The difference isn't the technology. It's the signal model.
 </div>
 
-<p>Here's what you get from a typical CI SaaS platform:</p>
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">What Your SaaS Dashboard Is Really Giving You</h2>
+<p class="phase-sub">Volume: high. Signal: near zero.</p>
+
+<p>Here's what a typical CI SaaS platform (Crayon, Klue, Contify) delivers:</p>
 <ul>
 <li>A competitor changed their pricing page → <strong>alert</strong></li>
 <li>Someone mentioned your brand on G2 → <strong>alert</strong></li>
 <li>A LinkedIn post from a competitor's marketing team → <strong>alert</strong></li>
 </ul>
 
-<p>Volume: high. Signal: near zero.</p>
+<p>These tools were built for SaaS companies tracking feature releases and pricing pages. If you're in manufacturing — where the real competitive signals are patent filings, certification changes, and tender wins — <strong>they're watching the wrong game.</strong></p>
 
-<p>Now here's what a <strong>CI system built for your industry</strong> catches — the kind a consultant designs, not a dashboard:</p>
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">What a CI System Built for Manufacturing Catches</h2>
+<p class="phase-sub">The kind a specialist designs, not a dashboard.</p>
 
-<ul>
-<li>A competitor just filed three patents for conformal coating automation. <strong>That changes your cost equation in 12 months.</strong></li>
-<li>Two of your top five competitors added ISO 13485 certification last quarter. <strong>They're coming for your medical device segment.</strong></li>
-<li>A German firm you've never bid against is hiring process engineers in Shanghai. <strong>They'll be in your RFQ inbox by Q3.</strong></li>
-</ul>
+<div class="myth-row">
+<div class="myth-box danger">
+<div class="myth-label">❌ SaaS Alert</div>
+<p>"Competitor updated their About Us page."</p>
+</div>
+<div class="myth-box success">
+<div class="myth-label">✅ Real Signal</div>
+<p>A competitor just filed three patents for conformal coating automation. <strong>That changes your cost equation in 12 months.</strong></p>
+</div>
+</div>
 
-<p>SaaS tools give you <strong>data points</strong>. A CI system — the kind a specialist designs around your specific competitive landscape — gives you <strong>decisions</strong>.</p>
+<div class="myth-row">
+<div class="myth-box danger">
+<div class="myth-label">❌ SaaS Alert</div>
+<p>"Brand mention on G2."</p>
+</div>
+<div class="myth-box success">
+<div class="myth-label">✅ Real Signal</div>
+<p>Two of your top five competitors added ISO 13485 certification last quarter. <strong>They're coming for your medical device segment.</strong></p>
+</div>
+</div>
 
-<p>The difference isn't the technology. It's the <strong>signal model</strong>. Software applies the same scraping logic to every customer. A consultant builds a model that knows what matters in <em>your</em> industry, <em>your</em> region, <em>your</em> competitive dynamics.</p>
+<div class="myth-row">
+<div class="myth-box danger">
+<div class="myth-label">❌ SaaS Alert</div>
+<p>"LinkedIn post from a competitor."</p>
+</div>
+<div class="myth-box success">
+<div class="myth-label">✅ Real Signal</div>
+<p>A German firm you've never bid against is hiring process engineers in Shanghai. <strong>They'll be in your RFQ inbox by Q3.</strong></p>
+</div>
+</div>
 
-<p><strong>When software is enough:</strong> you sell B2B SaaS. Your competitors are 5–10 named companies. They move on feature releases and pricing pages. Crayon/Klue were literally built for you.</p>
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">When Software Is Enough vs. When You Need a System</h2>
+<p class="phase-sub">The answer depends on what you compete on.</p>
 
-<p><strong>When you need a system:</strong> you're in manufacturing, industrial automation, medical devices, or aerospace supply chain. Your competition shifts quarterly. The signals that matter aren't on G2 — they're in patent databases, certification registries, and tender platforms.</p>
+<div class="comparison-grid">
+<div class="comparison-item">
+<h4>✅ Software is enough when...</h4>
+<p>You sell B2B SaaS. Your competitors are 5–10 named companies. They move on feature releases and pricing pages. Crayon and Klue were built for you.</p>
+</div>
+<div class="comparison-item">
+<h4>⚡ You need a system when...</h4>
+<p>You're in manufacturing, industrial automation, medical devices, or aerospace supply chain. Your competition shifts quarterly. The signals that matter aren't on G2 — they're in patent databases, certification registries, and tender platforms.</p>
+</div>
+</div>
 
-<p>Software gives you a dashboard. A CI system gives you a thesis about where your market is going. <strong>Buy the dashboard if you need alerts. Build the system if you need to make decisions.</strong></p>
+<div class="insight-callout">
+<strong>The difference isn't the technology — it's the signal model.</strong> Software applies the same scraping logic to every customer. A specialist builds a model that knows what matters in <em>your</em> industry, <em>your</em> region, <em>your</em> competitive dynamics. Software gives you a dashboard. A CI system gives you a thesis about where your market is going.
+</div>
+
+<!-- SLIDE 4 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">Build the System. Skip the Dashboard.</h2>
+<p class="phase-sub">Buy the dashboard if you need alerts. Build the system if you need to make decisions.</p>
+
+<p>CI software platforms are designed for SaaS companies tracking feature releases and pricing pages. If you're in manufacturing, these tools are watching the wrong game. The signals that matter are in patent databases, certification registries, and tender platforms — not on G2 or LinkedIn.</p>
+
+<p><strong>Your competitive landscape deserves a system, not a dashboard.</strong></p>
 
 <div class="author">
 <div class="author-avatar">JS</div>
@@ -128,14 +228,6 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 <h4>Baojun (Joe) Shi</h4>
 <p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p>
 </div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 <div class="share">

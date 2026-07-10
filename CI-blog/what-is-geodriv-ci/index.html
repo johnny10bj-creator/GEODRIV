@@ -49,6 +49,47 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 .share-copy.copied{background:rgba(74,222,128,.15);color:#4ade80;border-color:#4ade80}
 @media(max-width:480px){.share{margin:var(--ds-24) auto var(--ds-16)}.share-btn{width:110px;height:42px;font-size:.75rem}}
 
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
 /* Alias: old → new naming */
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --bg-hover:rgba(255,255,255,0.08);
@@ -70,53 +111,113 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 <h1>What Is GEODRIV?</h1>
 <p class="deck">GEODRIV builds AI-powered competitive intelligence systems for manufacturing companies that need to see what their competitors are doing — before the market shifts.</p>
 
-<div class="box">
-<strong></strong> is a competitive intelligence consultancy for manufacturing. We design custom CI systems that combine automated signal collection from 7+ data channels with human analyst synthesis — delivering weekly intelligence that turns raw data into decisive action.
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> GEODRIV is a competitive intelligence consultancy for manufacturing. We design custom CI systems that combine automated signal collection from 7+ data channels with human analyst synthesis — delivering weekly intelligence that turns raw data into decisive action.
 </div>
 
-<p>Manufacturing companies face a structural intelligence gap. They operate in markets where competitive signals are fragmented across patent databases, certification registries, tender platforms, hiring announcements, and industry news — but most CI tools were built for SaaS, where the data lives on web pages.</p>
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">The Intelligence Gap in Manufacturing</h2>
+<p class="phase-sub">Why most CI tools fail for industrial markets</p>
 
-<p>GEODRIV was founded to close that gap. We bring:</p>
+<p>Manufacturing companies face a structural intelligence gap. Competitive signals are scattered across patent databases, certification registries, tender platforms, hiring announcements, and industry news — but most CI tools were built for SaaS, where the data lives on web pages.</p>
 
-<h2>Our Methodology</h2>
+<p>The result: manufacturing leaders either go blind or build expensive workarounds to track what matters.</p>
 
-<div class="method-grid">
-<div class="m-card">
-<h3>🔍 Discovery</h3>
-<p>We map your competitive landscape: who competes, what signals matter, which data sources carry the highest signal-to-noise ratio for your specific segment.</p>
+<div class="myth-row">
+<div class="myth-box danger">
+<div class="myth-label">❌ The Problem</div>
+<p>Generic CI tools miss the signals that matter most in manufacturing — patent filings, certification changes, tender awards, regulatory shifts.</p>
 </div>
-<div class="m-card">
-<h3>📡 Multi-Source Collection</h3>
-<p>Automated pipelines across 7+ channels: patents, certifications, tenders, hiring, news, financials, and regulatory — purpose-built for manufacturing, not SaaS.</p>
+<div class="myth-box success">
+<div class="myth-label">✅ The Fix</div>
+<p>A CI system designed for manufacturing from the ground up, where signals are cross-referenced across channels for composite intelligence.</p>
 </div>
-<div class="m-card">
-<h3>🧠 AI Synthesis</h3>
-<p>Our models cross-reference signals across channels to surface composite intelligence — a patent filing + a new hire + a new certification = a strategic signal no single tool would catch.</p>
 </div>
-<div class="m-card">
-<h3>📋 Executive Delivery</h3>
+
+<div class="insight-callout">
+<strong>GEODRIV was founded to close this gap.</strong> We bring 15+ years of manufacturing intelligence experience and purpose-built automation for industrial signal types.
+</div>
+
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">Our Four-Stage Methodology</h2>
+<p class="phase-sub">From landscape mapping to executive delivery</p>
+
+<div class="delivery-grid">
+<div class="delivery-card">
+<h4>🔍 Discovery</h4>
+<p>Map your competitive landscape: who competes, what signals matter, which data sources carry the highest signal-to-noise ratio.</p>
+</div>
+<div class="delivery-card">
+<h4>📡 Collection</h4>
+<p>Automated pipelines across 7+ channels: patents, certifications, tenders, hiring, news, financials, regulatory — built for manufacturing.</p>
+</div>
+<div class="delivery-card">
+<h4>🧠 Synthesis</h4>
+<p>Cross-reference signals across channels. A patent + a hire + a certification = a strategic signal no single tool would catch.</p>
+</div>
+<div class="delivery-card">
+<h4>📋 Delivery</h4>
 <p>Weekly intelligence briefings, competitor teardowns, and strategic alerts — structured for decisions, not for dashboards.</p>
 </div>
 </div>
 
-<h2>Who We Work With</h2>
+<div class="quote-block">
+"GEODRIV delivers patterns, not just data points. We connect the dots across sources so you can act on what your competitors are doing — before the market shifts."
+<cite>— Baojun (Joe) Shi, Founder, GEODRIV Technology</cite>
+</div>
 
-<p>Mid-market to enterprise manufacturers in:</p>
-<ul>
-<li>Industrial automation and robotics</li>
-<li>Electronics manufacturing (EMS/ODM)</li>
-<li>Medical device and precision components</li>
-<li>Automotive and EV supply chain</li>
-<li>Advanced materials and processing</li>
-</ul>
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">Who We Work With</h2>
+<p class="phase-sub">Mid-market to enterprise manufacturers tracking complex competitive landscapes</p>
 
-<p>Typical engagement: companies with 200-5,000 employees, competing in 2-5 segments, tracking 20-60+ competitors across multiple geographies.</p>
+<div class="source-grid">
+<div class="source-item">
+<h4>🤖 Industrial Automation & Robotics</h4>
+<p>Fast-moving patent and certification landscape</p>
+</div>
+<div class="source-item">
+<h4>📱 Electronics (EMS/ODM)</h4>
+<p>Global competitor networks and supply chain signals</p>
+</div>
+<div class="source-item">
+<h4>🏥 Medical Device & Precision</h4>
+<p>Regulatory filings and certification intelligence</p>
+</div>
+<div class="source-item">
+<h4>🚗 Automotive & EV Supply Chain</h4>
+<p>Tender awards, hiring signals, and partnership tracking</p>
+</div>
+<div class="source-item">
+<h4>🧪 Advanced Materials</h4>
+<p>R&D pipeline visibility through patent and publication analysis</p>
+</div>
+</div>
 
-<h2>Why GEODRIV?</h2>
+<p>Typical engagement: companies with 200–5,000 employees, competing in 2–5 segments, tracking 20–60+ competitors across multiple geographies.</p>
 
-<p>Because most CI systems are built for the wrong game. If you're tracking competitors who move on certification changes, tender wins, and patent filings — not feature releases and pricing pages — you need a system designed for that reality.</p>
+<!-- SLIDE 4 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">Why GEODRIV Exists</h2>
+<p class="phase-sub">Because most CI systems are built for the wrong game</p>
 
-<p>We've been doing this for 15 years. We know what signal patterns precede a market disruption, and we've built the automation to catch them before they hit your RFQ inbox.</p>
+<p>If you're tracking competitors who move on certification changes, tender wins, and patent filings — not feature releases and pricing pages — you need a system designed for that reality.</p>
+
+<div class="slide-card">
+<h3>15 Years of Signal Expertise</h3>
+<p>We know what signal patterns precede a market disruption. We've built the automation to catch them before they hit your RFQ inbox.</p>
+</div>
+
+<div class="slide-card">
+<h3>Manufacturing-Native, Not SaaS-Ported</h3>
+<p>Every data pipeline, every model, every deliverable is purpose-built for industrial competitive intelligence — not adapted from a SaaS monitoring tool.</p>
+</div>
 
 <div class="author">
 <div class="author-avatar">JS</div>
@@ -124,14 +225,6 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 <h4>Baojun (Joe) Shi</h4>
 <p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p>
 </div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 <div class="share">

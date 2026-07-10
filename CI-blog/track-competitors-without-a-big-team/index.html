@@ -50,6 +50,47 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 .share-copy.copied{background:rgba(74,222,128,.15);color:#4ade80;border-color:#4ade80}
 @media(max-width:480px){.share{margin:var(--ds-24) auto var(--ds-16)}.share-btn{width:110px;height:42px;font-size:.75rem}}
 
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
 /* Alias: old → new naming */
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --bg-hover:rgba(255,255,255,0.08);
@@ -66,61 +107,133 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 </div></div></nav>
 
 <article class="article">
-<div class="meta"><span>2026-7</span><span class="tag">Strategy</span><span>4 min read</span></div>
+<div class="meta"><span>2026-7</span><span class="tag">Strategy</span><span>3 min read</span></div>
 
 <h1>Track Competitors Without a Big Team</h1>
 <p class="deck">Mid-market manufacturers need competitive intelligence, but rarely have the headcount or budget for a dedicated in-house team. Here's how to get strategic insights without the overhead.</p>
 
-<div class="box">
-<strong>Short answer:</strong> The most effective way for mid-market manufacturers to track competitors without a big team is to <strong>outsource their competitive intelligence function</strong> to a specialized consultancy. This provides access to advanced AI pipelines, multi-source data collection, and expert analysis at a fraction of the cost of building an in-house team.
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> Small teams can outmaneuver larger competitors by outsourcing CI to a specialized consultancy — gaining AI-powered multi-source coverage at 80% less cost than building in-house.
 </div>
 
-<p>Most mid-market manufacturing leaders know they need competitive intelligence. Their markets are shifting, new competitors are emerging from unexpected places, and strategic decisions require real-time data.</p>
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">The Real Cost of Going It Alone</h2>
+<p class="phase-sub">Why most small CI teams are fighting an unwinnable battle</p>
 
-<p>But they hit a wall:</p>
+<p>Most mid-market manufacturing leaders know they need competitive intelligence. Markets are shifting, new competitors emerge from unexpected places, and strategic decisions require real-time data.</p>
 
-<ul>
-<li>A dedicated CI analyst costs $120K-$180K/year (fully loaded).</li>
-<li>CI software platforms are $15K-$30K/year, but are often built for SaaS, not manufacturing.</li>
-<li>Building an in-house methodology takes 6-12 months of trial and error.</li>
-</ul>
+<p>But the math doesn't work for a small team:</p>
 
-<p>The solution isn't to compromise on intelligence. It's to optimize the delivery model.</p>
-
-<h2>The Outsourced CI Advantage</h2>
-
-<p>Outsourcing your competitive intelligence to a specialized firm like GEODRIV provides three key benefits:</p>
-
-<div class="benefits">
-<div class="b-card hi">
-<h3>✅ Cost Efficiency</h3>
-<p>Access a full CI pipeline and expert analysts for a monthly retainer (e.g., $3K-$8K/month) — up to 80% less than a comparable in-house team.</p>
+<div class="myth-row">
+<div class="myth-box danger">
+<div class="myth-label">💸 Headcount</div>
+<p>A dedicated CI analyst costs <strong>$120K–$180K/year</strong> fully loaded. That's before any tools or data subscriptions.</p>
 </div>
-<div class="b-card mid">
-<h3>⚡️ Speed to Intelligence</h3>
-<p>Deploy a proven methodology in weeks, not months. Start receiving actionable insights immediately, not after a lengthy ramp-up.</p>
+<div class="myth-box danger">
+<div class="myth-label">🛠️ Tools</div>
+<p>CI software platforms run <strong>$15K–$30K/year</strong> — and most are built for SaaS, not manufacturing signal types.</p>
 </div>
-<div class="b-card hi">
-<h3>🧠 Specialized Expertise</h3>
-<p>Leverage 15+ years of cross-industry manufacturing intelligence experience, pre-built signal models, and multi-channel data collection specifically designed for industrial markets.</p>
+<div class="myth-box danger">
+<div class="myth-label">⏱️ Ramp-Up</div>
+<p>Building an in-house methodology takes <strong>6–12 months</strong> of trial and error. Your competitors won't wait.</p>
 </div>
-<div class="b-card mid">
-<h3>📊 Broader Coverage</h3>
-<p>Track 50+ competitors across 7+ signal types (patents, tenders, certifications, hiring, news, pricing, regulatory) automatically, 24/7. Your analyst can focus on strategic interpretation.</p>
+<div class="myth-box danger">
+<div class="myth-label">👁️ Blind Spots</div>
+<p>One person can realistically monitor only <strong>5–15 competitors</strong> across 3–4 signal types. Too many gaps.</p>
 </div>
 </div>
 
-<h2>What to Look for in an Outsourced CI Partner</h2>
+<div class="insight-callout">
+<strong>The insight:</strong> The solution isn't to compromise on intelligence. It's to optimize the delivery model. Small teams win by leveraging specialized systems, not by building them.
+</div>
 
-<p>Not all CI consultancies are equal. Demand these three things:</p>
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">In-House vs. Outsourced: The Math</h2>
+<p class="phase-sub">Compare the real costs side by side</p>
 
-<ul>
-<li><strong>Manufacturing focus:</strong> Avoid generic CI firms. Your partner must understand the unique signal types (patents, certifications, tender wins) that drive competitive advantage in industrial markets.</li>
-<li><strong>AI-powered pipelines:</strong> Manual collection is slow and expensive. Your partner should use advanced AI to automate multi-source data collection and initial synthesis.</li>
-<li><strong>Actionable insights:</strong> You don't need more data; you need decisions. Demand clear, concise, executive-ready reports that answer specific competitive questions.</li>
-</ul>
+<div class="comparison-grid">
+<div class="comparison-item">
+<h4>🏢 In-House (1 Analyst)</h4>
+<p>$120K–$180K salary + $15K–$30K tools + $5K–$10K data + 6–12 month ramp-up. <strong>Covers 5–15 competitors.</strong></p>
+</div>
+<div class="comparison-item">
+<h4>📦 Outsourced CI (GEODRIV)</h4>
+<p>$3K–$8K/month ($36K–$96K/year). <strong>Zero ramp-up.</strong> Proven methodology. Covers 20–50+ competitors across 7+ signal types.</p>
+</div>
+</div>
 
-<p>At GEODRIV, we've built our entire business around these three pillars. Our systems are designed to deliver strategic clarity in complex manufacturing markets, without requiring you to add a single headcount.</p>
+<div class="insight-callout">
+<strong>The math:</strong> Outsourced CI delivers <strong>up to 80% cost savings</strong> with broader coverage, faster deployment, and manufacturing-specific methodology already in place.
+</div>
+
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">What a Real CI Partner Brings</h2>
+<p class="phase-sub">You're not just buying data — you're buying a system</p>
+
+<div class="delivery-grid">
+<div class="delivery-card">
+<h4>💰 Cost Efficiency</h4>
+<p>Full CI pipeline + expert analysts on a monthly retainer. Up to 80% less than in-house.</p>
+</div>
+<div class="delivery-card">
+<h4>⚡ Speed</h4>
+<p>Proven methodology in weeks, not months. Actionable insights from day one.</p>
+</div>
+<div class="delivery-card">
+<h4>🧠 Expertise</h4>
+<p>15+ years cross-industry manufacturing intelligence. Pre-built signal models for industrial markets.</p>
+</div>
+</div>
+
+<div class="source-grid">
+<div class="source-item">
+<h4>📡 Patents & IP</h4>
+<p>Automatic monitoring of global patent filings in your segment</p>
+</div>
+<div class="source-item">
+<h4>📋 Tenders & Contracts</h4>
+<p>Track competitor wins and pricing strategy through public awards</p>
+</div>
+<div class="source-item">
+<h4>🏅 Certifications</h4>
+<p>Certification changes signal new market entry before it's announced</p>
+</div>
+<div class="source-item">
+<h4>👥 Hiring Signals</h4>
+<p>Key hires reveal strategic pivots and capability build-outs</p>
+</div>
+</div>
+
+<!-- SLIDE 4 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">Three Non-Negotiables</h2>
+<p class="phase-sub">What to look for in an outsourced CI partner</p>
+
+<div class="slide-card">
+<h3>🏭 Manufacturing Focus</h3>
+<p>Avoid generic CI firms. Your partner must understand the unique signal types — patents, certifications, tender wins — that drive competitive advantage in industrial markets.</p>
+</div>
+
+<div class="slide-card">
+<h3>🤖 AI-Powered Pipelines</h3>
+<p>Manual collection is slow and expensive. Your partner should use advanced AI to automate multi-source data collection and initial synthesis.</p>
+</div>
+
+<div class="slide-card">
+<h3>📋 Actionable Insights</h3>
+<p>You don't need more data; you need decisions. Demand clear, concise, executive-ready reports that answer specific competitive questions.</p>
+</div>
+
+<div class="insight-callout">
+<strong>Bottom line:</strong> At GEODRIV, we've built our entire business around these three pillars. Our systems deliver strategic clarity in complex manufacturing markets — without requiring you to add a single headcount.
+</div>
 
 <div class="author">
 <div class="author-avatar">JS</div>
@@ -128,14 +241,6 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 <h4>Baojun (Joe) Shi</h4>
 <p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p>
 </div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 <div class="share">

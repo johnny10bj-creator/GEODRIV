@@ -69,6 +69,47 @@ footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border-car
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --bg-hover:rgba(255,255,255,0.08);
 --r-md:8px;
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
 </style>
 </head>
 <body>
@@ -81,47 +122,120 @@ footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border-car
 </div></div></nav>
 
 <article class="article">
-<div class="meta"><span>2026-7</span><span class="tag">Strategy</span><span>4 min read</span></div>
+<div class="meta"><span>2026-7</span><span class="tag">Strategy</span><span>3 min read</span></div>
 
 <h1>The Real Cost of Building an In-House CI Team</h1>
 <p class="deck">Most mid-market manufacturers spend $200K+ on an internal CI function that delivers less than a $3K/month outsourced system. Here's the math.</p>
 
-<div class="box"><strong>Short answer:</strong> Hiring one CI analyst costs $120K-$180K/year fully loaded. They still need tools ($15K-$30K), data subscriptions ($5K-$10K), and 6-12 months to build methodology. A specialized outsourced CI system delivers the same intelligence for $36K-$96K/year — with no ramp-up time, broader coverage, and manufacturing-specific methodology already in place.</div>
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> Hiring one CI analyst costs $120K–$180K/year fully loaded. A specialized outsourced CI system delivers the same intelligence for $36K–$96K/year — with zero ramp-up, broader coverage, and manufacturing-specific methodology already in place.
+</div>
 
-<h2>The Full Cost Breakdown</h2>
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">The $200K Question</h2>
+<p class="phase-sub">What it really costs to build CI in-house</p>
+
 <p>Let's calculate the true cost of a one-person in-house CI function:</p>
-<table>
-<tr><th>Line Item</th><th>Annual Cost</th></tr>
-<tr><td>CI Analyst salary (fully loaded)</td><td>$120K – $180K</td></tr>
-<tr><td>CI software subscription</td><td>$15K – $30K</td></tr>
-<tr><td>Data source subscriptions</td><td>$5K – $10K</td></tr>
-<tr><td>Training & conferences</td><td>$3K – $8K</td></tr>
-<tr><td>Methodology ramp-up (year 1)</td><td>$10K – $20K (time cost)</td></tr>
-<tr><td><strong>Total Year 1</strong></td><td><strong>$153K – $248K</strong></td></tr>
-<tr><td><strong>Total Year 2+</strong></td><td><strong>$140K – $220K</strong></td></tr>
-</table>
 
-<p>Now compare to outsourced CI: $3K – $8K/month = <strong>$36K – $96K/year</strong>. Zero ramp-up. Manufacturing-specific signals. Weekly deliverables. No management overhead.</p>
+<div class="comparison-grid">
+<div class="comparison-item">
+<h4>💰 CI Analyst</h4>
+<p>$120K – $180K/year fully loaded. That's the base salary before any tools or subscriptions.</p>
+</div>
+<div class="comparison-item">
+<h4>🖥️ Software & Data</h4>
+<p>$20K – $40K/year for CI platforms + data subscriptions. And most CI tools are built for SaaS, not manufacturing.</p>
+</div>
+<div class="comparison-item">
+<h4>📚 Training & Ramp-Up</h4>
+<p>$3K – $8K training + $10K – $20K in lost time during the 6–12 month methodology build.</p>
+</div>
+<div class="comparison-item">
+<h4>📊 Total Year 1</h4>
+<p><strong>$153K – $248K</strong> for one person monitoring 5–15 competitors across 3–4 signal types.</p>
+</div>
+</div>
 
-<h2>What You Actually Get</h2>
-<p>An in-house CI analyst, no matter how capable, can reasonably monitor <strong>5-15 competitors</strong> across <strong>3-4 signal types</strong>. They spend 40-60% of their time on collection and synthesis, leaving limited capacity for strategic analysis.</p>
-<p>An outsourced CI system like GEODRIV covers <strong>20-50+ competitors</strong> across <strong>7+ signal types</strong>. Automated collection frees the human analyst (you or your team) for strategic interpretation.</p>
+<div class="insight-callout">
+<strong>Year 2+ is only slightly better:</strong> $140K – $220K/year recurring — with the same coverage limitations and blind spots. You never stop paying for the overhead.
+</div>
 
-<h2>The Hidden Cost: Missed Signals</h2>
-<p>The biggest cost of in-house CI isn't salary — it's the competitor move that nobody caught because one person can't watch everything. A patent filing in a foreign jurisdiction. A certification change at a supplier that signals a new entrant into your segment. A tender award that reveals a competitor's pricing strategy.</p>
-<p>Single-person CI functions inevitably have blind spots. A system designed for manufacturing, with automated multi-channel monitoring, doesn't.</p>
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">In-House vs. Outsourced: The Real Comparison</h2>
+<p class="phase-sub">Same intelligence goal, radically different cost structures</p>
+
+<div class="myth-row">
+<div class="myth-box danger">
+<div class="myth-label">🏢 In-House</div>
+<p><strong>$153K–$248K year 1</strong> · 5–15 competitors tracked · 3–4 signal types · 6–12 month ramp-up · You manage the analyst, the tools, and the methodology.</p>
+</div>
+<div class="myth-box success">
+<div class="myth-label">📦 Outsourced (GEODRIV)</div>
+<p><strong>$36K–$96K/year</strong> · 20–50+ competitors tracked · 7+ signal types · Zero ramp-up · Proven methodology from day one · No management overhead.</p>
+</div>
+</div>
+
+<div class="insight-callout">
+<strong>Savings of 60–80%.</strong> With broader coverage, faster deployment, and manufacturing-specific pipelines already in place.
+</div>
+
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">What You Actually Get</h2>
+<p class="phase-sub">Coverage comparison: one analyst vs. a dedicated CI system</p>
+
+<div class="source-grid">
+<div class="source-item">
+<h4>👤 In-House Analyst</h4>
+<p>Monitors 5–15 competitors. Spends 40–60% of time on collection and synthesis alone. Limited capacity for strategic analysis.</p>
+</div>
+<div class="source-item">
+<h4>🤖 Automated Pipelines</h4>
+<p>Cover 20–50+ competitors across 7+ signal types. Automated 24/7 collection. Your team focuses on strategic interpretation.</p>
+</div>
+<div class="source-item">
+<h4>👁️ Blind Spots In-House</h4>
+<p>Patent filings in foreign jurisdictions. Certification changes at suppliers. Tender award pricing signals. One person can't watch everything.</p>
+</div>
+<div class="source-item">
+<h4>📡 Outsourced Coverage</h4>
+<p>Multi-channel, multi-jurisdiction monitoring designed for manufacturing — no gaps, no missed signals, no single point of failure.</p>
+</div>
+</div>
+
+<div class="quote-block">
+"The biggest cost of in-house CI isn't salary — it's the competitor move that nobody caught because one person can't watch everything."
+<cite>— Baojun (Joe) Shi, Founder, GEODRIV Technology</cite>
+</div>
+
+<!-- SLIDE 4 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">The Hidden Cost: Missed Signals</h2>
+<p class="phase-sub">What you lose when one person carries the entire CI function</p>
+
+<p>Single-person CI functions inevitably have blind spots. A patent filing in a foreign jurisdiction. A certification change at a supplier that signals a new entrant into your segment. A tender award that reveals a competitor's pricing strategy.</p>
+
+<div class="slide-card">
+<h3>🚨 The Real Risk</h3>
+<p>A system designed for manufacturing, with automated multi-channel monitoring, doesn't miss these signals. It catches them before they become market shifts — not after.</p>
+</div>
+
+<div class="insight-callout">
+<strong>Bottom line:</strong> The question isn't whether you can afford outsourced CI. It's whether you can afford the blind spots of a one-person in-house team. The math has never been clearer.
+</div>
 
 <div class="author">
 <div class="author-avatar">JS</div>
-<div><h4>Baojun (Joe) Shi</h4><p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p></div>
+<div>
+<h4>Baojun (Joe) Shi</h4>
+<p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p>
 </div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 <div class="share">

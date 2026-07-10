@@ -70,6 +70,48 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 /* Alias: old → new naming */
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);--border-subtle:var(--border);--border-strong:var(--border);
 --bg-hover:rgba(255,255,255,0.08);
+/* Carousel */
+.slide-label{font-size:.6875rem;color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.slide-label::before{content:'';display:inline-block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.phase-header{font-family:"Lexend",sans-serif;font-size:1.5rem;font-weight:600;margin-top:10px;margin-bottom:6px;letter-spacing:-0.02em}
+.phase-sub{font-size:.9375rem;color:var(--text-muted);margin-bottom:24px;font-style:italic}
+.slide-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:28px;margin-bottom:28px;position:relative;overflow:hidden}
+.slide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:12px 12px 0 0}
+.slide-card h3{font-size:.9375rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.myth-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:600px){.myth-row{grid-template-columns:1fr}}
+.myth-box{border-radius:10px;padding:20px;border:1px solid var(--border-card)}
+.myth-box.danger{background:rgba(216,90,48,.06);border-color:rgba(216,90,48,.15)}
+.myth-box.success{background:rgba(26,111,181,.06);border-color:rgba(26,111,181,.15)}
+.myth-label{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.myth-box.danger .myth-label{color:#D85A30}
+.myth-box.success .myth-label{color:var(--accent)}
+.myth-box p{font-size:.875rem;color:var(--text2);margin:0;line-height:1.55}
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+@media(max-width:600px){.source-grid{grid-template-columns:1fr}}
+.source-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:8px;padding:16px;border-left:3px solid var(--accent)}
+.source-item h4{font-size:.8125rem;font-weight:600;margin-bottom:2px}
+.source-item p{font-size:.75rem;color:var(--text-muted);margin:0}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text2);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.quote-block{border-left:2px solid var(--accent);padding-left:20px;margin-bottom:28px;font-size:1.05rem;color:var(--text2);font-style:italic;line-height:1.6}
+.quote-block cite{font-size:.8125rem;font-style:normal;color:var(--text-muted);margin-top:8px;display:block}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:700px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;text-align:center;border-top:3px solid var(--accent)}
+.delivery-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.delivery-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.comparison-grid{grid-template-columns:1fr}}
+.comparison-item{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px;border-top:3px solid var(--accent)}
+.comparison-item h4{font-size:.875rem;font-weight:600;margin-bottom:4px}
+.comparison-item p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+@media(max-width:600px){.sector-grid{grid-template-columns:1fr}}
+.sector-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px}
+.sector-card h4{font-size:.875rem;font-weight:600;margin-bottom:4px;color:var(--accent)}
+.sector-card p{font-size:.8125rem;color:var(--text-muted);margin:0;line-height:1.5}
 </style>
 </head>
 <body>
@@ -83,73 +125,103 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 </div></div></nav>
 
 <article class="article">
-<div class="meta"><span>2026-7</span><span class="tag">Industry</span><span>4 min read</span></div>
+<div class="meta"><span>2026-7</span><span class="tag">Guide</span><span>4 min read</span></div>
 
 <h1>CI for High-Mix, Low-Volume Manufacturing</h1>
 <p class="deck">If your product mix changes every week, your competitive intelligence should track capabilities — not products. Here's why conventional CI tools fail in HMLV.</p>
 
-<div class="box">
-<strong>Short answer:</strong> Conventional CI is built for high-volume repeatable markets — track price, track share, track feature releases. HMLV manufacturers need a fundamentally different approach: track what your competitors <em>can build</em>, not just what they <em>are building right now</em>.
+<div class="insight-callout">
+<strong>The one-sentence version:</strong> Conventional CI is built for high-volume repeatable markets — track price, track share, track feature releases. HMLV manufacturers need a fundamentally different approach: track what your competitors <em>can build</em>, not just what they <em>are building right now</em>.
 </div>
+
+<!-- SLIDE 1 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 1 of 4</div>
+<h2 class="phase-header">Why Traditional CI Fails in HMLV</h2>
+<p class="phase-sub">If the product changes every 90 days, tracking products is useless.</p>
 
 <p>High-mix, low-volume manufacturing — EMS providers, precision machining shops, industrial automation integrators — shares one defining trait: <strong>the product changes constantly, but the capability portfolio evolves slowly.</strong></p>
 
 <p>If you make 50,000 units of the same PCB assembly each month, CI is simple: track pricing, capacity expansion, and customer churn. But if you bid on 200 different projects per year, each with unique requirements and tolerances, the question isn't "what are they selling" but <strong>"what can they build?"</strong></p>
 
-<h2>The Four Capability Dimensions</h2>
+<div class="myth-row">
+<div class="myth-box danger">
+<div class="myth-label">❌ High-Volume CI</div>
+<p>Track price, volume, market share. Data sources: scraped product listings. Competitors: 5–15 direct. Key question: "Are they cheaper?"</p>
+</div>
+<div class="myth-box success">
+<div class="myth-label">✅ HMLV CI</div>
+<p>Track capability expansion, cert wins, customer segments. Data sources: patent filings, tender databases, certification registries. Competitors: 20–60+ capability-overlap. Key question: "Can they now build what we build?"</p>
+</div>
+</div>
 
-<p>HMLV intelligence revolves around four dimensions. Each requires a different data source and CI strategy.</p>
+<!-- SLIDE 2 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 2 of 4</div>
+<h2 class="phase-header">The Four Capability Dimensions of HMLV CI</h2>
+<p class="phase-sub">Each dimension needs a different data source and CI strategy.</p>
 
-<div class="dim4">
-<div class="d4c">
-<h3>🔧 Processing Capability</h3>
+<div class="sector-grid">
+<div class="sector-card">
+<h4>🔧 Processing Capability</h4>
 <p>New equipment purchases, process certifications, material capability expansions. <strong>Track:</strong> equipment OEM announcements, supplier audits, ISO/nadcap recertifications.</p>
 </div>
-<div class="d4c">
-<h3>📋 Compliance & Certifications</h3>
+<div class="sector-card">
+<h4>📋 Compliance & Certifications</h4>
 <p>New standards achieved, new market approvals. <strong>Track:</strong> certification databases, FDA/CE listings, customer qualification portals.</p>
 </div>
-<div class="d4c">
-<h3>🤝 Customer Portfolio Signals</h3>
+<div class="sector-card">
+<h4>🤝 Customer Portfolio Signals</h4>
 <p>New customer wins by segment, contract awards, RFQ win-rates. <strong>Track:</strong> tender platforms, press releases, LinkedIn hiring shifts.</p>
 </div>
-<div class="d4c">
-<h3>🌍 Capacity & Geographic Reach</h3>
+<div class="sector-card">
+<h4>🌍 Capacity & Geographic Reach</h4>
 <p>Facility expansions, new plants, logistics partnerships. <strong>Track:</strong> construction permits, customs data, shipping partnerships.</p>
 </div>
 </div>
 
-<h2>HMLV vs. High-Volume: The Data Shift</h2>
+<div class="insight-callout">
+<strong>The insight:</strong> In HMLV, a competitor winning a contract in a new segment tells you more about their future threat level than any product announcement does — because that win proves a <em>capability</em> they can apply to dozens of other projects.
+</div>
 
-<table>
-<tr><th>Dimension</th><th>High-Volume CI</th><th>HMLV CI</th></tr>
-<tr><td>Primary signal</td><td>Price, volume, market share</td><td>Capability expansion, cert wins, customer segments</td></tr>
-<tr><td>Data sources</td><td>Scraped product listings</td><td>Patent filings, tender databases, certification registries</td></tr>
-<tr><td>Update frequency</td><td>Daily price trackers</td><td>Weekly capability scans + event alerts</td></tr>
-<tr><td>Competitor count</td><td>5–15 direct</td><td>20–60+ capability-overlap competitors</td></tr>
-<tr><td>Key question</td><td>"Are they cheaper?"</td><td>"Can they now build what we build?"</td></tr>
-<tr><td>Threat signal</td><td>Price drops, product launches</td><td>New ISO cert, new 5-axis machine, new segment win</td></tr>
-</table>
+<!-- SLIDE 3 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 3 of 4</div>
+<h2 class="phase-header">How to Start: A 90-Day HMLV CI Roadmap</h2>
+<p class="phase-sub">You don't need a six-figure platform. Start simple and add layers.</p>
 
-<h2>How to Start</h2>
-
-<p>You don't need a six-figure platform. Start simple and add layers:</p>
-
-<h3>Week 1–2: Baseline</h3>
+<div class="comparison-grid">
+<div class="comparison-item">
+<h4>Week 1–2: Baseline</h4>
 <p>List your top 10 competitors. For each: certifications held, equipment capabilities, customer segments served. <strong>Output:</strong> a capability matrix.</p>
-
-<h3>Week 3–4: Signal Streams</h3>
+</div>
+<div class="comparison-item">
+<h4>Week 3–4: Signal Streams</h4>
 <p>Set up Google Alerts + patent watch + tender RSS feeds. Weekly capability-change digest — one email, five minutes to scan.</p>
-
-<h3>Month 2: Leading Indicators</h3>
+</div>
+<div class="comparison-item">
+<h4>Month 2: Leading Indicators</h4>
 <p>Add LinkedIn hiring monitoring and tender-win tracking. A competitor hiring a specialist in a new domain means they're coming for that segment 6–12 months before any product launch.</p>
-
-<h3>Month 3+: Automate</h3>
+</div>
+<div class="comparison-item">
+<h4>Month 3+: Automate</h4>
 <p>Once you have 90 days of structured data, automate the cross-referencing. An AI pipeline can correlate patent filings with certification changes and hiring patterns — surfacing composite signals that would take an analyst days to connect.</p>
+</div>
+</div>
+
+<!-- SLIDE 4 -->
+<hr class="phase-divider">
+<div class="slide-label">Slide 4 of 4</div>
+<h2 class="phase-header">Your Competitors Are Still Tracking Prices</h2>
+<p class="phase-sub">Track what they're becoming capable of — and you'll see the threat 12 months before it arrives.</p>
+
+<p>Your competitors are still tracking prices in a market where the product changes every 90 days. Track what they're <em>becoming capable of</em> — and you'll see the threat 12 months before it arrives in your RFQ inbox.</p>
 
 <div class="box">
-<strong>Bottom line:</strong> Your competitors are still tracking prices in a market where the product changes every 90 days. Track what they're <em>becoming capable of</em> — and you'll see the threat 12 months before it arrives in your RFQ inbox.
+<strong>Bottom line:</strong> HMLV intelligence revolves around four dimensions — processing capability, compliance & certifications, customer portfolio signals, and capacity & geographic reach. Each requires a different data source and CI strategy. Together, they form a complete picture of where your competitors are heading — before they get there.
 </div>
+
+<p><strong>Track capabilities, not products. That's how you win in HMLV.</strong></p>
 
 <div class="author">
 <div class="author-avatar">JS</div>
@@ -157,14 +229,6 @@ footer{text-align:center;padding:var(--ds-48) var(--ds-32);border-top:1px solid 
 <h4>Baojun (Joe) Shi</h4>
 <p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p>
 </div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 <div class="share">
