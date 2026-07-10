@@ -164,8 +164,8 @@
             font-weight: 600;
             color: var(--text-primary);
             text-decoration: none;
-            display: flex; align-items: center; gap: 0;
-            letter-spacing: -0.01em;
+            display: flex; align-items: center; gap: 4px;
+            letter-spacing: 0;
             transition: color 0.35s;
         }
 
@@ -285,39 +285,18 @@
             flex: 0 0 360px;
             height: 360px;
             position: relative;
-        }
-
-        .hero-glow {
-            width: 280px; height: 280px;
-            margin: 40px auto;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 65%);
-            position: relative;
-            animation: heroGlow 6s ease-in-out infinite;
-        }
-
-        @keyframes heroGlow {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
-
-        .hero-glow::after {
-            content: '';
-            position: absolute; inset: 20px; border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.12);
-        }
-
-        .hero-glow::before {
-          content: '';
-          position: absolute; inset: 60px; border-radius: 50%;
-          border: 1px solid rgba(255,255,255,0.10);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
         }
 
         /* Radar scan element */
         .hero-radar {
-          width: 240px;
-          height: 240px;
+          width: 280px;
+          height: 280px;
+          margin-right: -10px;
           animation: radarFloat 6s ease-in-out infinite;
+          filter: drop-shadow(0 0 40px rgba(26,111,181,0.3));
         }
 
         @keyframes radarFloat {
@@ -891,8 +870,7 @@
 
             .hero-inner { flex-direction: column; gap: var(--ds-32); }
             .hero-visual { flex: 0 0 auto; height: 180px; }
-            .hero-glow { width: 140px; height: 140px; margin: 0 auto; }
-            .hero-radar { width: 160px; height: 160px; }
+            .hero-radar { width: 180px; height: 180px; margin-right: 0; margin-bottom: 0; }
             .hero-dots { width: 140px; height: 140px; right: 0; }
             .hero-stats { gap: var(--ds-24); flex-wrap: wrap; }
             .hero { padding: 100px var(--ds-16) 48px; }
@@ -986,38 +964,38 @@
                 <div class="hero-radar" aria-hidden="true">
                     <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
                         <!-- Scan rings -->
-                        <circle cx="120" cy="120" r="110" stroke="var(--brand-blue)" stroke-width="0.5" stroke-opacity="0.18" />
-                        <circle cx="120" cy="120" r="95" stroke="var(--brand-blue)" stroke-width="0.5" fill="none" stroke-dasharray="2 6" stroke-opacity="0.30" />
-                        <circle cx="120" cy="120" r="78" stroke="var(--brand-blue)" stroke-width="0.5" stroke-opacity="0.14" />
-                        <circle cx="120" cy="120" r="62" stroke="var(--brand-blue)" stroke-width="0.5" fill="none" stroke-dasharray="1 5" stroke-opacity="0.25" />
-                        <circle cx="120" cy="120" r="44" stroke="var(--brand-blue)" stroke-width="0.5" stroke-opacity="0.10" />
-                        <circle cx="120" cy="120" r="26" stroke="var(--brand-blue)" stroke-width="0.4" stroke-opacity="0.06" />
+                        <circle cx="120" cy="120" r="110" stroke="var(--brand-blue)" stroke-width="1" stroke-opacity="0.55" />
+                        <circle cx="120" cy="120" r="95" stroke="var(--brand-blue)" stroke-width="1" fill="none" stroke-dasharray="2 6" stroke-opacity="0.65" />
+                        <circle cx="120" cy="120" r="78" stroke="var(--brand-blue)" stroke-width="1" stroke-opacity="0.40" />
+                        <circle cx="120" cy="120" r="62" stroke="var(--brand-blue)" stroke-width="1" fill="none" stroke-dasharray="1 5" stroke-opacity="0.55" />
+                        <circle cx="120" cy="120" r="44" stroke="var(--brand-blue)" stroke-width="0.9" stroke-opacity="0.30" />
+                        <circle cx="120" cy="120" r="26" stroke="var(--brand-blue)" stroke-width="0.8" stroke-opacity="0.20" />
                         <!-- Crosshairs -->
-                        <line x1="10" y1="120" x2="230" y2="120" stroke="var(--brand-blue)" stroke-width="0.4" stroke-opacity="0.08" />
-                        <line x1="120" y1="10" x2="120" y2="230" stroke="var(--brand-blue)" stroke-width="0.4" stroke-opacity="0.08" />
+                        <line x1="10" y1="120" x2="230" y2="120" stroke="var(--brand-blue)" stroke-width="0.6" stroke-opacity="0.25" />
+                        <line x1="120" y1="10" x2="120" y2="230" stroke="var(--brand-blue)" stroke-width="0.6" stroke-opacity="0.25" />
                         <!-- Background data dots (starfield) -->
                         <g fill="var(--brand-blue)" stroke="none">
-                            <circle cx="32" cy="40" r="1.2" opacity="0.4" /><circle cx="68" cy="25" r="0.8" opacity="0.3" />
-                            <circle cx="155" cy="35" r="1.0" opacity="0.35" /><circle cx="195" cy="70" r="0.8" opacity="0.25" />
-                            <circle cx="210" cy="160" r="1.2" opacity="0.4" /><circle cx="185" cy="200" r="0.8" opacity="0.3" />
-                            <circle cx="145" cy="215" r="1.0" opacity="0.35" /><circle cx="80" cy="205" r="0.8" opacity="0.25" />
-                            <circle cx="35" cy="175" r="1.2" opacity="0.4" /><circle cx="25" cy="90" r="0.8" opacity="0.3" />
-                            <circle cx="50" cy="55" r="0.6" opacity="0.2" /><circle cx="90" cy="30" r="0.6" opacity="0.2" />
-                            <circle cx="170" cy="45" r="0.6" opacity="0.2" /><circle cx="205" cy="105" r="0.6" opacity="0.2" />
-                            <circle cx="200" cy="180" r="0.6" opacity="0.2" /><circle cx="160" cy="210" r="0.6" opacity="0.2" />
-                            <circle cx="100" cy="215" r="0.6" opacity="0.2" /><circle cx="55" cy="190" r="0.6" opacity="0.2" />
+                            <circle cx="32" cy="40" r="1.5" opacity="0.6" /><circle cx="68" cy="25" r="1" opacity="0.5" />
+                            <circle cx="155" cy="35" r="1.2" opacity="0.55" /><circle cx="195" cy="70" r="1" opacity="0.45" />
+                            <circle cx="210" cy="160" r="1.5" opacity="0.6" /><circle cx="185" cy="200" r="1" opacity="0.5" />
+                            <circle cx="145" cy="215" r="1.2" opacity="0.55" /><circle cx="80" cy="205" r="1" opacity="0.45" />
+                            <circle cx="35" cy="175" r="1.5" opacity="0.6" /><circle cx="25" cy="90" r="1" opacity="0.5" />
+                            <circle cx="50" cy="55" r="0.8" opacity="0.4" /><circle cx="90" cy="30" r="0.8" opacity="0.4" />
+                            <circle cx="170" cy="45" r="0.8" opacity="0.4" /><circle cx="205" cy="105" r="0.8" opacity="0.4" />
+                            <circle cx="200" cy="180" r="0.8" opacity="0.4" /><circle cx="160" cy="210" r="0.8" opacity="0.4" />
+                            <circle cx="100" cy="215" r="0.8" opacity="0.4" /><circle cx="55" cy="190" r="0.8" opacity="0.4" />
                             <circle cx="40" cy="130" r="0.6" opacity="0.2" /><circle cx="60" cy="100" r="0.6" opacity="0.2" />
                             <circle cx="130" cy="50" r="0.8" opacity="0.15" /><circle cx="180" cy="140" r="0.8" opacity="0.15" />
                             <circle cx="140" cy="175" r="0.8" opacity="0.15" /><circle cx="75" cy="150" r="0.8" opacity="0.15" />
                             <!-- Signal blips -->
-                            <circle cx="48" cy="62" r="2" fill="var(--brand-blue)" opacity="0.5" />
-                            <circle cx="175" cy="85" r="1.5" fill="var(--brand-blue)" opacity="0.4" />
-                            <circle cx="90" cy="185" r="1.5" fill="var(--brand-blue)" opacity="0.35" />
-                            <circle cx="155" cy="165" r="1.8" fill="var(--brand-blue)" opacity="0.3" />
+                            <circle cx="48" cy="62" r="3" fill="var(--brand-blue)" opacity="0.7" />
+                            <circle cx="175" cy="85" r="2.5" fill="var(--brand-blue)" opacity="0.6" />
+                            <circle cx="90" cy="185" r="2.5" fill="var(--brand-blue)" opacity="0.55" />
+                            <circle cx="155" cy="165" r="2.8" fill="var(--brand-blue)" opacity="0.5" />
                         </g>
                         <!-- Pulse sweep lines -->
-                        <path class="radar-sweep" d="M120 120 L120 12" stroke="var(--brand-blue)" stroke-width="0.8" stroke-opacity="0.2" />
-                        <path class="radar-sweep" d="M120 120 L228 120" stroke="var(--brand-blue)" stroke-width="0.6" stroke-opacity="0.12" />
+                        <path class="radar-sweep" d="M120 120 L120 12" stroke="var(--brand-blue)" stroke-width="1.5" stroke-opacity="0.5" />
+                        <path class="radar-sweep" d="M120 120 L228 120" stroke="var(--brand-blue)" stroke-width="1.2" stroke-opacity="0.35" />
                     </svg>
                 </div>
             </div>
