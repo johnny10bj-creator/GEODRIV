@@ -250,23 +250,24 @@
             margin-bottom: var(--ds-32);
         }
         .tag-group {
-            border: 1px solid var(--border-card);
+            border: 1px solid var(--border-strong);
             border-radius: var(--r-md);
             overflow: hidden;
+            background: var(--bg-card);
         }
         .tag-group-header {
             width: 100%;
-            background: none;
+            background: var(--bg-card);
             border: none;
-            color: #fff;
+            color: var(--text-primary);
             font-family: inherit;
             font-size: 0.8125rem;
-            font-weight: 500;
-            padding: 10px 16px;
+            font-weight: 600;
+            padding: 14px 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--ds-8);
+            gap: var(--ds-10);
             cursor: pointer;
             transition: background 0.15s, color 0.15s;
         }
@@ -274,22 +275,24 @@
             background: var(--bg-hover);
         }
         .tag-group-header .tag-badge {
-            background: var(--bg-badge);
+            background: var(--text-accent);
             color: #fff;
-            padding: 1px 8px;
-            border-radius: 3px;
-            font-size: 0.625rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.6875rem;
             font-weight: 600;
             letter-spacing: 0.04em;
+            text-transform: capitalize;
         }
         .tag-group-header .tag-count {
-            color: var(--text-muted);
-            font-size: 0.6875rem;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
             margin-left: 0;
         }
         .tag-group-header .arrow {
-            color: var(--text-muted);
-            font-size: 0.5625rem;
+            color: var(--text-secondary);
+            font-size: 0.625rem;
             transition: transform 0.2s;
         }
         .tag-group.open .tag-group-header .arrow { transform: rotate(180deg); }
