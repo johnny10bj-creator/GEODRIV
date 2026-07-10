@@ -102,16 +102,15 @@
             justify-content: space-between;
         }
         .nav-logo {
-        .nav-logo {
             font-family: "Lexend", sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--text-accent);
             text-decoration: none;
             letter-spacing: -0.01em;
             transition: color 0.35s;
         }
-        .nav-logo:hover { color: var(--accent); filter: brightness(1.2); }
+        .nav-logo:hover { color: var(--text-accent); filter: brightness(1.2); }
         .nav-logo .pipe { color: var(--text-muted); font-weight: 400; margin: 0 2px; }
         .nav-links {
             display: flex; align-items: center; gap: var(--ds-24);
@@ -149,8 +148,8 @@
             background: var(--bg-hover);
         }
         .theme-btn { padding: 8px 12px; line-height: 1; font-size: 1rem; }
-        .lang-btn { background:none; border:.5px solid var(--border); color:var(--text2); padding:8px 16px; border-radius:var(--r-md); cursor:pointer; font-size:.8125rem; font-weight:500; font-family:inherit; transition:all .15s; }
-        .lang-btn:hover { border-color:var(--text3); background:var(--bg-card); }
+        .lang-btn { background:none; border:.5px solid var(--border-card); color:var(--text-secondary); padding:8px 16px; border-radius:var(--r-md); cursor:pointer; font-size:.8125rem; font-weight:500; font-family:inherit; transition:all .15s; }
+        .lang-btn:hover { border-color:var(--text-muted); background:var(--bg-card); }
 
         /* ── Blog Header ── */
         .blog-header {
@@ -584,8 +583,7 @@
         var themeBtn = document.getElementById('themeBtn');
         themeBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
 
-function toggleLanguage(){var b=document.querySelector('.lang-btn');b.textContent=b.textContent==='中文'?'EN':'中文'}
-        function toggleTheme(){
+        function toggleTheme() {
             var current = document.documentElement.getAttribute('data-theme');
             var next = current === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
