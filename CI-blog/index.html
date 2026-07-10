@@ -275,24 +275,25 @@
             background: var(--bg-hover);
         }
         .tag-group-header .tag-badge {
-            background: var(--text-accent);
+            background: transparent;
             color: #fff;
             padding: 3px 10px;
             border-radius: 4px;
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.04em;
             text-transform: capitalize;
         }
         .tag-group-header .tag-count {
             color: var(--text-secondary);
-            font-size: 0.75rem;
+            font-size: 0.8125rem;
             font-weight: 600;
-            margin-left: 0;
+            margin-left: var(--ds-8);
         }
         .tag-group-header .arrow {
             color: var(--text-secondary);
-            font-size: 0.625rem;
+            font-size: 0.6875rem;
+            margin-left: var(--ds-4);
             transition: transform 0.2s;
         }
         .tag-group.open .tag-group-header .arrow { transform: rotate(180deg); }
