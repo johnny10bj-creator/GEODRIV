@@ -261,7 +261,7 @@
             border: none;
             color: var(--text-primary);
             font-family: inherit;
-            font-size: 0.8125rem;
+            font-size: 0.9375rem;
             font-weight: 600;
             padding: 14px 18px;
             display: flex;
@@ -276,7 +276,7 @@
         }
         .tag-group-header .tag-badge {
             background: transparent;
-            color: #fff;
+            color: var(--text-primary);
             padding: 3px 10px;
             border-radius: 4px;
             font-size: 0.75rem;
@@ -530,9 +530,9 @@
             </a>
             <div class="nav-actions">
                 <div class="nav-links">
-                    <a href="https://geodriv.com">Home</a>
-                    <a href="https://geodriv.com/CI-blog" class="active">Insights</a><a href="https://geodriv.com/contact">Contact</a></div>
-                <button class="lang-btn" onclick="toggleLanguage()">中文</button>
+                    <a href="https://geodriv.com"><span data-i18n="nav.home">Home</span></a>
+                    <a href="https://geodriv.com/CI-blog" class="active"><span data-i18n="nav.insights">Insights</span></a><a href="https://geodriv.com/contact"><span data-i18n="nav.contact">Contact</span></a></div>
+                <button class="lang-btn" onclick="toggleLanguage()" id="listLangBtn">中</button>
                 <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">🌙</button>
             </div>
         </div>
@@ -596,11 +596,20 @@
 
         /* ── Language Toggle ── */
         var lang = localStorage.getItem('geodriv-lang') || 'en';
+        var i18n = {
+            'nav.home': { en: 'Home', zh: '\u9996\u9875' },
+            'nav.insights': { en: 'Insights', zh: '\u6d1e\u5bdf' },
+            'nav.contact': { en: 'Contact', zh: '\u8054\u7cfb\u6211\u4eec' }
+        };
 
         function toggleLanguage() {
             lang = lang === 'en' ? 'zh' : 'en';
             localStorage.setItem('geodriv-lang', lang);
             applyLanguage();
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var k = el.getAttribute('data-i18n');
+                if (i18n[k] && i18n[k][lang]) el.textContent = i18n[k][lang];
+            });
         }
 
         function applyLanguage() {
@@ -614,10 +623,14 @@
             } else {
                 enTexts.forEach(function(el) { el.style.display = ''; });
                 zhTexts.forEach(function(el) { el.style.display = 'none'; });
-                langBtn.textContent = '中文';
+                langBtn.textContent = '中';
             }
         }
         applyLanguage();
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+            var k = el.getAttribute('data-i18n');
+            if (i18n[k] && i18n[k][lang]) el.textContent = i18n[k][lang];
+        });
 
         /* ── Auto-insert articles from data ── */
         var articles = [            { date: "2026-7", tag: "Case Study", minRead: 5,

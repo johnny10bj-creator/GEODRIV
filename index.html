@@ -22,8 +22,9 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="GEODRIV — Competitive Intelligence Consultancy" />
     <meta name="twitter:description" content="AI-powered CI for manufacturing." />
-    <meta name="baidu-site-verification" content="codeva-REPLACE_WITH_YOUR_BAIDU_CODE" />
-    <meta name="google-site-verification" content="REPLACE_WITH_YOUR_GOOGLE_CODE" />
+    <!-- baidu & google site verification -- add codes when provisioned -->
+    <!--<meta name="baidu-site-verification" content="codeva-REPLACE_WITH_YOUR_BAIDU_CODE" />
+    <meta name="google-site-verification" content="REPLACE_WITH_YOUR_GOOGLE_CODE" />-->
     <script>if(/aerospace\.geolyxtech\.com/.test(location.hostname)&&location.pathname==="/")location.replace("/aerospace")</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -159,7 +160,7 @@
         }
 
         .nav-logo {
-            font-family: "Inter", sans-serif;
+            font-family: "Lexend", "Noto Sans SC", sans-serif;
             font-size: 1.0625rem;
             font-weight: 600;
             color: var(--text-primary);
@@ -235,6 +236,28 @@
             position: relative;
             overflow: hidden;
             text-align: left;
+        }
+
+        [data-theme="light"] .hero {
+            background: linear-gradient(135deg, #dce6f0 0%, #e8eef5 30%, #f0f5fa 65%, #e2ecf5 100%);
+        }
+
+        [data-theme="light"] .hero::before {
+            background: radial-gradient(ellipse at 70% 50%, rgba(13,33,55,0.04) 0%, transparent 60%);
+        }
+
+        [data-theme="light"] .hero-dots {
+            background-image:
+                radial-gradient(2px 2px at 15% 20%, rgba(13,33,55,0.15) 50%, transparent 50%),
+                radial-gradient(2px 2px at 42% 15%, rgba(13,33,55,0.12) 50%, transparent 50%),
+                radial-gradient(2px 2px at 68% 30%, rgba(13,33,55,0.10) 50%, transparent 50%),
+                radial-gradient(2px 2px at 85% 55%, rgba(13,33,55,0.13) 50%, transparent 50%),
+                radial-gradient(2px 2px at 30% 80%, rgba(13,33,55,0.08) 50%, transparent 50%),
+                radial-gradient(1px 1px at 55% 70%, rgba(13,33,55,0.10) 50%, transparent 50%),
+                radial-gradient(1px 1px at 75% 40%, rgba(13,33,55,0.12) 50%, transparent 50%),
+                radial-gradient(1px 1px at 20% 50%, rgba(13,33,55,0.09) 50%, transparent 50%),
+                radial-gradient(1px 1px at 60% 15%, rgba(13,33,55,0.11) 50%, transparent 50%),
+                radial-gradient(1px 1px at 90% 80%, rgba(13,33,55,0.08) 50%, transparent 50%);
         }
 
         .hero::before {
@@ -335,10 +358,32 @@
             border: 1px solid rgba(255,255,255,0.12);
         }
 
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 6px 16px 6px 8px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.03em;
+            margin-bottom: var(--ds-24);
+            transition: color 0.35s, border-color 0.35s, background 0.35s;
+        }
+
+        [data-theme="light"] .hero-badge {
+            background: rgba(13,33,55,0.06);
+            border-color: rgba(13,33,55,0.12);
+        }
+
         .hero-badge .pulse {
             width: 7px; height: 7px;
             border-radius: 50%;
             background: #4ade80;
+            display: inline-block;
             animation: pulse-dot 2s ease-in-out infinite;
         }
 
@@ -349,17 +394,21 @@
 
         .hero h1 {
             font-family: "Lexend", "Noto Sans SC", sans-serif;
-            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 700;
             letter-spacing: -0.02em;
-            line-height: 1.15;
+            line-height: 1.2;
             margin-bottom: var(--ds-16);
-            color: #fff;
+            color: var(--text-primary);
+            text-wrap: balance;
         }
 
         .hero h1 em { font-style: normal; }
         .hero h1 .hl-blue { color: #60a5fa; }
         .hero h1 .hl-red { color: #fb923c; }
+
+        [data-theme="light"] .hero h1 .hl-blue { color: #155d99; }
+        [data-theme="light"] .hero h1 .hl-red { color: #c74a1e; }
 
         .hero p {
             font-size: 1.0625rem;
@@ -368,26 +417,6 @@
             max-width: 480px;
             line-height: 1.7;
             margin-bottom: var(--ds-32);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: var(--ds-40);
-        }
-
-        .hero-stat .num {
-            font-family: "Lexend", "Noto Sans SC", sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #fff;
-            display: block;
-        }
-
-        .hero-stat .lbl {
-            font-size: 0.8125rem;
-            color: rgba(255,255,255,0.50);
-            display: block;
-            margin-top: 2px;
         }
 
         /* ═══ Sections ═══ */
@@ -418,14 +447,7 @@
         }
 
         .section-eyebrow {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: var(--ds-12);
-            transition: color 0.35s;
-            text-align: center;
+            display: none;
         }
 
         .section h2,
@@ -441,11 +463,14 @@
             text-align: center;
         }
 
-        /* ═══ Card Grid ═══ */
+        /* ═══ Card Grid — Asymmetrical ═══ */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 2fr 1fr;
             gap: var(--ds-16);
+        }
+        .grid-3 .card:first-child {
+            grid-row: span 2;
         }
 
         .card {
@@ -455,7 +480,7 @@
             border: 0.5px solid var(--border-card);
             transition: border-color 0.25s, transform 0.25s, background 0.35s;
             cursor: default;
-            text-align: center;
+            text-align: left;
         }
 
         .card:hover {
@@ -464,35 +489,35 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 0 1px var(--brand-blue);
         }
 
-        .card-icon {
-            font-size: 2rem;
-            margin: 0 auto var(--ds-20);
-            width: 56px; height: 56px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: var(--r-md);
-            background: var(--bg-hover);
-            transition: background 0.35s, transform 0.25s;
-        }
-
-        .card:hover .card-icon {
-            transform: scale(1.08);
-        }
-
         .card h3 {
             font-family: "Lexend", "Noto Sans SC", sans-serif;
-            font-size: 1.0625rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: var(--ds-8);
-            letter-spacing: -0.005em;
-            transition: color 0.35s;
+            margin-bottom: var(--ds-12);
         }
 
         .card p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             line-height: 1.6;
-            transition: color 0.35s;
+            color: var(--text-secondary);
+        }
+
+        .card:first-child {
+            padding: var(--ds-48) var(--ds-40);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card:first-child h3 {
+            font-size: 1.375rem;
+            color: var(--text-accent);
+            margin-bottom: var(--ds-16);
+        }
+
+        .card:first-child p {
+            font-size: 1rem;
+            max-width: 42ch;
         }
 
         /* ═══ Feature List ═══ */
@@ -535,100 +560,105 @@
             transition: background 0.35s;
         }
 
-        /* ═══ Process Section ═══ */
-        .process-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            max-width: 720px;
+        /* ═══ Methodology Section ═══ */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--ds-24);
+            max-width: 1000px;
             margin: 0 auto;
-            position: relative;
         }
 
-        .process-grid::before {
-            content: '';
-            position: absolute;
-            left: 23px;
-            top: 24px;
-            bottom: 24px;
-            width: 2px;
-            background: linear-gradient(180deg, var(--brand-blue), var(--border-strong));
-            opacity: 0.3;
-            border-radius: 1px;
-        }
-
-        .process-step {
-            display: flex;
-            gap: var(--ds-32);
-            align-items: flex-start;
-            padding: var(--ds-32) 0;
-            position: relative;
-        }
-
-        .process-step:first-child { padding-top: 0; }
-        .process-step:last-child { padding-bottom: 0; }
-
-        .process-step-left {
-            flex: 0 0 86px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-number {
-            width: 48px; height: 48px;
-            border-radius: 50%;
-            background: #fff;
-            border: 2px solid var(--brand-blue);
-            color: var(--brand-blue);
-            font-family: "Lexend", "Noto Sans SC", sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            display: flex; align-items: center; justify-content: center;
-            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-        }
-
-        .process-step:hover .process-number {
-            background: var(--brand-blue);
-            color: #fff;
-            box-shadow: 0 0 20px rgba(26,111,181,0.25);
-        }
-
-        .process-step-right {
-            flex: 1;
+        .methodology-card {
             background: var(--bg-card);
-            border: 1px solid var(--border-card);
+            border: 0.5px solid var(--border-card);
             border-radius: var(--r-lg);
-            padding: var(--ds-24) var(--ds-28);
-            transition: border-color 0.25s, box-shadow 0.25s;
+            padding: var(--ds-40) var(--ds-28);
+            transition: border-color 0.25s;
+            position: relative;
         }
 
-        .process-step:hover .process-step-right {
+        .methodology-card:hover {
             border-color: var(--brand-blue);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
-        .process-step-right .step-icon {
+        .methodology-num {
+            font-family: "Lexend", sans-serif;
             font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--brand-blue);
+            opacity: 0.2;
+            line-height: 1;
             margin-bottom: var(--ds-8);
-            opacity: 0.6;
         }
 
-        .process-step-right h3 {
+        .methodology-card h3 {
             font-family: "Lexend", "Noto Sans SC", sans-serif;
-            font-size: 1.0625rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--ds-12);
+        }
+
+        .methodology-card p {
+            font-size: 0.9375rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+
+        /* ═══ Founder Section ═══ */
+        .founder-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: var(--ds-40) var(--ds-32);
+            text-align: center;
+        }
+
+        .founder-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--ds-12);
+        }
+
+        .founder-name {
+            font-size: 1.125rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: var(--ds-6);
-            letter-spacing: -0.005em;
-            transition: color 0.35s;
+            margin-bottom: 4px;
         }
 
-        .process-step-right p {
-            color: var(--text-secondary);
+        .founder-cred {
             font-size: 0.875rem;
-            line-height: 1.6;
-            margin: 0;
-            transition: color 0.35s;
+            color: var(--text-secondary);
+            margin-bottom: var(--ds-16);
+        }
+
+        .founder-bio {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 620px;
+            margin: 0 auto var(--ds-20);
+        }
+
+        .founder-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            background: var(--brand-blue);
+            color: #fff;
+            border-radius: var(--r-md);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .founder-link:hover {
+            background: #2b8fd4;
         }
 
         .cta-section {
@@ -727,6 +757,15 @@
 
         .footer p + p {
             margin-top: var(--ds-4);
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .footer a:hover {
+            color: var(--text-accent);
         }
 
         /* ═══ Modal ═══ */
@@ -863,6 +902,7 @@
         /* ═══ Responsive ═══ */
         @media (max-width: 768px) {
             .grid-3 { grid-template-columns: 1fr; }
+            .grid-3 .card:first-child { grid-row: auto; }
             .feature-list { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .modal-content { padding: var(--ds-24) var(--ds-20); margin: var(--ds-16) auto; }
@@ -872,11 +912,10 @@
             .hero-visual { flex: 0 0 auto; height: 180px; }
             .hero-radar { width: 180px; height: 180px; margin-right: 0; margin-bottom: 0; }
             .hero-dots { width: 140px; height: 140px; right: 0; }
-            .hero-stats { gap: var(--ds-24); flex-wrap: wrap; }
+            .methodology-grid { grid-template-columns: 1fr; }
             .hero { padding: 100px var(--ds-16) 48px; }
             .hero h1 { font-size: 1.65rem; }
             .hero-text { text-align: center; }
-            .hero-stats { justify-content: center; }
 
             .nav-inner { padding: 0 var(--ds-16); }
             .nav-links { gap: var(--ds-12); }
@@ -887,11 +926,8 @@
             .section { padding: var(--ds-48) var(--ds-16); }
             .section-alt { padding: var(--ds-48) var(--ds-16); }
             .cta-section { padding: var(--ds-48) var(--ds-16) var(--ds-64); }
-            .process-step { gap: var(--ds-20); }
-            .process-step-left { flex: 0 0 60px; }
-            .process-number { width: 40px; height: 40px; font-size: 0.9rem; }
-            .process-grid::before { left: 19px; }
             .section h2 { font-size: 1.35rem; }
+            .nav-inner { padding: 0 var(--ds-16); }
             .footer { padding: var(--ds-32) var(--ds-16); }
         }
 
@@ -934,10 +970,10 @@
             </a>
             <div class="nav-actions">
                 <div class="nav-links">
-                    <a href="https://geodriv.com/CI-blog" class="active-link"><span class="en-text">Insights</span></a><a href="https://geodriv.com/contact"><span class="en-text">Contact</span></a>
+                    <a href="https://geodriv.com/CI-blog" class="active-link"><span data-i18n="nav.insights">Insights</span></a><a href="https://geodriv.com/contact"><span data-i18n="nav.contact">Contact</span></a>
                 </div>
                 
-                <button class="lang-btn" type="button" onclick="toggleLanguage()" aria-label="Switch language">中文</button>
+                <button class="lang-btn" type="button" onclick="toggleLanguage()" aria-label="Switch language" id="langBtn">中</button>
                 <button class="theme-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">🌙</button>
             </div>
         </div>
@@ -947,19 +983,16 @@
         <div class="hero-dots"></div>
         <div class="hero-inner">
             <div class="hero-text">
-                <span class="hero-badge en-text"><span class="pulse"></span> Competitive Intelligence</span>
+                <span class="hero-badge">
+                    <span class="pulse"></span>
+                    <span data-i18n="hero.badge">Competitive Intelligence</span>
+                </span>
                 
                 <h1>
-                    <span class="en-text">Intelligence that moves <em class="hl-blue">faster</em> than the <em class="hl-red">market</em>.</span>
+                    <span data-i18n="hero.title">Manufacturing intelligence — <em class="hl-blue">AI-powered</em>, <em class="hl-red">human-interpreted</em>, built by CI professionals.</span>
                 </h1>
-                <p class="en-text">Tailored AI-powered competitive intelligence consultancy — we design custom CI systems that turn scattered market signals into decisive action.</p>
-                
-                <div class="hero-stats">
-                    <div class="hero-stat"><span class="num">10+</span><span class="lbl en-text">Countries Covered</span></div>
-                    <div class="hero-stat"><span class="num">15+</span><span class="lbl en-text">Years Experience</span></div>
-                    <div class="hero-stat"><span class="num">100%</span><span class="lbl en-text">Client Focused</span></div>
+                <p data-i18n="hero.subtitle" style="font-size:0.9375rem;line-height:1.7;color:var(--text-secondary);max-width:480px;margin-bottom:var(--ds-32);">Tailored AI-powered competitive intelligence consultancy — we design custom CI systems that turn scattered market signals into decisive action.</p>
                 </div>
-            </div>
             <div class="hero-visual">
                 <div class="hero-radar" aria-hidden="true">
                     <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
@@ -1003,49 +1036,40 @@
     </section>
 
     <section class="section">
-        <p class="section-eyebrow en-text">Capabilities</p>
+        <p class="section-eyebrow"><span class="section-eyebrow-inner" data-i18n="sect.capabilities.eyebrow">Capabilities</span></p>
         
-        <h2 class="en-text">Everything you need to know, before you need to know it.</h2>
+        <h2 data-i18n="sect.capabilities.title">Everything you need to know, before you need to know it.</h2>
         
 
         <div class="grid-3">
             <div class="card">
-                <div class="card-icon">🧠</div>
-                <h3 class="en-text">Custom CI Systems</h3>
-                
-                <p class="en-text">Tailored competitive intelligence systems designed for your industry and workflow.</p>
-                
+                <h3 data-i18n="card.ci.title">Custom CI Systems</h3>
+                <p data-i18n="card.ci.body">We design, build, and deploy proprietary competitive intelligence systems tailored to your manufacturing sector — from patent and tender pipelines to regulatory radar and ecosystem mapping.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🛰️</div>
-                <h3 class="en-text">Continuous Monitoring</h3>
-                
-                <p class="en-text">Ongoing tracking of competitors, markets, technologies, and regulatory shifts.</p>
-                
+                <h3 data-i18n="card.monitor.title">Continuous Monitoring</h3>
+                <p data-i18n="card.monitor.body">Real-time tracking of competitors, supply chain shifts, technology inflection points, and regulatory changes — surfaced as intelligence, not noise.</p>
             </div>
             <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3 class="en-text">Executive Reporting</h3>
-                
-                <p class="en-text">Sharp, concise intelligence reports — always current, always relevant to your decisions.</p>
-                
+                <h3 data-i18n="card.report.title">Executive Reporting</h3>
+                <p data-i18n="card.report.body">Concise, decision-ready briefings. When you need to know, you already do — no fire drills, no surprises.</p>
             </div>
         </div>
     </section>
 
     <section class="section-alt">
         <div class="section-inner">
-            <p class="section-eyebrow en-text">Features</p>
+            <p class="section-eyebrow"><span class="section-eyebrow-inner" data-i18n="sect.features.eyebrow">Features</span></p>
             
-            <h2 class="en-text">Intelligence services designed for decisions that matter.</h2>
+            <h2 data-i18n="features.title">Intelligence services designed for decisions that matter.</h2>
             
             <ul class="feature-list">
-                <li class="en-text">Custom data collection architectures</li>
-                <li class="en-text">Executive intelligence reports</li>
-                <li class="en-text">Continuous competitor tracking</li>
-                <li class="en-text">Market &amp; technology trend analysis</li>
-                <li class="en-text">Smart manufacturing expertise</li>
-                <li class="en-text">Industrial automation intelligence</li>
+                <li data-i18n="features.1">Custom data collection architectures</li>
+                <li data-i18n="features.2">Executive intelligence reports</li>
+                <li data-i18n="features.3">Continuous competitor tracking</li>
+                <li data-i18n="features.4">Market &amp; technology trend analysis</li>
+                <li data-i18n="features.5">Smart manufacturing expertise</li>
+                <li data-i18n="features.6">Industrial automation intelligence</li>
 
                 
                 
@@ -1058,71 +1082,44 @@
     </section>
 
     <section class="section">
-        <p class="section-eyebrow en-text">Our Process</p>
+        <h2 data-i18n="methodo.title">The GEODRIV Signal Chain</h2>
         
-        <h2 class="en-text">How We Deliver Intelligence</h2>
-        
+        <p data-i18n="methodo.lead" style="max-width:640px;margin:0 auto var(--ds-48);color:var(--text-secondary);font-size:1rem;line-height:1.65;text-align:center;">A purpose-built methodology for manufacturing competitive intelligence — from signal to decision, at manufacturing tempo.</p>
 
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="process-step-left"><div class="process-number">1</div></div>
-                <div class="process-step-right">
-                    <div class="step-icon">&#128269;</div>
-                    <h3 class="en-text">Discovery</h3>
-                    
-                    <p class="en-text">Define scope, objectives, and key intelligence questions with your team.</p>
-                    
-                </div>
+        <div class="methodology-grid">
+            <div class="methodology-card">
+                <div class="methodology-num">01</div>
+                <h3 data-i18n="methodo.1.title">Terrain Mapping</h3>
+                <p data-i18n="methodo.1.body">We audit your competitive landscape, identify blind spots, and define Key Intelligence Topics (KITs) specific to your manufacturing sector. No templates, no assumptions — your competitive terrain is unique.</p>
             </div>
-            <div class="process-step">
-                <div class="process-step-left"><div class="process-number">2</div></div>
-                <div class="process-step-right">
-                    <div class="step-icon">&#128230;</div>
-                    <h3 class="en-text">Data Collection</h3>
-                    
-                    <p class="en-text">Multi-source data pipelines — patents, tenders, news, financials, and deep web signals.</p>
-                    
-                </div>
+            <div class="methodology-card">
+                <div class="methodology-num">02</div>
+                <h3 data-i18n="methodo.2.title">7-Engine Architecture</h3>
+                <p data-i18n="methodo.2.body">Custom signal pipelines across web, patent, supply-chain, enterprise, financial, policy, and domestic-ecosystem sources. Each pipeline tuned to your industry's signal density and decision rhythm.</p>
             </div>
-            <div class="process-step">
-                <div class="process-step-left"><div class="process-number">3</div></div>
-                <div class="process-step-right">
-                    <div class="step-icon">&#128200;</div>
-                    <h3 class="en-text">Analysis</h3>
-                    
-                    <p class="en-text">AI-powered synthesis, competitive benchmarking, and pattern recognition.</p>
-                    
-                </div>
-            </div>
-            <div class="process-step">
-                <div class="process-step-left"><div class="process-number">4</div></div>
-                <div class="process-step-right">
-                    <div class="step-icon">&#128203;</div>
-                    <h3 class="en-text">Delivery</h3>
-                    
-                    <p class="en-text">Action-ready reports, dashboards, and executive briefings — when you need them.</p>
-                    
-                </div>
+            <div class="methodology-card">
+                <div class="methodology-num">03</div>
+                <h3 data-i18n="methodo.3.title">Decision Cadence</h3>
+                <p data-i18n="methodo.3.body">Intelligence at your tempo: real-time alerts for critical moves, weekly digests for trend tracking, executive briefings for strategic decisions — not more information, the right information.</p>
             </div>
         </div>
     </section>
 
-    <!-- Founder -->
-    <section class="section founder-section" style="text-align:center;padding:40px 32px;max-width:700px;">
-        <p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Founder</p>
-        <p style="font-size:1.125rem;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Baojun (Joe) Shi</p>
-        <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:16px;">15+ years in manufacturing intelligence · MBA</p>
-        <p style="font-size:0.9375rem;color:var(--text-secondary);line-height:1.7;max-width:620px;margin:0 auto 20px;">Lead a strategic advisory practice helping B2B industrial manufacturers deploy AI-driven competitive intelligence. Built a 7-engine CI architecture that synthesizes web, patent, supply-chain, enterprise, financial, policy, and domestic-ecosystem signals — reducing competitive blind spots from quarterly lag to near-real-time awareness. Clients span advanced manufacturing sectors across China and Europe.</p>
-        <p><a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 20px;background:var(--brand-blue);color:#fff;border-radius:8px;text-decoration:none;font-size:0.875rem;font-weight:600;transition:background 0.2s;" onmouseover="this.style.background='#2b8fd4'" onmouseout="this.style.background='var(--brand-blue)'">LinkedIn Profile ↗</a></p>
+    <section class="section founder-section">
+        <p class="founder-label" data-i18n="founder.label">Founder</p>
+        <p class="founder-name" data-i18n="founder.name">Baojun (Joe) Shi</p>
+        <p class="founder-cred" data-i18n="founder.cred">15+ years in manufacturing intelligence · MBA</p>
+        <p class="founder-bio" data-i18n="founder.bio">Deep understanding of China's manufacturing ecosystem — from supply chain dynamics to policy rhythms. Lead a strategic advisory practice helping B2B industrial manufacturers deploy AI-driven competitive intelligence. Built a 7-engine CI architecture that synthesizes web, patent, supply-chain, enterprise, financial, policy, and domestic-ecosystem signals — reducing competitive blind spots from quarterly lag to near-real-time awareness. Clients span advanced manufacturing sectors across China and Europe.</p>
+        <p><a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/" target="_blank" rel="noopener" class="founder-link">LinkedIn Profile ↗</a></p>
     </section>
 
     <section class="cta-section">
         <div class="cta-card">
-            <h2 class="en-text">Ready to see the full picture?</h2>
+            <h2 data-i18n="cta.title">Ready to see the full picture?</h2>
             
-            <p class="en-text">Tell us about your industry and competitive challenges. We'll show you how GEODRIV delivers intelligence that drives better decisions.</p>
+            <p data-i18n="cta.body">Tell us about your industry and competitive challenges. We'll show you how GEODRIV delivers intelligence that drives better decisions.</p>
             
-            <button class="btn en-text" onclick="window.location.href='/contact/'; return false;">Get in touch</button>
+            <button class="btn" data-i18n="cta.btn" onclick="window.location.href='/contact/'; return false;">Get in touch</button>
             
         </div>
     </section>
@@ -1130,48 +1127,51 @@
     <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-label="Contact form">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="en-text">Get in touch</h2>
+                <h2 data-i18n="form.title">Get in touch</h2>
                 
                 <span class="close" tabindex="0" role="button" aria-label="Close" onclick="closeModal()" onkeydown="if(event.key==='Enter') closeModal();">&times;</span>
             </div>
-            <form id="contactForm" onsubmit="submitForm(event)">
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                <input type="hidden" name="access_key" value="8a9a5ebf-5126-4185-9086-e0b9d74b8382">
+                <input type="hidden" name="redirect" value="https://geodriv.com/?contact=success">
+                <input type="hidden" name="subject" value="CI Inquiry from website">
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="en-text" for="name">Name *</label>
+                        <label data-i18n="form.name" for="name">Name *</label>
                         
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label class="en-text" for="company">Company</label>
+                        <label data-i18n="form.company" for="company">Company</label>
                         
                         <input type="text" id="company" name="company">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="en-text" for="email">Email *</label>
+                        <label data-i18n="form.email" for="email">Email *</label>
                         
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label class="en-text" for="phone">Phone</label>
+                        <label data-i18n="form.phone" for="phone">Phone</label>
                         
                         <input type="tel" id="phone" name="phone">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="en-text" for="industry">Industry *</label>
+                    <label data-i18n="form.industry" for="industry">Industry *</label>
                     
                     <select id="industry" name="industry" required>
-                        <option value="" class="en-text">Select industry…</option>
-                        <option value="manufacturing" class="en-text">Manufacturing</option>
-                        <option value="technology" class="en-text">Technology</option>
-                        <option value="automotive" class="en-text">Automotive</option>
-                        <option value="aerospace" class="en-text">Aerospace</option>
-                        <option value="healthcare" class="en-text">Healthcare</option>
-                        <option value="finance" class="en-text">Finance</option>
-                        <option value="retail" class="en-text">Retail</option>
-                        <option value="other" class="en-text">Other</option>
+                        <option value="" data-i18n="form.sel.default">Select industry…</option>
+                        <option value="manufacturing" data-i18n="form.sel.mfg">Manufacturing</option>
+                        <option value="technology" data-i18n="form.sel.tech">Technology</option>
+                        <option value="automotive" data-i18n="form.sel.auto">Automotive</option>
+                        <option value="aerospace" data-i18n="form.sel.aero">Aerospace</option>
+                        <option value="healthcare" data-i18n="form.sel.health">Healthcare</option>
+                        <option value="finance" data-i18n="form.sel.fin">Finance</option>
+                        <option value="retail" data-i18n="form.sel.retail">Retail</option>
+                        <option value="other" data-i18n="form.sel.other">Other</option>
 
                         
                         
@@ -1185,20 +1185,20 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="en-text" for="message">Message *</label>
+                    <label data-i18n="form.message" for="message">Message *</label>
                     
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn en-text">Send Message</button>
+                <button type="submit" class="submit-btn" data-i18n="form.submit">Send Message</button>
                 
             </form>
         </div>
     </div>
 
     <footer class="footer">
-        <p>&copy; 2026 GEODRIV. All rights reserved.</p>
-        <p>爵领科技 &nbsp;|&nbsp; GEODRIV TECHNOLOGY</p>
-        <p style="margin-top:8px;font-size:0.8rem;"><a href="https://geolyxtech.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Industrial delivery by GEOLYX INDUSTRIALS →</a></p>
+        <p data-i18n="footer.copyright">&copy; 2026 GEODRIV. All rights reserved.</p>
+        <p data-i18n="footer.brand">爵领科技 &nbsp;|&nbsp; GEODRIV TECHNOLOGY</p>
+        <p style="margin-top:8px;font-size:0.8rem;"><a href="https://geolyxtech.com" target="_blank" rel="noopener" data-i18n="footer.geolyx">Industrial delivery by GEOLYX INDUSTRIALS →</a></p>
     </footer>
 
     <script>
@@ -1234,28 +1234,85 @@
         }
 
         /* ═══ Language ═══ */
-        var currentLang = 'en';
+        var currentLang = localStorage.getItem('geodriv-lang') || 'en';
         var i18n = {
-            en: { langBtn: '中文', alert: 'Thank you! The email client will open to send your inquiry.' },
-            zh: { langBtn: 'EN', alert: '感谢您的留言！邮件客户端将打开以发送您的咨询。' }
+            'nav.insights': { en: 'Insights', zh: '洞察' },
+            'nav.contact': { en: 'Contact', zh: '联系我们' },
+            'hero.badge': { en: 'Competitive Intelligence', zh: '竞争情报' },
+            'hero.title': { en: 'Manufacturing intelligence \u2014 <em class="hl-blue">AI-powered</em>, <em class="hl-red">human-interpreted</em>, built by CI professionals.', zh: '\u5236\u9020\u4e1a\u7ade\u4e89\u60c5\u62a5 \u2014 <em class="hl-blue">AI \u9a71\u52a8</em>\u3001<em class="hl-red">\u4e13\u5bb6\u89e3\u8bfb</em>\u3001CI \u4e13\u4e1a\u56e2\u961f\u6253\u9020\u3002' },
+            'hero.subtitle': { en: 'Tailored AI-powered competitive intelligence consultancy \u2014 we design custom CI systems that turn scattered market signals into decisive action.', zh: '定制化 AI 竞争情报咨询 \u2014 我们设计专属 CI 系统，将散乱的市场信号转化为果断行动。' },
+            'sect.capabilities.title': { en: 'Everything you need to know, before you need to know it.', zh: '在你需要知道之前，已经知道一切。' },
+            'card.ci.title': { en: 'Custom CI Systems', zh: '定制 CI 系统' },
+            'card.ci.body': { en: 'We design, build, and deploy proprietary competitive intelligence systems tailored to your manufacturing sector \u2014 from patent and tender pipelines to regulatory radar and ecosystem mapping.', zh: '针对你的制造业领域，设计、搭建和部署专属竞争情报系统——从专利和招标管线，到监管雷达和生态图谱。' },
+            'card.monitor.title': { en: 'Continuous Monitoring', zh: '持续监控' },
+            'card.monitor.body': { en: 'Real-time tracking of competitors, supply chain shifts, technology inflection points, and regulatory changes \u2014 surfaced as intelligence, not noise.', zh: '实时追踪竞争对手、供应链变化、技术拐点和监管动态——以情报呈现，而非噪音。' },
+            'card.report.title': { en: 'Executive Reporting', zh: '高管报告' },
+            'card.report.body': { en: 'Concise, decision-ready briefings. When you need to know, you already do \u2014 no fire drills, no surprises.', zh: '精炼、决策就绪的情报简报。当需要知道时，你已经知道——没有火急火燎，没有意外。' },
+            'features.title': { en: 'Intelligence services designed for decisions that matter.', zh: '为关键决策设计的情报服务。' },
+            'features.1': { en: 'Custom data collection architectures', zh: '定制数据采集架构' },
+            'features.2': { en: 'Executive intelligence reports', zh: '高管情报报告' },
+            'features.3': { en: 'Continuous competitor tracking', zh: '持续竞争对手跟踪' },
+            'features.4': { en: 'Market & technology trend analysis', zh: '市场与技术趋势分析' },
+            'features.5': { en: 'Smart manufacturing expertise', zh: '智能制造领域专长' },
+            'features.6': { en: 'Industrial automation intelligence', zh: '工业自动化情报' },
+            'founder.label': { en: 'Founder', zh: '创始人' },
+            'founder.name': { en: 'Baojun (Joe) Shi', zh: '石宝隽' },
+            'founder.cred': { en: '15+ years in manufacturing intelligence \u00b7 MBA', zh: '15+ 年制造业情报经验 \u00b7 MBA' },
+            'methodo.lead': { en: 'A purpose-built methodology for manufacturing competitive intelligence \u2014 from signal to decision, at manufacturing tempo.', zh: '专为制造业竞争情报打造的方法论——从信号到决策，以制造业的节奏。' },
+            'methodo.1.title': { en: 'Terrain Mapping', zh: '地形测绘' },
+            'methodo.1.body': { en: 'We audit your competitive landscape, identify blind spots, and define Key Intelligence Topics (KITs) specific to your manufacturing sector. No templates, no assumptions.', zh: '审计你的竞争格局，识别盲点，定义专属关键情报主题（KIT）。没有模板，没有假设。' },
+            'methodo.2.title': { en: '7-Engine Architecture', zh: '七引擎架构' },
+            'methodo.2.body': { en: 'Custom signal pipelines across web, patent, supply-chain, enterprise, financial, policy, and domestic-ecosystem sources. Each pipeline tuned to your industry\u2019s signal density.', zh: '跨网页、专利、供应链、企业、金融、政策和国内生态的定制信号管道。每条管道针对你的行业信号密度调校。' },
+            'methodo.3.title': { en: 'Decision Cadence', zh: '决策节奏' },
+            'methodo.3.body': { en: 'Intelligence at your tempo: real-time alerts for critical moves, weekly digests for trend tracking, executive briefings for strategic decisions.', zh: '按你的节奏交付情报：关键动向实时预警、趋势追踪每周摘要、战略决策高管简报。' },
+            'cta.title': { en: 'Ready to see the full picture?', zh: '准备看清全局了吗？' },
+            'cta.body': { en: 'Tell us about your industry and competitive challenges. We\'ll show you how GEODRIV delivers intelligence that drives better decisions.', zh: '告诉我们你的行业和竞争挑战，我们将展示 GEODRIV 如何交付驱动更好决策的情报。' },
+            'cta.btn': { en: 'Get in touch', zh: '联系我们' },
+            'form.title': { en: 'Get in touch', zh: '联系我们' },
+            'form.name': { en: 'Name *', zh: '姓名 *' },
+            'form.company': { en: 'Company', zh: '公司' },
+            'form.email': { en: 'Email *', zh: '邮箱 *' },
+            'form.phone': { en: 'Phone', zh: '电话' },
+            'form.industry': { en: 'Industry', zh: '行业' },
+            'form.message': { en: 'Message *', zh: '留言 *' },
+            'form.submit': { en: 'Send Message', zh: '\u53d1\u9001\u7559\u8a00' },
+            'footer.copyright': { en: '\u00a9 2026 GEODRIV. All rights reserved.', zh: '\u00a9 2026 GEODRIV. \u4fdd\u7559\u6240\u6709\u6743\u5229\u3002' },
+            'footer.brand': { en: '\u7235\u9886\u79d1\u6280 | GEODRIV TECHNOLOGY', zh: '\u7235\u9886\u79d1\u6280 | GEODRIV TECHNOLOGY' },
+            'footer.geolyx': { en: 'Industrial delivery by GEOLYX INDUSTRIALS \u2192', zh: 'GEOLYX \u7396\u4e4b\u529b\u5de5\u4e1a\u4ea4\u4ed8 \u2192' },
+            'form.sel.default': { en: 'Select industry\u2026', zh: '\u9009\u62e9\u884c\u4e1a\u2026' },
+            'form.sel.mfg': { en: 'Manufacturing', zh: '\u5236\u9020\u4e1a' },
+            'form.sel.tech': { en: 'Technology', zh: '\u79d1\u6280' },
+            'form.sel.auto': { en: 'Automotive', zh: '\u6c7d\u8f66' },
+            'form.sel.aero': { en: 'Aerospace', zh: '\u822a\u7a7a\u822a\u5929' },
+            'form.sel.health': { en: 'Healthcare', zh: '\u533b\u7597' },
+            'form.sel.fin': { en: 'Finance', zh: '\u91d1\u878d' },
+            'form.sel.retail': { en: 'Retail', zh: '\u96f6\u552e' },
+            'form.sel.other': { en: 'Other', zh: '\u5176\u4ed6' },
+            'founder.bio': { en: 'Deep understanding of China\u2019s manufacturing ecosystem \u2014 from supply chain dynamics to policy rhythms. Lead a strategic advisory practice helping B2B industrial manufacturers deploy AI-driven competitive intelligence. Built a 7-engine CI architecture that synthesizes web, patent, supply-chain, enterprise, financial, policy, and domestic-ecosystem signals \u2014 reducing competitive blind spots from quarterly lag to near-real-time awareness. Clients span advanced manufacturing sectors across China and Europe.', zh: '\u6df1\u5ea6\u7406\u89e3\u4e2d\u56fd\u5236\u9020\u4e1a\u751f\u6001\u2014\u2014\u4ece\u4f9b\u5e94\u94fe\u52a8\u6001\u5230\u653f\u7b56\u8282\u594f\u3002\u4e3b\u5bfc\u6218\u7565\u54a8\u8be2\u4e1a\u52a1\uff0c\u5e2e\u52a9 B2B \u5de5\u4e1a\u5236\u9020\u4f01\u4e1a\u90e8\u7f72 AI \u9a71\u52a8\u7684\u7ade\u4e89\u60c5\u62a5\u3002\u642d\u5efa\u4e03\u5f15\u64ce CI \u67b6\u6784\uff0c\u6574\u5408\u7f51\u9875\u3001\u4e13\u5229\u3001\u4f9b\u5e94\u94fe\u3001\u4f01\u4e1a\u3001\u91d1\u878d\u3001\u653f\u7b56\u548c\u56fd\u5185\u751f\u6001\u4fe1\u53f7\u2014\u2014\u5c06\u7ade\u4e89\u76f2\u533a\u4ece\u5b63\u5ea6\u6ede\u540e\u7f29\u77ed\u81f3\u8fd1\u4e4e\u5b9e\u65f6\u7684\u611f\u77e5\u3002\u5ba2\u6237\u8986\u76d6\u4e2d\u56fd\u548c\u6b27\u6d32\u7684\u5148\u8fdb\u5236\u9020\u9886\u57df\u3002' },
         };
 
-        function showElements(els) {
-            els.forEach(function(el) {
-                var tag = el.tagName.toLowerCase();
-                if (tag === 'button') el.style.display = 'inline-flex';
-                else if (tag === 'span') el.style.display = 'inline';
-                else if (tag === 'li') el.style.display = 'list-item';
-                else if (tag === 'label') el.style.display = 'block';
-                else if (tag === 'option') return; // handled by setIndustryOptions
-                else el.style.display = 'block';
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            localStorage.setItem('geodriv-lang', currentLang);
+            document.getElementById('langBtn').textContent = currentLang === 'en' ? '中' : 'EN';
+            applyLanguage();
+        }
+
+        function applyLanguage() {
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (i18n[key] && i18n[key][currentLang]) {
+                    el.innerHTML = i18n[key][currentLang];
+                }
             });
         }
 
-        function toggleLanguage() {
-            var btn = document.querySelector('.lang-btn');
-            btn.textContent = btn.textContent === '中文' ? 'EN' : '中文';
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (currentLang === 'zh') {
+                document.getElementById('langBtn').textContent = 'EN';
+                applyLanguage();
+            }
+        });
 
         /* ═══ Modal ═══ */
         var lastFocused = null;
@@ -1284,27 +1341,18 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        function submitForm(e) {
-            e.preventDefault();
-            var name = document.getElementById('name').value;
-            var company = document.getElementById('company').value;
-            var email = document.getElementById('email').value;
-            var phone = document.getElementById('phone').value;
-            var industry = document.getElementById('industry').value;
-            var message = document.getElementById('message').value;
+        /* ═══ Success from form redirect ═══ */
+        (function() {
+            if (window.location.search.indexOf('contact=success') > -1) {
+                history.replaceState(null, '', window.location.pathname);
+                var banner = document.createElement('div');
+                banner.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:9999;background:var(--bg-card);border:1px solid var(--brand-blue);border-radius:var(--r-lg);padding:var(--ds-24) var(--ds-32);text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.2);max-width:480px;';
+                banner.innerHTML = '<p style="font-size:1.125rem;font-weight:600;margin-bottom:var(--ds-8);">\u2705 Message sent</p><p style="color:var(--text-secondary);font-size:0.9375rem;">We\u2019ll be in touch shortly. Meanwhile, explore our <a href="/CI-blog/" style="color:var(--text-accent);">Insights</a>.</p>';
+                document.body.appendChild(banner);
+                setTimeout(function() { banner.style.opacity = '0'; banner.style.transition = 'opacity 0.5s'; setTimeout(function() { banner.remove(); }, 600); }, 5000);
+            }
+        })();
 
-            var body = 'Name: ' + name + '\nCompany: ' + company + '\nEmail: ' + email + '\nPhone: ' + phone + '\nIndustry: ' + industry + '\n\nMessage:\n' + message;
-            window.location.href = 'mailto:ci@geodriv.com?subject=' + encodeURIComponent('CI Inquiry — ' + name) + '&body=' + encodeURIComponent(body);
-
-            setTimeout(function() {
-                alert(i18n[currentLang].alert);
-                document.getElementById('contactForm').reset();
-                closeModal();
-            }, 400);
-        }
-
-        setIndustryOptions(currentLang);
-        setTextareaPlaceholder(currentLang);
     </script>
 </body>
 </html>
