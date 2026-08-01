@@ -26,7 +26,7 @@
   </url>
   <!-- ── Article: Outsource vs In-House CI ── -->
   <url>
-    REMOVED
+    <loc>https://geodriv.com/CI-blog/outsource-vs-inhouse-ci/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -74,6 +74,5 @@
   <url><loc>https://geodriv.com/CI-blog/ci-for-manufacturing-sectors/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geodriv.com/CI-blog/ci-for-ma-manufacturing/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://geodriv.com/CI-blog/outsource-vs-inhouse-ci/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ci.geodriv.com/blog/state-of-manufacturing-ci-2026/</loc><lastmod>2026-7</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://ci.geodriv.com/blog/state-of-manufacturing-ci-2026/</loc><lastmod>2026-7</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://geodriv.com/CI-blog/supply-chain-intelligence/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
