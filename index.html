@@ -590,23 +590,86 @@
             background: var(--bg-card);
             border: 0.5px solid var(--border-card);
             border-radius: var(--r-lg);
-            padding: var(--ds-40) var(--ds-28);
-            transition: border-color 0.25s;
+            padding: var(--ds-40) var(--ds-28) var(--ds-32);
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
             position: relative;
+        }
+
+        .methodology-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-blue), transparent 80%);
+            opacity: 0;
+            transition: opacity 0.25s;
         }
 
         .methodology-card:hover {
             border-color: var(--brand-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+        }
+
+        [data-theme="light"] .methodology-card:hover {
+            box-shadow: 0 12px 32px rgba(13,33,55,0.10);
+        }
+
+        .methodology-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Signal arrow between cards */
+        .methodology-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -19px;
+            width: 16px; height: 16px;
+            transform: translateY(-50%);
+            background: var(--brand-blue);
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6l6 6-6 6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6l6 6-6 6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            mask-size: contain;
+            -webkit-mask-size: contain;
+            opacity: 0.55;
         }
 
         .methodology-num {
+            position: absolute;
+            top: var(--ds-12);
+            right: var(--ds-20);
             font-family: "Lexend", sans-serif;
-            font-size: 1.5rem;
-            font-weight: 400;
+            font-size: 2.75rem;
+            font-weight: 600;
             color: var(--brand-blue);
-            opacity: 0.2;
+            opacity: 0.10;
             line-height: 1;
-            margin-bottom: var(--ds-8);
+            pointer-events: none;
+        }
+
+        .methodology-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: var(--r-md);
+            background: var(--bg-badge);
+            border: 0.5px solid var(--border-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--ds-20);
+            color: var(--brand-blue);
+            transition: color 0.25s, background 0.25s;
+        }
+
+        .methodology-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .methodology-card:hover .methodology-icon {
+            color: var(--brand-orange);
+            background: rgba(216,90,48,0.08);
         }
 
         .methodology-card h3 {
@@ -614,6 +677,7 @@
             font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: var(--ds-12);
+            color: var(--text-primary);
         }
 
         .methodology-card p {
@@ -943,6 +1007,7 @@
             .hero-radar { width: 200px; height: 200px; margin-right: 0; margin-bottom: 0; }
             .hero-dots { width: 160px; height: 160px; right: 0; }
             .methodology-grid { grid-template-columns: 1fr; }
+            .methodology-card:not(:last-child)::after { display: none; }
             .hero { padding: 100px var(--ds-16) 48px; }
             .hero h1 { font-size: 1.65rem; }
             .hero-text { text-align: center; }
@@ -1192,16 +1257,41 @@
         <div class="methodology-grid">
             <div class="methodology-card">
                 <div class="methodology-num">01</div>
+                <div class="methodology-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 15c3-6 5-6 8 0s5 6 8 0" />
+                        <path d="M3 9c3-6 5-6 8 0s5 6 8 0" opacity="0.45" />
+                        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+                        <path d="M3 19h18" opacity="0.35" />
+                    </svg>
+                </div>
                 <h3 data-i18n="methodo.1.title">Terrain Mapping</h3>
                 <p data-i18n="methodo.1.body">We audit your competitive landscape, identify blind spots, and define Key Intelligence Topics (KITs) specific to your manufacturing sector. No templates, no assumptions. Your competitive terrain is unique.</p>
             </div>
             <div class="methodology-card">
                 <div class="methodology-num">02</div>
+                <div class="methodology-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="6" cy="6" r="2.2" />
+                        <circle cx="18" cy="8" r="2.2" />
+                        <circle cx="10" cy="18" r="2.2" />
+                        <circle cx="18" cy="18" r="2.2" />
+                        <path d="M8.2 6h7.6" />
+                        <path d="M18 10.2v5.6" />
+                        <path d="M12.2 18H8.2" />
+                        <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none" />
+                    </svg>
+                </div>
                 <h3 data-i18n="methodo.2.title">7-Engine Architecture</h3>
                 <p data-i18n="methodo.2.body">Custom signal pipelines across web, patent, supply-chain, enterprise, financial, policy, and domestic-ecosystem sources. Each pipeline tuned to your industry's signal density and decision rhythm.</p>
             </div>
             <div class="methodology-card">
                 <div class="methodology-num">03</div>
+                <div class="methodology-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12h4l2-6 4 12 2-6h6" />
+                    </svg>
+                </div>
                 <h3 data-i18n="methodo.3.title">Decision Cadence</h3>
                 <p data-i18n="methodo.3.body">Intelligence at your tempo: real-time alerts for critical moves, weekly digests for trend tracking, executive briefings for strategic decisions. Not more information, the right information.</p>
             </div>
