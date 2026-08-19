@@ -17,72 +17,193 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <!-- ── Article: CI Software vs Consultant ── -->
+  <!-- ── Article: ai-ci-agent-toolkit ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ai-ci-agent-toolkit/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: alternatives-to-crayon-klue-manufacturing ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/alternatives-to-crayon-klue-manufacturing/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: china-manufacturing-ci ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/china-manufacturing-ci/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-budget-justification ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-budget-justification/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-case-study-auto-supplier ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-case-study-auto-supplier/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-consulting-cost-guide ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-consulting-cost-guide/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-digest-design ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-digest-design/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-for-hmlv-manufacturing ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-for-hmlv-manufacturing/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-for-ma-manufacturing ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-for-ma-manufacturing/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-for-manufacturing-sectors ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-for-manufacturing-sectors/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-for-pricing-strategy ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-for-pricing-strategy/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: ci-software-vs-consultant ── -->
   <url>
     <loc>https://geodriv.com/CI-blog/ci-software-vs-consultant/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- ── Article: Outsource vs In-House CI ── -->
+  <!-- ── Article: ci-vendor-vetting ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/ci-vendor-vetting/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: competitor-benchmark-teardown ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/competitor-benchmark-teardown/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: competitor-hiring-signals ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/competitor-hiring-signals/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: desktop-agents-copy-paste ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/desktop-agents-copy-paste/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: evolution-of-ci ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/evolution-of-ci/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: how-reliable-is-ai-ci ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/how-reliable-is-ai-ci/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: how-to-do-ci-in-manufacturing ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/how-to-do-ci-in-manufacturing/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: outsource-vs-inhouse-ci ── -->
   <url>
     <loc>https://geodriv.com/CI-blog/outsource-vs-inhouse-ci/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- ── Article: What Is GEODRIV ── -->
+  <!-- ── Article: patent-intelligence-early-warning ── -->
   <url>
-    <loc>https://geodriv.com/CI-blog/what-is-geodriv-ci/</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://geodriv.com/CI-blog/patent-intelligence-early-warning/</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- ── Article: Beyond Crayon and Klue ── -->
+  <!-- ── Article: state-of-manufacturing-ci-2026 ── -->
   <url>
-    <loc>https://geodriv.com/CI-blog/alternatives-to-crayon-klue-manufacturing/</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://geodriv.com/CI-blog/state-of-manufacturing-ci-2026/</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- ── Article: How Reliable Is AI CI ── -->
+  <!-- ── Article: supply-chain-intelligence ── -->
   <url>
-    <loc>https://geodriv.com/CI-blog/how-reliable-is-ai-ci/</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://geodriv.com/CI-blog/supply-chain-intelligence/</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- ── Article: HMLV CI ── -->
-  <url>
-    <loc>https://geodriv.com/CI-blog/ci-for-hmlv-manufacturing/</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- ── Article: Track Competitors Without a Big Team ── -->
+  <!-- ── Article: track-competitors-without-a-big-team ── -->
   <url>
     <loc>https://geodriv.com/CI-blog/track-competitors-without-a-big-team/</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://geodriv.com/CI-blog/how-to-do-ci-in-manufacturing/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/competitor-benchmark-teardown/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ci-consulting-cost-guide/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ci-for-pricing-strategy/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/patent-intelligence-early-warning/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ci-for-manufacturing-sectors/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ci-for-ma-manufacturing/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/outsource-vs-inhouse-ci/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ci-case-study-auto-supplier/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/state-of-manufacturing-ci-2026/</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ci-budget-justification/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/trade-show-intelligence/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ai-ci-agent-toolkit/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/competitor-hiring-signals/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ci-digest-design/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/war-gaming-manufacturing/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/china-manufacturing-ci/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/ci-vendor-vetting/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://geodriv.com/CI-blog/supply-chain-intelligence/</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- ── Article: trade-show-intelligence ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/trade-show-intelligence/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: war-gaming-manufacturing ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/war-gaming-manufacturing/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- ── Article: what-is-geodriv-ci ── -->
+  <url>
+    <loc>https://geodriv.com/CI-blog/what-is-geodriv-ci/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
