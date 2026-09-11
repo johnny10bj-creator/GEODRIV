@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Competitive intelligence metrics for when attribution fails: measuring CI ROI through three leading indicators, decision lead time, surprises per quarter, and segmented quote hit rate.">
+<meta property="og:title" content="Measuring CI When You Can't Attribute the Win">
+<meta property="og:description" content="Attribution is the fight CI always loses. Measure what you control instead: how early you knew, how rarely you were surprised, and whether your hit rate moved where you aimed.">
+<link rel="canonical" href="https://geodriv.com/CI-blog/ci-metrics-scorecard/">
+<title>Measuring CI When You Can't Attribute the Win — GEODRIV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Measuring CI When You Can't Attribute the Win","description":"Competitive intelligence metrics for when attribution fails: measuring CI ROI through three leading indicators, decision lead time, surprises per quarter, and segmented quote hit rate.","datePublished":"2026-9","author":{"@type":"Person","name":"Baojun (Joe) Shi","sameAs":"https://www.linkedin.com/in/baojun-joe-shi-b6651633/"},"publisher":{"@type":"Organization","name":"GEODRIV","url":"https://geodriv.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://geodriv.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://geodriv.com/CI-blog/"},{"@type":"ListItem","position":3,"name":"Measuring CI","item":"https://geodriv.com/CI-blog/ci-metrics-scorecard/"}]}</script>
+<script>
+var lang=localStorage.getItem('geodriv-lang')||'en';
+var i18n={'nav.home':{en:'Home',zh:'首页'},'nav.insights':{en:'Insights',zh:'洞察'},'nav.contact':{en:'Contact',zh:'联系我们'}};
+function toggleLanguage(){lang=lang==='en'?'zh':'en';localStorage.setItem('geodriv-lang',lang);document.querySelector('.lang-btn').textContent=lang==='en'?'中':'EN';document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(i18n[k]&&i18n[k][lang])el.textContent=i18n[k][lang]});}
+document.addEventListener('DOMContentLoaded',function(){if(lang==='zh'){document.querySelector('.lang-btn').textContent='EN';toggleLanguage()}});
+</script>
+<style>
+:root{--blue:#1a6fb5;--orange:#D85A30;--text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border)}
+[data-theme="dark"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,.75);--border:rgba(255,255,255,.08);--text:#f8fafc;--text2:rgba(248,250,252,.55);--text3:rgba(248,250,252,.30);--accent:#1a6fb5}
+[data-theme="light"]{--bg:#f4f7fa;--bg-card:#fff;--bg-nav:rgba(244,247,250,.75);--border:rgba(0,0,0,.06);--text:#0b1a2e;--text2:rgba(11,26,46,.5);--text3:rgba(11,26,46,.25);--accent:#1a6fb5}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-font-smoothing:antialiased}body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .35s,color .35s}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-nav);border-bottom:1px solid var(--border-card);backdrop-filter:saturate(200%) blur(32px)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:"Lexend",sans-serif;font-size:1.0625rem;font-weight:600;color:var(--text);text-decoration:none}
+.pipe{color:var(--text-muted);font-weight:400;margin:0 2px}
+.nav-links{display:flex;gap:20px}.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;align-items:center;gap:12px}
+.lang-btn,.theme-btn{background:none;color:var(--text-secondary);border:.5px solid var(--border-card);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:1rem;transition:all .2s}
+.lang-btn{font-size:.8125rem;font-weight:500;padding:8px 16px}
+.lang-btn:hover,.theme-btn:hover{color:var(--text);border-color:var(--text-muted);background:var(--bg-card)}
+.article{max-width:680px;margin:0 auto;padding:120px 32px 64px}
+.meta{font-size:.8125rem;color:var(--text-muted);margin-bottom:24px;display:flex;gap:12px}
+.tag{background:rgba(26,111,181,.1);color:#1a6fb5;padding:2px 10px;border-radius:4px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.article h1{font-family:"Lexend",sans-serif;font-size:clamp(1.85rem,3.8vw,2.5rem);font-weight:600;letter-spacing:-0.025em;line-height:1.15;margin-bottom:20px}
+.deck{font-size:1.125rem;color:var(--text-secondary);margin-bottom:36px;line-height:1.55}.article h2{font-family:"Lexend",sans-serif;font-size:1.35rem;font-weight:600;margin-top:48px;margin-bottom:16px}
+.article p{margin-bottom:18px;color:var(--text-secondary);font-size:1.0625rem;line-height:1.75}.article strong{color:var(--text);font-weight:600}
+.article ul{margin-bottom:20px;padding-left:24px;color:var(--text-secondary)}.article li{margin-bottom:10px;line-height:1.6}
+.article ol{margin-bottom:20px;padding-left:24px;color:var(--text-secondary)}.article ol li{margin-bottom:10px;line-height:1.6}
+.insight-callout{background:var(--bg-card);border:1px solid var(--border-card);border-radius:10px;padding:20px 24px;margin-bottom:28px;border-left:3px solid var(--accent);font-size:.9375rem;color:var(--text-secondary);line-height:1.6}
+.insight-callout strong{color:var(--text)}
+.data-table{width:100%;border-collapse:collapse;margin:24px 0 28px;font-size:.875rem;color:var(--text-secondary)}
+.data-table th{font-family:"Lexend",sans-serif;font-size:.75rem;font-weight:600;color:var(--text);text-align:left;padding:10px 12px;border-bottom:1px solid var(--border-card);text-transform:uppercase;letter-spacing:.04em}
+.data-table td{padding:10px 12px;border-bottom:1px solid var(--border-card);line-height:1.55}
+.data-table tr:last-child td{border-bottom:none}
+.phase-divider{margin:48px 0 36px;border:0;height:1px;background:linear-gradient(90deg,var(--border-card),transparent)}
+.author{margin-top:48px;padding:24px;background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;display:flex;gap:20px;align-items:center}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--orange));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:"Lexend",sans-serif;font-weight:600;font-size:1.1rem;color:#fff}
+.author h4{font-size:.875rem;font-weight:600;margin-bottom:2px}.author p{font-size:.75rem;color:var(--text-secondary);margin:0}
+.author a{color:#1a6fb5;text-decoration:none}
+.cta{margin-top:48px;padding:40px 32px;background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;text-align:center}
+.cta h3{font-family:"Lexend",sans-serif;font-size:1.2rem;font-weight:600;margin-bottom:8px}.cta p{font-size:.875rem;color:var(--text2);margin-bottom:20px}
+.cta p a{color:#1a6fb5;text-decoration:none}
+.cta-btn{display:inline-flex;padding:13px 36px;background:linear-gradient(135deg,#1a6fb5,#2383d4);color:#fff;text-decoration:none;border-radius:8px;font-size:.9375rem;font-weight:500;transition:all .15s}
+.cta-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border-card);color:var(--text-muted);font-size:.8125rem}
+.share-section{max-width:680px;margin:0 auto;padding:0 32px 32px}.share-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:24px;text-align:center}.share-heading{font-family:"Lexend",sans-serif;font-size:.75rem;font-weight:600;color:var(--text-muted);margin-bottom:16px;letter-spacing:.06em;text-transform:uppercase}.share-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.share-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 8px;border:.5px solid var(--border-card);border-radius:8px;background:none;color:var(--text-secondary);font-size:.8125rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all .2s}.share-btn:hover{color:var(--text);border-color:var(--text-muted);background:var(--bg-card)}
+@media(max-width:768px){.article{padding:100px 16px 40px}.nav-inner{padding:0 16px}.share-section{padding:0 16px 24px}.data-table{font-size:.8125rem}}
+</style></head>
+<body>
+
+<nav class="nav"><div class="nav-inner">
+<a href="https://geodriv.com" class="nav-logo">GEODRIV <span class="pipe">|</span> CI</a>
+<div class="nav-actions"><div class="nav-links"><a href="https://geodriv.com"><span data-i18n="nav.home">Home</span></a><a href="https://geodriv.com/CI-blog"><span data-i18n="nav.insights">Insights</span></a><a href="https://geodriv.com/contact"><span data-i18n="nav.contact">Contact</span></a></div>
+<button class="lang-btn" onclick="toggleLanguage()">中</button>
+<button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button></div></div></nav>
+
+<article class="article">
+
+<div class="meta"><span>2026-9</span><span class="tag">Strategy</span><span>7 min read</span></div>
+
+<h1>Measuring CI When You Can't Attribute the Win</h1>
+<p class="deck">Attribution is the fight competitive intelligence always loses. Measure what you can control instead: how early you knew, how rarely you were surprised, and whether your hit rate moved where you aimed.</p>
+
+<div class="insight-callout">
+<strong>The stance:</strong> Stop measuring CI by attributed wins. Industrial deals are multi-factor, cycles are long, and there is no control group, so credit assignment is a story, not a measurement. Track three leading indicators instead: decision lead time, surprises per quarter, and segmented quote hit rate. Leading indicators measure how early you were. Lagging indicators measure whether you won. You control the first; you only influence the second.
+</div>
+
+<hr class="phase-divider">
+<div class="slide-label">The problem</div>
+<h2>Why attribution fails in CI</h2>
+<p>An industrial deal is decided by more factors than any single function can see. Price, specification fit, relationship history, delivery risk, financing, timing. When the deal closes, every function assembles a story in which it mattered, and intelligence is one voice among many. The louder voice usually wins the story, not the true one.</p>
+<p>Cycle length makes it worse. A competitor move you flagged in spring shapes a negotiation the following year. By the time the deal closes, the organization has rewritten its memory of what it knew and when. The warning that feels obvious in hindsight was not obvious when it was sent, and nobody kept the receipts.</p>
+<p>Then there is the missing control group. You never get to watch the parallel quarter in which your team saw nothing. Without that counterfactual, attributing a win to intelligence, or a loss to its absence, is a guess dressed up as analysis. Finance knows this, which is why the attribution argument dies the moment a CFO looks at it.</p>
+<p>The practical consequence is simple: tie your program to attributed wins and you hand the program to luck. One quarter of unrelated losses makes the function look useless. One lucky win makes it look brilliant. Neither reading tells you whether the intelligence capability is actually improving, which is the only question a metric should answer.</p>
+
+<hr class="phase-divider">
+<div class="slide-label">The indicators</div>
+<h2>Three leading indicators you can control</h2>
+<p>All three share one property: they measure the machinery of the program, not the outcome of individual deals. Each needs a definition, a collection habit, a unit, and a cadence. Each also has a failure mode in which the team quietly fools itself.</p>
+<ol>
+<li><strong>Decision lead time.</strong> Definition: the number of days from the first appearance of a signal to the moment the company makes a decision that references it. Collect it by timestamping two events: when the signal entered any channel, and when a decision document first cites it. Report the median, monthly, per competitor or per topic. Median, not average, because one stale signal can drag an average forever. The self-deception risk is backdating: if the first sighting gets recorded after the decision, you are measuring your filing discipline, not your speed.</li>
+<li><strong>Surprises per quarter.</strong> Definition: the count of significant competitor moves that surfaced this quarter with no prior written warning in any of your channels. Freeze the definition of significant before the quarter starts, or you will negotiate it afterward. A warning counts only if it was written down and circulated; a hallway mention is not a warning. The self-deception risk is reclassification: teams quietly move last quarter's surprises into the expected column, or claim a vague six-month-old note as coverage.</li>
+<li><strong>Quote hit rate, segmented.</strong> Definition: win rate on quotes where a named competitor was present, tracked per competitor rather than overall. The overall rate moves with deal mix and market conditions, which makes it useless for judging CI. The segmented rate tells you whether intelligence changes outcomes exactly where it is aimed. Sales tags each closed quote with the competitors involved; you report quarterly. The self-deception risk is small samples: print the quote count next to the rate, so a two-quote swing does not get read as a trend.</li>
+</ol>
+<p>Notice what these measure: how early, how rarely blind, and whether aim converts. None of them requires anyone to believe a story about a single deal.</p>
+
+<hr class="phase-divider">
+<div class="slide-label">The instrument</div>
+<h2>The one-page scorecard</h2>
+<p>One page, monthly, four blocks. Channel output: valid signals per channel this month, where valid means the signal passed your noise filter, not that it was interesting. Lead time: the median from indicator one. Surprises: the running count for the current quarter. Hit rate: the segmented table from sales operations.</p>
+<p>Divide the filling by ownership. The CI lead owns channel output and lead time, because those come from the signal log. Sales operations owns the segmented hit rate, because it comes from the CRM. Leadership owns the surprise count, because a surprise is only real when the people who were surprised say so at the quarterly review.</p>
+<p>Resist expansion. The page works because it fits into a monthly meeting without preparation. The moment it grows into a deck, it becomes a quarterly ritual, and the cadence that makes it useful is gone.</p>
+<table class="data-table">
+<tr><th>Metric</th><th>Definition</th><th>How to collect</th><th>What it does not prove</th></tr>
+<tr><td>Channel output</td><td>Valid signals per channel per month</td><td>Signal log tagged by channel</td><td>That anyone used the signals</td></tr>
+<tr><td>Decision lead time</td><td>Median days from first sighting to decision</td><td>Timestamps in the log plus decision documents</td><td>That the decision was right</td></tr>
+<tr><td>Surprises per quarter</td><td>Significant moves with no prior written warning</td><td>Frozen significance list plus quarterly review</td><td>That you saw everything</td></tr>
+<tr><td>Segmented hit rate</td><td>Win rate by named competitor</td><td>CRM tagging at quote close</td><td>That CI caused the change</td></tr>
+</table>
+<p>That last column is the spine of the whole instrument. Every metric on the page earns its place by being honest about what it cannot show. A scorecard that admits its limits survives audit; one that implies causation does not.</p>
+
+<hr class="phase-divider">
+<div class="slide-label">The narrative</div>
+<h2>Presenting it without overclaiming</h2>
+<p>The scorecard lets you say we were earlier, and mean it. That is a stronger claim than it sounds, because it is checkable against the log. What you cannot say is that the program produced revenue. Nobody can run that experiment, and pretending otherwise is how programs lose credibility the first time a deal goes wrong.</p>
+<p>Three phrasings that hold up under questioning:</p>
+<ul>
+<li>Our median time from first signal to decision fell from months to weeks across the last two quarters.</li>
+<li>One significant competitor move reached us without warning this quarter, down from three the quarter before.</li>
+<li>Against the two competitors we actively track, quote hit rate moved; the overall rate did not, which is what aim looks like.</li>
+</ul>
+<p>Three phrasings to retire:</p>
+<ul>
+<li>CI contributed this much revenue. Unprovable, and finance knows it.</li>
+<li>We won this deal because of intelligence. The rep, the price, and the spec all claim the same deal with better stories.</li>
+<li>The program pays for itself. Maybe it does. You cannot demonstrate it, and claiming it invites the one audit you will lose.</li>
+</ul>
+<p>The paradox works in your favor. The programs that survive budget reviews are the ones that underclaim. A scorecard built on leading indicators survives scrutiny precisely because it only claims what it measured, and that restraint is what buys the program another year.</p>
+
+<div class="cta">
+<h3>Measure lead time, not luck.</h3>
+<p>For the budget conversation that follows this argument, read our guide to <a href="https://geodriv.com/CI-blog/ci-budget-justification/">justifying a CI budget</a>. For getting signals to decision-makers, see our piece on <a href="https://geodriv.com/CI-blog/ci-digest-design/">CI digest design</a>.</p>
+<a href="https://geodriv.com/contact/" class="cta-btn">Get in touch</a>
+</div>
+
+<div class="author"><div class="author-avatar">JS</div><div><h4>Baojun (Joe) Shi</h4><p>Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA. <a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/">LinkedIn →</a></p></div></div>
+
+</article>
+<div class="share-section">
+<div class="share-card">
+<h4 class="share-heading">Share this article</h4>
+<div class="share-grid">
+<a class="share-btn" onclick="shareLink('linkedin')" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a>
+<a class="share-btn" onclick="shareLink('x')" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>X</span></a>
+<a class="share-btn" onclick="shareLink('facebook')" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>Facebook</span></a>
+<button class="share-btn" onclick="copyPageUrl()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span id="copyLabel">Copy Link</span></button>
+</div>
+</div>
+</div>
+
+<footer>© 2026 GEODRIV Technology</footer>
+
+<script>
+var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';
+function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}
+function shareLink(p){var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);var m={linkedin:'https://www.linkedin.com/sharing/share-offsite/?url='+u,x:'https://twitter.com/intent/tweet?text='+t+'&url='+u,facebook:'https://www.facebook.com/sharer/sharer.php?u='+u};if(m[p])window.open(m[p],'_blank','noopener')}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var l=document.getElementById('copyLabel');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy Link'},2000)}).catch(function(){})}
+</script>
+</body></html>

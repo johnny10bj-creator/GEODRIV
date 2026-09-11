@@ -495,6 +495,14 @@
         "mainEntity": [
           {
             "@type": "Question",
+            "name": "How can a manufacturer find out what a competitor is doing before it becomes public?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "By opening signal channels in the right order: public disclosures, hiring signals, patents and standards, supply chain traces, trade shows, policy and subsidy lists, and tender or customs records. Most manufacturers learn about competitor moves through a lost deal, three to six months late. The channels above surface the same moves while they are still decisions, not announcements."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "CI software vs consultant: which is better for manufacturers?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -507,6 +515,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "A one-person in-house CI function costs $148,000-$245,000/year fully loaded. An outsourced CI system starts at $3K/month. The hidden cost is the 12-month methodology ramp while your analyst figures out which signals matter in your industry."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you measure whether a competitive intelligence program is working?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Measure lead time, not attribution. Three leading indicators hold up: decision lead time (days from a signal appearing to an internal decision), quarterly surprises (major competitor moves you had no warning on), and win rate segmented by competitor rather than overall. Attribution to individual deals fails in manufacturing because cycles are long and multi-factor."
             }
           },
           {
@@ -633,7 +649,59 @@
         });
 
         /* ── Auto-insert articles from data ── */
-        var articles = [            { date: "2026-8", tag: "Perspective", minRead: 5,
+        var articles = [
+            { date: "2026-9", tag: "Guide", minRead: 6,
+              title: { en: "The Line: What Manufacturing CI Can and Can't Do", zh: "边界：制造业 CI 能做什么、不能做什么" },
+              excerpt: { en: "CI programs stall on legal fear, not budget. A green, yellow and red breakdown of what manufacturing intelligence teams can do, what needs process behind it, and what never flies.", zh: "CI 项目卡在法务恐惧而非预算。用绿黄红三色清单界定：哪些能做、哪些需要流程、哪些绝对不碰。" },
+              slug: "ci-legal-boundaries" },
+            { date: "2026-9", tag: "Perspective", minRead: 5,
+              title: { en: "The Threat of Capacity Is Capacity", zh: "威胁本身就是产能" },
+              excerpt: { en: "Intelligence is worth what it changes, not what it reports. In industrial markets, expected capacity moves customers and suppliers long before production does.", zh: "情报的价值在于它改变了什么，而非报告了什么。工业市场里，预期中的产能先改变客户与供应商的行为。" },
+              slug: "threat-of-capacity-is-capacity" },
+            { date: "2026-9", tag: "Methodology", minRead: 6,
+              title: { en: "Capacity Signals: Reading a Competitor's Expansion Before It Ships", zh: "产能信号：在产品出厂前读懂对手扩产" },
+              excerpt: { en: "Expansion is a competitor's most expensive, slowest and least hideable move. Nine classes of public traces surface long before the announcement does.", zh: "扩产是对手最贵、最慢、最难藏的动作。九类公开痕迹会远早于公告浮现。" },
+              slug: "capacity-signals-competitor-capex" },
+            { date: "2026-9", tag: "Industry", minRead: 5,
+              title: { en: "Policy Isn't Background Noise: It's an Early-Warning Channel", zh: "政策不是背景噪音，是预警通道" },
+              excerpt: { en: "Policy texts name who is expanding, who is switching routes and who is changing markets, before the press release does. A monthly scan discipline.", zh: "政策文本会先点名谁在扩产、谁在转路线、谁在换市场。附月度扫描流程。" },
+              slug: "policy-signals-as-intelligence" },
+            { date: "2026-9", tag: "Playbook", minRead: 6,
+              title: { en: "Losing the Same Deal Twice: Win/Loss as an Intelligence Loop", zh: "同一个单输两次：把赢输复盘变成情报闭环" },
+              excerpt: { en: "A lost deal is the last signal, not the first. In manufacturing, the reason was already set six months earlier in the competitor's price, lead time or capacity.", zh: "输单是最后一个信号，不是第一个。制造业里，原因在六个月前就写在对手的价格、交期或产能里。" },
+              slug: "win-loss-intelligence-manufacturing" },
+            { date: "2026-9", tag: "Strategy", minRead: 6,
+              title: { en: "Measuring CI When You Can't Attribute the Win", zh: "无法归因时，怎么衡量情报工作" },
+              excerpt: { en: "Attribution is a fight you lose. Measure lead time instead: decision lead time, quarterly surprises, and segmented win rate. A one-page scorecard.", zh: "归因是打不赢的仗。改用领先指标：决策前置时间、季度意外数、分层命中率。附一页记分卡。" },
+              slug: "ci-metrics-scorecard" },
+            { date: "2026-9", tag: "Playbook", minRead: 5,
+              title: { en: "The One-Page Intelligence Briefing Your Board Will Actually Read", zh: "董事会真会读的一页情报简报" },
+              excerpt: { en: "Boards don't want intelligence, they want options. Three signals, two implications, one recommendation: a one-page structure that survives the agenda.", zh: "董事会要的不是情报，是选项。三个信号、两条含义、一个建议：能上议程的一页结构。" },
+              slug: "board-briefing-one-pager" },
+            { date: "2026-9", tag: "Playbook", minRead: 5,
+              title: { en: "Battlecards Do Not Work in Manufacturing: Here's What Does", zh: "拆台卡在制造业不管用，什么管用" },
+              excerpt: { en: "Industrial sales teams do not read battlecards. They need a three-line counter, a heads-up before the quote, and an honest lead-time comparison.", zh: "制造业销售不读拆台卡。他们要的是三句话反驳、报价前的提醒、诚实的交期对标。" },
+              slug: "battlecards-do-not-work-in-industry" },
+            { date: "2026-9", tag: "Perspective", minRead: 5,
+              title: { en: "Deep Research Is Not a CI Program", zh: "深度研究不等于情报体系" },
+              excerpt: { en: "General-purpose research tools summarize the web. They do not decide what your company should ask, verify a source's confidence, or own the judgment.", zh: "通用研究工具会总结网络。但它不替你决定该问什么、不标注置信度，也不承担判断责任。" },
+              slug: "deep-research-is-not-ci" },
+            { date: "2026-9", tag: "Guide", minRead: 6,
+              title: { en: "CI for Injection Molding: Signals That Actually Move", zh: "注塑行业的竞争情报：真正有用的信号" },
+              excerpt: { en: "In injection molding the mold is the entry point: one mold equals one project. Read the tooling system, not the marketing.", zh: "注塑的入口是模具：一套模具等于一个项目。要读模具体系，不要读宣传。" },
+              slug: "ci-for-injection-molding" },
+            { date: "2026-9", tag: "Industry", minRead: 6,
+              title: { en: "Tracking Competitors Through Their China+1 Moves", zh: "从 China+1 动作追踪竞争对手" },
+              excerpt: { en: "Relocation is not an announcement, it is an 18-36 month sequence. Every stage leaves a trace that shows up before the press release.", zh: "产能转移不是一次宣布，而是 18-36 个月的序列。每一步都留痕，且痕迹先于公告。" },
+              slug: "china-plus-one-competitor-tracking" },
+            { date: "2026-9", tag: "Guide", minRead: 6,
+              title: { en: "How to Find Out What Your Competitors Are Doing", zh: "如何摸清竞争对手在做什么" },
+              excerpt: { en: "Most competitor intelligence arrives three to six months late, after a deal is already lost. The fix is not more research, it is the order in which you open seven signal channels.", zh: "大多数竞品情报在输单之后才到，滞后三到六个月。解法不是更多研究，而是七条信号通道的开通顺序。" },
+              slug: "find-out-what-competitors-are-doing" },
+            { date: "2026-9", tag: "Methodology", minRead: 6,
+              title: { en: "AI Share of Voice: Reading Your Competitors Through AI Answers", zh: "AI 答案份额：从 AI 回答里读竞争对手" },
+              excerpt: { en: "Buyers now run their first vendor evaluation inside AI answers, before your sales team sees a lead. That answer pool is a public intelligence channel, and it comes with a monthly protocol.", zh: "买家的第一轮供应商评估已发生在 AI 答案里，早于销售看到线索。这个答案池是公开情报通道，附月度测量协议。" },
+              slug: "ai-answer-share-competitor-signal" },            { date: "2026-8", tag: "Perspective", minRead: 5,
               title: { en: "The Evolution of CI", zh: "竞争情报的演变" },
               excerpt: { en: "CI evolved in four phases — from filing cabinets to real-time reflexes. Which phase is your company stuck in?", zh: "竞争情报经历了四个阶段——从档案柜到实时反射。你的公司卡在哪个阶段？" },
               slug: "evolution-of-ci" },
