@@ -1,6 +1,6 @@
 # Internal tools and credentials
 
-The public marketing site must not distribute internal application interfaces, email administration, access lists, credentials or source archives. `/aerospace/` and `/feiye/` currently serve an access-restricted notice, not the internal applications. Their former source remains recoverable from Git history; restore it only into access-controlled hosting after reviewing it for private data.
+Feiye and the aerospace application are unrelated to the Geodriv website. Their `/feiye/` and `/aerospace/` pages have been removed from the public site. The retained Worker source and its setup guidance below concern those separate applications, not a requirement for deploying Geodriv. Their former page source remains recoverable from Git history. Do not restore it into this website.
 
 ## Required external actions
 
@@ -17,4 +17,4 @@ Deployment references:
 - https://developers.cloudflare.com/workers/configuration/secrets/
 - https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/
 
-`robots.txt` and `noindex` control crawling, not authentication. Access-restricted notice pages intentionally contain no application scripts or administration controls.
+`robots.txt` and `noindex` control crawling, not authentication. The unrelated application pages are excluded from the public site and sitemap; legacy crawl exclusions remain in robots.txt.
