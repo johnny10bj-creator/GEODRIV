@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /workers/
+Disallow: /aerospace/
+Disallow: /feiye/
+Disallow: /deploy/
 
-Sitemap: https://ci.geodriv.com/sitemap.xml
+Sitemap: https://geodriv.com/sitemap.xml

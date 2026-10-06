@@ -1,3 +1,10 @@
 # Local AI design skills (not part of the public site)
 .claude/
 SKILL.md
+
+# Credentials, private checkpoints and distributable source archives
+.env*
+!.env.example
+.dev.vars*
+*.zip
+internal-source-checkpoint/
