@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1068,14 +1068,13 @@
       ]
     }
     </script>
+    <link rel="stylesheet" href="/assets/brand.css" />
 </head>
 <body>
 
     <nav class="nav">
         <div class="nav-inner">
-            <a href="/" class="nav-logo">
-                GEODRIV <span class="pipe">|</span> CI
-            </a>
+            <a href="/" class="nav-logo">Geodriv</a>
             <div class="nav-actions">
                 <div class="nav-links">
                     <a href="https://geodriv.com/CI-blog"><span data-i18n="nav.insights">Insights</span></a><a href="https://geodriv.com/contact"><span data-i18n="nav.contact">Contact</span></a>
@@ -1306,6 +1305,18 @@
         <p><a href="https://www.linkedin.com/in/baojun-joe-shi-b6651633/" target="_blank" rel="noopener" class="founder-link" data-i18n="founder.linkedin">LinkedIn Profile ↗</a></p>
     </section>
 
+    <section class="home-insights" aria-labelledby="home-insights-title">
+        <p class="hub-label">GEODRIV INTELLIGENCE</p>
+        <h2 id="home-insights-title" data-i18n="insights.title">Signals before they become headlines.</h2>
+        <p data-i18n="insights.lead">Explore manufacturing signals, in-depth analysis and practical competitive intelligence methods.</p>
+        <div class="home-insights-grid">
+            <article><p class="hub-label">SIGNALS</p><h3><a href="/CI-blog/capacity-signals-competitor-capex/" data-i18n="insights.capacity">Reading a competitor’s expansion before it ships</a></h3><p data-i18n="insights.capacity.body">How to interpret the evidence behind capacity and capital investment.</p></article>
+            <article><p class="hub-label">DEEP DIVES</p><h3><a href="/CI-blog/ci-case-study-auto-supplier/" data-i18n="insights.case">Inside an automotive supplier intelligence program</a></h3><p data-i18n="insights.case.body">A case study on turning competitive research into business decisions.</p></article>
+            <article><p class="hub-label">CI PLAYBOOK</p><h3><a href="/CI-blog/ci-consulting-cost-guide/" data-i18n="insights.cost">Choosing a competitive intelligence partner</a></h3><p data-i18n="insights.cost.body">Understand scope, costs and the questions to ask before committing.</p></article>
+        </div>
+        <p><a class="hub-read" href="/CI-blog/" data-i18n="insights.all">Explore all insights</a></p>
+    </section>
+
     <section class="cta-section">
         <div class="cta-card">
             <h2 data-i18n="cta.title">Ready to see the full picture?</h2>
@@ -1316,77 +1327,6 @@
             
         </div>
     </section>
-
-    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-label="Contact form">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 data-i18n="form.title">Book a briefing</h2>
-                
-                <button type="button" class="close" aria-label="Close" onclick="closeModal()">&times;</button>
-            </div>
-            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-                <input type="hidden" name="access_key" value="8a9a5ebf-5126-4185-9086-e0b9d74b8382">
-                <input type="hidden" name="redirect" value="https://geodriv.com/?contact=success">
-                <input type="hidden" name="subject" value="CI Inquiry from website">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label data-i18n="form.name" for="name">Name *</label>
-                        
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label data-i18n="form.company" for="company">Company</label>
-                        
-                        <input type="text" id="company" name="company">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label data-i18n="form.email" for="email">Email *</label>
-                        
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label data-i18n="form.phone" for="phone">Phone</label>
-                        
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label data-i18n="form.industry" for="industry">Industry *</label>
-                    
-                    <select id="industry" name="industry" required>
-                        <option value="" data-i18n="form.sel.default">Select industry…</option>
-                        <option value="manufacturing" data-i18n="form.sel.mfg">Manufacturing</option>
-                        <option value="technology" data-i18n="form.sel.tech">Technology</option>
-                        <option value="automotive" data-i18n="form.sel.auto">Automotive</option>
-                        <option value="aerospace" data-i18n="form.sel.aero">Aerospace</option>
-                        <option value="healthcare" data-i18n="form.sel.health">Healthcare</option>
-                        <option value="finance" data-i18n="form.sel.fin">Finance</option>
-                        <option value="retail" data-i18n="form.sel.retail">Retail</option>
-                        <option value="other" data-i18n="form.sel.other">Other</option>
-
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label data-i18n="form.message" for="message">Message *</label>
-                    
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn" data-i18n="form.submit">Send Message</button>
-                
-            </form>
-        </div>
-    </div>
 
     <footer class="footer">
         <p data-i18n="footer.copyright">&copy; 2026 GEODRIV. All rights reserved.</p>
@@ -1403,8 +1343,8 @@
             if (saved === 'light' || saved === 'dark') {
                 html.setAttribute('data-theme', saved);
             } else {
-                // Default: dark
-                html.setAttribute('data-theme', 'dark');
+                // Default: light
+                html.setAttribute('data-theme', 'light');
             }
 
             updateThemeIcon(html.getAttribute('data-theme'));
@@ -1429,6 +1369,15 @@
         /* ═══ Language ═══ */
         var currentLang = localStorage.getItem('geodriv-lang') || 'en';
         var i18n = {
+            'insights.title': { en: 'Signals before they become headlines.', zh: '在变化成为新闻之前，看见信号。' },
+            'insights.lead': { en: 'Explore manufacturing signals, in-depth analysis and practical competitive intelligence methods.', zh: '探索制造业信号、深度分析和实用的竞争情报方法。' },
+            'insights.capacity': { en: 'Reading a competitor’s expansion before it ships', zh: '在竞争对手扩产投产前识别变化' },
+            'insights.capacity.body': { en: 'How to interpret the evidence behind capacity and capital investment.', zh: '解读产能与资本投入背后的证据。' },
+            'insights.case': { en: 'Inside an automotive supplier intelligence program', zh: '汽车供应商情报项目案例' },
+            'insights.case.body': { en: 'A case study on turning competitive research into business decisions.', zh: '了解如何将竞争研究转化为业务决策。' },
+            'insights.cost': { en: 'Choosing a competitive intelligence partner', zh: '如何选择竞争情报合作伙伴' },
+            'insights.cost.body': { en: 'Understand scope, costs and the questions to ask before committing.', zh: '明确服务范围、费用和合作前需要确认的问题。' },
+            'insights.all': { en: 'Explore all insights', zh: '浏览全部洞察' },
             'nav.insights': { en: 'Insights', zh: '洞察' },
             'nav.contact': { en: 'Contact', zh: '联系我们' },
             'hero.badge': { en: 'Competitive Intelligence', zh: '竞争情报' },
@@ -1514,32 +1463,7 @@
             }
         });
 
-        /* ═══ Modal ═══ */
-        var lastFocused = null;
-
-        function openModal() {
-            var modal = document.getElementById('contactModal');
-            lastFocused = document.activeElement;
-            modal.style.display = 'block';
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            setTimeout(function() { document.getElementById('name').focus(); }, 60);
-        }
-
-        function closeModal() {
-            var modal = document.getElementById('contactModal');
-            modal.style.display = 'none';
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-            if (lastFocused) lastFocused.focus();
-        }
-
-        window.addEventListener('click', function(e) {
-            if (e.target === document.getElementById('contactModal')) closeModal();
-        });
-        window.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
-        });
+        function openModal() { window.location.href = '/contact/'; }
 
         /* ═══ Success from form redirect ═══ */
         (function() {
