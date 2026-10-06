@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
@@ -17,7 +17,7 @@ function toggleLanguage(){lang=lang==='en'?'zh':'en';localStorage.setItem('geodr
 </script>
 <style>
 :root{--blue:#1a6fb5;--orange:#D85A30}
-[data-theme="dark"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,.75);--border:rgba(255,255,255,.08);--text:#f8fafc;--text2:rgba(248,250,252,.55);--text3:rgba(248,250,252,.30);--accent:#1a6fb5}
+[data-theme="light"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,.75);--border:rgba(255,255,255,.08);--text:#f8fafc;--text2:rgba(248,250,252,.55);--text3:rgba(248,250,252,.30);--accent:#1a6fb5}
 [data-theme="light"]{--bg:#f4f7fa;--bg-card:#fff;--bg-nav:rgba(244,247,250,.75);--border:rgba(0,0,0,.06);--text:#0b1a2e;--text2:rgba(11,26,46,.5);--text3:rgba(11,26,46,.25);--accent:#1a6fb5}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{-webkit-font-smoothing:antialiased}body{font-family:"Source Sans 3",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .35s,color .35s}
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-nav);border-bottom:1px solid var(--border-card);backdrop-filter:saturate(200%) blur(32px)}
@@ -69,12 +69,13 @@ footer{text-align:center;padding:48px 32px;border-top:1px solid var(--border-car
 .share-copy.copied{background:rgba(74,222,128,.15);color:#4ade80;border-color:#4ade80}
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);
 --text-primary:var(--text);--text-secondary:var(--text2);--text-muted:var(--text3);--text-accent:var(--accent);--border-card:var(--border);.share-section{max-width:680px;margin:0 auto;padding:0 32px 32px}.share-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:12px;padding:24px;text-align:center}.share-heading{font-family:"Lexend",sans-serif;font-size:.75rem;font-weight:600;color:var(--text-muted);margin-bottom:16px;letter-spacing:.06em;text-transform:uppercase}.share-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.share-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 8px;border:.5px solid var(--border-card);border-radius:8px;background:none;color:var(--text-secondary);font-size:.8125rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all .2s}.share-btn:hover{color:var(--text);border-color:var(--text-muted);background:var(--bg-hover)}
-</style></head>
+</style><link rel="stylesheet" href="/assets/brand.css">
+</head>
 <body>
 
 <nav class="nav"><div class="nav-inner">
-<a href="https://geodriv.com" class="nav-logo">GEODRIV <span class="pipe">|</span> CI</a>
-<div class="nav-actions"><div class="nav-links"><a href="https://geodriv.com"><span data-i18n="nav.home">Home</span></a><a href="https://geodriv.com/CI-blog"><span data-i18n="nav.insights">Insights</span></a><a href="https://geodriv.com/contact"><span data-i18n="nav.contact">Contact</span></a></div>
+<a href="/" class="nav-logo">Geodriv</a>
+<div class="nav-actions"><div class="nav-links"><a href="/"><span data-i18n="nav.home">Home</span></a><a href="/CI-blog/"><span data-i18n="nav.insights">Insights</span></a><a href="/contact/"><span data-i18n="nav.contact">Contact</span></a></div>
 <button class="lang-btn" onclick="toggleLanguage()">中</button>
 <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button></div></div></nav>
 
