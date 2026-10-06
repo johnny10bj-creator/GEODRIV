@@ -1,4 +1,6 @@
-# GEODRIV
+> Updated 2026-10-06: DESIGN.md and the approved Earth-led homepage are authoritative for the public visual direction. Earlier objections to generic SaaS layouts do not prohibit Inter or the current editorial homepage. Internal applications require separate access-controlled hosting.
+
+# Geodriv
 
 ## Register
 
@@ -16,7 +18,7 @@ web
 
 ## Product Purpose
 
-GEODRIV positions itself as the premium provider of AI-powered competitive intelligence for manufacturing. The site exists to demonstrate expertise, establish trust, and convert serious buyers. Success means a visitor leaves believing that GEODRIV understands both CI methodology and manufacturing reality better than anyone else — and books a consultation or subscribes to stay engaged.
+Geodriv positions itself as the premium provider of AI-powered competitive intelligence for manufacturing. The site exists to demonstrate expertise, establish trust, and convert serious buyers. Success means a visitor leaves believing that Geodriv understands both CI methodology and manufacturing reality better than anyone else — and books a consultation or subscribes to stay engaged.
 
 ## Positioning
 
@@ -32,9 +34,9 @@ The only CI consultancy that pairs AI-powered monitoring infrastructure with dec
   1. CI is critical for manufacturing competitiveness — and most companies do it poorly
   2. Traditional CI methods (manual, spreadsheets, one-off reports) don't scale
   3. AI can solve the scale problem, but needs manufacturing domain expertise to interpret correctly
-  4. GEODRIV uniquely has both (AI infrastructure + 15+ years in manufacturing CI)
-  5. Engaging GEODRIV will yield intelligence that directly improves their competitive position
-- **Proof on hand:** 14 published articles covering CI methodology, case studies, sector analysis, and cost/value comparisons. Founder bio: "Founder, GEODRIV Technology. 15+ years in manufacturing intelligence. MBA." LinkedIn presence. Client logos and testimonials can be added in `.impeccable/assets/proof/` when available.
+  4. Geodriv uniquely has both (AI infrastructure + 15+ years in manufacturing CI)
+  5. Engaging Geodriv will yield intelligence that directly improves their competitive position
+- **Proof on hand:** 14 published articles covering CI methodology, case studies, sector analysis, and cost/value comparisons. Founder bio: "Founder, Geodriv Technology. 15+ years in manufacturing intelligence. MBA." LinkedIn presence. Client logos and testimonials can be added in `.impeccable/assets/proof/` when available.
 
 ## Brand Personality
 
@@ -42,7 +44,7 @@ Technical, authoritative, precise. The voice of an expert who has seen it all �
 
 ## Anti-references
 
-- **Generic SaaS landing page template** — big glowing number stats, purple-to-blue gradients, Inter font, card-nested-card layouts, stock-illustration heroes. GEODRIV is a $10K-$60K/mo consultancy, not a $29/month subscription tool.
+- **Generic SaaS landing page template** — big glowing number stats, purple-to-blue gradients, card-nested-card layouts, stock-illustration heroes. Geodriv is a $10K-$60K/mo consultancy, not a $29/month subscription tool.
 - **McKinsey/BCG-style corporate site** — sterile navy-and-white, polished-without-personality stock photography, templated service pages. Overly safe and interchangeable.
 - **Startup-bro aesthetic** — casual emoji-laden copy, "we're disrupting CI", humor-forced tone. Manufacturing executives deserve professional directness.
 - **AI-tool visual language** — glassmorphism, neon-on-dark gradients, gradient text, decorative motion. The site uses AI but should not look like "a site built by AI."
@@ -52,7 +54,7 @@ Technical, authoritative, precise. The voice of an expert who has seen it all �
 
 1. **Expert confidence, not salesmanship** — Design earns trust through precision and restraint, not through claims or testimonials on every surface.
 2. **Data as a design material** — Use data points, comparisons, and evidence visually (not just in text). Charts, signals, and structured comparisons reinforce authority.
-3. **Show the thinking** — Every page or article should demonstrate the analytical depth GEODRIV sells. Surface-level content undermines the premium positioning.
+3. **Show the thinking** — Every page or article should demonstrate the analytical depth Geodriv sells. Surface-level content undermines the premium positioning.
 4. **Registers, not noise** — Brand surfaces (homepage, about) carry more atmosphere and space. Content surfaces (blog articles) are dense but structured. Never blur the two.
 5. **Industrial precision, editorial warmth** — Dark base, blue accent, tight typography. But with enough whitespace, tonal variety, and human language to avoid feeling cold.
 

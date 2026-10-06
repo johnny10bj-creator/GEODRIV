@@ -1,6 +1,8 @@
+> Historical evidence only: the capture below is from 2026-08-21 and describes a superseded version. It must not override the October 2026 homepage reference or DESIGN.md. Current verification confirms the Earth hero, blue G mark and white navigation; no new mobile capture is claimed here.
+
 ---
 name: GEODRIV-STYLE-EVIDENCE
-description: Evidence-backed GEODRIV brand style reference, extracted live from geodriv.com with StyleJuicer. The authoritative token source for the dark "Industrial Brief" design system. Complements DESIGN.md (which states the system) with proof (which is observed in the shipped site). Cross-referenced from taste-skill references/geodriv-brand-style.md.
+description: Evidence-backed GEODRIV brand style reference, extracted live from geodriv.com with StyleJuicer. A historical token source for the dark "Industrial Brief" design system. Complements DESIGN.md (which states the system) with proof (which is observed in the shipped site). Cross-referenced from taste-skill references/geodriv-brand-style.md.
 source:
   tool: StyleJuicer v0.1.0-beta.2
   url: https://geodriv.com/
@@ -10,9 +12,9 @@ source:
   evidencePackage: D:/Hermes-agent/repos-tmp/stylejuicer/work/geodriv-style/
 ---
 
-# GEODRIV Style Evidence (live capture)
+# Geodriv Style Evidence — historical capture
 
-> Authoritative, **observed** GEODRIV style tokens, extracted from the live site on
+> Historical, **observed** Geodriv style tokens, extracted from the live site on
 > 2026-08-21. Every value below is bound to real captured screenshots + rendered DOM/CSS.
 > Cross-checks 1:1 with `DESIGN.md`. This file is the *evidence*; DESIGN.md is the *system*
 > they jointly prove.
