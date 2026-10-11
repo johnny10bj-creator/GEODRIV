@@ -1,0 +1,84 @@
+{
+  "en": [
+    {
+      "title": "How should an expansion signal be verified?",
+      "intro": "Scenario: A manufacturer wants to understand whether a competitor is entering a new regional market.",
+      "fact": "Observed signals",
+      "items": [
+        "Public job listings include new regional sales roles.",
+        "Public procurement notices indicate additional equipment needs.",
+        "One signal does not prove that capacity is operational or market entry is complete."
+      ],
+      "meaning": "Possible implications",
+      "analysis": "The signals may indicate expansion preparations, staff replacement or an upgrade to an existing production line. More sources are needed to assess them.",
+      "next": "Verify listing dates and locations; investigate equipment use and project milestones; compare new evidence in the next brief."
+    },
+    {
+      "title": "What should you ask before entering a market?",
+      "intro": "Scenario: An industrial equipment company is evaluating a new application area and wants to prioritize its research.",
+      "fact": "Evidence to investigate",
+      "items": [
+        "Procurement processes and entry requirements for the target application.",
+        "Products, channels and service models of leading competitors.",
+        "Verifiable demand evidence and information that is still missing."
+      ],
+      "meaning": "Decision framework",
+      "analysis": "Organize evidence around customer needs, entry barriers, competitive differentiation and execution capability. Assess opportunity beyond market size alone.",
+      "next": "Identify priority customer types; plan demand interviews; compare entry routes and assumptions to validate."
+    },
+    {
+      "title": "Could a new technology change the competition?",
+      "intro": "Scenario: A manufacturing team is following an alternative technology and wants to distinguish technical progress from commercialization.",
+      "fact": "Evidence at different stages",
+      "items": [
+        "Technical developments in papers, patents and product announcements.",
+        "Application progress reflected in certifications, pilots and procurement.",
+        "Commercial conditions revealed by production, maintenance and cost data."
+      ],
+      "meaning": "Assessing the impact",
+      "analysis": "Assess technical and commercial feasibility separately. Keep conclusions qualified when application and cost evidence is lacking.",
+      "next": "Compare technology pathways; identify key validation milestones; update the watchlist as evidence emerges."
+    }
+  ],
+  "zh": [
+    {
+      "title": "一个扩张信号，值得怎样验证？",
+      "intro": "场景：某制造企业希望理解竞争对手是否正在进入新的区域市场。",
+      "fact": "观察到的线索",
+      "items": [
+        "公开招聘出现新的区域销售岗位。",
+        "公开采购信息出现新增设备需求。",
+        "单个线索不能证明产能已建成或市场进入已完成。"
+      ],
+      "meaning": "可能含义",
+      "analysis": "这些线索可能指向扩张准备，也可能是人员替换或既有产线升级。需要结合更多来源判断。",
+      "next": "核验岗位发布时间与工作地点；追踪设备用途和项目节点；下一期简报对照新增证据。"
+    },
+    {
+      "title": "进入一个市场，先回答哪些问题？",
+      "intro": "场景：一家工业设备企业评估新应用领域，希望明确研究顺序。",
+      "fact": "研究需要的证据",
+      "items": [
+        "目标应用的采购流程与准入要求。",
+        "主要竞争者的产品、渠道及服务模式。",
+        "能够核验的需求证据，以及目前缺失的信息。"
+      ],
+      "meaning": "决策框架",
+      "analysis": "从客户问题、进入门槛、竞争差异和执行能力四个维度组织证据，避免仅凭市场规模判断机会。",
+      "next": "明确优先客户类型；安排需求访谈；比较进入路径与待验证假设。"
+    },
+    {
+      "title": "一条新技术路线，是否改变竞争？",
+      "intro": "场景：一个制造团队关注替代技术，希望区分技术进展与商业化进展。",
+      "fact": "分层观察的证据",
+      "items": [
+        "论文、专利与产品发布中的技术变化。",
+        "认证、试点与采购信息中的应用进展。",
+        "量产、维护与成本数据中的商业化条件。"
+      ],
+      "meaning": "影响判断",
+      "analysis": "技术可行性与商业可行性需要分别判断。缺乏应用和成本证据时，应保留结论边界。",
+      "next": "建立技术路线对照；列出关键验证节点；按节点更新观察清单。"
+    }
+  ]
+}

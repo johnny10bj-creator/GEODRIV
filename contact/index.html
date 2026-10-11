@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<title>Contact — Geodriv</title>
-<meta property="og:title" content="Contact — Geodriv">
+<title>Contact | Geodriv</title>
+<meta property="og:title" content="Contact | Geodriv">
 <meta property="og:description" content="Manufacturing intelligence, AI-assisted research and expert interpretation from Geodriv.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://geodriv.com/contact/">
@@ -14,12 +14,12 @@
 <meta property="og:image:height" content="400">
 <meta property="og:image:alt" content="Geodriv global manufacturing intelligence">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact — Geodriv">
+<meta name="twitter:title" content="Contact | Geodriv">
 <meta name="twitter:description" content="Manufacturing intelligence, AI-assisted research and expert interpretation from Geodriv.">
 <meta name="twitter:image" content="https://geodriv.com/assets/geodriv-social.jpg">
 
 <link rel="canonical" href="https://geodriv.com/contact">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 :root{--blue:#1a6fb5;--orange:#D85A30}
 [data-theme="dark"]{--bg:#081525;--bg-card:#0d2137;--bg-nav:rgba(8,21,37,.75);--border:rgba(255,255,255,.08);--text:#f8fafc;--text2:rgba(248,250,252,.55);--text3:rgba(248,250,252,.30);--accent:#1a6fb5}
@@ -54,73 +54,43 @@
 footer{text-align:center;padding:32px;color:var(--text-muted);font-size:.75rem}
 @media(max-width:768px){.page{padding:100px 16px 60px}}
 </style>
-<link rel="stylesheet" href="/assets/brand.css?v=3"></head>
+<link rel="stylesheet" href="/assets/brand.css?v=3"><link rel="stylesheet" href="/assets/contact-update.css?v=1"></head>
 <body>
 <nav class="nav"><div class="nav-inner">
 <a href="https://geodriv.com" class="nav-logo">Geodriv <span class="pipe">|</span> CI</a>
-<div class="nav-actions"><div class="nav-links"><a href="https://geodriv.com">Home</a><a href="https://geodriv.com/CI-blog">Insights</a><a href="https://geodriv.com/contact">Contact</a></div>
-<button class="lang-btn" onclick="toggleLanguage()">中文</button>
-<button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button></div></div></nav>
+<div class="nav-actions"><div class="nav-links"><a href="https://geodriv.com"><span data-en="Home" data-zh="首页">Home</span></a><a href="https://geodriv.com/CI-blog"><span data-en="Insights" data-zh="洞察">Insights</span></a><a href="https://geodriv.com/contact"><span data-en="Contact" data-zh="联系">Contact</span></a></div>
+<button class="lang-btn" id="contact-language" type="button" aria-label="Switch to Chinese">中文</button>
+<button class="theme-btn" type="button" id="themeBtn" aria-label="Switch theme">◐</button></div></div></nav>
 
 <div class="page">
-<h1>Get in touch</h1>
-<p>Tell us your five most important questions. We'll show you where the answers live.</p>
+<h1><span data-en="Get in touch" data-zh="联系我们">Get in touch</span></h1>
+<p><span data-en="Tell us the decision you are making and the research questions that matter." data-zh="告诉我们你正在做的决策，以及希望研究的关键问题。">Tell us the decision you are making and the research questions that matter.</span></p>
 
 <form id="contactForm">
   <input type="hidden" name="access_key" value="8a9a5ebf-5126-4185-9086-e0b9d74b8382">
   <input type="hidden" name="subject" value="Geodriv CI Inquiry">
 
   <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required placeholder="Your name">
+    <label for="name"><span data-en="Name" data-zh="姓名">Name</span></label>
+    <input type="text" id="name" name="name" required placeholder="Your name" data-placeholder-en="Your name" data-placeholder-zh="你的姓名">
   </div>
 
   <div class="form-group">
-    <label for="email">Email</label>
+    <label for="email"><span data-en="Email" data-zh="邮箱">Email</span></label>
     <input type="email" id="email" name="email" required placeholder="you@company.com">
   </div>
 
   <div class="form-group">
-    <label for="message">What are your biggest competitive intelligence questions?</label>
-    <textarea id="message" name="message" required placeholder="e.g. Which competitors are entering our segment? What certifications are they pursuing?"></textarea>
+    <label for="message"><span data-en="What are your biggest competitive intelligence questions?" data-zh="你最希望解决哪些竞争情报问题？">What are your biggest competitive intelligence questions?</span></label>
+    <textarea id="message" name="message" required placeholder="e.g. Which competitors are entering our segment? What certifications are they pursuing?" data-placeholder-en="e.g. Which competitors are entering our segment? What certifications are they pursuing?" data-placeholder-zh="例如：哪些竞争对手正在进入我们的细分市场？他们正在推进哪些认证？"></textarea>
   </div>
 
-  <button type="submit" class="btn-submit" id="submitBtn">Send message →</button>
-  <div class="msg-thanks" id="successMsg" style="display:none;">
-    <div class="thanks-icon">✓</div>
-    <h2 style="font-family:'Lexend',sans-serif;font-size:1.5rem;font-weight:600;color:var(--text);margin-bottom:8px;">Thank you</h2>
-    <p style="color:var(--text2);font-size:1rem;margin:0;">We'll review your message and get back to you within 1 business day.</p>
-  </div>
-  <div class="msg error" id="errorMsg">Something went wrong. Please email us directly at ci@geodriv.com</div>
-</form>
+  <button type="submit" class="btn-submit" id="submitBtn"><span data-en="Send message" data-zh="发送消息">Send message</span></button>
+  <div class="msg error" id="errorMsg" role="alert"><span data-en="Your message could not be sent. Please try again or email ci@geodriv.com." data-zh="消息未能发送，请重试或发邮件至 ci@geodriv.com。">Your message could not be sent. Please try again or email ci@geodriv.com.</span></div>
+</form><div class="msg-thanks" id="successMsg" hidden role="status"><h2><span data-en="Thank you" data-zh="谢谢">Thank you</span></h2><p><span data-en="Your message has been sent. We will review your enquiry and reply by email." data-zh="消息已发送，我们将查看你的需求并通过邮件回复。">Your message has been sent. We will review your enquiry and reply by email.</span></p></div><p class="contact-help"><span data-en="Prefer email?" data-zh="希望通过邮件联系？">Prefer email?</span> <a href="mailto:ci@geodriv.com">ci@geodriv.com</a></p><aside class="contact-equipment"><h2><span data-en="Equipment and engineering" data-zh="设备与工程">Equipment and engineering</span></h2><p><span data-en="For equipment requirements, contact GEOLYX through its website." data-zh="设备需求请通过 GEOLYX 官网联系。">For equipment requirements, contact GEOLYX through its website.</span></p><a href="https://geolyxtech.com/" target="_blank" rel="noopener noreferrer"><span data-en="Explore GEOLYX" data-zh="了解 GEOLYX">Explore GEOLYX</span></a></aside>
 </div>
 
 <footer>© 2026 Geodriv Technology</footer>
 
-<script>
-var t=localStorage.getItem('geodriv-theme')||'dark';document.documentElement.setAttribute('data-theme',t);document.getElementById('themeBtn').textContent=t==='dark'?'🌙':'☀️';
-function toggleTheme(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('geodriv-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'🌙':'☀️'}
-
-document.getElementById('contactForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  var btn = document.getElementById('submitBtn');
-  btn.disabled = true; btn.textContent = 'Sending...';
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    body: new FormData(this)
-  }).then(function(r){ return r.json(); })
-  .then(function(data){
-    if(data.success){
-      document.getElementById('successMsg').style.display = 'block';
-      document.getElementById('contactForm').style.display = 'none';
-    } else {
-      document.getElementById('errorMsg').style.display = 'block';
-      btn.disabled = false; btn.textContent = 'Send message →';
-    }
-  }).catch(function(){
-    document.getElementById('errorMsg').style.display = 'block';
-    btn.disabled = false; btn.textContent = 'Send message →';
-  });
-});
-</script>
+<script src="/assets/contact-update.js?v=1" defer></script>
 </body></html>
