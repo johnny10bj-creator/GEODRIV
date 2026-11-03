@@ -6,8 +6,8 @@ const root = new URL('../CI-blog/', import.meta.url);
 const articles = fs.readdirSync(root, {withFileTypes:true}).filter(e=>e.isDirectory() && fs.existsSync(new URL(`${e.name}/index.html`, root)));
 const css = fs.readFileSync(new URL('../assets/article-theme.css',import.meta.url),'utf8');
 const script = fs.readFileSync(new URL('../assets/article-theme.js',import.meta.url),'utf8');
-test('all 40 articles load the shared palettes and have no fixed dark body or text colors', () => {
-  assert.equal(articles.length,40);
+test('all 43 articles load the shared palettes and have no fixed dark body or text colors', () => {
+  assert.equal(articles.length,43);
   assert.match(css,/html\[data-theme="dark"\].*--bg:#081525/);
   assert.match(css,/html\[data-theme="light"\].*--bg:#f4f7fa/);
   for (const article of articles) {
