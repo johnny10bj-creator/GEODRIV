@@ -12,7 +12,7 @@
 
   <url>
     <loc>https://geodriv.com/CI-blog/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -296,4 +296,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-<url><loc>https://geodriv.com/contact/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/aerospace/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/automotive/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/industrial-automation/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/medical-devices/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/new-energy/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/semiconductor/</loc><lastmod>2026-10-06</lastmod></url></urlset>
+<url><loc>https://geodriv.com/contact/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/aerospace/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/automotive/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/industrial-automation/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/medical-devices/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/new-energy/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/industries/semiconductor/</loc><lastmod>2026-10-06</lastmod></url><url><loc>https://geodriv.com/CI-blog/ai-agents-industrial-after-sales/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://geodriv.com/CI-blog/ai-assisted-industrial-procurement/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://geodriv.com/CI-blog/ai-agent-roi-beyond-time-savings/</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
